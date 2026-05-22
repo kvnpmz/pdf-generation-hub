@@ -1,15 +1,14 @@
-# Ignore absolutely everything by default
 *
 
-# Do not ignore folders, otherwise Git can't look inside them for your files
 !*/
 
-# Keep your specific code and project files
+[Bb]in/
+[Oo]bj/
+
 !*.py
 !*.cs
 !*.csproj
 !*.sh
 !*.json
 
-# Keep the .gitignore file itself so GitHub remembers these rules
 !.gitignore
