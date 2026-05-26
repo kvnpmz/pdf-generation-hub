@@ -16,6 +16,8 @@ SUBJECT=$1
 "$SCRIPT_DIR/cover_pdf.sh" "${SUBJECT}_letter.pdf"
 
 # 3. Run image edit
+source "$SCRIPT_DIR/../venv/bin/activate"
+
 if [ -f "${SUBJECT}_a4.png" ]; then
     python "$SCRIPT_DIR/image_edit.py" "${SUBJECT}_a4.png"
 else
