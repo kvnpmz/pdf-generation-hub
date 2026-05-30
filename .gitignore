@@ -4,6 +4,7 @@
 
 [Bb]in/
 [Oo]bj/
+**/venv/
 
 !*.py
 !*.cs

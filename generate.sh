@@ -24,4 +24,4 @@ else
     echo "Error: ${SUBJECT}_a4.png was not generated. Check if cover_pdf.sh succeeded."
 fi
 
-echo "Done. Processed files in $(pwd) using scripts from $SCRIPT_DIR"
+echo "Done. Processed files in $(pwd)"
