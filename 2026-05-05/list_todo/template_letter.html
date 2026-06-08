@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Daily Checklist</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            @page {
+                size: Letter;
+                margin: 36pt;
+            }
+
+            html, body {
+                font-family: "Liberation Sans", sans-serif;
+                height: 100%;
+            }
+
+            table.header {
+                table-layout: fixed;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            table.header th {
+                font-size: 30pt;
+                font-weight: bold;
+                color: #DB0171;
+                text-transform: uppercase;
+            }
+
+            table.header th.date {
+                width: 37%;
+                font-size: 14pt;
+                text-align: right;
+                color: #000;
+            }
+
+            .date::after {
+                content: "\00a0";
+                width: 140pt;
+                margin: 0 0 0 4pt;
+                display: inline-block;
+                border-bottom: 1.5pt solid #000;
+            }
+
+            table.content {
+                table-layout: fixed;
+                border-collapse: collapse;
+                width: calc(100% - 20pt);
+                margin: 0 0 0 20pt;
+            }
+
+            table.content td {
+                padding: 18.2pt 0 6.5pt 0;
+                border-bottom: 1.5pt solid #000;
+            }
+
+            td::before {
+                content: "";
+                display: inline-block;
+                margin: 0 0 0 -20pt;
+                width: 14pt;
+                height: 14pt;
+                border: 1.5pt solid #000;
+                border-radius: 50%;
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="header">
+            <th>My Daily Checklist</th>
+            <th class="date">Date:</th>
+        </table>
+        <table class="content">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>

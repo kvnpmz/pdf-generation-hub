@@ -1,0 +1,30 @@
+You are an expert C# developer specializing in QuestPDF. Generate a clean, single-page printable PDF layout matching the requirements below.
+
+### 1. General Constraints & Core Engine Rules
+- Use the Fluent API (`Document.Create(...)`).
+- Target a single-page design. You MUST guarantee it never overflows onto page 2.
+- Do NOT use fluid/wrapping layout strategies that expand containers dynamically.
+- Use the community license type: `QuestPDF.Settings.License = LicenseType.Community;`
+
+### 2. Font Setup
+Register the "Inter" font variants exactly like this at the top of the script:
+FontManager.RegisterFont(File.OpenRead("/usr/local/share/fonts/inter-ttf/Inter-Regular.ttf"));
+FontManager.RegisterFont(File.OpenRead("/usr/local/share/fonts/inter-ttf/Inter-Bold.ttf"));
+FontManager.RegisterFont(File.OpenRead("/usr/local/share/fonts/inter-ttf/Inter-Black.ttf"));
+Set the default page text style to use "Inter".
+
+### 3. Strict Deterministic Height Strategy
+You must calculate vertical space explicitly to fit the exact page boundaries. Use this structure inside the Generation method:
+- Explicitly support both Letter and A4 page sizes by passing the dimensions natively: Letter must use exactly `new PageSize(612f, 792f)` and A4 must use exactly `new PageSize(595f, 842f)`.
+1. Define fixed dimensions for margins, primary headers, subheaders, and gaps.
+2. Pull the exact `size.Height` based on the targeted PageSize.
+3. Calculate a master content budget variable: `availableContentHeight = totalPageHeight - (verticalMargin * 2) - [all other fixed element heights]`.
+4. Calculate sub-element heights by dividing `availableContentHeight` proportionally (e.g., `float rowHeight = availableContentHeight / totalRows;`). 
+5. Hard-code `.Height()` modifiers on every structural structural container, block, or custom `IComponent` using these pre-calculated variables so the layout is structurally locked.
+
+### 4. Component Architecture
+- Group repetitive layout elements (like grids, trackers, or blocks) into clean, reusable classes implementing `IComponent`.
+- Pass calculated height parameters directly into the component constructors so they draw themselves strictly within their allotted budget.
+
+### 5. Layout Theme & Content Requirements
+5.  Replicate the Visuals: Recreate the attached image layout exactly in QuestPDF using these strict math calculations.

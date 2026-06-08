@@ -1,0 +1,1 @@
+convert upscaled_flower.png -units PixelsPerInch -density 300 300dpi_flower.png

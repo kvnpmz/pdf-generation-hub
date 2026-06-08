@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            :root {
+                --container-height: 675.5pt;
+                --h2-line-height: 1;
+                --li-line-height: 1.81;
+            }
+
+            @page {
+                size: letter;
+                margin: 36pt;
+            }
+
+            html,
+            body,
+            div,
+            section,
+            h1,
+            h2,
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "liberation-serif", serif;
+                height: 100%;
+                color: #000;
+            }
+
+            h1 {
+                text-align: center;
+                color: #cd3438;
+                text-transform: uppercase;
+                letter-spacing: 3pt;
+                font-size: 30pt;
+                #border-bottom: 1.8pt solid #5364da;
+                padding-bottom: 1.5pt;
+                margin-bottom: 3.75pt;
+                line-height: 1.3;
+            }
+
+            .subtitle {
+                font-size: 22pt;
+                text-transform: uppercase;
+                color: #666;
+                vertical-align: middle;
+            }
+
+            .container {
+                height: var(--container-height);
+            }
+
+            .category {
+                float: left;
+                width: calc(33.33% - 20pt);
+                height: 100%;
+                margin-right: 30pt;
+            }
+
+            .category:last-child {
+                margin-right: 0;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                font-weight: bold;
+                text-align: center;
+                font-size: 12pt;
+                #padding-left: 24pt;
+                line-height: 25pt;
+                #line-height: var(--h2-line-height);
+                color: #401011;
+                background-color: #ebafb0;
+                #border-bottom: 1.3pt solid #000;
+                margin-bottom: 4pt;
+            }
+
+            .header {
+                position: relative;
+                width: 100%;
+                padding-left: 12pt;
+                margin-bottom: 4pt;
+                height: 30pt;
+            }
+
+            .icon {
+                position: absolute;
+                top: -0.5pt;
+                left: 0;
+                width: 31pt;
+                height: 31pt;
+                z-index: 2;
+                padding-left: 5pt;
+                border: 1pt solid #f8bbd0;
+                border-radius: 50%;
+                line-height: 28pt;
+                font-size: 14pt;
+                background-color: #fff;
+            }
+
+            .shift-up {
+                line-height: 22pt;
+            }
+
+            .shift-right {
+                padding-left: 6pt;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            li {
+                position: relative;
+                #text-transform: uppercase;
+                line-height: var(--li-line-height);
+                padding-left: 15pt;
+                font-size: 10.8pt;
+                #height: calc(var(--li-line-height) * 1em);
+                min-height: calc(var(--li-line-height) * 1em);
+                height: auto;
+            }
+
+            li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 5.5pt;
+                width: 8pt;
+                height: 8pt;
+                border: 1pt solid #000;
+            }
+
+            li.sub {
+                list-style: none;
+                font-weight: bold;
+                text-align: center;
+                font-size: 10pt;
+                text-transform: uppercase;
+                padding: 0;
+                color: #1e88e5;
+                border-bottom: 0.8pt solid #1e88e5;
+            }
+
+            li.sub::before {
+                display: none;
+            }
+
+            li.blank-line::after {
+                content: "";
+                position: absolute;
+                top: 5pt;
+                left: 16pt;
+                height: 12pt;
+                width: 89%;
+                border-bottom: 1pt solid #333;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Baby Registry Checklist</h1>
+        <div class="container">
+            <!-- COLUMN 1 -->
+            <div class="category">
+                <div class="column">
+                    <section>
+                        <h2>Nursery & Decor</h2>
+                        <ul>
+                            <li>Crib</li>
+                            <li>Crib Mattress</li>
+                            <li>Waterproof Mattress Pad</li>
+                            <li>Fitted Crib Sheets</li>
+                            <li>Changing Table/Dresser</li>
+                            <li>Changing Pad</li>
+                            <li>Bassinet</li>
+                            <li>Glider/Ottoman</li>
+                            <li>Storage Baskets/Bins</li>
+                            <li>Hamper</li>
+                            <li>White Noise Machine</li>
+                            <li>Blackout Curtains</li>
+                            <li>Baby Sized Hangers</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Bath & Potty</h2>
+                        <ul>
+                            <li>Baby Bathtub</li>
+                            <li>Bath Support</li>
+                            <li>Baby Shampoo/Lotion</li>
+                            <li>Diapers & Wipes</li>
+                            <li>Diaper Pail/Refills</li>
+                            <li>Bath Toys</li>
+                            <li>Bathtub Rinse Cup</li>
+                            <li>Hooded Towels</li>
+                            <li>Baby Washcloths</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Clothing</h2>
+                        <ul>
+                            <li>Onesies</li>
+                            <li>Footie Pajamas</li>
+                            <li>Swaddles</li>
+                            <li>Sleep Sacks</li>
+                            <li>Mittens & Hats</li>
+                            <li>Socks</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <!-- COLUMN 2 -->
+            <div class="category">
+                <div class="column">
+                    <section>
+                        <h2>Baby Gear & Travel</h2>
+                        <ul>
+                            <li>Stroller/Travel System</li>
+                            <li>Infant/Convertible Car Seat</li>
+                            <li>Car Mirror</li>
+                            <li>Car Seat Cover</li>
+                            <li>Baby Carrier</li>
+                            <li>Swing</li>
+                            <li>Jumper</li>
+                            <li>Playard</li>
+                            <li>Play Gym</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Nursing & Feeding</h2>
+                        <ul>
+                            <li>Breast Pump</li>
+                            <li>Breast Milk Storage Containers</li>
+                            <li>Nursing Bras</li>
+                            <li>Nursing Pads</li>
+                            <li>Nipple Cream</li>
+                            <li>Nursing Pillow</li>
+                            <li>Formula</li>
+                            <li>Bottles & Nipples</li>
+                            <li>Bottle Brush</li>
+                            <li>Drying Rack</li>
+                            <li>Dishwasher Basket</li>
+                            <li>Highchair</li>
+                            <li>Burp Cloths</li>
+                            <li>Bibs</li>
+                            <li>Silicone Bibs</li>
+                            <li>Pacifiers/Pacifier Clips</li>
+                            <li>Teethers</li>
+                            <li>Portable Breast Pump</li>
+                            <li>Sippy Cups</li>
+                            <li>Utensils, Plates, & Bowls</li>
+                            <li>Placemats</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <!-- COLUMN 3 -->
+            <div class="category">
+                <div class="column">
+                    <section>
+                        <h2>Health & Safety</h2>
+                        <ul>
+                            <li>Baby Monitor</li>
+                            <li>Baby Proofing Locks</li>
+                            <li>Safety Gates</li>
+                            <li>First Aid Kit</li>
+                            <li>Humidifier</li>
+                            <li>Thermometer</li>
+                            <li>Baby Toothbrush</li>
+                            <li>Teething Gel</li>
+                            <li>Shopping Cart Cover</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Toys & Learning</h2>
+                        <ul>
+                            <li>Books</li>
+                            <li>Stuffed Animals</li>
+                            <li>Developmental Toys</li>
+                            <li>Rattle Toys</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>For Mom</h2>
+                        <ul>
+                            <li>Postpartum Care Package</li>
+                            <li>Diaper Bag</li>
+                            <li>Hospital Bag</li>
+                            <li>Memory Book</li>
+                            <li>Photo Album</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Other</h2>
+                        <ul>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

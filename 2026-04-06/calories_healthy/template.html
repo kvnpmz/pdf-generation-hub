@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  /* Page */
+  @page { size: letter portrait; margin: 0.4in; }
+
+  /* Typography */
+  * { box-sizing: border-box; }
+  html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    color:#0f0f0f;
+  }
+
+  /* Layout */
+  .page{
+    width: 100%;
+    max-width: 720px; /* tuned to resemble the reference */
+    margin: 0 auto;
+  }
+
+  .title{
+    text-align:center;
+    font-weight: 25px;
+    letter-spacing: 0.8px;
+    margin: 0 0 15px;
+    padding: 0 0 5px;
+    line-height: 1.0;
+    font-size: 44px;
+    color:#0f6f59;
+  }
+  .title span{
+    display:block;
+    color:#0f6f59;
+    font-size: 46px;
+  }
+  .title {
+    margin-top:-4px;
+    color:#0f6f59;
+    font-weight: 950;
+    font-size: 46px;
+    border-bottom: 3px solid #0f6f59;
+  }
+  .title .list{
+    margin-top:-8px;
+    color:#1c8f7a;
+    font-weight: 950;
+    font-size: 42px;
+  }
+
+  .grid{
+    margin-top: 10px;
+    display:grid;
+    grid-template-columns: 1.05fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Section header blocks */
+  .block{
+    border-radius: 0px;
+  }
+  .header{
+    text-align:center;
+    background: #9ed7bf;
+    color:#0f6f59;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 6px 8px;
+    border-radius: 3px;
+    border-top: 2px solid #137C13;
+    border-bottom: 2px solid #137C13;
+  }
+
+  .heading{
+    text-align:center;
+    margin: 10px 0 6px 0;
+    color:#0f6f59;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Lists */
+  ul{
+    list-style:none;
+    padding:0;
+    margin: 0;
+  }
+  li{
+    display:flex;
+    align-items:flex-start;
+    gap:5px;
+    padding:0;
+    margin: 8.3px 0;
+    font-size: 15px;
+    line-height: 1.15;
+  }
+  .chk {
+    font-size: 11px;
+    color: white;
+    padding:0;
+    border: 2px solid #2b2b2b;
+    border-radius: 4px;
+    margin:0;
+    display: inline-block;
+    min-width: 16px;
+  }
+  .item-text strong{
+    font-weight: 900;
+    color:#0f0f0f;
+  }
+  .group-title{
+    font-weight: 900;
+    color:#0f6f59;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    text-align:left;
+  }
+
+  /* Right column special colored header row */
+  .right-split{
+    margin-top: 0px;
+  }
+  .center{
+    padding:0;
+  }
+
+  /* Make center column narrower headers like reference */
+  .center .header{ font-size: 18px; }
+
+  /* Footer spacing mimic */
+  .spacer{ height: 8px; }
+
+  /* Ensure consistent column separators feel like reference */
+  .col{
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="title">
+      <span>HEALTHY HIGH CALORIE</span>
+      <span>FOOD LIST</span>
+    </h1>
+
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <div class="col">
+        <div class="block">
+          <div class="header">PROTEIN SOURCES</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Chicken breast <em>(with skin)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Turkey breast <em>(with skin)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Lean cuts of beef <em>(sirloin, tenderloin)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Pork loin or tenderloin</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Lamb chops</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Ground turkey/chicken</span></li>
+          </ul>
+
+          <div class="group-title">PLANT-BASED PROTEINS</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Tofu</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Tempeh</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Seitan</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Edamame</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Lentils</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Chickpeas</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Black beans</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Kidney beans</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Quinoa</span></li>
+          </ul>
+
+          <div class="header" style="margin-top:18px;">SEAFOOD</div>
+          <div class="heading">FISH</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Salmon</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Tuna</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Mackerel</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Sardines</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Halibut</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Trout</span></li>
+          </ul>
+
+          <div class="heading">SHELLFISH</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Shrimp</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Oysters</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Scallops</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Crab</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Lobster</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CENTER COLUMN -->
+      <div class="col center">
+        <div class="block">
+          <div class="header">DAIRY AND ALTERNATIVES</div>
+
+          <div class="heading" style="margin-top:8px;">DAIRY</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Whole milk</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Greek yogurt <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Regular yogurt <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Cream cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Cottage cheese <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Ricotta cheese <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Sour cream <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Heavy cream</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Butter</span></li>
+          </ul>
+
+          <div class="heading" style="margin-top:12px;">PLANT-BASED ALTERNATIVES</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Almond milk <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Soy milk <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Coconut milk <em>(full-fat)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Cashew milk <em>(full-fat)</em></span></li>
+          </ul>
+
+          <div class="header" style="margin-top:18px;">CHEESES</div>
+          <div class="heading" style="margin-top:6px;color:#0f6f59;">CHEESE VARIETIES</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Cheddar cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Mozzarella cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Swiss cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Parmesan cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Gouda cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Blue cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Feta cheese</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Brie cheese</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col right-split">
+        <div class="block">
+          <div class="header">GRAINS AND CEREALS</div>
+
+          <div class="heading">WHOLE GRAINS</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Brown rice</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Quinoa</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Whole wheat pasta</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Barley</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Bulgur</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Oats <em>(rolled oats, steel-cut oats)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Whole wheat bread</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Buckwheat</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Farro</span></li>
+          </ul>
+
+          <div class="heading" style="margin-top:12px;">CEREALS</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Granola <em>(low sugar, high in nuts and seeds)</em></span></li>
+            <li><span class="chk">☐</span><span class="item-text">Muesli</span></li>
+          </ul>
+
+          <div class="header" style="margin-top:18px;">FRUITS AND VEGETABLES</div>
+
+          <div class="heading" style="margin-top:8px;">HIGH-CALORIE FRUITS</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Bananas</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Avocados</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Grapes</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Mangoes</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Pineapple</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Apples</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Pears</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Dried fruits <em>(apricots, figs, dates, raisins, prunes)</em></span></li>
+          </ul>
+
+          <div class="heading" style="margin-top:12px;">HIGH-CALORIE VEGETABLES</div>
+          <ul>
+            <li><span class="chk">☐</span><span class="item-text">Sweet potatoes</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Corn</span></li>
+            <li><span class="chk">☐</span><span class="item-text">Potatoes <em>(white, red)</em></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

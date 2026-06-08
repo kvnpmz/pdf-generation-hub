@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /*
+            */
+            :root {
+                --page-height: {{ page_height }}pt;
+                --page-width: {{ page_width }}pt;
+                --header-color: #A64D79;
+                --line-color: #315041;
+                --color: #121212;
+                --h1-height: {{ h1_height }}pt;
+                --h1-margin: {{ h1_margin }}pt;
+                --h2-height: {{ h2_height }}pt;
+                --item-height: {{ item_height }}pt;
+                --header-table: {{ header_table }}pt;
+                --container-height: {{ container_height }}pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            @page {
+                size: var(--page-width) var(--page-height);
+                margin: 36pt;
+            }
+
+            html,
+            body {
+                font-family: "Ubuntu Sans", sans-serif;
+                height: 100%;
+                color: var(--color);
+            }
+
+            .container {
+                margin: calc(var(--h1-margin)/2) 0 0 0;
+                height: var(--container-height);
+            }
+
+            .column {
+                height: 100%;
+                float: left;
+                width: calc(50% - 8pt);
+                margin: 0 16pt 0 0;
+            }
+
+            .column:last-child {
+                margin: 0;
+            }
+
+            .section {}
+
+            h1 {
+                height: var(--h1-height);
+                font-size: 29pt;
+                font-weight: 800;
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 2pt;
+                color: var(--header-color);
+                #border-bottom: 1.5pt solid var(--line-color);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h2 {
+                position: relative;
+                background-color: #F7DCE8;
+                color: #7C4A67;
+                height: calc(var(--h2-height) - 7pt);
+                padding: 2pt 0 0 13pt;
+                margin: 0 0 7pt 0;
+                font-size: 13pt;
+                text-transform: uppercase;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .header-table {
+                font-size: 8pt;
+                margin: calc(var(--h1-margin)/2) 0 0 0;
+                height: var(--header-table);
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: collapse;
+            }
+
+            .header-table td {
+                height: calc(var(--header-table)/2);
+                font-size: 13pt;
+                text-transform: uppercase;
+                vertical-align: middle;
+            }
+
+            .header-table td.date {}
+
+            .header-table td.date {
+                text-align: right;
+            }
+
+            .groom .underline {
+                min-width: 142pt;
+            }
+
+            .bride .underline {
+                min-width: 155pt;
+            }
+
+            .date .underline {
+                min-width: 155pt;
+            }
+
+            .underline {
+                display: inline-block;
+                border-bottom: 1pt solid black;
+            }
+
+            .item {
+                position: relative;
+                height: var(--item-height);
+                font-size: 12pt;
+                padding: 0 0 0 14pt;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .item:not(.multi)::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 3pt;
+                width: 7pt;
+                height: 7pt;
+                border: 1pt solid var(--color);
+                border-radius: 1.5pt;
+            }
+
+            /*
+            */
+            {% for m in margins %}
+            .col-{{loop.index0}} .section:not(:last-child) {
+                margin-bottom: {{m}}pt;
+            }
+
+            .col-{{loop.index0}} .section:last-child {
+                margin-bottom: 0;
+            }
+            {% endfor %}
+        </style>
+    </head>
+    <body>
+        <h1>Wedding Planning Checklist</h1>
+        <!--        
+-->
+        <table class="header-table">
+            <tr>
+                <td class="bride">Bride's Name: <span class="underline"></span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="groom">Groom's Name: <span class="underline"></span>
+                </td>
+                <td class="date">Wedding Date: <span class="underline"></span>
+                </td>
+            </tr>
+        </table>
+        <div class="container">
+            <div class="column col-0">
+                <div class="section">
+                    <h2>12 Months Before</h2>
+                    <div class="item">Set a budget</div>
+                    <div class="item">Make a guest list</div>
+                    <div class="item">Choose bridal party</div>
+                    <div class="item">Hire a wedding planner</div>
+                    <div class="item">Decide style and theme</div>
+                    <div class="item">Choose a venue</div>
+                    <div class="item">Sample &amp; select a caterer</div>
+                </div>
+                <div class="section">
+                    <h2>11 Months Before</h2>
+                    <div class="item">Create your wedding website</div>
+                    <div class="item">Hire photographer &amp; videographer</div>
+                    <div class="item">Hire band or DJ</div>
+                    <div class="item">Take engagement photos</div>
+                </div>
+                <div class="section">
+                    <h2>10 Months Before</h2>
+                    <div class="item">Wedding dress shopping</div>
+                    <div class="item">Send out save the date cards</div>
+                </div>
+                <div class="section">
+                    <h2>9 Months Before</h2>
+                    <div class="item">Buy dress</div>
+                </div>
+                <div class="section">
+                    <h2>8 Months Before</h2>
+                    <div class="item">Choose bridesmaids dress</div>
+                    <div class="item">Choose flowers</div>
+                    <div class="item">Register for gifts</div>
+                </div>
+                <div class="section">
+                    <h2>7 Months Before</h2>
+                    <div class="item">Book rehearsal dinner venue</div>
+                    <div class="item">Choose music for the ceremony</div>
+                    <div class="item">Order decorations</div>
+                    <div class="item">Hire officiant</div>
+                </div>
+                <div class="section">
+                    <h2>6 Months Before</h2>
+                    <div class="item">Send out wedding invitations</div>
+                    <div class="item">Book hotel &amp; transport for guests</div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="column col-1">
+                <div class="section">
+                    <h2>5 Months Before</h2>
+                    <div class="item">Book honeymoon</div>
+                    <div class="item">Book or rent men's tuxedos</div>
+                </div>
+                <div class="section">
+                    <h2>4 Months Before</h2>
+                    <div class="item">Choose cake</div>
+                    <div class="item">Buy wedding bands</div>
+                    <div class="item">Hair &amp; makeup trial</div>
+                    <div class="item">Final tasting with the caterer</div>
+                </div>
+                <div class="section">
+                    <h2>3 Months Before</h2>
+                    <div class="item">Choose guest favors</div>
+                    <div class="item">Write vows</div>
+                    <div class="item">Select readings</div>
+                </div>
+                <div class="section">
+                    <h2>2 Months Before</h2>
+                    <div class="item">Dress fitting</div>
+                    <div class="item">Pick up the marriage license</div>
+                    <div class="item">Break-in wedding shoes</div>
+                    <div class="item">Give song selection to band or DJ</div>
+                </div>
+                <div class="section">
+                    <h2>1 Month Before</h2>
+                    <div class="item">Assemble gift bags</div>
+                    <div class="item">Pay vendors in full</div>
+                    <div class="item">Create seating chart</div>
+                    <div class="item">Venue walk-through</div>
+                    <div class="item">Hair color refresh</div>
+                    <div class="item">Mani/Pedi</div>
+                    <div class="item">Final dress fitting</div>
+                    <div class="item">Practice vows out loud</div>
+                </div>
+                <div class="section">
+                    <h2>Night Before</h2>
+                    <div class="item">Pray</div>
+                    <div class="item">Drink water</div>
+                    <div class="item">Eat a healthy meal</div>
+                    <div class="item">Get a good night's rest</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

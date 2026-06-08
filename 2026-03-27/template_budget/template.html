@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Budget Template</title>
+    <style>
+      @page {
+        size: letter;
+        margin: 0.4in;
+      }
+
+      * {
+        #outline: 2px solid red;
+      }
+
+      html,
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 9pt;
+        line-height: 1.1;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        height: 100%;
+      }
+
+      .header {
+        text-align: center;
+        color: #e996b5;
+        font-size: 24pt;
+        /* reduced */
+        margin-bottom: 10px;
+        font-weight: bold;
+        letter-spacing: 6px;
+      }
+
+      .top-fields {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        gap: 10px;
+      }
+
+      .top-fields p {
+        display: flex;
+        align-items: flex-end;
+        /* Aligns text with the bottom border */
+        margin: 8px 0;
+      }
+
+      .top-fields span {
+        flex-grow: 1;
+        border-bottom: 1px solid #333;
+        margin-left: 5px;
+        min-width: 220px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      tbody tr td {
+        padding: 5px 0;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid #ddd;
+        padding: 0;
+        border-left: 1px solid #ddd;
+        font-size: 10pt;
+      }
+
+      thead th {
+        border-top: 1px solid #ddd;
+        padding: 5px 0;
+        font-size: 15px;
+        text-align: center;
+        background-color: #fec4cf;
+        font-weight: bold;
+      }
+
+      .expense-cat-header {
+        width: 32%;
+      }
+
+      .budgeted-header,
+      .actual-header,
+      .balance-header {
+        width: 14%;
+      }
+
+      .notes-header {
+        width: 16%;
+      }
+
+      .paid-header {
+        width: 6%;
+        text-align: center;
+      }
+
+      .paid-header,
+      .paid-col {
+        border-right: 1px solid #ddd;
+        /* add right border */
+        text-align: center;
+        /* keep existing alignment */
+      }
+
+      .paid-checkbox {
+        width: 12px;
+        height: 12px;
+        background-color: #fcc5d1;
+        margin: auto;
+      }
+
+      .total-row td {
+        background-color: #fec4d1;
+        font-weight: bold;
+      }
+
+      /* Container for the text and the new checkbox */
+      .cat-cell-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* Style for the new inline checkbox */
+      .inline-paid-checkbox {
+        width: 10px;
+        height: 10px;
+        background-color: #fcc5d1;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .total-row td:first-child {
+        background-color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">MONTHLY BUDGET TEMPLATE</div>
+
+    <div class="top-fields">
+      <div>
+        <p>MONTH:<span></span></p>
+        <p>INCOME - EXPENSES:<span></span></p>
+      </div>
+      <div>
+        <p>TOTAL INCOME:<span></span></p>
+        <p>BALANCE:<span></span></p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="expense-cat-header">EXPENSES CATEGORY</th>
+          <th class="budgeted-header">BUDGETED</th>
+          <th class="actual-header">ACTUAL</th>
+          <th class="balance-header">BALANCE</th>
+          <th class="notes-header">NOTES</th>
+          <th class="paid-header">PAID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>MORTGAGE/RENT
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>HOUSE TAXES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>HOUSE INSURANCE
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>HOUSE MAINTENANCE/REPAIR
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>ELECTRICITY
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>WATER
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>SEWAGE
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>GAS/OIL
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>TRASH
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>INTERNET
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CELL PHONE
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>GROCERIES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CAR PAYMENT
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CAR INSURANCE
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CAR GAS
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CAR REPAIRS
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CAR INSP./REGISTRATION
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>MEDICAL/PRESCRIPTIONS
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>LOANS
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CREDIT CARDS/DEBT
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CHILD CARE
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>LAWYER FEES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>TAX PREPARATION
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>LANDSCAPING/GRASS CUT
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>COMPUTER/SOFTWARE
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>WHOLESALE CLUB FEES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>GYM FEES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CABLE/STREAMING SERVICES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>HAIR/GROOMING SERVICES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CLOTHING/SHOES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>ENTERTAINMENT/MOVIES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>CHARITY/DONATIONS
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col">
+            <div class="paid-checkbox"></div>
+          </td>
+        </tr>
+
+        <tr class="total-row">
+          <td>
+            <div class="cat-cell-content">
+              <div class="inline-paid-checkbox"></div>TOTAL EXPENSES
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="notes-col"></td>
+          <td class="paid-col"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+
+</html>

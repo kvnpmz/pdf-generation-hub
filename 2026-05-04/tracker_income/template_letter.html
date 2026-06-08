@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            :root {
+                #--light-color: #93cbed;
+                --light-color: #f4d1e5;
+                #--dark-text-color: #2f7eae;
+                --dark-text-color: #db0171;
+                #--h2-light-color: #51abe2;
+                --h2-light-color: #e251ab;
+            }
+
+            @page {
+                size: letter;
+                margin: 36pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "Liberation Sans", sans-serif;
+                height: 100%;
+                color: #000;
+            }
+
+            header {
+                margin-bottom: 10pt;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                font-size: 30pt;
+                text-align: center;
+                color: var(--dark-text-color);
+            }
+
+            h2 {
+                color: var(--h2-light-color);
+                font-size: 24pt;
+                text-align: center;
+            }
+
+            .base-font {
+                font-size: 16pt;
+                text-transform: uppercase;
+            }
+
+            .summary-header {
+                display: flex;
+                justify-content: space-between;
+                margin: 10pt 0;
+            }
+
+            .daily-box {
+                display: inline-block;
+                width: 240pt;
+                height: 20pt;
+                background-color: var(--light-color);
+            }
+
+            .input-line {
+                border-bottom: 1pt solid #000;
+                height: 10pt;
+                display: inline-block;
+            }
+
+            .input-line.top {
+                margin-left: 10pt;
+                width: 131pt;
+            }
+
+            .input-line.bottom {
+                margin-left: 10pt;
+                width: 220pt;
+            }
+
+            table {
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+
+            th {
+                height: 5pt;
+                font-weight: normal;
+                text-align: left;
+                border-bottom: 2pt solid var(--h2-light-color);
+                padding: 4pt 0;
+            }
+
+            td {
+                height: 28.2pt;
+                border-bottom: 1pt solid #000;
+                border-right: 1pt solid #000;
+            }
+
+            td:last-child {
+                border-right: none;
+            }
+
+            .col-project {
+                width: 40%;
+            }
+
+            .col-invested {
+                width: 24%;
+                text-align: center;
+            }
+
+            .col-profit {
+                width: 24%;
+                text-align: center;
+            }
+
+            .footer-line {
+                margin-top: 20pt;
+                line-height: 30pt;
+                border-top: 2pt solid var(--h2-light-color);
+                border-bottom: 2pt solid var(--h2-light-color);
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Income Tracker</h1>
+            <h2>Daily System</h2>
+        </header>
+        <div class="summary-header base-font">
+            <span>Daily Total</span>
+            <span>Monthly Total<span class="input-line top"></span>
+            </span>
+        </div>
+        <div class="summary-header base-font">
+            <span class="daily-box"></span>
+            <span>Date<span class="input-line bottom"></span>
+            </span>
+        </div>
+        <table>
+            <thead>
+                <tr class="base-font">
+                    <th class="col-project">Income Source</th>
+                    <th class="col-invested">Total Invested</th>
+                    <th class="col-profit">Daily Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer-line base-font">Investing Profit In:</div>
+    </body>
+</html>

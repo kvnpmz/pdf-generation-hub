@@ -1,0 +1,47 @@
+ i want to build a deterministic PDF layout engine using **NLua**, **Lua**, **SVG**, **Inkscape**, and **C#**.
+The system should use a **fixed page model** (A4 or Letter) with predefined margins. All layout calculations occur within a known content rectangle derived from the page size and margins.
+### Pagination
+I do not support pagination.
+If any rendered content exceeds the available page content area, the engine should:
+1. Log a console error describing the overflow.
+2. Stop rendering immediately.
+No content should be automatically moved to another page.
+### Layout Model
+The layout engine uses only **weighted space distribution**.
+#### Vertical Containers
+Children are stacked from top to bottom.
+Each child's height is calculated as:
+
+childHeight = (childWeight / totalWeight) * containerHeight
+
+#### Horizontal Containers
+Children are placed from left to right.
+Each child's width is calculated as:
+
+childWidth = (childWeight / totalWeight) * containerWidth
+### Node Definition
+Every renderable node contains:
+* `weight`
+* `content`
+* `textAlignment`
+`textAlignment` is always required and can be:
+* Left
+* Center
+* Right
+### Rendering Rules
+The engine should:
+1. Recursively divide available space according to weights.
+2. Assign each node a fixed rectangle.
+3. Render the node's content within that rectangle using the specified text alignment.
+4. Perform no automatic layout behaviors such as:
+* Flex grow/shrink
+* Justify content
+* Text wrapping heuristics
+* Auto-sizing
+* Reflow
+* Responsive layout
+5. Detect any overflow beyond the page content rectangle.
+6. Log an error and terminate rendering when overflow occurs.
+The goal is a predictable, deterministic layout system where all positioning is derived solely from weighted space allocation and fixed page dimensions.
+
+i have this existing code but i dont know what to change to make it compile and function according to my specs. 

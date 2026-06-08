@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Paycheck Budget Planner</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                #outline: 1.5pt solid red;
+            }
+
+            @page {
+                size: A4;
+                margin: 36pt;
+            }
+
+            html,
+            body {
+                font-family: "Liberation Sans", sans-serif;
+                height: 100%;
+            }
+
+            h1 {
+                text-align: center;
+                color: #3F5E7A;
+                font-weight: bold;
+                font-size: 30pt;
+                letter-spacing: 2pt;
+                text-transform: uppercase;
+            }
+
+            .header-table {
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: collapse;
+            }
+
+            .header-table td {
+                padding: 4pt 0;
+            }
+
+            .header-table td.date {
+                padding: 0 0 8pt 0;
+            }
+
+            .header-table td.paycheck {
+                text-align: right;
+            }
+
+            .paycheck .underline {
+                min-width: 130pt;
+            }
+
+            .name .underline {
+                min-width: 175pt;
+            }
+
+            .date .underline {
+                min-width: 111pt;
+            }
+
+            .underline {
+                display: inline-block;
+                border-bottom: 1pt solid black;
+            }
+
+            .container {
+                height: 689pt;
+            }
+
+            .column-wrapper {
+                float: left;
+                width: calc(50% - 5pt);
+                margin-right: 10pt;
+                height: 100%;
+            }
+
+            .column-wrapper:last-child {
+                margin-right: 0;
+            }
+
+            .column {
+                #display: inline-block;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: 10pt;
+                height: 100%;
+            }
+
+            table.budget-table {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+
+            table.budget-table td:empty::before {
+                content: "\00a0";
+            }
+
+            table.budget-table th,
+            table.budget-table td {
+                border: 1pt solid #000;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: bold;
+                padding: 3.95pt 0;
+            }
+
+            table.budget-table td:first-child,
+            table.budget-table th:first-child {
+                text-align: left;
+                padding-left: 5pt;
+            }
+
+            .col-label {
+                width: 60%;
+            }
+
+            .col-amt {
+                width: 20%;
+            }
+
+            .bg-tan {
+                background-color: #eaddca;
+            }
+
+            .bg-green {
+                background-color: #a8e4c1;
+            }
+
+            .bg-blue {
+                background-color: #c5d0f5;
+            }
+
+            .bg-pink {
+                background-color: #f9c8d9;
+            }
+
+            .bg-gray {
+                background-color: #e2e2e2;
+            }
+
+            .bg-summary {
+                background-color: #f8f3e3;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Paycheck Budget</h1>
+        <table class="header-table">
+            <tr>
+                <td class="name">NAME: <span class="underline"></span>
+                </td>
+                <td class="paycheck">PAYCHECK AMOUNT: <span class="underline"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="date">PAYCHECK DATE: <span class="underline"></span>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <!-- Left Column -->
+        <div class="container">
+            <div class="column-wrapper">
+                <div class="column">
+                    <!-- Income Sources -->
+                    <table class="budget-table">
+                        <tr class="bg-tan">
+                            <th class="col-label">Income Sources</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-tan">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Bills -->
+                    <table class="budget-table">
+                        <tr class="bg-green">
+                            <th class="col-label">Bills</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-green">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Health Expenses -->
+                    <table class="budget-table">
+                        <tr class="bg-blue">
+                            <th class="col-label">Health Expenses</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-blue">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Investments -->
+                    <table class="budget-table">
+                        <tr class="bg-pink">
+                            <th class="col-label">Investments</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-pink">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Debt Payment -->
+                    <table class="budget-table">
+                        <tr class="bg-tan">
+                            <th class="col-label">Debt Payment</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-tan">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Savings -->
+                    <table class="budget-table">
+                        <tr class="bg-blue">
+                            <th class="col-label">Savings</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-blue">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Childcare -->
+                    <table class="budget-table">
+                        <tr class="bg-green">
+                            <th class="col-label">Childcare Expenses</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-green">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="column-wrapper">
+                <div class="column">
+                    <!-- Entertainment -->
+                    <table class="budget-table">
+                        <tr class="bg-blue">
+                            <th class="col-label">Entertainment Expenses</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-blue">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Personal Expenses -->
+                    <table class="budget-table">
+                        <tr class="bg-pink">
+                            <th class="col-label">Personal Expenses</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-pink">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Charity -->
+                    <table class="budget-table">
+                        <tr class="bg-tan">
+                            <th class="col-label">Charity / Giving Expenses</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-tan">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Household -->
+                    <table class="budget-table">
+                        <tr class="bg-gray">
+                            <th class="col-label">Household Expenses</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-gray">Total</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- Summary Table -->
+                    <table class="budget-table">
+                        <tr class="bg-summary">
+                            <th class="col-label">Summary</th>
+                            <th class="col-amt">Budget</th>
+                            <th class="col-amt">Actual</th>
+                        </tr>
+                        <tr>
+                            <td class="bg-summary">Total Income</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="bg-summary">Total Bills</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="bg-summary">Total Expenses</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="bg-summary">Total Savings</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="bg-summary">Total Investments</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="bg-summary">Total Debt</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table class="budget-table">
+                        <tr>
+                            <th class="col-label bg-summary">Total Left Over</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

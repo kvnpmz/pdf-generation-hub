@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* PDF Page Setup */
+        @page {
+            size: Letter;
+            margin: 0.5in;
+        }
+
+        * {
+            #outline: 2px solid red;
+        }
+
+        html, body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            color: #333;
+            height: 100%;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Title Section */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2196F3;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 36pt;
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #1976D2;
+            margin: 0;
+            font-size: 24pt;
+        }
+
+        /* Enforce 3 Columns */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 16px;
+        }
+
+        .section-title {
+            color: #0D47A1;
+            border-bottom: 2px solid #2196F3;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 22pt;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            font-size: 18pt;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #2196F3;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Blank lines for custom entries */
+        .empty-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .line {
+            border-bottom: 1px solid #000;
+            flex-grow: 1;
+            height: 14px;
+        }
+        
+        .spacer {
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Anti-Inflammatory Diet</h1>
+        <h2>Grocery List</h2>
+    </div>
+
+    <div class="container">
+        <div class="column">
+            <div class="section">
+                <div class="section-title">Vegetables</div>
+                <ul>
+                    <li><span class="checkbox"></span>Spinach</li>
+                    <li><span class="checkbox"></span>Kale</li>
+                    <li><span class="checkbox"></span>Broccoli</li>
+                    <li><span class="checkbox"></span>Brussels sprouts</li>
+                    <li><span class="checkbox"></span>Cauliflower</li>
+                    <li><span class="checkbox"></span>Carrots</li>
+                    <li><span class="checkbox"></span>Bell peppers</li>
+                    <li><span class="checkbox"></span>Tomatoes</li>
+                    <li><span class="checkbox"></span>Sweet potatoes</li>
+                    <li><span class="checkbox"></span>Cabbage</li>
+                    <li><span class="checkbox"></span>Asparagus</li>
+                </ul>
+            </div>
+
+            <div class="section spacer">
+                <div class="section-title">Meat and Seafood</div>
+                <ul>
+                    <li><span class="checkbox"></span>Salmon</li>
+                    <li><span class="checkbox"></span>Mackerel</li>
+                    <li><span class="checkbox"></span>Sardines</li>
+                    <li><span class="checkbox"></span>Tuna</li>
+                    <li><span class="checkbox"></span>Chicken</li>
+                    <li><span class="checkbox"></span>Turkey</li>
+                    <li><span class="checkbox"></span>Lean cuts of beef</li>
+                    <li><span class="checkbox"></span>Pork tenderloin</li>
+                    <li><span class="checkbox"></span>Shrimp</li>
+                    <li><span class="checkbox"></span>Crab</li>
+                </ul>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="section">
+                <div class="section-title">Legumes</div>
+                <ul>
+                    <li><span class="checkbox"></span>Chickpeas</li>
+                    <li><span class="checkbox"></span>Lentils</li>
+                    <li><span class="checkbox"></span>Black beans</li>
+                    <li><span class="checkbox"></span>Kidney beans</li>
+                    <li><span class="checkbox"></span>Green peas</li>
+                </ul>
+            </div>
+
+            <div class="section spacer">
+                <div class="section-title">Whole Grains</div>
+                <ul>
+                    <li><span class="checkbox"></span>Quinoa</li>
+                    <li><span class="checkbox"></span>Brown rice</li>
+                    <li><span class="checkbox"></span>Oats</li>
+                    <li><span class="checkbox"></span>Whole wheat bread</li>
+                    <li><span class="checkbox"></span>Buckwheat</li>
+                    <li><span class="checkbox"></span>Farro</li>
+                    <li><span class="checkbox"></span>Bulgur</li>
+                </ul>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+            </div>
+
+            <div class="section spacer">
+                <div class="section-title">Healthy Fats</div>
+                <ul>
+                    <li><span class="checkbox"></span>Almonds</li>
+                    <li><span class="checkbox"></span>Walnuts</li>
+                    <li><span class="checkbox"></span>Flaxseeds</li>
+                    <li><span class="checkbox"></span>Chia seeds</li>
+                    <li><span class="checkbox"></span>Pumpkin seeds</li>
+                    <li><span class="checkbox"></span>Sesame seeds</li>
+                    <li><span class="checkbox"></span>Pistachios</li>
+                    <li><span class="checkbox"></span>Olive oil</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="section">
+                <div class="section-title">Fruits</div>
+                <ul>
+                    <li><span class="checkbox"></span>Blueberries</li>
+                    <li><span class="checkbox"></span>Strawberries</li>
+                    <li><span class="checkbox"></span>Cherries</li>
+                    <li><span class="checkbox"></span>Oranges</li>
+                    <li><span class="checkbox"></span>Pineapple</li>
+                    <li><span class="checkbox"></span>Avocado</li>
+                    <li><span class="checkbox"></span>Apples</li>
+                    <li><span class="checkbox"></span>Pomegranate</li>
+                    <li><span class="checkbox"></span>Kiwi</li>
+                    <li><span class="checkbox"></span>Watermelon</li>
+                </ul>
+            </div>
+
+            <div class="section spacer">
+                <div class="section-title">Herbs and Spices</div>
+                <ul>
+                    <li><span class="checkbox"></span>Turmeric</li>
+                    <li><span class="checkbox"></span>Ginger</li>
+                    <li><span class="checkbox"></span>Garlic</li>
+                    <li><span class="checkbox"></span>Cinnamon</li>
+                    <li><span class="checkbox"></span>Cayenne pepper</li>
+                    <li><span class="checkbox"></span>Basil</li>
+                    <li><span class="checkbox"></span>Rosemary</li>
+                    <li><span class="checkbox"></span>Thyme</li>
+                    <li><span class="checkbox"></span>Oregano</li>
+                    <li><span class="checkbox"></span>Cumin</li>
+                </ul>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+                <div class="empty-row"><span class="checkbox"></span><div class="line"></div></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

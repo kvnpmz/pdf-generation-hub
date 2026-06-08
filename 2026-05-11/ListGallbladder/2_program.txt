@@ -1,0 +1,180 @@
+using System;
+using System.Collections.Generic;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        QuestPDF.Settings.License = LicenseType.Community;
+
+        bool isLetter = args.Length > 0 && args[0] == "1";
+
+        double pageHeight = isLetter ? 792 : 842;
+        double pageWidth  = isLetter ? 612 : 595;
+
+        double margin = 72;
+        double h1Height = 36;
+        double h1Margin = 10;
+        double h2Height = 22;
+        double itemHeight = 16;
+        double scale = isLetter ? 1.0 : 1.08;
+
+        double containerHeight = pageHeight - margin - h1Height - h1Margin - 1;
+
+        var model = BuildModel();
+
+        Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Size(new PageSize((float)pageWidth, (float)pageHeight));
+                page.Margin(36);
+
+                page.Content().Column(col =>
+                {
+                    col.Spacing(10);
+
+                    // H1
+                    col.Item().AlignCenter().Text("Low Fat Grocery List")
+                        .FontSize(30)
+                        .Bold()
+                        .FontColor(Colors.Green.Darken2);
+
+                    col.Item().Row(row =>
+                    {
+                        row.RelativeItem().Component(new GroceryColumn(model.Col0, containerHeight, h2Height, itemHeight, scale));
+                        row.RelativeItem().Component(new GroceryColumn(model.Col1, containerHeight, h2Height, itemHeight, scale));
+                        row.RelativeItem().Component(new GroceryColumn(model.Col2, containerHeight, h2Height, itemHeight, scale));
+                    });
+                });
+            });
+        })
+        .GeneratePdf($"lowfat_list_{(isLetter ? "letter" : "a4")}.pdf");
+    }
+
+    // -------------------------
+    // CORE PORT OF YOUR MATH
+    // -------------------------
+    public static double ComputeGap(List<Section> sections, double containerHeight, double h2Height, double itemHeight, double scale)
+    {
+        if (sections.Count <= 1)
+            return 0;
+
+        int h2Count = 0;
+        int itemCount = 0;
+
+        foreach (var s in sections)
+        {
+            h2Count += s.H2Count;
+            itemCount += s.ItemCount;
+        }
+
+        double usedSpace =
+            (h2Count * h2Height * scale) +
+            (itemCount * itemHeight * scale);
+
+        double leftover = containerHeight - usedSpace;
+
+        double gap = leftover / (sections.Count - 1);
+
+        return Math.Max(0, gap);
+    }
+
+    // -------------------------
+    // DATA MODEL
+    // -------------------------
+    static GroceryModel BuildModel()
+    {
+        return new GroceryModel
+        {
+            Col0 = new List<Section>
+            {
+                new("Fruits & Vegetables", 1, 20),
+                new("Condiments", 1, 6)
+            },
+            Col1 = new List<Section>
+            {
+                new("Grains", 1, 12),
+                new("Protein", 1, 18)
+            },
+            Col2 = new List<Section>
+            {
+                new("Snacks", 1, 10),
+                new("Beverages", 1, 6),
+                new("Misc", 1, 3)
+            }
+        };
+    }
+}
+
+// -------------------------
+// QUESTPDF COMPONENT
+// -------------------------
+class GroceryColumn : IComponent
+{
+    private readonly List<Section> _sections;
+    private readonly double _containerHeight;
+    private readonly double _h2Height;
+    private readonly double _itemHeight;
+    private readonly double _scale;
+
+    public GroceryColumn(List<Section> sections, double containerHeight, double h2Height, double itemHeight, double scale)
+    {
+        _sections = sections;
+        _containerHeight = containerHeight;
+        _h2Height = h2Height;
+        _itemHeight = itemHeight;
+        _scale = scale;
+    }
+
+    public void Compose(IContainer container)
+    {
+        double gap = Program.ComputeGap(_sections, _containerHeight, _h2Height, _itemHeight, _scale);
+
+        container.Column(col =>
+        {
+            for (int i = 0; i < _sections.Count; i++)
+            {
+                var section = _sections[i];
+
+                col.Item().Border(1).Padding(5).Column(inner =>
+                {
+                    inner.Item().Background(Colors.Green.Lighten4)
+                        .Padding(5)
+                        .Text(section.Title)
+                        .Bold();
+                });
+
+                if (i < _sections.Count - 1)
+                    col.Item().Height((float)gap);
+            }
+        });
+    }
+}
+
+// -------------------------
+// SIMPLE MODELS
+// -------------------------
+class GroceryModel
+{
+    public List<Section> Col0 { get; set; } = new();
+    public List<Section> Col1 { get; set; } = new();
+    public List<Section> Col2 { get; set; } = new();
+}
+
+class Section
+{
+    public string Title { get; }
+    public int H2Count { get; }
+    public int ItemCount { get; }
+
+    public Section(string title, int h2Count, int itemCount)
+    {
+        Title = title;
+        H2Count = h2Count;
+        ItemCount = itemCount;
+    }
+}

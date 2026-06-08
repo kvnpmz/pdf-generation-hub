@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Budget Template</title>
+    <style>
+        /* --- Page Setup --- */
+        @page {
+            size: letter;
+            margin: 0.4in;
+        }
+
+        * {
+            #outline: 2px solid red;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: "Liberation Sans", Arial, sans-serif;
+            color: #323232;
+        }
+
+        /* --- Variables & Colors --- */
+        :root {
+            --blue: #4682B4;
+            --light-blue: #B0C4DE;
+            --sky-blue: #F5F5F5;
+        }
+
+        /* --- Typography --- */
+        h1 {
+            color: var(--blue);
+            text-align: center;
+            font-size: 32pt;
+            padding: 0;
+            #outline: 2px solid red;
+            margin: 0 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Updated Header Section --- */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10pt; /* Spacing between rows */
+        }
+
+        .header-item {
+            display: flex;
+            align-items: baseline;
+            width: 45%; /* Adjust width to give a gap in the center */
+        }
+
+        .line {
+            flex-grow: 1; /* This forces the line to fill the remaining space */
+            border-bottom: 1.5px solid #000;
+            margin-left: 8px;
+            height: 10pt; /* Ensures the line sits at the text baseline */
+        }
+
+        /* --- Budget Table --- */
+        table.budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10pt;
+        }
+
+        table.budget-table th {
+            background-color: var(--light-blue);
+            border: 0.5pt solid var(--blue);
+            padding: 6px;
+            font-size: 14.4px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table.budget-table td {
+            border: 0.5pt solid var(--blue);
+            font-size: 14.4px;
+            line-height: 0.9;
+            padding-top: 3.1px;
+            padding-bottom: 5.1px;
+        }
+
+        /* Zebra Striping */
+        table.budget-table tbody tr:nth-child(even) {
+            background-color: var(--sky-blue);
+        }
+
+
+        /* Column widths */
+        .col-category { width: 35%; }
+        .col-data     { width: 13%; }
+        .col-notes    { width: 18%; }
+        .col-paid     { width: 8%; text-align: center; }
+
+        .bullet {
+            color: var(--blue);
+            font-size: 24px;
+            line-height: 0.5;
+            padding: 0px 5px;
+            margin: 0;
+            vertical-align: baseline;
+            position: relative;
+            top: 2px;
+        }
+
+        .paid-box {
+            color: var(--light-blue);
+            font-size: 24px;
+            line-height: 0.5;
+            padding: 0; 
+            margin: 0;
+            vertical-align: baseline;
+            text-align: center;
+            position: relative;
+            top: 3px;
+        }
+
+        /* Total Row */
+        .total-row td {
+            padding: 3px 30px 3px !important;
+            font-weight: bold;
+            line-height: 1.6 !important;
+            font-size: 18px;
+            background-color: var(--light-blue) !important;
+        }
+
+        .total-row td:first-child {
+            background-color: #ffffff !important; /* White background */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Monthly Budget Template</h1>
+        <div class="header-row">
+            <div class="header-item">
+                MONTH: <span class="line"></span>
+            </div>
+            <div class="header-item">
+                TOTAL INCOME: <span class="line"></span>
+            </div>
+        </div>
+
+        <div class="header-row">
+            <div class="header-item">
+                INCOME - EXPENSES: <span class="line"></span>
+            </div>
+            <div class="header-item">
+                BALANCE: <span class="line"></span>
+            </div>
+        </div>
+
+    <table class="budget-table">
+        <thead>
+            <tr>
+                <th class="col-category">EXPENSES CATEGORY</th>
+                <th class="col-data">BUDGETED</th>
+                <th class="col-data">ACTUAL</th>
+                <th class="col-data">BALANCE</th>
+                <th class="col-notes">NOTES</th>
+                <th class="col-paid">PAID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><span class="bullet">■</span> MORTGAGE/RENT</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> HOUSE MAINTENANCE/REPAIR</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> HOUSE TAXES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> HOUSE INSURANCE</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> ELECTRICITY</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> WATER</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> SEWAGE</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> GAS/OIL</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> GROCERIES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> TRASH</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> LANDSCAPING/GRASS CUT</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> INTERNET</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CABLE/STREAMING SERVICES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CELL PHONE</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CAR PAYMENT</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CAR GAS</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CAR INSURANCE</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CAR REPAIRS</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CAR INSP./REGISTRATION</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> MEDICAL/PRESCRIPTIONS</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> COMPUTER/SOFTWARE</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> WHOLESALE CLUB FEES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> GYM FEES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> HAIR/GROOMING SERVICES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CLOTHING/SHOES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> LOANS</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CREDIT CARDS/DEBT</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CHILD CARE</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> LAWYER FEES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> TAX PREPARATION</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> ENTERTAINMENT/MOVIES</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span> CHARITY/DONATIONS</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+
+            <tr class="total-row">
+                <td>TOTAL EXPENSES</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

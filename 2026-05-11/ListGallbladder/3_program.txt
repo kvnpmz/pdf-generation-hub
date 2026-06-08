@@ -1,0 +1,75 @@
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+using Scriban;
+using Microsoft.Playwright;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        // -------------------------
+        // Args (A4 vs Letter)
+        // -------------------------
+        bool isLetter = false;
+
+        if (args.Length > 0 && int.TryParse(args[0], out int val))
+        {
+            isLetter = val == 1;
+        }
+
+        string name = "lowfat_list";
+
+        double pageHeight = isLetter ? 792 : 842;
+        double pageWidth = isLetter ? 612 : 595;
+        double scale = isLetter ? 1.0 : 1.08;
+
+        string outputFile = $"{name}_{(isLetter ? "letter" : "a4")}.pdf";
+
+        var stopwatch = Stopwatch.StartNew();
+
+        // -------------------------
+        // Load template
+        // -------------------------
+        string templateFile = "template.html";
+        string rawHtml = await File.ReadAllTextAsync(templateFile);
+
+        // -------------------------
+        // Compute layout (your C# version of calculate_dynamic_margins)
+        // -------------------------
+        var context = await new LayoutCalculator()
+            .CalculateDynamicMargins(rawHtml, pageHeight, pageWidth, scale);
+
+        // -------------------------
+        // Render template (Scriban)
+        // -------------------------
+        var template = Template.Parse(rawHtml);
+        string renderedHtml = template.Render(context);
+
+        // -------------------------
+        // HTML → PDF (Playwright)
+        // -------------------------
+        using var playwright = await Playwright.CreateAsync();
+        await using var browser = await playwright.Chromium.LaunchAsync(
+            new BrowserTypeLaunchOptions { Headless = true }
+        );
+
+        var page = await browser.NewPageAsync();
+
+        await page.SetContentAsync(renderedHtml);
+
+        await page.PdfAsync(new PagePdfOptions
+        {
+            Path = outputFile,
+            Format = null,
+            Width = $"{pageWidth}px",
+            Height = $"{pageHeight}px",
+            PrintBackground = true
+        });
+
+        stopwatch.Stop();
+
+        Console.WriteLine($"{outputFile} created! Render time: {stopwatch.Elapsed.TotalSeconds:F3} seconds");
+    }
+}

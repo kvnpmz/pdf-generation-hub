@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cleaning Checklist</title>
+        <style>
+            @page {
+            margin: 0.5in;
+            size: Letter;
+            }
+
+            * {
+            outline: 2px solid red;
+            }
+
+            html, body {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            }
+            
+            body {
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+            }
+            
+            .title {
+            display: inline-block;
+            text-align: center;
+            line-height: 0.7;
+            font-size: 46px;
+            font-weight: bold;
+            padding: 0;
+            color: #c48e64;
+            margin-bottom: 25px;
+            #outline: 2px solid red;
+            font-family: Arial;
+            }
+            
+            .container {
+            flex: 1 1 auto;
+            display: grid;
+            grid-template-rows: repeat(3, auto);
+            grid-template-columns: 1.4fr 1fr 1fr;
+            grid-template-areas:
+            "kitchen bathrooms bathrooms"
+            "bedrooms office extras"
+            "living laundry laundry";
+            gap: 8px 5px;
+            box-sizing: border-box;
+            }
+
+            .box {
+            #outline: 2px solid red;
+            color: black;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+            h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            background-color: #b2d7d4; 
+            color: #ffffff;
+            font-family: Arial;
+            display: inline-block;
+            padding: 4px 8px;
+            }
+
+            ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            } 
+
+            .li-content {
+            list-style: none;
+            display: flex; 
+            margin-bottom: 30px;
+            font-size: 18px;
+            gap: 6px;
+            #outline: 2px solid red;
+            }
+
+            li:last-child .li-content {
+            margin-bottom: 1px;
+            }
+
+            .bathrooms ul,
+            .laundry ul {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            }
+
+            .kitchen .li-content {
+            margin-bottom: 18px;
+            }
+
+            .extras .li-content {
+            margin-bottom: 10px;
+            }
+
+            .extras .li-content::after {
+            content: "";
+            flex-grow: 1;
+            border-bottom: 1px solid black;
+            }
+
+            .kitchen { grid-area: kitchen; }
+            .bathrooms { grid-area: bathrooms; }
+            .bedrooms { grid-area: bedrooms; }
+            .office { grid-area: office; }
+            .living { grid-area: living; }
+            .laundry { grid-area: laundry; }
+            .extras { grid-area: extras; }
+
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            CLEANING CHECKLIST
+        </div>
+        <div class="container">
+            <div class="box kitchen">
+                <h2>KITCHEN</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Tidy</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Sink</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Range/Stove</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Down Fridge</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Down Microwave</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Down Counters</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Vacuum/Sweep</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Mop</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box bathrooms">
+                <h2>BATHROOMS</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Tidy</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Toilet</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Sink</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Tub</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Shower</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wash Mats</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Clean Mirrors</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Sweep/Vacuum</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Mop</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Down Surfaces</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box bedrooms">
+                <h2>BEDROOMS</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Tidy</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Change Sheets</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Dust</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Sweep/Vacuum</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Mop</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Nightstands</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box office">
+                <h2>OFFICE</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Tidy</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Sort Papers</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Dust</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Sweep/Vacuum</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Down Surfaces</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box living">
+                <h2>LIVING ROOM</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Tidy</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Dust</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Vacuum Carpets</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box laundry">
+                <h2>LAUNDRY ROOM</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Tidy</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Scrub Sink</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wipe Down Machines</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Sweep/Vacuum</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Mop</div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox">Wash + Fold Laundry</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="box extras">
+                <h2>EXTRAS</h2>
+                <ul>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                    <li>
+                        <div class="li-content"><input type="checkbox"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+

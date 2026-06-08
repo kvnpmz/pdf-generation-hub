@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carnivore Diet Grocery List</title>
+    <style>
+        /* PDF Page Setup */
+        @page {
+            size: Letter;
+            margin: 0.5in;
+        }
+
+        html {
+            height: 100%;
+            #border: 2px solid red;
+        }
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.3;
+            margin: 0;
+            height: 100%;
+            padding: 0;
+            background-color: white;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 5px;
+            padding: 0;
+            #border-bottom: 3px solid #005a32;
+            border-bottom: 3px solid #0B3D91;
+        }
+
+        h1 {
+            color: #0B3D91;
+            #color: #005a32;
+            text-transform: uppercase;
+            font-size: 32pt;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 2px;
+            vertical-align: bottom;
+            line-height: 0.7;
+        }
+
+        .sub-indicator {
+            font-size: 36px;
+            text-transform: uppercase;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        /* Three Column Layout */
+        .content {
+            column-count: 3;
+            column-gap: 0 5px;
+        }
+
+        /* Section Styling */
+        section {
+            break-inside: avoid; /* Prevents sections from splitting across columns */
+            margin-top: 20px;
+        }
+
+        .category-title {
+            #background-color: #e8f5e9;
+            background-color: #E3F2FD;
+            #color: #005a32;
+            color: #0B3D91;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-size: 13pt;
+            #border-bottom: 2px solid #005a32;
+            border-bottom: 2px solid #0B3D91;
+        }
+
+        .sub-category {
+           #color: #4CAF50;
+            color: #1E88E5;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10pt;
+            text-transform: uppercase;
+            margin: 5px 0;
+            border-bottom: 1px solid #1E88E5;
+            #border-bottom: 1px solid #4CAF50;
+        }
+
+        /* Checklist Styling */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            font-size: 10pt;
+            margin-bottom: 4px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        /* Custom Checkbox for PDF */
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #666;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            CARNIVORE DIET 
+            <span class="sub-indicator">Grocery List</span>
+        </h1>
+    </header>
+
+    <div class="content">
+        
+        <section>
+            <div class="category-title">Meats</div>
+            <div class="sub-category">Red Meat</div>
+            <ul>
+                <li>Beef (steak, ground beef, roasts, ribs)</li>
+                <li>Lamb (chops, ground lamb, leg of lamb)</li>
+                <li>Pork (pork chops, pork shoulder, bacon, ribs)</li>
+                <li>Venison (steaks, ground venison)</li>
+                <li>Bison (steaks, ground bison)</li>
+                <li>Goat (goat chops, stew meat)</li>
+            </ul>
+
+            <div class="sub-category">Poultry</div>
+            <ul>
+                <li>Chicken (whole chicken, thighs, breasts, wings)</li>
+                <li>Turkey (whole turkey, ground turkey, turkey breast)</li>
+                <li>Duck (whole duck, duck breast)</li>
+                <li>Quail (whole quail)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Organ Meats</div>
+            <div class="sub-category">Variety Meats</div>
+            <ul>
+                <li>Liver (beef, chicken, lamb, pork)</li>
+                <li>Kidney (beef, lamb)</li>
+                <li>Heart (beef, chicken, lamb)</li>
+                <li>Brain (beef, lamb)</li>
+                <li>Tongue (beef, pork)</li>
+                <li>Bone marrow (beef marrow bones)</li>
+                <li>Sweetbreads (thymus or pancreas of lamb or calf)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Dairy (If Tolerated)</div>
+            <div class="sub-category">Dairy Products</div>
+            <ul>
+                <li>Butter (unsalted, grass-fed if possible)</li>
+                <li>Heavy cream (full-fat, no additives)</li>
+                <li>Cheese (aged cheeses like cheddar, parmesan, gouda)</li>
+                <li>Cream cheese (full-fat, no additives)</li>
+                <li>Greek yogurt (full-fat, plain, no added sugar)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Eggs</div>
+            <div class="sub-category">Eggs</div>
+            <ul>
+                <li>Chicken eggs (whole, pasture-raised)</li>
+                <li>Duck eggs</li>
+                <li>Quail eggs</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Seafood</div>
+            <div class="sub-category">Fish</div>
+            <ul>
+                <li>Salmon (wild-caught, fillets, steaks)</li>
+                <li>Tuna (fresh or canned in water/oil)</li>
+                <li>Mackerel</li>
+                <li>Sardines (fresh or canned in water/oil)</li>
+                <li>Cod</li>
+                <li>Haddock</li>
+                <li>Trout</li>
+            </ul>
+            <div class="sub-category">Shellfish</div>
+            <ul>
+                <li>Shrimp</li>
+                <li>Crab</li>
+				<li>Lobster</li>
+                <li>Scallops</li>
+                <li>Oysters</li>
+				<li>Mussels</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Bone Broth & Gelatin</div>
+            <div class="sub-category">Bone Broth & Gelatin</div>
+            <ul>
+                <li>Bone broth (beef, chicken, pork; without additives)</li>
+                <li>Gelatin powder (unflavored, from grass-fed sources)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Processed Meats</div>
+            <div class="sub-category">Processed Meats</div>
+            <ul>
+                <li>Bacon (sugar-free, nitrate-free)</li>
+                <li>Sausages (sugar-free, additive-free)</li>
+                <li>Deli meats (roast beef, turkey breast, chicken breast, additive-free)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Fats</div>
+            <div class="sub-category">Animal Fats</div>
+            <ul>
+                <li>Beef tallow</li>
+                <li>Pork lard</li>
+                <li>Duck fat</li>
+                <li>Chicken fat (schmaltz)</li>
+                <li>Ghee (clarified butter)</li>
+                <li>Butter (unsalted, grass-fed if possible)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Supplements (If Needed)</div>
+            <div class="sub-category">Carnivore Diet Supplements</div>
+            <ul>
+                <li>Electrolytes (sodium, potassium, magnesium supplements if needed)</li>
+                <li>Vitamin D3 (if not getting sufficient sunlight)</li>
+                <li>Omega-3 fish oil (if not consuming fatty fish regularly)</li>
+                <li>Collagen peptides or protein (from grass-fed sources)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Seasonings</div>
+            <div class="sub-category">Minimal Seasonings</div>
+            <ul>
+                <li>Salt (preferably sea salt or Himalayan pink salt)</li>
+                <li>Pepper (if tolerated)</li>
+                <li>Herbs (limited use: fresh rosemary, thyme, oregano)</li>
+                <li>Spices (limited use: garlic, onion powder)</li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="category-title">Miscellaneous</div>
+            <div class="sub-category">Carnivore Items</div>
+            <ul>
+                <li>Pork rinds (unseasoned, no additives)</li>
+                <li>Liver pate (made from pure liver, no added sugars or fillers)</li>
+                <li>Beef jerky (sugar-free, nitrate-free)</li>
+                <li>Fish roe (caviar, salmon roe)</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>

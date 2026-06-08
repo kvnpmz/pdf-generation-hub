@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Grocery Checklist</title>
+        <style>
+            @page {
+                size: A4;
+                margin: 36pt;
+            }
+
+            html,
+            body,
+            div,
+            h1,
+            h2,
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "Liberation-Serif", serif;
+                height: 100%;
+                color: #000;
+            }
+
+            h1 {
+                text-align: center;
+                color: #2D5A4C;
+                text-transform: uppercase;
+                letter-spacing: 3pt;
+                font-size: 30pt;
+                border-bottom: 1.5pt solid #2D5A4C;
+                padding-bottom: 1.5pt;
+                margin-bottom: 3.75pt;
+            }
+
+            .container {
+                height: 722pt;
+            }
+
+            .category {
+                float: left;
+                width: 16.66%;
+                height: 100%;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+
+            h2 {
+                font-weight: bold;
+                text-align: center;
+                font-size: 10pt;
+                margin: 0 8pt 4pt 0;
+                border-bottom: 0.8pt solid black;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            li {
+                position: relative;
+                padding-left: 8pt;
+                font-size: 9pt;
+                line-height: 10.2pt;
+                height: 10.2pt;
+            }
+
+            li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 3pt;
+                width: 4pt;
+                height: 4pt;
+                border: 0.7pt solid #333;
+            }
+
+            li.blank-line::after {
+                content: "";
+                position: absolute;
+                left: 8pt;
+                bottom: 0;
+                width: 80%;
+                border: 0.25pt solid #333;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Grocery Checklist</h1>
+        <div class="container">
+            <div class="category">
+                <div class="column">
+                    <div class="section">
+                        <h2>Fruits</h2>
+                        <ul>
+                            <li>apples</li>
+                            <li>apricots</li>
+                            <li>avocados</li>
+                            <li>bananas</li>
+                            <li>berries</li>
+                            <li>cherries</li>
+                            <li>grapefruit</li>
+                            <li>grapes</li>
+                            <li>kiwi</li>
+                            <li>lemons</li>
+                            <li>limes</li>
+                            <li>melons</li>
+                            <li>nectarines</li>
+                            <li>oranges</li>
+                            <li>papaya</li>
+                            <li>peaches</li>
+                            <li>pears</li>
+                            <li>plums</li>
+                            <li>pomegranate</li>
+                            <li>watermelon</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Refrigerated</h2>
+                        <ul>
+                            <li>biscuits</li>
+                            <li>butter</li>
+                            <li>cheddar cheese</li>
+                            <li>cream / creamer </li>
+                            <li>cream cheese</li>
+                            <li>dip</li>
+                            <li>eggs</li>
+                            <li>egg substitute</li>
+                            <li>feta cheese</li>
+                            <li>half & half</li>
+                            <li>jack cheese</li>
+                            <li>milk</li>
+                            <li>mozzarella</li>
+                            <li>processed cheese</li>
+                            <li>salsa</li>
+                            <li>sour cream</li>
+                            <li>swiss cheese</li>
+                            <li>whipped cream</li>
+                            <li>yogurt</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Frozen</h2>
+                        <ul>
+                            <li>chicken bites</li>
+                            <li>desserts</li>
+                            <li>fish sticks</li>
+                            <li>fruit</li>
+                            <li>ice</li>
+                            <li>ice cream</li>
+                            <li>ice pops</li>
+                            <li>juice</li>
+                            <li>meat</li>
+                            <li>pie shells</li>
+                            <li>pizza</li>
+                            <li>pot pies</li>
+                            <li>potatoes</li>
+                            <li>TV dinners</li>
+                            <li>vegetables</li>
+                            <li>veggie burger</li>
+                            <li>waffles</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="column">
+                    <div class="section">
+                        <h2>Vegetables</h2>
+                        <ul>
+                            <li>artichokes</li>
+                            <li>arugula</li>
+                            <li>asparagus</li>
+                            <li>beets</li>
+                            <li>broccoli</li>
+                            <li>cabbage</li>
+                            <li>cauliflower</li>
+                            <li>carrots</li>
+                            <li>celery</li>
+                            <li>chilies</li>
+                            <li>chives</li>
+                            <li>cilantro</li>
+                            <li>corn</li>
+                            <li>cucumbers</li>
+                            <li>eggplant</li>
+                            <li>garlic cloves</li>
+                            <li>green onions</li>
+                            <li>kale</li>
+                            <li>lettuce</li>
+                            <li>onions</li>
+                            <li>peppers</li>
+                            <li>potatoes</li>
+                            <li>salad greens</li>
+                            <li>spinach</li>
+                            <li>sprouts</li>
+                            <li>squash</li>
+                            <li>tomatoes</li>
+                            <li>zucchini</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Breakfast</h2>
+                        <ul>
+                            <li>breakfast shake</li>
+                            <li>cereal</li>
+                            <li>english muffins</li>
+                            <li>grits</li>
+                            <li>hash browns</li>
+                            <li>instant coffee</li>
+                            <li>maple syrup</li>
+                            <li>oatmeal</li>
+                            <li>pancake mix</li>
+                            <li>protein powder</li>
+                            <li>sausage patties</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Baby</h2>
+                        <ul>
+                            <li>baby cereal</li>
+                            <li>baby food</li>
+                            <li>baby shampoo</li>
+                            <li>diapers</li>
+                            <li>diaper cream</li>
+                            <li>formula</li>
+                            <li>wipes</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Pets</h2>
+                        <ul>
+                            <li>cat food</li>
+                            <li>cat litter</li>
+                            <li>dog food</li>
+                            <li>pet shampoo</li>
+                            <li>treats</li>
+                            <li>flea treatment</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="column">
+                    <div class="section">
+                        <h2>Cans & Jars</h2>
+                        <ul>
+                            <li>applesauce</li>
+                            <li>baked beans</li>
+                            <li>black beans</li>
+                            <li>broth</li>
+                            <li>boullion cubes</li>
+                            <li>canned fruit</li>
+                            <li>canned vegetables</li>
+                            <li>carrots</li>
+                            <li>chili</li>
+                            <li>corn</li>
+                            <li>creamed corn</li>
+                            <li>jam / jelly</li>
+                            <li>mushrooms</li>
+                            <li>olives (green)</li>
+                            <li>olives (black)</li>
+                            <li>canned pasta</li>
+                            <li>pasta sauce</li>
+                            <li>peanut butter</li>
+                            <li>pickles</li>
+                            <li>pie filling</li>
+                            <li>soup</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Snacks</h2>
+                        <ul>
+                            <li>candy</li>
+                            <li>cookies</li>
+                            <li>crackers</li>
+                            <li>dried fruit</li>
+                            <li>fruit snacks</li>
+                            <li>gelatin</li>
+                            <li>graham crackers</li>
+                            <li>granola bars</li>
+                            <li>gum</li>
+                            <li>nuts</li>
+                            <li>popcorn</li>
+                            <li>potato chips</li>
+                            <li>pretzels</li>
+                            <li>pudding</li>
+                            <li>raisins</li>
+                            <li>rice cakes</li>
+                            <li>seeds</li>
+                            <li>tortilla chips</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Bakery</h2>
+                        <ul>
+                            <li>bagels</li>
+                            <li>bread</li>
+                            <li>croissants</li>
+                            <li>cookies</li>
+                            <li>croutons</li>
+                            <li>donuts</li>
+                            <li>dinner rolls</li>
+                            <li>hamburger buns</li>
+                            <li>hot dog buns</li>
+                            <li>muffins</li>
+                            <li>pastries</li>
+                            <li>pie</li>
+                            <li>pita bread</li>
+                            <li>tortillas (corn)</li>
+                            <li>tortillas (flour)</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="column">
+                    <div class="section">
+                        <h2>Meat</h2>
+                        <ul>
+                            <li>bacon</li>
+                            <li>chicken</li>
+                            <li>deli meat</li>
+                            <li>ground beef</li>
+                            <li>ground turkey</li>
+                            <li>ham</li>
+                            <li>hot dogs</li>
+                            <li>pork</li>
+                            <li>sausage</li>
+                            <li>steak</li>
+                            <li>turkey</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Seafood</h2>
+                        <ul>
+                            <li>catfish</li>
+                            <li>cod</li>
+                            <li>crab</li>
+                            <li>halibut</li>
+                            <li>lobster</li>
+                            <li>oysters</li>
+                            <li>salmon</li>
+                            <li>shrimp</li>
+                            <li>tilapia</li>
+                            <li>tuna</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Baking</h2>
+                        <ul>
+                            <li>baking powder</li>
+                            <li>baking soda</li>
+                            <li>bread crumbs</li>
+                            <li>cake decor</li>
+                            <li>cake mix</li>
+                            <li>canned milk</li>
+                            <li>chocolate chips</li>
+                            <li>cocoa</li>
+                            <li>cornmeal</li>
+                            <li>cornstarch</li>
+                            <li>flour</li>
+                            <li>food coloring</li>
+                            <li>frosting</li>
+                            <li>muffin mix</li>
+                            <li>pie crust</li>
+                            <li>shortening</li>
+                            <li>sugar (brown)</li>
+                            <li>sugar (powdered)</li>
+                            <li>sugar</li>
+                            <li>yeast</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Pasta/Rice</h2>
+                        <ul>
+                            <li>brown rice</li>
+                            <li>burger helper</li>
+                            <li>couscous</li>
+                            <li>elbow macaroni</li>
+                            <li>lasagna</li>
+                            <li>mac & cheese</li>
+                            <li>noodle mix</li>
+                            <li>rice mix</li>
+                            <li>spaghetti</li>
+                            <li>white rice</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="column">
+                    <div class="section">
+                        <h2>Seasoning</h2>
+                        <ul>
+                            <li>basil</li>
+                            <li>bay leaves</li>
+                            <li>BBQ seasoning</li>
+                            <li>cinnamon</li>
+                            <li>cloves</li>
+                            <li>cumin</li>
+                            <li>curry</li>
+                            <li>dill</li>
+                            <li>garlic powder</li>
+                            <li>garlic salt</li>
+                            <li>gravy mix</li>
+                            <li>Italian seasoning</li>
+                            <li>marinade</li>
+                            <li>meat tenderizer</li>
+                            <li>oregano</li>
+                            <li>paprika</li>
+                            <li>pepper</li>
+                            <li>poppy seed</li>
+                            <li>red pepper</li>
+                            <li>sage</li>
+                            <li>salt</li>
+                            <li>seasoned salt</li>
+                            <li>soup mix</li>
+                            <li>vanilla extract</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Sauces & Condiments</h2>
+                        <ul>
+                            <li>BBQ sauce</li>
+                            <li>cocktail sauce</li>
+                            <li>cooking spray</li>
+                            <li>honey</li>
+                            <li>horseradish</li>
+                            <li>hot sauce</li>
+                            <li>ketchup</li>
+                            <li>lemon juice</li>
+                            <li>mayonnaise</li>
+                            <li>mustard</li>
+                            <li>olive oil</li>
+                            <li>relish</li>
+                            <li>salad dressing</li>
+                            <li>salsa</li>
+                            <li>soy sauce</li>
+                            <li>steak sauce</li>
+                            <li>sweet & sour</li>
+                            <li>teriyaki</li>
+                            <li>vegetable oil</li>
+                            <li>vinegar</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Drinks</h2>
+                        <ul>
+                            <li>beer</li>
+                            <li>champagne</li>
+                            <li>club soda</li>
+                            <li>coffee</li>
+                            <li>diet soft drinks</li>
+                            <li>energy drinks</li>
+                            <li>juice</li>
+                            <li>liquor</li>
+                            <li>soft drinks</li>
+                            <li>tea</li>
+                            <li>wine</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <div class="column">
+                    <div class="section">
+                        <h2>Paper Products</h2>
+                        <ul>
+                            <li>aluminum foil</li>
+                            <li>coffee filters</li>
+                            <li>cups</li>
+                            <li>garbage bags</li>
+                            <li>napkins</li>
+                            <li>paper plates</li>
+                            <li>paper towels</li>
+                            <li>plastic bags</li>
+                            <li>plastic cutlery</li>
+                            <li>plastic wrap</li>
+                            <li>straws</li>
+                            <li>waxed paper</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Cleaning</h2>
+                        <ul>
+                            <li>air freshener</li>
+                            <li>bleach</li>
+                            <li>dish soap</li>
+                            <li>dishwasher pods</li>
+                            <li>floor cleaner</li>
+                            <li>glass spray</li>
+                            <li>laundry detergent</li>
+                            <li>fabric softener</li>
+                            <li>polish</li>
+                            <li>sponges</li>
+                            <li>vacuum bags</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Personal Care</h2>
+                        <ul>
+                            <li>bath soap</li>
+                            <li>bug repellant</li>
+                            <li>family planning</li>
+                            <li>feminine products</li>
+                            <li>conditioner</li>
+                            <li>cotton swabs</li>
+                            <li>dental floss</li>
+                            <li>deodorant</li>
+                            <li>facial tissue</li>
+                            <li>hair spray</li>
+                            <li>hand soap</li>
+                            <li>lip care</li>
+                            <li>lotion</li>
+                            <li>makeup</li>
+                            <li>mouthwash</li>
+                            <li>razors/blades</li>
+                            <li>shampoo</li>
+                            <li>shaving cream</li>
+                            <li>sunscreen</li>
+                            <li>toilet tissue</li>
+                            <li>toothbrush</li>
+                            <li>toothpaste</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Misc. Items</h2>
+                        <ul>
+                            <li>batteries</li>
+                            <li>charcoal</li>
+                            <li>greeting cards</li>
+                            <li>light bulbs</li>
+                            <li class="blank-line"></li>
+                            <li class="blank-line"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

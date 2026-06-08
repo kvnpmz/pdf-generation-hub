@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /*
+            */
+            :root {
+                --page-height: {{ page_height }}pt;
+                --page-width: {{ page_width }}pt;
+                --header-color: #4F8E70;
+                --line-color: #315041;
+                --color: #121212;
+                --h1-height: {{ h1_height }}pt;
+                --h1-margin: {{ h1_margin }}pt;
+                --h2-height: {{ h2_height }}pt;
+                --item-height: {{ item_height }}pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            @page {
+                size: var(--page-width) var(--page-height);
+                margin: 36pt;
+            }
+
+            html,
+            body {
+                font-family: "Ubuntu Sans", sans-serif;
+                height: 100%;
+                color: var(--color);
+            }
+
+            .container {
+                height: calc(100% - var(--h1-height) - var(--h1-margin));
+                width: 100%;
+            }
+
+            .column {
+                height: 100%;
+                float: left;
+                width: calc(33.3% - 8pt);
+                margin: 0 12pt 0 0;
+            }
+
+            .column:last-child {
+                margin: 0;
+            }
+
+            h1 {
+                height: var(--h1-height);
+                line-height: 1;
+                font-size: 30pt;
+                font-weight: 800;
+                text-transform: uppercase;
+                text-align: center;
+                color: var(--header-color);
+                border-bottom: 1.5pt solid var(--line-color);
+                margin-bottom: var(--h1-margin);
+            }
+
+            h2 {
+                height: var(--h2-height);
+                line-height: 1;
+                font-size: 14pt;
+            }
+
+            .item {
+                position: relative;
+                height: var(--item-height);
+                line-height: 1;
+                font-size: 12pt;
+                padding: 0 0 0 11pt;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .item::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 1pt;
+                width: 6pt;
+                height: 6pt;
+                border: 1pt solid var(--color);
+                border-radius: 1.5pt;
+            }
+
+            /*
+            */
+            {% for m in margins %}
+            .col-{{loop.index0}} .section:not(:last-child) {
+                margin-bottom: {{m}}pt;
+            }
+
+            .col-{{loop.index0}} .section:last-child {
+                margin-bottom: 0;
+            }
+            {% endfor %}
+        </style>
+    </head>
+    <body>
+        <h1>College Move-In Checklist</h1>
+        <div class="container">
+            <div class="column col-0">
+                <div class="section">
+                    <h2>Living Room</h2>
+                    <div class="item">Sofa</div>
+                    <div class="item">Armchairs</div>
+                    <div class="item">Coffee Table</div>
+                    <div class="item">Side Table</div>
+                    <div class="item">Floor Lamp</div>
+                    <div class="item">Ceiling Light</div>
+                    <div class="item">Curtains / Blinds</div>
+                    <div class="item">Doormat</div>
+                    <div class="item">Rug</div>
+                    <div class="item">TV Display</div>
+                    <div class="item">Speakers</div>
+                    <div class="item">Wall Art / Decorations</div>
+                    <div class="item">Bookshelf</div>
+                </div>
+                <div class="section">
+                    <h2>Bedroom</h2>
+                    <div class="item">Bed Frame</div>
+                    <div class="item">Mattress</div>
+                    <div class="item">Sheets</div>
+                    <div class="item">Pillows</div>
+                    <div class="item">Blanket / Comforter</div>
+                    <div class="item">Nightstand</div>
+                    <div class="item">Lamp</div>
+                    <div class="item">Wardrobe / Closet</div>
+                    <div class="item">Clothes Hangers</div>
+                    <div class="item">Laundry Basket</div>
+                    <div class="item">Power Strip</div>
+                </div>
+                <div class="section">
+                    <h2>Cookware</h2>
+                    <div class="item">Frying Pan</div>
+                    <div class="item">Saucepan</div>
+                    <div class="item">Stock Pot</div>
+                    <div class="item">Baking Sheet</div>
+                    <div class="item">Mixing Bowls</div>
+                    <div class="item">Cutting Board</div>
+                    <div class="item">Knife Set</div>
+                    <div class="item">Spatula</div>
+                    <div class="item">Ladle</div>
+                    <div class="item">Tongs</div>
+                    <div class="item">Grater</div>
+                    <div class="item">Measuring Cups / Spoons</div>
+                    <div class="item">Colander / Strainer</div>
+                    <div class="item">Can Opener</div>
+                </div>
+            </div>
+            <div class="column col-1">
+                <div class="section">
+                    <h2>Dining Room</h2>
+                    <div class="item">Dining Table</div>
+                    <div class="item">Dining Chairs</div>
+                    <div class="item">Placemats</div>
+                    <div class="item">Coasters</div>
+                    <div class="item">Tablecloth</div>
+                </div>
+                <div class="section">
+                    <h2>Cleaning</h2>
+                    <div class="item">Broom / Dustpan</div>
+                    <div class="item">Mop / Bucket</div>
+                    <div class="item">Vacuum Cleaner</div>
+                    <div class="item">All-purpose Cleaner</div>
+                    <div class="item">Glass Cleaner</div>
+                    <div class="item">Sponges / Cloths</div>
+                    <div class="item">Garbage Bags</div>
+                </div>
+                <div class="section">
+                    <h2>Dinnerware & Utensils</h2>
+                    <div class="item">Dinner Plates</div>
+                    <div class="item">Side Plates</div>
+                    <div class="item">Bowls</div>
+                    <div class="item">Cups / Mugs</div>
+                    <div class="item">Glasses</div>
+                    <div class="item">Forks</div>
+                    <div class="item">Spoons</div>
+                    <div class="item">Knives</div>
+                    <div class="item">Teaspoons</div>
+                    <div class="item">Serving Spoons</div>
+                    <div class="item">Serving Forks</div>
+                </div>
+                <div class="section">
+                    <h2>Office</h2>
+                    <div class="item">Desk</div>
+                    <div class="item">Desk Chair</div>
+                    <div class="item">Desk Lamp</div>
+                    <div class="item">Computer / Laptop</div>
+                    <div class="item">Monitor</div>
+                    <div class="item">Keyboard</div>
+                    <div class="item">Mouse</div>
+                    <div class="item">Headphones</div>
+                    <div class="item">Printer</div>
+                    <div class="item">Pens / Pencils</div>
+                    <div class="item">Paper / Notepad</div>
+                    <div class="item">Markers / Highlighters</div>
+                </div>
+            </div>
+            <div class="column col-2">
+                <div class="section">
+                    <h2>Kitchen Supplies</h2>
+                    <div class="item">Food Storage Containers</div>
+                    <div class="item">Trash Bin</div>
+                    <div class="item">Plastic Wrap</div>
+                    <div class="item">Paper Towels & Holder</div>
+                    <div class="item">Dish Soap</div>
+                    <div class="item">Dishwashing Brush / Sponge</div>
+                    <div class="item">Dish Drying Rack</div>
+                    <div class="item">Kitchen Towels</div>
+                    <div class="item">Cutlery Tray</div>
+                    <div class="item">Oven Mitts</div>
+                </div>
+                <div class="section">
+                    <h2>Bathroom</h2>
+                    <div class="item">Towels</div>
+                    <div class="item">Washcloths</div>
+                    <div class="item">Shower Curtain</div>
+                    <div class="item">Bath Mat</div>
+                    <div class="item">Toilet Brush / Plunger</div>
+                    <div class="item">Trash Bin</div>
+                    <div class="item">Soap</div>
+                    <div class="item">Shampoo / Conditioner</div>
+                    <div class="item">Toothbrush / Toothpaste</div>
+                    <div class="item">Toothbrush Holder</div>
+                </div>
+                <div class="section">
+                    <h2>Kitchen Appliances</h2>
+                    <div class="item">Refrigerator / Freezer</div>
+                    <div class="item">Microwave</div>
+                    <div class="item">Oven / Cooktop</div>
+                    <div class="item">Kettle</div>
+                    <div class="item">Toaster</div>
+                    <div class="item">Coffee Machine</div>
+                    <div class="item">Blender / Food Processor</div>
+                    <div class="item">Rice Cooker</div>
+                </div>
+                <div class="section">
+                    <h2>Home Organization</h2>
+                    <div class="item">Storage Boxes / Bins</div>
+                    <div class="item">Drawer Organizers</div>
+                    <div class="item">Hooks / Wall Hangers</div>
+                    <div class="item">Shelving Units</div>
+                    <div class="item">Closet Organizers</div>
+                    <div class="item">Laundry Hamper</div>
+                    <div class="item">Post-it Notes / Tape</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

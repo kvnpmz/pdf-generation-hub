@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Budget Template</title>
+    <style>
+        /* --- Page Setup --- */
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        * {
+            #outline: 2px solid red;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: "Liberation Sans", sans-serif;
+            color: #323232;
+        }
+
+        /* --- Variables & Colors --- */
+        :root {
+            --blue: #6FAED9;        /* soft muted blue (text/borders) */
+            --light-blue: #CFE7F5;  /* gentle header fill */
+            --sky-blue: #F4FAFF;    /* very light zebra striping */
+        }
+
+        /* --- Typography --- */
+        h1 {
+            color: var(--blue);
+            text-align: center;
+            font-size: 32pt;
+            padding: 0;
+            #outline: 2px solid red;
+            margin: 0 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10pt; /* Spacing between rows */
+        }
+
+        .header-item {
+            display: flex;
+            align-items: baseline;
+            width: 45%; /* Adjust width to give a gap in the center */
+        }
+
+        .line {
+            flex-grow: 1; /* This forces the line to fill the remaining space */
+            border-bottom: 1.5px solid #000;
+            margin-left: 8px;
+            height: 10pt; /* Ensures the line sits at the text baseline */
+        }
+
+        /* --- Budget Table --- */
+        table.budget-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1.5px solid var(--blue);
+            border-radius: 12px;
+        }
+
+        table.budget-table th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        table.budget-table th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+        table.budget-table tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+
+        table.budget-table tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+
+        table.budget-table th {
+            background-color: var(--light-blue);
+            border: 0.5pt solid var(--blue);
+            padding: 6px;
+            font-size: 14.4px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table.budget-table td {
+            border: 0.5pt solid var(--blue);
+            text-transform: uppercase;
+            font-size: 14.4px;
+            line-height: 0.9;
+            padding-top: 3.6px;
+            padding-bottom: 4.7px;
+        }
+
+        /* Zebra Striping */
+        table.budget-table tbody tr:nth-child(even) {
+            background-color: var(--sky-blue);
+        }
+
+
+        /* Column widths */
+        .col-category { width: 35%; }
+        .col-data     { width: 13%; }
+        .col-notes    { width: 18%; }
+        .col-paid     { width: 8%; text-align: center; }
+
+        .bullet {
+            color: var(--blue);
+            background-color: var(--blue);
+            font-size: 12px;
+            padding: 0 2.5px;
+            margin: 0 5px;
+            vertical-align: baseline;
+            position: relative;
+            top: 0px;
+            border-radius: 50%;
+        }
+
+        .paid-box {
+            color: var(--light-blue);
+            background-color: var(--light-blue);
+            font-size: 16px;
+            padding: 0 3px; 
+            margin: 0;
+            vertical-align: baseline;
+            text-align: center;
+            position: relative;
+            border-radius: 30%;
+            top: 0px;
+        }
+
+        /* Total Row */
+        .total-row td {
+            padding: 3px 30px 3px !important;
+            font-weight: bold;
+            line-height: 1.6 !important;
+            font-size: 18px;
+            background-color: var(--light-blue) !important;
+        }
+
+        .total-row td:first-child {
+            background-color: #ffffff !important; /* White background */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Monthly Budget Template</h1>
+        <div class="header-row">
+            <div class="header-item">
+                MONTH: <span class="line"></span>
+            </div>
+            <div class="header-item">
+                YEAaR: <span class="line"></span>
+            </div>
+        </div>
+
+    <table class="budget-table">
+        <thead>
+            <tr>
+                <th class="col-category">EXPENSES CATEGORY</th>
+                <th class="col-data">BUDGETED</th>
+                <th class="col-data">ACTUAL</th>
+                <th class="col-data">BALANCE</th>
+                <th class="col-notes">NOTES</th>
+                <th class="col-paid">PAID</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr><td><span class="bullet">■</span>Rent or Mortgage</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Property Taxes</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Home Insurance</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Electricity</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Water and Sewer</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Internet</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Mobile Phone</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Groceries</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Dining Out</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Fuel</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Vehicle Maintenance</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Car Payment</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Auto Insurance</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Public Transit</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Health Insurance</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Medical Expenses</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Medications</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Personal Care</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Childcare</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Tuition and Education</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Student Loans</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Emergency Savings</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Retirement Savings</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Investments</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Credit Card Payments</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Subscriptions</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Entertainment</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Travel</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Gifts and Charity</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Clothing</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Household Supplies</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+            <tr><td><span class="bullet">■</span>Miscellaneous</td><td></td><td></td><td></td><td></td><td class="col-paid"><span class="paid-box">■</span></td></tr>
+
+            <tr class="total-row">
+                <td>TOTAL EXPENSES</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

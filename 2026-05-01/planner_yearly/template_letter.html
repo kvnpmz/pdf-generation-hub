@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            @page {
+                size: Letter landscape;
+                margin: 36pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "Liberation Sans", sans-serif;
+                background-color: #fff;
+                letter-spacing: 2pt;
+                color: #7a7a7a;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+
+            th,
+            td {
+                border-top: 0.5pt solid #e1e1e1;
+                border-bottom: 0.5pt solid #e1e1e1;
+                
+                border-left: 1.5pt solid #bbb;
+                border-right: 1.5pt solid #bbb;
+                height: 15.77pt;
+                padding: 0;
+                text-align: center;
+            }
+
+            tbody tr:nth-child(5n):not(:nth-child(30)) td,
+            tbody tr:last-child td {
+                border-bottom: 1.2pt solid #7a7a7a;
+            }
+
+            .month-header th {
+                border: none;
+                border-bottom: 1.5pt solid #7a7a7a;
+                font-weight: bold;
+                height: 14pt;
+                font-size: 9pt;
+            }
+
+            .day-col {
+                width: 22pt;
+                border: none;
+                border-bottom: 0.5pt solid #e1e1e1;
+                font-size: 8pt;
+                font-weight: bold;
+                letter-spacing: normal;
+                color: #7a7a7a;
+            }
+
+            header {
+                width: 100%;
+                height: 30pt;
+                font-size: 0; /* removes inline-block spacing gaps */
+            }
+
+            header h1 {
+                display: inline-block;
+                width: 80%;
+                height: 30pt;
+                line-height: 22pt;
+                font-size: 22pt;
+                font-weight: bold;
+                letter-spacing: 8pt;
+                color: #000;
+            }
+
+            header .year {
+                display: inline-block;
+                text-align: left;
+                width: 20%;
+                height: 30pt;
+                font-size: 10pt;
+                color: #333;
+                vertical-align: top;
+            }
+
+            header .line {
+                display: block;
+                border-bottom: 1.2pt solid #000;
+                margin-top: 6pt;
+            }
+
+            header .planner {
+                color: #7a7a7a;
+                font-size: 19pt;
+            }
+
+            .footer-line {
+                margin-top: 5pt;
+                border-top: 1.5pt solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                <i>//</i>YEARLY <span class="planner">PLANNER</span>
+            </h1>
+            <div class="year"> YEAR: <span class="line"></span>
+            </div>
+        </header>
+        <table>
+            <thead>
+                <tr class="month-header">
+                    <th class="day-col"></th>
+                    <th>JAN</th>
+                    <th>FEB</th>
+                    <th>MAR</th>
+                    <th>APR</th>
+                    <th>MAY</th>
+                    <th>JUN</th>
+                    <th>JUL</th>
+                    <th>AUG</th>
+                    <th>SEP</th>
+                    <th>OCT</th>
+                    <th>NOV</th>
+                    <th>DEC</th>
+                    <th class="day-col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Manually expanded for WeasyPrint compatibility -->
+                <tr>
+                    <td class="day-col">1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">1</td>
+                </tr>
+                <tr>
+                    <td class="day-col">2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">2</td>
+                </tr>
+                <tr>
+                    <td class="day-col">3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">3</td>
+                </tr>
+                <tr>
+                    <td class="day-col">4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">4</td>
+                </tr>
+                <tr>
+                    <td class="day-col">5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">5</td>
+                </tr>
+                <tr>
+                    <td class="day-col">6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">6</td>
+                </tr>
+                <tr>
+                    <td class="day-col">7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">7</td>
+                </tr>
+                <tr>
+                    <td class="day-col">8</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">8</td>
+                </tr>
+                <tr>
+                    <td class="day-col">9</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">9</td>
+                </tr>
+                <tr>
+                    <td class="day-col">10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">10</td>
+                </tr>
+                <tr>
+                    <td class="day-col">11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">11</td>
+                </tr>
+                <tr>
+                    <td class="day-col">12</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">12</td>
+                </tr>
+                <tr>
+                    <td class="day-col">13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">13</td>
+                </tr>
+                <tr>
+                    <td class="day-col">14</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">14</td>
+                </tr>
+                <tr>
+                    <td class="day-col">15</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">15</td>
+                </tr>
+                <tr>
+                    <td class="day-col">16</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">16</td>
+                </tr>
+                <tr>
+                    <td class="day-col">17</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">17</td>
+                </tr>
+                <tr>
+                    <td class="day-col">18</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">18</td>
+                </tr>
+                <tr>
+                    <td class="day-col">19</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">19</td>
+                </tr>
+                <tr>
+                    <td class="day-col">20</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">20</td>
+                </tr>
+                <tr>
+                    <td class="day-col">21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">21</td>
+                </tr>
+                <tr>
+                    <td class="day-col">22</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">22</td>
+                </tr>
+                <tr>
+                    <td class="day-col">23</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">23</td>
+                </tr>
+                <tr>
+                    <td class="day-col">24</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">24</td>
+                </tr>
+                <tr>
+                    <td class="day-col">25</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">25</td>
+                </tr>
+                <tr>
+                    <td class="day-col">26</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">26</td>
+                </tr>
+                <tr>
+                    <td class="day-col">27</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">27</td>
+                </tr>
+                <tr>
+                    <td class="day-col">28</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">28</td>
+                </tr>
+                <tr>
+                    <td class="day-col">29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">29</td>
+                </tr>
+                <tr>
+                    <td class="day-col">30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">30</td>
+                </tr>
+                <tr>
+                    <td class="day-col">31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="day-col">31</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer-line"></div>
+    </body>
+</html>

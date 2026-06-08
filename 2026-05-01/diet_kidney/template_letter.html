@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            :root {
+                --container-height: 672.5pt;
+                --h2-line-height: 1.3;
+                --li-line-height: 1.308;
+            }
+
+            .category:first-child {
+                --li-line-height: 1.43;
+            }
+
+            @page {
+                size: letter;
+                margin: 36pt;
+            }
+
+            html,
+            body,
+            div,
+            section,
+            h1,
+            h2,
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "liberation sans", sans-serif;
+                height: 100%;
+                color: #000;
+            }
+
+            h1 {
+                text-align: center;
+                color: #202020;
+                text-transform: uppercase;
+                letter-spacing: 2pt;
+                font-size: 27pt;
+                border-bottom: 1.8pt solid #000;
+                padding-bottom: 1.5pt;
+                margin-bottom: 5pt;
+                line-height: 1.3;
+            }
+
+            .subtitle {
+                font-size: 22pt;
+                text-transform: uppercase;
+                color: #666;
+                vertical-align: middle;
+            }
+
+            .container {
+                height: var(--container-height);
+            }
+
+            .category {
+                float: left;
+                width: calc(33.3% - 10pt);
+                height: 100%;
+                margin-right: 15pt;
+            }
+
+            .category:last-child {
+                margin-right: 0;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                border: 1.5pt solid #000;
+                border-radius: 10pt;
+                padding: 0 3pt;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                font-weight: bold;
+                text-align: center;
+                font-size: 20pt;
+                #padding-left: 24pt;
+                line-height: var(--h2-line-height);
+                #background-color: #ebafb0;
+                border-bottom: 1.3pt solid #000;
+                margin-bottom: 3pt;
+            }
+
+            h2.left {
+                color: #2A7F2A;
+            }
+
+            h2.middle {
+                color: #795901;
+            }
+
+            h2.right {
+                color: #B22222;
+            }
+
+            .header {
+                position: relative;
+                width: 100%;
+                padding-left: 12pt;
+                margin-bottom: 4pt;
+                height: 30pt;
+            }
+
+            .icon {
+                position: absolute;
+                top: -0.5pt;
+                left: 0;
+                width: 31pt;
+                height: 31pt;
+                z-index: 2;
+                padding-left: 5pt;
+                border: 1pt solid #f8bbd0;
+                border-radius: 50%;
+                line-height: 28pt;
+                font-size: 12pt;
+                background-color: #fff;
+            }
+
+            .shift-up {
+                line-height: 22pt;
+            }
+
+            .shift-right {
+                padding-left: 6pt;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 636.5pt;
+            }
+
+            li {
+                position: relative;
+                #text-transform: uppercase;
+                line-height: var(--li-line-height);
+                padding-left: 10pt;
+                font-weight: bold;
+                font-size: 11.5pt;
+                #height: calc(var(--li-line-height) * 1em);
+                min-height: calc(var(--li-line-height) * 1em);
+                height: auto;
+            }
+
+            li::before {
+                content: "";
+                position: absolute;
+                left: 2pt;
+                top: 6pt;
+                width: 2pt;
+                height: 2pt;
+                border-radius: 50%;
+                background-color: #000;
+                border: 1pt solid #000;
+            }
+
+            li.sub {
+                list-style: none;
+                font-weight: bold;
+                text-align: center;
+                font-size: 10pt;
+                text-transform: uppercase;
+                min-height: 20pt;
+                line-height: 20pt;
+                margin: 5pt 0;
+                padding: 0;
+                color: #fff;
+                #border-bottom: 0.8pt solid #1e88e5;
+            }
+
+            li.sub.left {
+                background-color: #2A7F2A;
+            }
+
+            li.sub.right {
+                background-color: #B22222;
+            }
+
+            li.sub::before {
+                display: none;
+            }
+
+            li.blank-line::after {
+                content: "";
+                position: absolute;
+                top: 5pt;
+                left: 16pt;
+                height: 12pt;
+                width: 89%;
+                border-bottom: 1pt solid #333;
+            }
+
+            .column.left {
+                background-color: #E8F5E9;
+            }
+
+            .column.middle {
+                background-color: #FFFDE7;
+            }
+
+            .column.right {
+                background-color: #FFEBEE;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Kidney Disease (CKD) Food List</h1>
+        <div class="container">
+            <!-- COLUMN 1 -->
+            <div class="category">
+                <div class="column left">
+                    <section>
+                        <h2 class="left">Eat</h2>
+                        <ul>
+                            <li>Red bell peppers</li>
+                            <li>Cauliflower & cabbage</li>
+                            <li>Green beans & celery</li>
+                            <li>Cucumber & radishes</li>
+                            <li>Arugula & lettuce</li>
+                            <li>Eggplant & zucchini</li>
+                            <li>Turnips & rutabaga</li>
+                            <li>White onion & garlic</li>
+                            <li>Watercress & fennel</li>
+                            <li>Leeks & bean sprouts</li>
+                            <li>Yellow squash & jicama</li>
+                            <li>Fresh/froz. blueberries</li>
+                            <li>Cranberries & grapes</li>
+                            <li>Raspberries & plums</li>
+                            <li>Pineapple & cherries</li>
+                            <li>Fresh/froz. strawberries</li>
+                            <li>Apple & pear slices</li>
+                            <li>Watermelon slices</li>
+                            <li>Fresh lemon juice</li>
+                            <li>Skinless chicken</li>
+                            <li>Fresh white fish</li>
+                            <li>Egg white omelets</li>
+                            <li>Lean ground turkey</li>
+                            <li>White rice & couscous</li>
+                            <li>Plain white bread</li>
+                            <li>Unsalted rice cakes</li>
+                            <li>Angel hair pasta</li>
+                            <li>Cream cheese spread</li>
+                            <li>Extra virgin olive oil</li>
+                            <li>Fresh ginger root</li>
+                            <li>Unsalted popcorn</li>
+                            <li>Turmeric & cinnamon</li>
+                            <li>Low-sodium broth</li>
+                            <li>Unsalted crackers</li>
+                            <li>Plain rice noodles</li>
+                            <li>Fresh basil & dill</li>
+                            <li>Unsalted macadamias</li>
+                            <li>Honey & fruit jams</li>
+                            <li>Rice milk & sherbet</li>
+                            <li>Herbal & rooibos tea</li>
+                            <li>Corn & flour tortillas</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <!-- COLUMN 2 -->
+            <div class="category">
+                <div class="column middle">
+                    <section>
+                        <h2 class="middle">Limit</h2>
+                        <ul>
+                            <li>Whole milk & yogurt</li>
+                            <li>Cheddar & Swiss cheese</li>
+                            <li>Whole wheat bread</li>
+                            <li>Brown rice & quinoa</li>
+                            <li>Lean red meat cuts</li>
+                            <li>Whole eggs & yolks</li>
+                            <li>Bananas & oranges</li>
+                            <li>Kiwi & cantaloupe</li>
+                            <li>Mangoes & papayas</li>
+                            <li>Dried apricots & figs</li>
+                            <li>Baked & sweet potato</li>
+                            <li>Spinach & Swiss chard</li>
+                            <li>Tomato sauce & paste</li>
+                            <li>Broccoli & asparagus</li>
+                            <li>Cooked corn & peas</li>
+                            <li>Mushrooms & artichokes</li>
+                            <li>Black beans & lentils</li>
+                            <li>Chickpeas & hummus</li>
+                            <li>Natural peanut butter</li>
+                            <li>Almonds & walnuts</li>
+                            <li>Sunflower & chia seeds</li>
+                            <li>Coffee & black tea</li>
+                            <li>Dark chocolate squares</li>
+                            <li>Oatmeal & granola</li>
+                            <li>Firm tofu & edamame</li>
+                            <li>Soy milk & tempeh</li>
+                            <li>Canned tuna & salmon</li>
+                            <li>Beets & parsnips</li>
+                            <li>Orange & prune juice</li>
+                            <li>Pomegranate seeds</li>
+                            <li>Coconut milk & cream</li>
+                            <li>Raisins & dried dates</li>
+                            <li>Cottage & ricotta</li>
+                            <li>Pork & lamb chops</li>
+                            <li>Shellfish & shrimp</li>
+                            <li>Dark meat poultry</li>
+                            <li>Beer, wine & spirits</li>
+                            <li>Avocado & guacamole</li>
+                            <li>Bran cereal & muesli</li>
+                            <li>Sardines & anchovies</li>
+                            <li>Buttermilk & kefir</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <!-- COLUMN 3 -->
+            <div class="category">
+                <div class="column right">
+                    <section>
+                        <h2 class="right">Avoid</h2>
+                        <ul>
+                            <li>Star fruit & its juice</li>
+                            <li>Dark cola drinks</li>
+                            <li>Processed deli meats</li>
+                            <li>Canned soups & stews</li>
+                            <li>Instant ramen noodles</li>
+                            <li>Pickles & sauerkraut</li>
+                            <li>Salted chips & pretzels</li>
+                            <li>Soy sauce & teriyaki</li>
+                            <li>Frozen prepared meals</li>
+                            <li>Fast food burgers</li>
+                            <li>Hot dogs & sausages</li>
+                            <li>Bacon & cured ham</li>
+                            <li>Bologna & salami</li>
+                            <li>Salted canned goods</li>
+                            <li>Packaged mac & cheese</li>
+                            <li>Boxed stuffing mix</li>
+                            <li>Processed cheese slices</li>
+                            <li>Sweetened conden. milk</li>
+                            <li>Bottled salad dressing</li>
+                            <li>Bouillon cubes & powder</li>
+                            <li>Ketchup & BBQ sauce</li>
+                            <li>Canned baked beans</li>
+                            <li>Frozen pizza & pockets</li>
+                            <li>Microwave popcorn</li>
+                            <li>Jerky & dried meats</li>
+                            <li>Smoked fish & meats</li>
+                            <li>Canned chili & ravioli</li>
+                            <li>Cheese puffs & curls</li>
+                            <li>Salted mixed nuts</li>
+                            <li>Worcestershire sauce</li>
+                            <li>Canned biscuit dough</li>
+                            <li>Plantain & banana chips</li>
+                            <li>Energy & sports drinks</li>
+                            <li>Pancake & waffle mix</li>
+                            <li>Instant mashed potato</li>
+                            <li>Packaged snack cakes</li>
+                            <li>Frozen breaded fish</li>
+                            <li>Instant oatmeal packs</li>
+                            <li>Canned meat spreads</li>
+                            <li>Gravy & sauce packets</li>
+                            <li>Seasoning salt blends</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

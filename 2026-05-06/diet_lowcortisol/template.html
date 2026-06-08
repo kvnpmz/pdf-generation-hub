@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            :root {
+                #--dimension-vertical: 792pt;
+                --dimension-vertical: 842pt;
+                --dimension-offset: 148pt;
+            }
+
+            @page {
+                size: a4;
+                margin: 36pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "ubuntu sans", sans-serif;
+                height: 100%;
+                color: #121212;
+            }
+
+            h1 {
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 4pt;
+                font-size: 30pt;
+                font-weight: 800;
+                padding: 5pt 0;
+            }
+
+            .container {
+                height: calc(var(--dimension-vertical) - var(--dimension-offset));
+            }
+
+            .column-wrapper {
+                float: left;
+                width: calc(33.3% - 10pt);
+                margin: 0 15pt 0 0;
+                height: 100%;
+            }
+
+            .column-wrapper:last-child {
+                margin: 0;
+            }
+
+            .column {
+                height: 100%;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                font-weight: bold;
+                text-align: center;
+                font-size: 20pt;
+                border-radius: 10pt;
+                margin: 0 0 3pt 0;
+            }
+
+            .left, .middle, .right {
+                height: 100%;
+            }
+
+            .left h2 {
+                background-color: #b3deb6;
+                color: #2A7F2A;
+                border: 1.3pt solid #2A7F2A;
+            }
+
+            .middle h2 {
+                background-color: #fff79b;
+                color: #795901;
+                border: 1.3pt solid #795901;
+            }
+
+            .right h2 {
+                background-color: #ff9fad;
+                color: #B22222;
+                border: 1.3pt solid #B22222;
+            }
+
+            .left ul {
+                background-color: #E8F5E9;
+            }
+
+            .middle ul {
+                background-color: #FFFDE7;
+            }
+
+            .right ul {
+                background-color: #FFEBEE;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                padding: 8pt 0;
+                border: 1.3pt solid #121212;
+                border-radius: 10pt;
+            }
+
+            li {
+                font-size: 12pt;
+                font-weight: bold;
+            }
+
+            li::before {
+                content: "";
+                display: inline-block;
+                width: 2pt;
+                height: 2pt;
+                margin: 0 3pt 2pt 3pt;
+                border-radius: 50%;
+                background-color: #121212;
+                border: 1pt solid #121212;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Cortisol Detox Food list</h1>
+        <div class="container">
+            <!-- COLUMN 1 -->
+            <div class="column-wrapper">
+                <div class="column">
+                    <div class="left">
+                        <h2>Eat </h2>
+                        <ul>
+                            <li>Almonds</li>
+                            <li>Apples</li>
+                            <li>Arugula</li>
+                            <li>Asparagus</li>
+                            <li>Avocado</li>
+                            <li>Beets</li>
+                            <li>Blueberries</li>
+                            <li>Broccoli</li>
+                            <li>Brussels sprouts</li>
+                            <li>Carrots</li>
+                            <li>Chamomile tea</li>
+                            <li>Chia seeds</li>
+                            <li>Chickpeas</li>
+                            <li>Cucumber</li>
+                            <li>Eggs</li>
+                            <li>Flaxseeds</li>
+                            <li>Garlic</li>
+                            <li>Ginger</li>
+                            <li>Greek yogurt (plain)</li>
+                            <li>Green tea</li>
+                            <li>Kale</li>
+                            <li>Kiwi</li>
+                            <li>Lentils</li>
+                            <li>Olive oil (extra virgin)</li>
+                            <li>Oats</li>
+                            <li>Pumpkin seeds</li>
+                            <li>Quinoa</li>
+                            <li>Salmon</li>
+                            <li>Sardines</li>
+                            <li>Spinach</li>
+                            <li>Sweet potatoes</li>
+                            <li>Turmeric</li>
+                            <li>Walnuts</li>
+                            <li>Zucchini</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- COLUMN 2 -->
+            <div class="column-wrapper">
+                <div class="column">
+                    <div class="middle">
+                        <h2>Limit</h2>
+                        <ul>
+                            <li>Alcohol</li>
+                            <li>Bananas</li>
+                            <li>Brown rice</li>
+                            <li>Butter</li>
+                            <li>Cashews</li>
+                            <li>Cheese</li>
+                            <li>Coffee</li>
+                            <li>Corn</li>
+                            <li>Cottage cheese</li>
+                            <li>Dark chocolate</li>
+                            <li>Dates</li>
+                            <li>Dried fruit</li>
+                            <li>Fruit juice (100%)</li>
+                            <li>Granola</li>
+                            <li>Grapes</li>
+                            <li>Honey</li>
+                            <li>Maple syrup</li>
+                            <li>Mango</li>
+                            <li>Milk (full fat)</li>
+                            <li>Natural peanut butter</li>
+                            <li>Oat milk</li>
+                            <li>Pasta (whole grain)</li>
+                            <li>Peanuts</li>
+                            <li>Pears</li>
+                            <li>Pineapple</li>
+                            <li>Potatoes</li>
+                            <li>Protein bars</li>
+                            <li>Tortillas</li>
+                            <li>Trail mix</li>
+                            <li>Tuna (canned)</li>
+                            <li>Whole grain bread</li>
+                            <li>Yogurt (flavored)</li>
+                            <li>White rice (moderate)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- COLUMN 3 -->
+            <div class="column-wrapper">
+                <div class="column">
+                    <div class="right">
+                        <h2>Avoid</h2>
+                        <ul>
+                            <li>Artificial sweeteners</li>
+                            <li>Bacon</li>
+                            <li>Candy</li>
+                            <li>Canned soup (high sodium)</li>
+                            <li>Cereal (sugary)</li>
+                            <li>Chicken nuggets</li>
+                            <li>Chips</li>
+                            <li>Cookies</li>
+                            <li>Donuts</li>
+                            <li>Energy drinks</li>
+                            <li>Fast food</li>
+                            <li>French fries</li>
+                            <li>Frozen dinners</li>
+                            <li>Hot dogs</li>
+                            <li>Ice cream</li>
+                            <li>Instant noodles</li>
+                            <li>Margarine</li>
+                            <li>Milk chocolate</li>
+                            <li>Packaged snacks</li>
+                            <li>Pastries</li>
+                            <li>Pretzels</li>
+                            <li>Processed cheese</li>
+                            <li>Processed meats</li>
+                            <li>Ramen</li>
+                            <li>Refined sugar</li>
+                            <li>Sausage</li>
+                            <li>Soda</li>
+                            <li>Sports drinks</li>
+                            <li>Sweetened coffee drinks</li>
+                            <li>Sweetened juice</li>
+                            <li>White bread</li>
+                            <li>White pasta</li>
+                            <li>High fructose corn syrup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

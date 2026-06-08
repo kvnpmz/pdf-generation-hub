@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            /*
+            */
+            :root {
+                --page-height: {{ page_height }}pt;
+                --page-width: {{ page_width }}pt;
+                --header-color: #1B5E20;
+                --line-color: #315041;
+                --color: #121212;
+                --h1-height: {{ h1_height }}pt;
+                --h1-margin: {{ h1_margin }}pt;
+                --h2-height: {{ h2_height }}pt;
+                --item-height: {{ item_height }}pt;
+                --header-table: {{ header_table }}pt;
+                --container-height: {{ container_height }}pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                outline: 1.5pt solid red;
+            }
+
+            @page {
+                size: var(--page-width) var(--page-height);
+                margin: 36pt;
+            }
+
+            html,
+            body {
+                font-family: "Ubuntu Sans", sans-serif;
+                height: 100%;
+                color: var(--color);
+            }
+
+            .container {
+                margin: var(--h1-margin) 0 0 0;
+                height: var(--container-height);
+            }
+
+            .column {
+                height: 100%;
+                float: left;
+                width: calc(33.3% - 8pt);
+                margin: 0 12pt 0 0;
+            }
+
+            .column:last-child {
+                margin: 0;
+            }
+
+            .section {}
+
+            h1 {
+                height: var(--h1-height);
+                font-size: 30pt;
+                font-weight: 800;
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 2pt;
+                color: var(--header-color);
+                #border-bottom: 1.5pt solid var(--line-color);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h1 span {
+                color: #43A047;
+                font-weight: 700;
+            }
+
+            h2 {
+                position: relative;
+                background-color: #E8F5E9;
+                color: #2E7D32;
+                height: var(--h2-height);
+                font-size: 12pt;
+                text-transform: uppercase;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                #padding: 2pt 0 0 0;
+            }
+
+            .header-table {
+                width: 100%;
+                table-layout: fixed;
+                height: var(--header-table);
+                border-collapse: collapse;
+            }
+
+            .header-table td {
+                border-radius: 10pt;
+                height: 100%;
+                #font-size: 28pt;
+                text-transform: uppercase;
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            .item {
+                position: relative;
+                height: var(--item-height);
+                font-size: 9pt;
+                padding: 0 0 0 14pt;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .item.subheader {
+                text-align: center;
+                font-weight: bold;
+                color: #388E3C;
+                text-transform: uppercase;
+                position: relative;
+            }
+
+            .item.subheader::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 10pt; 
+              height: 1.5pt;
+              background: #388E3C;
+            }
+
+            .item:not(.multi):not(.subheader)::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 1pt;
+                width: 7pt;
+                height: 7pt;
+                border: 1pt solid var(--color);
+                border-radius: 1.5pt;
+            }
+
+            .eat {
+                background-color: #b3deb6;
+                color: #2A7F2A;
+                border: 1.3pt solid #2A7F2A;
+            }
+
+            .avoid {
+                background-color: #fff79b;
+                color: #795901;
+                border: 1.3pt solid #795901;
+            }
+
+            .limit {
+                background-color: #ff9fad;
+                color: #B22222;
+                border: 1.3pt solid #B22222;
+            }
+            /*
+            */
+            {% for m in margins %}
+            .col-{{loop.index0}} .section:not(:last-child) {
+                margin-bottom: {{m}}pt;
+            }
+
+            .col-{{loop.index0}} .section:last-child {
+                margin-bottom: 0;
+            }
+            {% endfor %}
+        </style>
+    </head>
+    <body>
+        <h1>Low Fat <span>Grocery List</span></h1>
+        <table class="header-table">
+            <tr>
+                <td class="eat">Eat</td>
+                <td class="limit">Limit</td>
+                <td class="avoid">Avoid</td>
+            </tr>
+        </table>
+        <div class="container">
+            <div class="column col-0">
+                <div class="section">
+                    <h2>Fruits & Vegetables</h2>
+                </div>
+                <div class="section">
+                    <h2>Condiments & Dressings</h2>
+                </div>
+            </div>
+            <div class="column col-1">
+                <div class="section">
+                    <h2>Grains & Legumes</h2>
+                </div>
+                <div class="section">
+                    <h2>Protein Sources</h2>
+                </div>
+            </div>
+            <!--
+                -->
+            <div class="column col-2">
+                <div class="section">
+                    <h2>Snacks</h2>
+                </div>
+                <div class="section">
+                    <h2>Baking & Cooking</h2>
+                </div>
+                <div class="section">
+                    <h2>Baking & Cooking</h2>
+                </div>
+                <div class="section">
+                    <h2>Baking & Cooking</h2>
+                </div>
+                <div class="section">
+                    <h2>Baking & Cooking</h2>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

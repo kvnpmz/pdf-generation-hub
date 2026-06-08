@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            @page {
+                size: letter;
+                margin: 36pt;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 0.8pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "Liberation Sans", sans-serif;
+                color: #333;
+            }
+
+            h1 {
+                #font-family: "Z003", cursive, serif;
+                letter-spacing: 2pt;
+                font-weight: bold;
+                font-size: 23.2pt;
+                text-transform: uppercase;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 0 10pt;
+            }
+
+            .week-label {
+                text-align: center;
+                width: 90pt;
+                font-size: 16pt;
+                font-weight: bold;
+            }
+
+            .week-line {
+                margin: 16pt 0 0;
+                border-bottom: 1pt solid #000;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+                border-bottom: 1pt solid #000;
+            }
+
+            th,
+            td {
+                padding: 4.22pt 0;
+                text-align: center;
+                border-bottom: 0.6pt solid #e6e6e6;
+                border-right: 0.99pt solid #ccc;
+            }
+
+            thead th {
+                font-size: 10pt;
+                font-weight: bold;
+                text-transform: uppercase;
+                background-color: #fff;
+                border: none;
+                border-bottom: 1pt solid #000;
+            }
+
+            .time-col {
+                background-color: #c8e5ec;
+                font-size: 8pt;
+                font-weight: bold;
+                border-left: 1pt solid #000;
+                border-right: 1pt solid #000;
+            }
+
+            .last-col {
+                border-right: 1pt solid #000;
+            }
+
+            .mon {
+                background-color: #fff4f4;
+            }
+
+            .tue {
+                background-color: #fff9f2;
+            }
+
+            .wed {
+                background-color: #fdfdf2;
+            }
+
+            .thu {
+                background-color: #f2fdf2;
+            }
+
+            .fri {
+                background-color: #f2f9fd;
+            }
+
+            .sat {
+                background-color: #f7f2fd;
+            }
+
+            .sun {
+                background-color: #ffffff;
+            }
+
+            thead th:first-child {
+                width: 50pt;
+            }
+            
+            tbody tr:nth-child(n) .time-col {
+                border-bottom: 0.6pt solid #ccc;
+                #border-bottom: none;
+            }
+
+            tbody tr:nth-child(2n) .time-col {
+                border-bottom: 0.99pt solid #000;
+            }
+
+            tbody tr:nth-child(2n) td:not(:first-child) {
+                border-bottom: 0.99pt solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Half Hour Weekly Schedule</h1>
+            <div class="week-label">WEEK OF: <div class="week-line"></div>
+            </div>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-col">6:00 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">6:30 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">7:00 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">7:30 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">8:00 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">8:30 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">9:00 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">9:30 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">10:00 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">10:30 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">11:00 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">11:30 AM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">12:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">12:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">1:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">1:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">2:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">2:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">3:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">3:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">4:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">4:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">5:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">5:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">6:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">6:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">7:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">7:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">8:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">8:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">9:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">9:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">10:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">10:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">11:00 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+                <tr>
+                    <td class="time-col">11:30 PM</td>
+                    <td class="mon"></td>
+                    <td class="tue"></td>
+                    <td class="wed"></td>
+                    <td class="thu"></td>
+                    <td class="fri"></td>
+                    <td class="sat"></td>
+                    <td class="sun last-col"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
