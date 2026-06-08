@@ -1,0 +1,976 @@
+==> /home/kevin/z_ob/etsy/2026-04-27/list_grocery/template_letter.html <==
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Grocery List</title>
+        <style>
+            @page {
+                size: Letter;
+                margin: 0.5in;
+            }
+
+            html,
+            body,
+            div,
+            ul,
+            li,
+            h1,
+            h2,
+            span {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "Liberation Sans", sans-serif;
+                line-height: 1.1;
+                height: 100%;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 30pt;
+                text-transform: uppercase;
+                letter-spacing: 2pt;
+                margin-bottom: 4pt;
+                text-align: center;
+                color: #145A32;
+            }
+
+            .columns {
+                height: 682pt;
+                width: 100%;
+            }
+
+            .column {
+                float: left;
+                vertical-align: top;
+                width: 20%;
+                height: 100%;
+                font-size: 9.8pt;
+                padding-right: 2pt;
+            }
+
+            .column-inner {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+
+            h2 {
+                font-size: 11pt;
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-bottom: 4pt;
+                color: #1F8A5B;
+            }
+
+            .items {
+                list-style: none;
+            }
+
+            .item {
+                position: relative;
+                margin-bottom: 0.6pt;
+            }
+
+            .item::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 2pt;
+                width: 8pt;
+                height: 8pt;
+                border: 0.8pt solid #000;
+            }
+
+            .item-text {
+                display: inline;
+                padding-left: 12pt;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Grocery Checklist</h1>
+        <div class="columns">
+            <div class="column">
+                <div class="column-inner">
+                    <div class="section">
+                        <h2>Fruits</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">apples</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">apricots</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">avocados</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bananas</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">berries</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cherries</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">grapefruit</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">grapes</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">kiwi</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lemons</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">limes</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">melons</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">nectarines</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">oranges</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">papaya</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">peaches</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Vegetables</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">artichokes</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">asparagus</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">basil</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">beets</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">broccoli</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cabbage</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cauliflower</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">carrots</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">celery</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">chili peppers</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">chives</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cilantro</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">corn</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cucumbers</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">eggplant</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">garlic cloves</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">green onions</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lettuce</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">onions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Breakfast</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">cereal</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">grits</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">breakfast shake</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">oatmeal</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pancake mix</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Meat</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">bacon</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">chicken</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">deli meat</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ground beef</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ground turkey</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ham</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">hot dogs</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pork</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">sausage</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">steak</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">turkey</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-inner">
+                    <div class="section">
+                        <h2>Seafood</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">catfish</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cod</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">crab</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">halibut</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lobster</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">oysters</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">salmon</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Frozen</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">chicken bites</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">desserts</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">fish sticks</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">fruit</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ice</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ice cream</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ice pops</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">juice</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">meat</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pie shells</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pizza</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pot pies</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">potatoes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Baby</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">baby cereal</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">baby food</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">diapers</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">diaper cream</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">formula</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">wipes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Pets</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">cat food</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cat litter</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dog food</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">shampoo</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">treats</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">flea treatment</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Baking</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">baking powder</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">baking soda</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bread crumbs</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cake decor</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cake mix</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">canned milk</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">chocolate chips</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cocoa</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cornmeal</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cornstarch</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">flour</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">food coloring</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">frosting</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">muffin mix</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pie crust</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">shortening</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">sugar (brown)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-inner">
+                    <div class="section">
+                        <h2>Snacks</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">candy</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cookies</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">crackers</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dried fruit</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">fruit snacks</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">graham crackers</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">granola bars</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">nuts</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">popcorn</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">potato chips</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pretzels</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pudding</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">raisins</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">seeds</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">tortilla chips</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Pasta/Rice</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">brown rice</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">burger helper</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">couscous</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">elbow macaroni</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lasagna</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">mac &amp; cheese</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">noodle mix</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">rice mix</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">spaghetti</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">white rice</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Cans &amp; Jars</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">applesauce</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">baked beans</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">black beans</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">broth</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bullion cubes</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">canned fruit</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">canned vegetables</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">carrots</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">chili</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">corn</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">creamed corn</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">jam/jelly</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">mushrooms</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">olives (green)</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">olives (black)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Bakery</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">bagels</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bread</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">donuts</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cake</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cookies</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">croutons</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dinner rolls</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">hamburger buns</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">hot dog buns</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">muffins</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pastries</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-inner">
+                    <div class="section">
+                        <h2>Refrigerated</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">biscuits</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">butter</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cheddar</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cheese</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cream</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cream cheese</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dip</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">eggs</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">eggs substitute</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">feta cheese</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">half &amp; half</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">jack cheese</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">milk</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">mozzarella</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">processed cheese</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Seasoning</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">basil</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bay leaves</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">BBQ seasoning</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cinnamon</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cloves</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cumin</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">curry</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dill</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">garlic powder</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">garlic salt</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">gravy mix</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">Italian seasoning</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">marinade</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">meat tenderizer</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">oregano</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">paprika</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">pepper</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">poppy seed</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">red pepper</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">sage</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">salt</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Sauces &amp; Condiments</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">BBQ sauce</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">ketchup</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cocktail sauce</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cooking spray</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">honey</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">horseradish</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">hot sauce</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lemon juice</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">mayonnaise</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">mustard</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">olive oil</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">relish</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">salad dressing</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">salsa</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">soy sauce</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="column-inner">
+                    <div class="section">
+                        <h2>Drinks</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">beer</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">champagne</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">club soda</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">coffee</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">diet soft drinks</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">energy drinks</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">juice</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">soft drinks</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">tea</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">wine</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Paper Products</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">aluminum foil</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">coffee filters</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cups</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">garbage bags</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">napkins</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">paper plates</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">paper towels</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">plastic bags</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">plastic cutlery</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">plastic wrap</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">straws</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">waxed paper</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Cleaning</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">air freshener</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bleach</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dish soap</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dishwasher pods</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">laundry detergent</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">floor cleaner</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Personal Care</h2>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="item-text">bath soap</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">bug repellent</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">conditioner</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">cotton swabs</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">dental floss</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">deodorant</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">facial tissue</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">feminine products</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">hair spray</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">hand soap</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lip care</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">lotion</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">makeup</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">mouthwash</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">razors/blades</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">shampoo</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">shaving cream</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">sunscreen</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">toilet tissue</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">toothbrush</span>
+                            </li>
+                            <li class="item">
+                                <span class="item-text">toothpaste</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

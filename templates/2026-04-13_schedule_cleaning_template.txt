@@ -1,0 +1,823 @@
+==> /home/kevin/z_ob/etsy/2026-04-13/schedule_cleaning/template.html <==
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            /* 1. Page & Global Reset */
+            @page {
+                size: A4 Landscape;
+                margin: 0;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                position: relative;
+                top: 1pt;
+                left: 1pt;
+                height: 594pt;
+                width: 840pt;
+                font-family: "Liberation Sans", sans-serif;
+                color: #000;
+            }
+
+            /* 2. Main Typography & Headers */
+            h1 {
+                position: absolute;
+                top: 36pt;
+                width: 100%;
+                text-align: center;
+                font-size: 29pt;
+                font-weight: bold;
+                color: #1351D8;
+                letter-spacing: 2pt;
+                line-height: 29pt;
+                text-transform: uppercase;
+            }
+
+            .horizontal-line {
+                position: absolute;
+                top: 66pt;
+                left: 36pt;
+                width: 767.5pt;
+                height: 1.25pt;
+                background-color: #000;
+            }
+
+            .section-label {
+                font-size: 16pt;
+                color: #000;
+                text-align: center;
+                line-height: 1.1;
+                letter-spacing: 2pt;
+                text-transform: uppercase;
+                width: 100%;
+            }
+
+            /* 3. Layout Structure: Rows & Containers */
+            .row {
+                position: absolute;
+                left: 36pt;
+                width: 804pt;
+                height: 154pt;
+                padding-right: 36pt;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .row-1 {
+                top: 74pt;
+            }
+
+            .row-2 {
+                top: 239pt;
+            }
+
+            .row-3 {
+                bottom: 36pt;
+            }
+
+            .column-container {
+                height: 100%;
+                font-size: 9.9pt;
+                line-height: 15.8pt;
+            }
+
+            .time-column {
+                line-height: 15.9pt;
+            }
+
+            /* 4. Task Items & Tracking Symbols */
+            .task-item {
+                margin-bottom: 4pt;
+                position: relative;
+            }
+
+            .task-item::after {
+                content: "";
+                position: absolute;
+                left: 0pt;
+                bottom: -1.5pt;
+                height: 1pt;
+                width: 100%;
+                background-color: #000;
+            }
+
+            .track-box {
+                --box-size: 15.7pt;
+                width: var(--box-size);
+                height: var(--box-size);
+                border-radius: 1.5pt;
+            }
+
+            .grid-container {
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                gap: 4pt;
+            }
+
+            /* 5. Frequency Sections: Every Day / Weekly */
+            .tracker-wrapper.day {
+                width: 150pt;
+            }
+
+            .days-header {
+                font-size: 16pt;
+                font-weight: bold;
+                display: grid;
+                justify-items: center;
+                margin-bottom: 4pt;
+                margin-top: 0pt;
+                align-items: center;
+            }
+
+            .day-arch {
+                position: relative;
+                width: 100pt;
+                border-radius: 25pt 25pt 0 0;
+                text-align: center;
+                line-height: 25pt;
+                color: #000;
+                font-size: 12pt;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .day-content {
+                margin-top: 5pt;
+                width: 103pt;
+                line-height: 17.3pt !important;
+            }
+
+            .day-content .task-item {
+                padding-left: 11pt;
+            }
+
+            .day-content .task-item::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 5pt;
+                width: 6pt;
+                height: 6pt;
+                border: 1pt solid #000;
+                border-radius: 50%;
+                background-color: transparent;
+            }
+
+            /* 6. Frequency Sections: Monthly / Quarterly / Semi-Annual */
+            .tracker-wrapper.month {
+                width: 240pt;
+            }
+
+            .tracker-wrapper.quarter {
+                width: 93pt;
+            }
+
+            .tracker-wrapper.semi-annual {
+                width: 43pt;
+            }
+
+            .column-container.every-day,
+            .column-container.monthly {
+                width: 180pt;
+            }
+
+            .column-container.quarterly,
+            .column-container.semi-annual {
+                width: 153pt;
+            }
+
+            .tracker-wrapper.quarter .grid-container {
+                gap: 4.5pt;
+            }
+
+            .tracker-wrapper.semi-annual .grid-container {
+                gap: 4.5pt;
+            }
+
+            /* 7. Annual Section Specifics */
+            .annual-section {
+                position: relative;
+                width: 300pt;
+                height: 100%;
+            }
+
+            .annual-col-left {
+                position: absolute;
+                top: 18.8pt;
+                left: 0;
+            }
+
+            .annual-col-right {
+                position: absolute;
+                top: 18.8pt;
+                right: 0;
+            }
+
+            .annual-section .task-item {
+                width: 100%;
+            }
+
+            .annual-section .task-item::before {
+                background-color: #B8DDCB !important;
+                top: 2pt;
+                width: 18.6pt;
+                height: 18.6pt;
+            }
+
+            .annual-section .task-item b {
+                font-size: 13pt;
+                font-weight: bold;
+                position: relative;
+                top: 1pt;
+                display: inline-block;
+                width: 15pt;
+            }
+
+            .annual-section .time-column {
+                line-height: 18.1pt !important;
+            }
+
+            /* 8. Moon Visuals (Monthly Header) */
+            .moon-header {
+                position: relative;
+                width: 100%;
+                margin-top: 0.5pt;
+                margin-bottom: 2.5pt;
+            }
+
+            .moon {
+                position: relative;
+                width: 17pt;
+                height: 17pt;
+                top: 0;
+                border: 1pt solid #444;
+                border-radius: 50%;
+                overflow: hidden;
+                background: white;
+            }
+
+            .fill::before {
+                content: "";
+                position: absolute;
+                background: black;
+                width: 100%;
+                height: 100%;
+            }
+
+            .quarter::before {
+                width: 50%;
+                height: 50%;
+                top: 0;
+                right: 0;
+            }
+
+            .half::before {
+                width: 50%;
+                right: 0;
+            }
+
+            .three-quarters::before {
+                width: 100%;
+                height: 100%;
+            }
+
+            .three-quarters::after {
+                content: "";
+                position: absolute;
+                background: white;
+                width: 50%;
+                height: 50%;
+                top: 0;
+                left: 0;
+            }
+
+            .full {
+                background: black;
+            }
+
+            /* 9. Grid Column Definitions */
+            .cols-2 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .cols-4 {
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+
+            .cols-7 {
+                grid-template-columns: repeat(7, 1fr) !important;
+            }
+
+            .cols-12 {
+                grid-template-columns: repeat(12, 1fr) !important;
+            }
+
+            /* 10. Specific Row-3 Overrides */
+            .row-3 .column-container:nth-last-child(1) .task-item,
+            .row-3 .column-container:nth-last-child(2) .task-item {
+                width: 147pt;
+            }
+
+            .row-3 .column-container:nth-last-child(1) .task-item::after,
+            .row-3 .column-container:nth-last-child(2) .task-item::after {
+                width: 73%;
+                left: 15pt !important;
+            }
+
+            .row-3 .column-container:nth-last-child(1) .task-item::before,
+            .row-3 .column-container:nth-last-child(2) .task-item::before {
+                content: "";
+                position: absolute;
+                right: 0;
+                border-radius: 1.5pt;
+            }
+
+            .row-3 .column-container:nth-child(3) .time-column,
+            .row-3 .column-container:nth-child(1) .time-column {
+                line-height: 19.3pt;
+            }
+
+            /* 11. Colors & Labels */
+            #every-day-label {
+                background-color: #CDC560;
+            }
+
+            #monthly-label {
+                background-color: #EBB25C;
+            }
+
+            #quarterly-label {
+                background-color: #F38054;
+            }
+
+            #semi-annual-label {
+                background-color: #C48FBA;
+            }
+
+            #annual-label {
+                background-color: #95CBB1;
+            }
+
+            #mon .day-arch {
+                background-color: #C9A8B6;
+            }
+
+            #tue .day-arch {
+                background-color: #AEBF6F;
+            }
+
+            #wed .day-arch {
+                background-color: #F6A75D;
+            }
+
+            #thu .day-arch {
+                background-color: #97CCB3;
+            }
+
+            #fri .day-arch {
+                background-color: #E19170;
+            }
+
+            #sat .day-arch {
+                background-color: #CCC55C;
+            }
+
+            #sun .day-arch {
+                background-color: #C58EBA;
+            }
+
+            .column-container.every-day+.column-container .track-box {
+                background-color: #DFDA80;
+            }
+
+            .column-container.monthly+.column-container .track-box {
+                background-color: #F3CBA8;
+            }
+
+            .column-container.quarterly+.column-container .track-box {
+                width: 18.6pt;
+                height: 18.6pt;
+                background-color: #F7B7A1;
+            }
+
+            .column-container.semi-annual+.column-container .track-box {
+                width: 18.6pt;
+                height: 18.6pt;
+                background-color: #EBC6D7;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Cleaning Schedule</h1>
+        <div class="horizontal-line"></div>
+        <div class="row row-1">
+            <div id="mon" class="column-container">
+                <div class="day-arch">Monday</div>
+                <div class="day-content">
+                    <div class="task-item">Change bedsheets</div>
+                    <div class="task-item">Dust furniture</div>
+                    <div class="task-item">Vacuum couches</div>
+                    <div class="task-item">Declutter entry</div>
+                    <div class="task-item">Clear hallways</div>
+                    <div class="task-item">Sweep/vacuum all</div>
+                </div>
+            </div>
+            <div id="tue" class="column-container">
+                <div class="day-arch">Tuesday</div>
+                <div class="day-content">
+                    <div class="task-item">Clean toilet</div>
+                    <div class="task-item">Clean bath sink</div>
+                    <div class="task-item">Change towels</div>
+                    <div class="task-item">Clean tub/shower</div>
+                    <div class="task-item">Clean mirror</div>
+                    <div class="task-item">Sweep/mop ba. floor</div>
+                </div>
+            </div>
+            <div id="wed" class="column-container">
+                <div class="day-arch">Wednesday</div>
+                <div class="day-content">
+                    <div class="task-item">Disinfect k. sink</div>
+                    <div class="task-item">Change k. towels</div>
+                    <div class="task-item">Clean microwave</div>
+                    <div class="task-item">Wipe stove top</div>
+                    <div class="task-item">Disinfect high touch</div>
+                    <div class="task-item">Mop kitchen floor</div>
+                </div>
+            </div>
+            <div id="thu" class="column-container">
+                <div class="day-arch">Thursday</div>
+                <div class="day-content">
+                    <div class="task-item">Disinfect doorknobs</div>
+                    <div class="task-item">Dust furniture</div>
+                    <div class="task-item">Bathroom trashes</div>
+                    <div class="task-item">Clear hallways</div>
+                    <div class="task-item">Sweep/vacuum all</div>
+                    <div class="task-item">&nbsp</div>
+                </div>
+            </div>
+            <div id="fri" class="column-container">
+                <div class="day-arch">Friday</div>
+                <div class="day-content">
+                    <div class="task-item">Tidy pantry</div>
+                    <div class="task-item">Grocery inventory</div>
+                    <div class="task-item">Clear expired items</div>
+                    <div class="task-item">Clean out fridge</div>
+                    <div class="task-item">Clean cupboards</div>
+                    <div class="task-item">&nbsp</div>
+                </div>
+            </div>
+            <div id="sat" class="column-container">
+                <div class="day-arch">Saturday</div>
+                <div class="day-content">
+                    <div class="task-item">Grocery shop</div>
+                    <div class="task-item">Tidy yard</div>
+                    <div class="task-item">Declutter car</div>
+                    <div class="task-item">Vacuum car</div>
+                    <div class="task-item">Sweep/vacuum all</div>
+                    <div class="task-item">&nbsp</div>
+                </div>
+            </div>
+            <div id="sun" class="column-container">
+                <div class="day-arch">Sunday</div>
+                <div class="day-content">
+                    <div class="task-item">Clear hallways</div>
+                    <div class="task-item">General declutter</div>
+                    <div class="task-item">&nbsp</div>
+                    <div class="task-item">&nbsp</div>
+                    <div class="task-item">&nbsp</div>
+                    <div class="task-item">&nbsp</div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-2">
+            <div class="column-container every-day">
+                <div id="every-day-label" class="section-label">Every Day</div>
+                <div class="time-column">
+                    <div class="task-item">Make beds</div>
+                    <div class="task-item">Do a load of laundry</div>
+                    <div class="task-item">Wipe/clear counter tops</div>
+                    <div class="task-item">Sweep kitchen floor</div>
+                    <div class="task-item">Do dishes/clear sink</div>
+                    <div class="task-item">Tidy living area</div>
+                    <div class="task-item">Take out trash/recycling</div>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="tracker-wrapper day">
+                    <div class="days-header grid-container cols-7">
+                        <span>M</span>
+                        <span>T</span>
+                        <span>W</span>
+                        <span>T</span>
+                        <span>F</span>
+                        <span>S</span>
+                        <span>S</span>
+                    </div>
+                    <div class="grid-container cols-7">
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-container monthly">
+                <div id="monthly-label" class="section-label">Monthly</div>
+                <div class="time-column">
+                    <div class="task-item">Deep clean oven</div>
+                    <div class="task-item">Deep clean fridge</div>
+                    <div class="task-item">Disinfect trash cans</div>
+                    <div class="task-item">Vacuum under couches</div>
+                    <div class="task-item">Dust fans</div>
+                    <div class="task-item">Clean comforters/duvets</div>
+                    <div class="task-item">Clean windows (inside)</div>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="tracker-wrapper month">
+                    <div class="days-header grid-container cols-12">
+                        <span>J</span>
+                        <span>F</span>
+                        <span>M</span>
+                        <span>A</span>
+                        <span>M</span>
+                        <span>J</span>
+                        <span>J</span>
+                        <span>A</span>
+                        <span>S</span>
+                        <span>O</span>
+                        <span>N</span>
+                        <span>D</span>
+                    </div>
+                    <div class="grid-container cols-12">
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-3">
+            <div class="column-container quarterly">
+                <div id="quarterly-label" class="section-label">Quarterly</div>
+                <div class="time-column">
+                    <div class="task-item">Deep clean blinds/curtains</div>
+                    <div class="task-item">Wash pillows</div>
+                    <div class="task-item">Deep clean freezer/defrost</div>
+                    <div class="task-item">Clean windows (outside)</div>
+                    <div class="task-item">Clean inside of trash bins</div>
+                    <div class="task-item">&nbsp</div>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="tracker-wrapper quarter">
+                    <div class="moon-header grid-container cols-4">
+                        <div class="moon fill quarter"></div>
+                        <div class="moon fill half"></div>
+                        <div class="moon fill three-quarters"></div>
+                        <div class="moon fill full"></div>
+                    </div>
+                    <div class="grid-container cols-4">
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-container semi-annual">
+                <div id="semi-annual-label" class="section-label">Semi-Annual</div>
+                <div class="time-column">
+                    <div class="task-item">Declutter paper files</div>
+                    <div class="task-item">Declutter digital files</div>
+                    <div class="task-item">Declutter clothing/wardrobes</div>
+                    <div class="task-item">Deep clean washer/dryer</div>
+                    <div class="task-item">Steam clean sofas</div>
+                    <div class="task-item">Vacuum vents</div>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="tracker-wrapper semi-annual">
+                    <div class="moon-header grid-container cols-2">
+                        <div class="moon fill half"></div>
+                        <div class="moon fill full"></div>
+                    </div>
+                    <div class="grid-container cols-2">
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                        <div class="track-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-container annual-section">
+                <div id="annual-label" class="section-label">Annually</div>
+                <div class="time-column annual-col-left">
+                    <div class="task-item">
+                        <b>J</b>Wash & flip mattress
+                    </div>
+                    <div class="task-item">
+                        <b>F</b>Car maintenance
+                    </div>
+                    <div class="task-item">
+                        <b>M</b>Shampoo carpets
+                    </div>
+                    <div class="task-item">
+                        <b>A</b>Clean patio furniture
+                    </div>
+                    <div class="task-item">
+                        <b>M</b>Clean chimney
+                    </div>
+                    <div class="task-item">
+                        <b>J</b>Clean out garage
+                    </div>
+                </div>
+                <div class="time-column annual-col-right">
+                    <div class="task-item">
+                        <b>J</b> Power wash walkways
+                    </div>
+                    <div class="task-item">
+                        <b>A</b>Drain water heater
+                    </div>
+                    <div class="task-item">
+                        <b>S</b>Wax car
+                    </div>
+                    <div class="task-item">
+                        <b>O</b>Replace fire alarm batt.
+                    </div>
+                    <div class="task-item">
+                        <b>N</b>Clean gutters
+                    </div>
+                    <div class="task-item">
+                        <b>D</b>Deep clean linen closet
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

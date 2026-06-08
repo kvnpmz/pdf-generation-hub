@@ -16,5 +16,6 @@
 !*.json
 !*.html
 !*.css
+!*.pdf
 
 !.gitignore
