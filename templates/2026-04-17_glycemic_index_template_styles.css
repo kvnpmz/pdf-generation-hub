@@ -1,0 +1,117 @@
+        
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                position: relative;
+                font-family: Arial, Helvetica, sans-serif;
+                #outline: 1.5pt solid red;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            html,
+            body {
+                top: 1pt;
+                left: 1pt;
+                width: 594pt;
+                height: 841pt;
+            }
+
+            h1 {
+                position: absolute;
+                top: 36pt;
+                left: 0;
+                width: 594pt;
+                text-align: center;
+                font-size: 32pt;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #0EA5E9;
+            }
+
+            .col {
+                position: absolute;
+                top: 80pt;
+                width: 174pt;
+                height: 724pt;
+                font-size: 10pt;
+                line-height: 11pt;
+            }
+
+            .content {
+                height: 685pt;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .left {
+                left: 36pt;
+                background: #cfe8cf;
+            }
+
+            .middle {
+                left: 210pt;
+                background: #e6efc2;
+            }
+
+            .right {
+                right: 36pt;
+                background: #f3c3c3;
+            }
+
+            .col h2 {
+                font-size: 18pt;
+                text-align: center;
+                padding-bottom: 7pt;
+                padding-top: 6pt;
+                margin-bottom: 6pt;
+            }
+
+            .col h2::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 2.5%;
+                width: 95%;
+                height: 1.5pt;
+                background: #000;
+            }
+
+            .section {
+                padding-left: 13pt;
+                padding-right: 5pt;
+                margin-bottom: 2pt;
+            }
+
+            .section-title {
+                font-weight: bold;
+                padding-left: 0pt;
+                margin-left: 0pt;
+                margin-bottom: 4pt;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            .section-title::before {
+                content: "□";
+                font-size: 17pt;
+                padding-right: 1pt;
+                margin-left: -12pt;
+            }
+
+            .multi-col {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .multi-col>* {
+                width: 50%;
+            }
+        

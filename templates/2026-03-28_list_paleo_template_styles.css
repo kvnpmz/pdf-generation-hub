@@ -1,0 +1,93 @@
+    
+        @page {
+            size: a4;
+            margin: 0.4in;
+        }
+        
+        body {
+            font-family: "Liberation Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #2F4F6F;
+            line-height: 1.2;
+        }
+
+        .main-header {
+            color: #1D4ED8;
+            font-size: 32pt;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 3px solid #2563EB;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 30%;
+        }
+
+        .section-header {
+            color: #2563EB;
+            font-size: 14pt;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #2563EB;
+            margin-top: 15px;
+        }
+
+        .sub-header {
+            font-size: 11pt;
+            font-weight: bold;
+            text-align: center;
+            color: #3B82F6;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .sub-header-line {
+            border-bottom: 1px solid #2563EB;
+            margin-top: -3px;
+            margin-bottom: 8px;
+        }
+
+        .section-header + .sub-header {
+            margin-top: 5px;
+        }
+
+
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            font-size: 13pt;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* The Checkbox Circles */
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 11px;
+            height: 11px;
+            border: 1px solid #3A5F85;
+            border-radius: 50%;
+        }
+
+    

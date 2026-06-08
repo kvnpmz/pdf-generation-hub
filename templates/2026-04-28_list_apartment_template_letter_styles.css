@@ -1,0 +1,94 @@
+        
+            @page {
+                size: letter;
+                margin: 36pt;
+            }
+
+            html,
+            body,
+            div,
+            h1,
+            h2,
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                #outline: 1.5pt solid red;
+            }
+
+            html,
+            body {
+                font-family: "Liberation-Serif", serif;
+                height: 100%;
+                color: #000;
+            }
+
+            h1 {
+                text-align: center;
+                color: #2D5A4C;
+                text-transform: uppercase;
+                letter-spacing: 3pt;
+                font-size: 28pt;
+                border-bottom: 1.5pt solid #2D5A4C;
+                padding-bottom: 1.5pt;
+                margin-bottom: 3.75pt;
+            }
+
+            .container {
+                height: 675pt;
+            }
+
+            .category {
+                float: left;
+                width: 20%;
+                height: 100%;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+
+            h2 {
+                font-weight: bold;
+                text-align: center;
+                font-size: 13pt;
+                margin: 0 8pt 4pt 0;
+                border-bottom: 0.8pt solid black;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            li {
+                position: relative;
+                padding-left: 13pt;
+                padding-right: 2pt;
+                font-size: 11.3pt;
+                line-height: 15.2pt;
+                height: auto;
+            }
+
+            li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 4pt;
+                width: 8pt;
+                height: 8pt;
+                border: 0.7pt solid #333;
+            }
+
+            li.blank-line::after {
+                content: "";
+                position: absolute;
+                left: 8pt;
+                bottom: 0;
+                width: 80%;
+                border: 0.25pt solid #333;
+            }
+        
