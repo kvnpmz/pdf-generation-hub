@@ -4,6 +4,7 @@
 
 [Bb]in/
 [Oo]bj/
+lua_modules/
 **/venv/
 
 !*.py
