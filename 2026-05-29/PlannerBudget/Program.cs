@@ -79,6 +79,7 @@ public class BudgetDocument
 
                 page.Header().Background("#FFFFFF")
                     .Height(headerHeight)
+                    .Border(1f)
                     .Text("Budget Planner".ToUpper())
                     .FontSize(30f)
                     .FontColor("#19437D")
