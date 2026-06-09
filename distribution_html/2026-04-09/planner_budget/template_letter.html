@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+        
+            @page {
+                size: letter;
+                margin: 0.5in;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                #outline: 2px solid red;
+            }
+
+            html,
+            body {
+                height: 100%;
+                font-family: "Liberation Sans", sans-serif;
+                color: #000;
+            }
+
+            h1 {
+                font-size: 42px;
+                color: #19437D;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                text-align: center;
+                line-height: 0.5in;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 25px;
+                position: absolute;
+                top: 1in;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+
+            .section-box {
+                width: 100%;
+            }
+
+            .title-row {
+                margin-top: 13.5px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 25px;
+                width: 100%;
+            }
+
+            .title-item {
+                display: grid;
+                letter-spacing: 2px;
+                grid-template-columns: auto 1fr;
+                align-items: baseline;
+            }
+
+            .line {
+                border-bottom: 1.5px solid #000;
+                margin-left: 8px;
+            }
+
+            .header-row {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                height: 27px;
+            }
+
+            .header-row div {
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 27px;
+                letter-spacing: 3px;
+                text-align: center;
+                border-top: 1.5px solid #000;
+                border-bottom: 1.5px solid #000;
+                border-right: 1.5px solid #000;
+            }
+
+            .header-row div:first-child {
+                border-left: 1.5px solid #000;
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                height: 27px;
+            }
+
+            .row div {
+                font-size: 13px;
+                text-align: center;
+                line-height: 27px;
+                letter-spacing: 2px;
+                border-bottom: 1.5px solid #000;
+                border-right: 1.5px solid #000;
+            }
+
+            .row div:first-child {
+                border-left: 1.5px solid #000;
+                align-items: center;
+            }
+
+            .row:last-child div:first-child {
+                border-left: none;
+                border-bottom: none;
+            }
+
+            .summary .header-row,
+            .summary .row {
+                grid-template-columns: 2fr 1fr;
+            }
+        
+
+</style>
+    </head>
+    <body>
+        <h1>Budget Planner</h1>
+        <div class="title-row">
+            <div class="title-item"> MONTH: <span class="line"></span>
+            </div>
+            <div class="title-item"> YEAR: <span class="line"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="column">
+                <div class="section-box">
+                    <div class="header-row">
+                        <div>INCOME</div>
+                        <div>AMOUNT</div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="section-box">
+                    <div class="header-row">
+                        <div>BILLS</div>
+                        <div>AMOUNT</div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="section-box">
+                    <div class="header-row">
+                        <div>SAVINGS</div>
+                        <div>AMOUNT</div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="section-box">
+                    <div class="header-row">
+                        <div>EXPENSES</div>
+                        <div>AMOUNT</div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="section-box">
+                    <div class="header-row">
+                        <div>DEBT</div>
+                        <div>AMOUNT</div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="section-box summary">
+                    <div class="header-row">
+                        <div>SUMMARY</div>
+                        <div>AMOUNT</div>
+                    </div>
+                    <div class="row">
+                        <div>INCOME</div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div>BILLS</div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div>SAVINGS</div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div>EXPENSES</div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div>DEBT</div>
+                        <div></div>
+                    </div>
+                    <div class="row">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
