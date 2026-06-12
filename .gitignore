@@ -6,6 +6,7 @@
 [Oo]bj/
 lua_modules/
 **/venv/
+archive/
 
 !*.py
 !*.cs
