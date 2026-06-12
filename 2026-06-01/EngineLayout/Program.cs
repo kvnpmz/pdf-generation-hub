@@ -73,7 +73,7 @@ public class Program
         using var lua = new Lua();
         
         lua.RegisterFunction("exportPdf", null, typeof(Program).GetMethod(nameof(ExportPdf)));
-        
+
         lua.DoFile("main.lua");
 
         await _pdfExporter.DisposeAsync();
@@ -93,4 +93,5 @@ public class Program
             throw;
         }
     }
+
 }

@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #121212;
+}
+
+html {
+    padding: 36pt 50.4pt;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Inter;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    gap: 4pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4pt;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.section-title {
+}
+
+.section-subtitle {
+}
+
+.item {
+}
+

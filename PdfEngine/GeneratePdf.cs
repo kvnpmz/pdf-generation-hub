@@ -1,0 +1,30 @@
+using Microsoft.Playwright;
+
+public class GeneratePdf
+{
+    public async Task ConvertToPdfAsync(string html, string docName)
+    {
+        string docPath = $"documents/{docName}"; 
+
+        using var playwright = await Playwright.CreateAsync();
+        await using var browser = await playwright.Chromium.LaunchAsync();
+        var page = await browser.NewPageAsync();
+        await page.SetContentAsync(html);
+        var formats = new[] { 
+            new { Name = "letter", Format = PaperFormat.Letter }, 
+            new { Name = "a4", Format = PaperFormat.A4 } 
+        };
+
+        foreach (var item in formats)
+        {
+            await page.PdfAsync(new()
+            {
+                Path = $"{docPath}/{docName}_{item.Name}.pdf",
+                Format = item.Format,
+                PrintBackground = true
+            });
+            Console.WriteLine($"Generated {docName}_{item.Name}.pdf");       
+        }
+    }
+}
+
