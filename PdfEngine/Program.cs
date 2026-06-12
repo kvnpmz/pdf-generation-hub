@@ -13,5 +13,5 @@ string finalPdfName = $"{docName}_letter.pdf";
 string fullPdfPath = Path.Combine(folderPath, finalPdfName);
 
 var processor = new ImageProcessor();
-processor.IsEnabled = false;
+processor.IsEnabled = true;
 processor.RunPipeline(fullPdfPath);

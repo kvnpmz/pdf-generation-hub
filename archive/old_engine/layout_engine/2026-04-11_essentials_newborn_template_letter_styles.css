@@ -1,0 +1,136 @@
+    
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            #outline: 1.5pt solid red;
+        }
+
+        html, body {
+            font-family: Arial, sans-serif;
+            position: absolute;
+            left: 2pt;
+            top: 2pt;
+            width: 610pt;
+            height: 790pt;
+        }
+
+        .page {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            position: relative;
+            top: 36pt;
+            left: 52pt;
+            width: 520pt;
+            color: #94b8d9;
+            font-weight: bold;
+            font-size: 26pt;
+            letter-spacing: 2pt;
+            text-transform: uppercase;
+        }
+
+        .column {
+            position: absolute;
+            top: 80pt;
+            width: 170pt;
+            bottom: 36pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .col-1 { left: 36pt; }
+        .col-2 { left: 221pt; }
+        .col-3 { right: 36pt; }
+
+
+        .section {
+        }
+
+        .section-header {
+            position: relative;
+            width: 100%;
+            height: 30pt;
+        }
+
+        .icon-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30pt;
+            height: 30pt;
+            z-index: 2;
+            padding-left: 4.5pt;
+            border: 1pt solid #94b8d9;
+            border-radius: 50%;
+            line-height: 28pt;
+            color: #555;
+            background-color: #fff;
+            font-size: 14pt;
+        }
+
+        .car-icon {
+            line-height: 22pt;
+        }
+
+        .prep-icon {
+            padding-left: 6pt;
+        }
+
+        .section-title {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 30pt;
+            line-height: 30pt;
+            padding-left: 24pt;
+            width: 157pt;
+            background-color: #d1e3f3;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 11pt;
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            z-index: 1;
+        }
+
+        .item {
+            position: relative;
+            padding-left: 23pt;
+            margin-top: 9pt;
+            font-size: 8.5pt;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        .col-2 .item {
+            margin-top: 13pt; 
+        }
+
+        .col-3 .item {
+            margin-top: 14pt; 
+        }
+
+        .section-header + .item {
+            margin-top: 7pt !important;
+        }
+
+        .checkbox {
+            position: absolute;
+            left: 5pt;
+            top: 0;
+            width: 10pt;
+            height: 10pt;
+            border: 1.5pt solid #94b8d9;
+        }
+
+    

@@ -1,0 +1,85 @@
+    
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            #outline: 1.5px solid red;
+        }
+
+        html, body {
+            top: 1pt;
+            left: 1pt;
+            width: 594pt;
+            height: 840pt;
+            font-family: "Liberation Sans", sans-serif;
+            position: relative;
+            background-color: white;
+        }
+
+        h1 {
+            position: absolute;
+            top: 36pt;
+            width: 100%;
+            text-align: center;
+            font-size: 36pt;
+            font-weight: bold;
+            color: #1351d8;
+            letter-spacing: 1pt;
+            text-transform: uppercase;
+        }
+
+        .column {
+            position: absolute;
+            top: 87pt;
+            width: 165pt;
+            height: 752pt;
+            padding-bottom: 36pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .col-1 { left: 36pt; }
+        .col-2 { left: 214pt; }
+        .col-3 { right: 36pt; }
+
+        .section {
+            position: relative;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 17pt;
+            margin-bottom: 6pt;
+            letter-spacing: 1pt;
+            color: #000;
+        }
+
+        .item {
+            position: relative;
+            height: 14pt;
+            font-size: 12pt;
+            line-height: 14pt;
+            margin-top: 5pt;
+            padding-left: 15pt;
+            color: #000;
+        }
+
+        .checkbox {
+            position: absolute;
+            left: 0;
+            top: 1.5pt;
+            width: 11pt;
+            height: 11pt;
+            border: 1.5pt solid #000;
+            border-radius: 2pt;
+            background: #fff;
+        }
+
+
+    

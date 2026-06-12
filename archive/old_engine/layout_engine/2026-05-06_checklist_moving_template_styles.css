@@ -1,0 +1,91 @@
+        
+            :root {
+                #--dimension-vertical: 792pt;
+                --dimension-vertical: 842pt;
+                --dimension-offset: 119pt;
+            }
+
+            @page {
+                size: A4;
+                margin: 36pt;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                #outline: 1.5px solid red;
+            }
+
+            html,
+            body {
+                height: 100%;
+                font-family: "Ubuntu Sans", sans-serif;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 30pt;
+                font-weight: 800;
+                #color: #DB0171;
+                color: #0171DB;
+                letter-spacing: 0.6pt;
+                text-transform: uppercase;
+                margin: 0 0 10pt 0;
+            }
+
+            .container {
+                height: calc(var(--dimension-vertical) - var(--dimension-offset));
+            }
+
+            .column-wrapper {
+                float: left;
+                width: calc(33.3% - 0pt);
+                margin: 0 0pt 0 0;
+                height: 100%;
+            }
+
+            .column-wrapper:last-child {
+                margin: 0;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+
+            table {
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: collapse;
+            }
+
+            th {
+                font-size: 14pt;
+                letter-spacing: 0.9pt;
+                padding: 3pt 0 6pt 0;
+            }
+
+            td {
+                font-size: 13pt;
+                padding: 0.4pt 0pt 0.4pt 12pt;
+            }
+
+            .item {
+                position: relative;
+            }
+
+            .item::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 4pt;
+                width: 6pt;
+                height: 6pt;
+                background: #fff;
+                border: 1pt solid #000;
+                border-radius: 1.5pt;
+            }
+        

@@ -1,0 +1,8 @@
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+lua_modules/
