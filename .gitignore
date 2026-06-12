@@ -17,6 +17,5 @@ lua_modules/
 !*.json
 !*.html
 !*.css
-!*.pdf
 
 !.gitignore
