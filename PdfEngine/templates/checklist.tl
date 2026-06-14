@@ -16,7 +16,8 @@ return function(layout)
                 end
                 
                 local sectionHtml = string.format(
-                    '<h2>%s</h2><ul>%s</ul>',
+                    '<h2 style="background-color: %s;">%s</h2><ul>%s</ul>',
+                    color,
                     section.title or "",
                     listItemsHtml
                 )

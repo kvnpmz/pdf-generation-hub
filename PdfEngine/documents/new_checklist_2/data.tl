@@ -1,5 +1,5 @@
 return {
-    id = "example_checklist",
+    id = "new_checklist_2",
     template = "default",
     header = "Hello John Doe",
     columns = {

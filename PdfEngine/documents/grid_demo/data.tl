@@ -1,5 +1,4 @@
 return {
-    id = "example_checklist",
     template = "default",
     header = "Hello John Doe",
     columns = {

@@ -4,7 +4,8 @@ public class GeneratePdf
 {
     public async Task ConvertToPdfAsync(string html, string docName)
     {
-        string docPath = $"documents/{docName}"; 
+        string docPath = $"output/{docName}"; 
+        Directory.CreateDirectory(docPath);
 
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync();
@@ -17,13 +18,14 @@ public class GeneratePdf
 
         foreach (var item in formats)
         {
+            string fileName = item.Name == "a4" ? $"{docName}_{item.Name}.pdf" : $"{docName}.pdf";
             await page.PdfAsync(new()
             {
-                Path = $"{docPath}/{docName}_{item.Name}.pdf",
+                Path = $"{docPath}/{fileName}",
                 Format = item.Format,
                 PrintBackground = true
             });
-            Console.WriteLine($"Generated {docName}_{item.Name}.pdf");       
+            Console.WriteLine($"Generated {fileName}");       
         }
     }
 }

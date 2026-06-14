@@ -19,8 +19,8 @@ draw.polygon([(0, 0), (width, 0), (0, height)], fill=lighter_blue)
 
 # 4. Define the square's bounding box
 margin_x = 143
-margin_y1 = 32
-margin_y2 = 37
+margin_y1 = 50
+margin_y2 = 67
 shape = [margin_x, margin_y1, width - margin_x, height - margin_y2]
 
 # 5. Draw the rounded rectangle

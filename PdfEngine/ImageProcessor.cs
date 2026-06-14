@@ -7,6 +7,24 @@ public class ImageProcessor
     public bool IsEnabled { get; set; } = true; 
     private readonly string _etsyDir = "/home/kevin/z_ob/etsy";
 
+    public void ProcessFolder(string docName)
+    {
+        string folderPath = Path.Combine(Environment.CurrentDirectory, "output", docName);
+
+        if (!Directory.Exists(folderPath))
+        {
+            Console.WriteLine($"[ERROR] Folder not found: {folderPath}");
+            return;
+        }
+
+        string[] pdfFiles = Directory.GetFiles(folderPath, $"{docName}*.pdf");
+        
+        foreach (string filePath in pdfFiles)
+        {
+            RunPipeline(filePath);
+        }
+    }
+
     public void RunPipeline(string pdfPath)
     {
         if (!IsEnabled)
@@ -17,7 +35,7 @@ public class ImageProcessor
 
         string absPath = Path.GetFullPath(pdfPath);
         string? dir = Path.GetDirectoryName(absPath);
-        string name = Path.GetFileNameWithoutExtension(absPath).Replace("_letter", "");
+        string name = Path.GetFileNameWithoutExtension(absPath);
 
         if (dir == null) return;
 
@@ -48,15 +66,20 @@ public class ImageProcessor
 
     private void CompositeImages(string pngPath, string outputDir, string name)
     {
+        if (name.EndsWith("_a4", StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
         var bgs = new[] {
             new { Path = _etsyDir + "/ipad.png", Suffix = "ipad", Scale = "16.8%", Pos = "+69+112" },
-            new { Path = _etsyDir + "/zoom.png", Suffix = "zoom", Scale = "20.0%", Pos = "+146+68" }
+            new { Path = _etsyDir + "/zoom.png", Suffix = "zoom", Scale = "20.0%", Pos = "+146+58" }
         };
 
         foreach (var bg in bgs)
         {
             string fileName = $"{name}_{bg.Suffix}.png";
-            string cleanFileName = fileName.Replace("_letter", "");
+            string cleanFileName = fileName;
             string outPath = Path.Combine(outputDir, cleanFileName);
             string args = $"convert \"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 

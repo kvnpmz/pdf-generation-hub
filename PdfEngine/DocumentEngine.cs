@@ -4,11 +4,11 @@ public class DocumentEngine
 {
     public async Task<string> GenerateHtml(string docName)
     {
-        string docPath = $"documents/{docName}"; 
-        string layoutTable = await File.ReadAllTextAsync($"{docPath}/data.tl"); 
-
         using var lua = new Lua();
         lua.DoString("require('main')");
+
+        string docPath = $"documents/{docName}";
+        string layoutTable = await File.ReadAllTextAsync($"{docPath}/data.tl"); 
 
         var results = lua.DoString(layoutTable);
         if (results.Length == 0)
@@ -16,9 +16,9 @@ public class DocumentEngine
 
         var layout = (LuaTable)results[0];
         string template = layout["template"]?.ToString() ?? "default";
+        string id = layout["id"]?.ToString() ?? "";
 
-        string renderScript =
-            await File.ReadAllTextAsync($"templates/{template}.tl");
+        string renderScript = await File.ReadAllTextAsync($"templates/{template}.tl");
         var renderBody = lua.DoString(renderScript)[0];
 
         var data = new {

@@ -1,17 +1,14 @@
-﻿var docName = "apartment_checklist";
-var copier = new DocumentBoilerplate();
-copier.CloneDocument("example_checklist", docName);
+﻿string id = "new_checklist_2";
+var copier = new ProjectInitializer();
+copier.CreateFolder(id);
 
 var engine = new DocumentEngine();
+
+string html = await engine.GenerateHtml(id);
 var converter = new GeneratePdf();
 
-string html = await engine.GenerateHtml(docName);
-await converter.ConvertToPdfAsync(html, docName);
-
-string folderPath = Path.Combine(Environment.CurrentDirectory, "documents", docName);
-string finalPdfName = $"{docName}_letter.pdf";
-string fullPdfPath = Path.Combine(folderPath, finalPdfName);
-
+await converter.ConvertToPdfAsync(html, id);
 var processor = new ImageProcessor();
-processor.IsEnabled = true;
-processor.RunPipeline(fullPdfPath);
+
+processor.IsEnabled = Convert.ToBoolean(1); 
+processor.ProcessFolder(id);

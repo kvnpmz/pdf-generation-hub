@@ -1,8 +1,11 @@
 body {
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
-    color: #2D5A4C;
+    color: #E08E8E;
+    -webkit-text-stroke: 0.8pt #121212;
     text-transform: uppercase;
     font-size: 28pt;
     font-weight: 900;
@@ -10,11 +13,22 @@ h1 {
     border-bottom: 1.5pt solid #2D5A4C;
 }
 
-.column-container {
+main {
+    display: flex;
+    flex: 1;
+    gap: 5pt;
     padding-top: 3pt;
 }
 
-.row {
+.column { 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5pt;
+}
+
+section {
+    flex: 1;
     border: 1.5pt solid #D3D3D3;
     border-radius: 5pt;
 }

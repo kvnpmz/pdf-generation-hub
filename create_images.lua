@@ -4,7 +4,7 @@ local ASSET_DIR = "/home/kevin/z_ob/etsy"
 local OUTPUT_DIR = "images"
 local BGS = {
     {path = ASSET_DIR .. "/ipad.png",   suffix = "ipad",   scale = "16.8%", pos = "69,112"},
-    {path = ASSET_DIR .. "/zoom.png",   suffix = "zoom",   scale = "20.0%", pos = "146,68"},
+    {path = ASSET_DIR .. "/zoom.png",   suffix = "zoom",   scale = "20.0%", pos = "146,58"},
 --    {path = ASSET_DIR .. "/zoom_2.png", suffix = "zoom_2", scale = "22.2%", pos = "126,11"}
 }
 
