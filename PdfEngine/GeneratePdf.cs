@@ -2,9 +2,9 @@ using Microsoft.Playwright;
 
 public class GeneratePdf
 {
-    public async Task ConvertToPdfAsync(string html, string docName)
+    public async Task ConvertToPdfAsync(string html, string docId, string outputName)
     {
-        string docPath = $"output/{docName}"; 
+        string docPath = $"output/{docId}"; 
         Directory.CreateDirectory(docPath);
 
         using var playwright = await Playwright.CreateAsync();
@@ -12,13 +12,13 @@ public class GeneratePdf
         var page = await browser.NewPageAsync();
         await page.SetContentAsync(html);
         var formats = new[] { 
-            new { Name = "letter", Format = PaperFormat.Letter }, 
-            new { Name = "a4", Format = PaperFormat.A4 } 
+            new { Format = PaperFormat.Letter, Suffix = ""}, 
+            new { Format = PaperFormat.A4, Suffix = "_a4" } 
         };
 
         foreach (var item in formats)
         {
-            string fileName = item.Name == "a4" ? $"{docName}_{item.Name}.pdf" : $"{docName}.pdf";
+            string fileName = $"{outputName}{item.Suffix}.pdf";
             await page.PdfAsync(new()
             {
                 Path = $"{docPath}/{fileName}",

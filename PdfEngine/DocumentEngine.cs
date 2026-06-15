@@ -2,7 +2,7 @@ using NLua;
 
 public class DocumentEngine
 {
-    public async Task<string> GenerateHtml(string docName)
+    public async Task<(string html, string outputName)> GenerateHtml(string docName)
     {
         using var lua = new Lua();
         lua.DoString("require('main')");
@@ -15,8 +15,9 @@ public class DocumentEngine
             throw new Exception("data.tl returned no value");
 
         var layout = (LuaTable)results[0];
+        string outputName = layout["output_name"]?.ToString() ?? layout["id"]?.ToString() ?? "output";
+        Console.WriteLine($"{outputName} is the name of the output");
         string template = layout["template"]?.ToString() ?? "default";
-        string id = layout["id"]?.ToString() ?? "";
 
         string renderScript = await File.ReadAllTextAsync($"templates/{template}.tl");
         var renderBody = lua.DoString(renderScript)[0];
@@ -39,7 +40,7 @@ public class DocumentEngine
         html = html.Replace("</head>", styleBlock);
 
         Console.WriteLine(html);
-        return html;
+        return (html, outputName);
     }
 }
 

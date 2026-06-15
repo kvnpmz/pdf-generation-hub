@@ -1,4 +1,5 @@
 using System.IO;
+using System.Text.RegularExpressions;
 
 public class ProjectInitializer
 {
@@ -30,18 +31,19 @@ public class ProjectInitializer
         }
 
         string dataFile = Path.Combine(destPath, "data.tl");
-        string content = File.ReadAllText(dataFile);
+        string existing = File.ReadAllText(dataFile);
 
-        content = content.Replace(
-            "id = \"example_checklist\"",
-            $"id = \"{documentId}\""
-        );
+        string targetId = $"id = \"{documentId}\"";
 
-        var existing = File.ReadAllText(dataFile);
-
-        if (existing != content)
+        if (!existing.Contains(targetId))
         {
-            File.WriteAllText(dataFile, content);
+            existing = Regex.Replace(
+                existing,
+                @"id\s*=\s*"".*?""",
+                targetId
+            );
+
+            File.WriteAllText(dataFile, existing);
         }
 
         return documentId;

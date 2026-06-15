@@ -7,9 +7,9 @@ public class ImageProcessor
     public bool IsEnabled { get; set; } = true; 
     private readonly string _etsyDir = "/home/kevin/z_ob/etsy";
 
-    public void ProcessFolder(string docName)
+    public void ProcessFolder(string docId)
     {
-        string folderPath = Path.Combine(Environment.CurrentDirectory, "output", docName);
+        string folderPath = Path.Combine(Environment.CurrentDirectory, "output", docId);
 
         if (!Directory.Exists(folderPath))
         {
@@ -17,7 +17,7 @@ public class ImageProcessor
             return;
         }
 
-        string[] pdfFiles = Directory.GetFiles(folderPath, $"{docName}*.pdf");
+        string[] pdfFiles = Directory.GetFiles(folderPath, $"*.pdf");
         
         foreach (string filePath in pdfFiles)
         {
