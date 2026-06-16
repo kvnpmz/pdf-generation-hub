@@ -43,7 +43,7 @@ public class ImageProcessor
 
         if (!File.Exists(absPath))
         {
-            Console.WriteLine($"[ERROR] File not found at: {name}");
+            Console.WriteLine($"[ERROR] File not found at: {absPath}");
             return;
         }
 

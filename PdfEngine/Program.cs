@@ -1,4 +1,4 @@
-﻿string id = "apartment_checklist_grid";
+﻿string id = "150first_foods";
 var copier = new ProjectInitializer();
 
 copier.CreateFolder(id);
@@ -13,5 +13,5 @@ var converter = new GeneratePdf();
 await converter.ConvertToPdfAsync(html, id, outputName);
 var processor = new ImageProcessor();
 
-processor.IsEnabled = Convert.ToBoolean(1); 
+processor.IsEnabled = Convert.ToBoolean(0); 
 processor.ProcessFolder(id);

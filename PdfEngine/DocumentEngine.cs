@@ -16,7 +16,6 @@ public class DocumentEngine
 
         var layout = (LuaTable)results[0];
         string outputName = layout["output_name"]?.ToString() ?? layout["id"]?.ToString() ?? "output";
-        Console.WriteLine($"{outputName} is the name of the output");
         string template = layout["template"]?.ToString() ?? "default";
 
         string renderScript = await File.ReadAllTextAsync($"templates/{template}.tl");
