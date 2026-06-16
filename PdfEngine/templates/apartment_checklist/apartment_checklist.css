@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: #E08E8E;
+    -webkit-text-stroke: 0.8pt #121212;
+    text-transform: uppercase;
+    font-size: 28pt;
+    font-weight: 900;
+    letter-spacing: 2pt;
+    border-bottom: 1.5pt solid #2D5A4C;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    gap: 5pt;
+    padding-top: 3pt;
+}
+
+.column { 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5pt;
+}
+
+section {
+    flex: 1;
+    border: 1.5pt solid #D3D3D3;
+    border-radius: 5pt;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13pt;
+    border-bottom: 1.5pt solid #121212;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    position: relative;
+    padding-left: 15pt;
+    padding-right: 1pt;
+    font-size: 12.2pt;
+    line-height: 13.7pt;
+}
+
+li::before {
+    content: "";
+    position: absolute;
+    left: 2pt;
+    top: 2pt;
+    width: 8pt;
+    height: 8pt;
+    border: 0.7pt solid #333;
+}

@@ -1,0 +1,27 @@
+h1 {
+    background-color: lightblue;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex: 1;
+    gap: 4pt;
+}
+
+.column {
+    display: grid;
+    grid-auto-rows: 1fr;
+    gap: 4pt;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    border: 1pt solid red;
+}

@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-direction: column;
+//    border: 1pt solid;
+    font-family: "Source Serif 4"
+}
+
+h1 {
+    color: #2D5BFF;
+    text-transform: uppercase;
+    font-size: 28pt;
+    font-weight: 900;
+    letter-spacing: 2pt;
+    border-bottom: 1.5pt solid #2D5BFF;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    flex: 1;
+    padding-top: 3pt;
+}
+
+.column { 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5pt;
+    position: relative;
+}
+
+.column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 3%;
+    height: 92%;
+    width: 0.7pt;
+    background-color: #121212;
+}
+
+section {
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13pt;
+    margin-right: 10pt;
+    margin-left: 10pt;
+    border-top: 0.7pt solid #121212;
+}
+
+section:first-child h2 {
+    border-top: none;
+}
+
+ul {
+    list-style: none;
+    padding-top: 3pt;
+}
+
+li {
+    position: relative;
+    padding: 0pt 3pt 0pt 18pt;
+    font-size: 10.3pt;
+}
+
+li::before {
+    content: "";
+    position: absolute;
+    left: 5pt;
+    top: 2pt;
+    width: 8pt;
+    height: 8pt;
+    border: 0.7pt solid #333;
+}
