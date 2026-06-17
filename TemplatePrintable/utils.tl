@@ -1,7 +1,7 @@
 local M = {}
 
 function M.escape_html(string: string): string
-    local result = {}
+    local result: {string} = {}
     for _, code in utf8.codes(string) do
         if code > 127 then
             table.insert(result, string.format("&#x%X;", code))
@@ -13,7 +13,7 @@ function M.escape_html(string: string): string
 end
 
 function M.escape_css(string: string): string
-    local result = {}
+    local result: {string} = {}
     for _, code in utf8.codes(string) do
         if code > 127 then
             table.insert(result, string.format("\\%04X", code))

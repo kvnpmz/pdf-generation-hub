@@ -11,7 +11,7 @@ public class RenderStrategy : IPipelineStep
         var results = (object[])setupFunction.Call(context.DocId);
 
         var config = (LuaTable)results[0];
-        var renderTemplate = results[1];
+        var renderTemplate = (LuaFunction)results[1];
 
         string outputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output";
         string template = config["template"]?.ToString() ?? "default";

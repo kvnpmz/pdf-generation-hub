@@ -1,4 +1,8 @@
-global record Config
+local record TemplateModule
+   render: function(any): string
+end
+
+local record Config
     id: string
     output_name: string
     template: string
@@ -25,16 +29,16 @@ end
 
 function M.Compose(docId: string): (Config, any)
     local configPath = "documents." .. docId .. ".config"
-    print("documents." .. docId .. ".config")
     local config = require(configPath) as Config
     
     local templatePath = "templates." .. config.template .. ".render"
-    local rawRender = require(templatePath) as RenderFunction
+    local module = require(templatePath) as TemplateModule
+    local rawRender = module.render as RenderFunction
 
     local renderStrategy = function(data: any): string
         return rawRender(sanitize_unicode(data))
     end
-    
+
     return config, renderStrategy
 end
 

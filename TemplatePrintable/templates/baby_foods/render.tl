@@ -9,7 +9,9 @@ local record Layout
     columns: {{Section}}
 end
 
-local function render(config: Layout): string
+local M = {}
+
+function M.render(config: Layout): string
     local headerHtml = string.format('<h1>%s<strong>ñ</strong></h1>', config.header)
     local columnsHtml = "" 
 
@@ -35,4 +37,4 @@ local function render(config: Layout): string
 
 end
 
-return render
+return M
