@@ -9,11 +9,11 @@ local record Layout
     columns: {{Section}}
 end
 
-local function render(layout: Layout): string
-    local headerHtml = string.format('<h1>%s<strong>ñ</strong></h1>', layout.header)
+local function render(config: Layout): string
+    local headerHtml = string.format('<h1>%s<strong>ñ</strong></h1>', config.header)
     local columnsHtml = "" 
 
-    for _, colItems in ipairs(layout.columns) do
+    for _, colItems in ipairs(config.columns) do
         local colContent = "" 
 
         for _, section in ipairs(colItems) do 
