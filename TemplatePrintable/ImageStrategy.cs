@@ -45,7 +45,7 @@ public class ImageStrategy : IPipelineStep
         RunCommand("pdftoppm", $"-png -r 300 -singlefile \"{absPath}\" \"{Path.Combine(outputDir, name)}\"");
 
         string pngPath = Path.Combine(outputDir, name) + ".png";
-        Console.WriteLine($"[DEBUG] Converting PDF to PNG using prefix: {pngPath}");
+        Console.WriteLine($"[INFO] Converting PDF to PNG using prefix: {pngPath}");
 
         if (File.Exists(pngPath))
         {
@@ -77,7 +77,7 @@ public class ImageStrategy : IPipelineStep
             string args = $"convert \"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 
             RunCommand("", args);
-            Console.WriteLine($"[DEBUG] Saved: {outPath}");
+            Console.WriteLine($"[INFO] Saved: {outPath}");
         }
     }
 
