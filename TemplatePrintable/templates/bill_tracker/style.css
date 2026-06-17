@@ -1,0 +1,129 @@
+body { 
+	font-family: 'Source Serif 4';
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+main { 
+	display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+header { 
+	display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20pt;
+    padding-bottom: 5pt;
+}
+
+h1 { 
+	text-align: center;
+    font-size: 30pt;
+    letter-spacing: 3pt;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.dates { 
+	display: grid;
+}
+
+.field { 
+	display: flex;
+    align-items: center;
+}
+
+.line { 
+	flex: 1;
+    padding-top: 8pt;
+    margin-left: 6pt;
+    border-bottom: 1pt solid;
+}
+
+table { 
+	width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th(1) { 
+	 width: 10%; 
+}
+
+th(2) { 
+	 width: 25%; 
+}
+
+th(3) { 
+	 width: 12%; 
+}
+
+th(4) { 
+	 width: 13%; 
+}
+
+th(5) { 
+	 width: 12%; 
+}
+
+th(6) { 
+	 width: 13%; 
+}
+
+th(7) { 
+	 width: 15%; 
+}
+
+th { 
+	background-color: #e0f7fa;
+    border: 1pt solid;
+    font-size: 10pt;
+    padding: 0 10pt;
+    text-align: center;
+    height: 30pt;
+}
+
+td { 
+	border: 1pt solid;
+    height: 30pt;
+}
+
+tbody tr(even) { 
+	 background-color: #fafafa; 
+}
+
+td { 
+	text-align: center;
+    position: relative;
+}
+
+td:first-child::after { 
+	content: "";
+    position: absolute;
+    top: 8pt;
+    left: 17.5pt;
+    width: 10pt;
+    height: 10pt;
+    border-radius: 2pt;
+    border: 1.5pt solid;
+}
+
+footer { 
+	margin-top: auto;
+    font-weight: bold;
+    border-bottom: 1pt solid;
+    padding-bottom: 25pt;
+    position: relative;
+}
+
+footer::after { 
+	content: "";
+    position: absolute;
+    top: 15pt;
+    left: 0pt;
+    border-top: 1pt solid;
+    width: 100%;
+}
+

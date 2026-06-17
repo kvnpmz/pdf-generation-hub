@@ -1,0 +1,56 @@
+h1 {
+    text-align: center;
+    color: #76c043; 
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); gap: 10px; 
+}
+
+.column {
+    display: flex;
+    flex-direction: column; gap: 10px; 
+}
+
+section {
+    padding: 8px;
+    border-radius: 8px; 
+}
+
+.section-title {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc; margin-bottom: 5px; 
+}
+
+ul {
+    list-style: none;
+    padding: 0; margin: 0; font-size: 12px; 
+}
+ 
+li {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.dots::before {
+    content: "■ ■ ■";
+    color: #888;
+}
+
+.yellow {
+    background: #FCF1D4;
+}
+
+.pink {
+    background: #FBD3D3;
+}
+ 
+.blue {
+    background: #CCE5FF;
+}
+ 
+.green {
+    background: #D7EFD3;
+}
+
