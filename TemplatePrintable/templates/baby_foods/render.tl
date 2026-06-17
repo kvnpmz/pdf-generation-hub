@@ -1,5 +1,16 @@
-return function(layout)
-    local headerHtml = string.format('<h1>%s</h1>', layout.header)
+local record Section
+    title: string
+    color: string
+    items: {string}
+end
+
+local record Layout
+    header: string
+    columns: {{Section}}
+end
+
+local function render(layout: Layout): string
+    local headerHtml = string.format('<h1>%s<strong>ñ</strong></h1>', layout.header)
     local columnsHtml = "" 
 
     for _, colItems in ipairs(layout.columns) do
@@ -24,3 +35,4 @@ return function(layout)
 
 end
 
+return render
