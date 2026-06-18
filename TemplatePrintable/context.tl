@@ -24,7 +24,10 @@ function M.Execute(docId: string): (Config, any)
     local config = require(configPath) as Config
     
     local templatePath = "templates." .. config.template .. ".render"
+    print("loading:", templatePath)
     local module = require(templatePath) as RenderStrategy
+    print("module type:", type(module))
+    print("module value:", tostring(module))
     local rawRender = module.render
 
     local renderStrategy = function(data: any): string

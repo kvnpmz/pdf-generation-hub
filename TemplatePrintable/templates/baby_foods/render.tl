@@ -4,7 +4,7 @@ local record Section
     items: {string}
 end
 
-local record Layout
+local record Config
     header: string
     columns: {{Section}}
 end
@@ -12,7 +12,7 @@ end
 require("contracts")
 local M = {}
 
-function M.render(config: Layout): string
+function M.render(config: Config): string
     local headerHtml = string.format('<h1>%s<strong>ñ</strong></h1>', config.header)
     local columnsHtml = "" 
 

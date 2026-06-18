@@ -1,6 +1,7 @@
 return {
     template = "planner",
     header = "Budget Planner",
+    style = "budget_planner_style",
     columns = {
         { -- Column 1
             { title = "Income", max_rows = 5, items = {} },

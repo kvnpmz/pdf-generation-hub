@@ -22,7 +22,7 @@ public class Renderer : IPipelineStep
         string html = (string)generateDoc.Call(lua["data"])[0];
         var applyStyling = (LuaFunction)lua["ApplyStyling"];
 
-        html = (string)applyStyling.Call(html, config["template"])[0];
+        html = (string)applyStyling.Call(html, config)[0];
         Console.WriteLine(html);
 
         context.Html = html;

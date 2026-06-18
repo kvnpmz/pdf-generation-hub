@@ -1,10 +1,12 @@
 local M = {}
 local utils = require("utils")
 
-function M.Apply(html: string, template: string): string
+function M.Apply(html: string, config: string): string
     local baseCss = utils.escape_css(io.open("templates/base/style.css", "r"):read("*a"))
     
-    local customPath = "templates/" .. template .. "/style.css"
+    local styleFilename = (config.style or "style") .. ".css"
+    local customPath = "templates/" .. config.template .. "styleFilename"
+
     local customCss = ""
     local f = io.open(customPath, "r")
     if f then

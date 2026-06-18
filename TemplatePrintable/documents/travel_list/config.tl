@@ -1,8 +1,8 @@
 return {
-    id = "example_checklist",
-    template = "default",
-    header = "Hello John Doe",
-    style = "example_checklist_style",
+    id = "travel_list",
+    output_name = "travel_list",
+    template = "grid_checklist",
+    header = "Travel Packing List",
     columns = {
         { -- Column 1
             { title = "Title 1", subtitle = "Subtitle 1", item = "First list item" },

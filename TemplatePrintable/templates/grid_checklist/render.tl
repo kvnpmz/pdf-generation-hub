@@ -1,10 +1,23 @@
-return function(layout)
+local record Section
+    title: string
+    items: {string}
+end
+
+local record Config
+    header: string
+    columns: {{Section}}
+end
+
+require("contracts")
+local M = {}
+
+function M.render(config: Config): string
 --    local pastelColors = {"#8FB8FF", "#FF9AA2", "#FFD36E"}
-    local headerHtml = string.format('<h1>%s</h1>', layout.header)
+    local headerHtml = string.format('<h1>%s</h1>', config.header)
     local columnsHtml = ""
     local sectionCounter = 1
 
-    for _, colItems in ipairs(layout.columns) do
+    for _, colItems in ipairs(config.columns) do
         local colContent = ""
 
             for _, section in ipairs(colItems) do
@@ -37,3 +50,5 @@ return function(layout)
     html = headerHtml .. string.format('<main>%s</main>', columnsHtml)
     return html
 end
+
+return M as RenderStrategy

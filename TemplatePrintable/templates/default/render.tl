@@ -1,8 +1,21 @@
-return function(layout)
-    local headerHtml = string.format('<h1>%s</h1>', layout.header)
+local record Section
+    title: string
+    items: {string}
+end
+
+local record Config
+    header: string
+    columns: {{Section}}
+end
+
+require("contracts")
+local M = {}
+
+function M.render(config: Config): string
+    local headerHtml = string.format('<h1>%s</h1>', config.header)
 
     local columnsHtml = ""
-    for _, colItems in ipairs(layout.columns) do
+    for _, colItems in ipairs(config.columns) do
         local colContent = ""
 
             for _, section in ipairs(colItems) do
@@ -22,3 +35,5 @@ return function(layout)
     html = headerHtml .. string.format('<main>%s</main>', columnsHtml)
     return html
 end
+
+return M as RenderStrategy
