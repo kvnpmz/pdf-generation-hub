@@ -1,0 +1,56 @@
+body { 
+    display: flex;
+    flex-direction: column;
+    font-size: 8pt; 
+}
+
+h1 { 
+    color: #E08E8E;
+    text-transform: uppercase;
+    font-size: 28pt;
+    font-weight: 900;
+    letter-spacing: 2pt;
+    border-bottom: 1.5pt solid #2D5A4C;
+}
+
+main { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    border: 1pt solid;
+    flex: 1;
+}
+
+.column {
+    display: flex;
+//    justify-content: space-between;
+    flex-direction: column;
+    gap: 1%;
+}
+
+section { 
+    border: 1pt solid #ddd; 
+    padding: 5pt; 
+    border-radius: 2pt; 
+}
+
+h2 { 
+    font-size: 1.1em; 
+    border-bottom: 2pt solid; 
+    padding-bottom: 2pt; 
+}
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+li { 
+    padding: 2pt 0; 
+    border-bottom: 1pt solid; 
+}
+
+li::before { 
+    content: ""; 
+    font-weight: bold; 
+}
