@@ -3,7 +3,7 @@ local record TemplateModule
 end
 
 local M = {}
-require("types")
+require("contracts")
 local utils = require("utils")
 
 local function sanitize_unicode(data: any): any

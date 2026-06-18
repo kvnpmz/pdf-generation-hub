@@ -1,4 +1,4 @@
-﻿public class DocumentProcessor
+﻿public class Processor
 {
     public async Task ExecuteAsync(string docId, int imageToggle)
     {
@@ -6,14 +6,14 @@
 
         var steps = new List<IPipelineStep>
         {
-            new Setup(),
-            new RenderStrategy(),
-            new ExportStrategy()
+            new Initializer(),
+            new Renderer(),
+            new Exporter()
         };
 
         if (Convert.ToBoolean(imageToggle))
         {
-            steps.Add(new ImageStrategy());
+            steps.Add(new ImageConverter());
         }
         else
         {

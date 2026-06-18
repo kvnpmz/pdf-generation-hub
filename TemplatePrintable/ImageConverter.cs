@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-public class ImageStrategy : IPipelineStep
+public class ImageConverter : IPipelineStep
 {
     private readonly string _assetsDir = "./assets";
 

@@ -1,6 +1,6 @@
 using Microsoft.Playwright;
 
-public class ExportStrategy : IPipelineStep
+public class Exporter : IPipelineStep
 {
     public async Task ExecuteAsync(PipelineContext context)
     {

@@ -9,7 +9,7 @@ local record Layout
     columns: {{Section}}
 end
 
-require("types")
+require("contracts")
 local M = {}
 
 function M.render(config: Layout): string

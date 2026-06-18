@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text.RegularExpressions;
 
-public class Setup : IPipelineStep
+public class Initializer : IPipelineStep
 {
     private const string OutputPath = "documents";
 

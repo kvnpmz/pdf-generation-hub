@@ -1,6 +1,6 @@
 using NLua;
 
-public class RenderStrategy : IPipelineStep  
+public class Renderer : IPipelineStep  
 {
     public async Task ExecuteAsync(PipelineContext context)
     {
