@@ -13,11 +13,10 @@ html {
 body {
     height: 100%;
     font-family: Inter;
-    font-size: 10pt;
+    font-size: 6pt;
 }
 
 h1 {
-    text-align: center;
 }
 
 main {
@@ -29,10 +28,10 @@ main {
 section {
 }
 
-.section-title {
+h2 {
 }
 
-.section-subtitle {
+h3 {
 }
 
 .item {
