@@ -1,4 +1,4 @@
-﻿public class Processor
+﻿public class Builder
 {
     public async Task ExecuteAsync(string docId, int imageToggle)
     {
