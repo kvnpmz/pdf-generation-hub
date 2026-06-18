@@ -1,10 +1,14 @@
-global record RenderStrategy
-   render: function(any): string
+local record M
+    record Config
+        id: string
+        output_name: string
+        template: string
+        header: string
+    end
+
+    record RenderStrategy
+        render: function(any): string
+    end
 end
 
-global record Config
-   id: string
-   output_name: string
-   template: string
-   header: string
-end
+return M

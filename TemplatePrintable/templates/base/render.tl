@@ -1,16 +1,6 @@
-local type Config = record
-    id: string
-    output_name: string
-    template: string
-    header: string
-end
-
-local type Data = record
-    config: Config
-    renderTemplate: function(any): string
-end
-
-local utils = require("utils") -- Ensure utils is available
+local contracts = require("contracts")
+local type Config = contracts.Config
+local utils = require("utils")
 
 global function GenerateDocument(data: Data): string
     local html = data.renderTemplate(data.config)

@@ -1,9 +1,5 @@
-local record TemplateModule
-   render: function(any): string
-end
-
 local M = {}
-require("contracts")
+local contracts = require("contracts")
 local utils = require("utils")
 
 local function sanitize_unicode(data: any): any
@@ -19,12 +15,12 @@ local function sanitize_unicode(data: any): any
     return data
 end
 
-function M.Execute(docId: string): (Config, any)
+function M.Execute(docId: string): (contracts.Config, any)
     local configPath = "documents." .. docId .. ".config"
-    local config = require(configPath) as Config
+    local config = require(configPath) as contracts.Config
     
     local templatePath = "templates." .. config.template .. ".render"
-    local module = require(templatePath) as RenderStrategy
+    local module = require(templatePath) as contracts.RenderStrategy
     local rawRender = module.render
 
     local renderStrategy = function(data: any): string
