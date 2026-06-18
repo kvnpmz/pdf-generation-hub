@@ -9,6 +9,7 @@ local record Layout
     columns: {{Section}}
 end
 
+require("types")
 local M = {}
 
 function M.render(config: Layout): string
@@ -37,4 +38,4 @@ function M.render(config: Layout): string
 
 end
 
-return M
+return M as RenderStrategy

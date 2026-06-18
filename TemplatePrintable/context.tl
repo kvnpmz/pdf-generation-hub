@@ -2,16 +2,8 @@ local record TemplateModule
    render: function(any): string
 end
 
-local record Config
-    id: string
-    output_name: string
-    template: string
-    header: string
-end
-
-local type RenderFunction = function(any): string
-
 local M = {}
+require("types")
 local utils = require("utils")
 
 local function sanitize_unicode(data: any): any
@@ -27,13 +19,13 @@ local function sanitize_unicode(data: any): any
     return data
 end
 
-function M.Compose(docId: string): (Config, any)
+function M.Execute(docId: string): (Config, any)
     local configPath = "documents." .. docId .. ".config"
     local config = require(configPath) as Config
     
     local templatePath = "templates." .. config.template .. ".render"
-    local module = require(templatePath) as TemplateModule
-    local rawRender = module.render as RenderFunction
+    local module = require(templatePath) as RenderStrategy
+    local rawRender = module.render
 
     local renderStrategy = function(data: any): string
         return rawRender(sanitize_unicode(data))

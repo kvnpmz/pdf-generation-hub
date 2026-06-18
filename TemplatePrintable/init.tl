@@ -2,8 +2,8 @@ local tl = require('tl')
 tl.loader() 
 
 require("templates.base.render")
-local builder = require("builder")
+local context = require("context")
 local style_provider = require("style_provider")
 
-global SetupDocument = builder.Compose
+global SetupDocument = context.Execute
 global ApplyStyling = style_provider.Apply
