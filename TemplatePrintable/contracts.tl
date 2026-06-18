@@ -4,6 +4,8 @@ local record M
         output_name: string
         template: string
         header: string
+        style: string | nil
+        completed_date: string | nil
     end
 
     record RenderStrategy

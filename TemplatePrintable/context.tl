@@ -20,8 +20,9 @@ function M.Execute(docId: string): (contracts.Config, any)
     local config = require(configPath) as contracts.Config
     
     local templatePath = "templates." .. config.template .. ".render"
-    local module = require(templatePath) as contracts.RenderStrategy
-    local rawRender = module.render
+    local templateModule = require(templatePath)
+    local module = templateModule as contracts.RenderStrategy
+    local rawRender = module.render as function(any): string
 
     local renderStrategy = function(data: any): string
         return rawRender(sanitize_unicode(data))

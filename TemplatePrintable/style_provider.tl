@@ -1,7 +1,8 @@
 local M = {}
+local contracts = require("contracts")
 local utils = require("utils")
 
-function M.Apply(html: string, config: string): string
+function M.Apply(html: string, config: contracts.Config): string
     local baseCss = utils.escape_css(io.open("templates/base/style.css", "r"):read("*a"))
     local styleFilename = (config.style or "style") .. ".css"
 

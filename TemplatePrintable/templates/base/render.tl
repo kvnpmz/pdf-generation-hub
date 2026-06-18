@@ -1,9 +1,7 @@
-local contracts = require("contracts")
-local type Config = contracts.Config
 local utils = require("utils")
 
-global function GenerateDocument(data: Data): string
-    local html = data.renderTemplate(data.config)
+global function GenerateDocument(data: {any: any}): string
+    local html = (data.renderTemplate as function(any): string)(data.config)
 
     html = string.format([[
         <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"></head>

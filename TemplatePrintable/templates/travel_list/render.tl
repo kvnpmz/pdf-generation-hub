@@ -8,7 +8,7 @@ local record Config
     columns: {{Section}}
 end
 
-require("contracts")
+local contracts = require("contracts")
 local M = {}
 
 function M.render(config: Config): string
@@ -30,7 +30,7 @@ function M.render(config: Config): string
     return html
 end
 
-return M as RenderStrategy
+return M as contracts.RenderStrategy
 
 --function render_packing_list(data)
 --    local html = '<h1>Travel Packing List</h1><div class="container">'
