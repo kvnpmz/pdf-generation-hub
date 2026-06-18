@@ -3,7 +3,6 @@ return {
     output_name = "travel_list",
     header = "Travel Packing List",
     template = "travel_list",
-    style = "style",
     completed_date = "2026-06-18",
     columns = {
         { -- Column 1
