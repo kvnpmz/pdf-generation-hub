@@ -1,0 +1,29 @@
+return {
+    id = "travel_list_blue",
+    output_name = "travel_list",
+    header = "Travel Packing List",
+    template = "travel_list",
+    style = "blue_style",
+    completed_date = "2026-06-18",
+    columns = {
+    { -- Column 1
+        { title = "Documents", items = {"Passports / Visa", "Driver's License/ID", "Itinerary", "Travel Tickets", "Hotel Reservation Info", "Transportation Info", "Travel Insurance", "Frequent Flyer", "Emergency Contacts"} },
+        { title = "Toiletries", items = {"Shampoo", "Conditioner", "Hair Products", "Hair Brush / Comb", "Body Wash / Soap", "Toothpaste", "Toothbrush", "Dental Floss", "Tissues / Wipes", "Face Wash", "Moisturizer / Body Lotion", "Shaver / Razor", "Shaving Cream / Gel", "Glasses", "Contact Lens / Case", "Contact Lens Solution", "Night Guard", "Makeup Kit", "Feminine Products", "Cotton Buds", "Perfume / Cologne", "Deodorant"} }
+    },
+    { -- Column 2
+        { title = "Financials", items = {"Credit Cards", "ATM / Debit Cards", "Cash"} },
+        { title = "Gadgets", items = {"Cell phone", "Tablet / E-Reader", "Laptop", "Chargers", "Batteries", "Camera", "Converter", "Headphones", "USB Memory Sticks"} },
+        { title = "Health / Medical", items = {"Medications", "Prescriptions", "Vitamins", "Pain Reliever", "Insect Repellant", "Sunscreen", "Allergy Medicine", "Sanitizer"} },
+        { title = "Miscellaneous", items = {"Books / Magazines", "Travel Guide", "First Aid Kit", "House Keys", "Snacks", "Water Bottle"} }
+    },
+    { -- Column 3 (Supports sub-headers)
+        { title = "Clothes / Shoes", groups = {
+            { sub = "Essentials", items = {"PJs / Sleepwear", "Underwear", "Socks", "Robe"} },
+            { sub = "Casual Clothes", items = {"Shirts / T-Shirts", "Jeans", "Shorts", "Skirts", "Swimsuits", "Workout Clothes", "Leggings"} },
+            { sub = "Formal Clothes", items = {"Dress Shirts", "Ties", "Pants", "Suits", "Blouses", "Dresses", "Skirts"} },
+            { sub = "Shoes", items = {"Casual Shoes", "Dress Shoes", "Sandals", "Slippers / Flip Flops", "Running Shoes", "Boots"} },
+            { sub = "Accessories", items = {"Sunglasses", "Jewelry", "Belts"} }
+        }}
+    }
+    }
+}

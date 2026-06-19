@@ -5,7 +5,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #d67096;
+    color: #70B0D6;
     text-transform: uppercase;
     letter-spacing: 2pt;
     padding-bottom: 5pt;
@@ -35,7 +35,7 @@ section {
 h2 {
     display: flex;
     align-items: center; 
-    background-color: #d67096;
+    background-color: #70B0D6;
     color: white;
     font-weight: bold;
     height: 20pt;

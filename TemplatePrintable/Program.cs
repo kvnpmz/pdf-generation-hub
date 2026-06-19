@@ -1,2 +1,2 @@
 ﻿var builder = new Builder();
-await builder.ExecuteAsync("travel_list", 0);
+await builder.ExecuteAsync("travel_list_blue", 0);
