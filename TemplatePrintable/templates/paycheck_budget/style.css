@@ -1,0 +1,159 @@
+body {
+    font-size: 9pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+main {
+}
+.month-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+}
+
+h1 {
+    flex: 7;
+    font-size: 30pt;
+    font-weight: 900;
+    align-content: center;
+}
+
+.date-box {
+    border: 2pt solid;
+    height: 40pt;
+    flex: 2;
+    text-align: center;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20pt;
+}
+
+/* Shared grid for both header and rows */
+.income-grid {
+    display: grid;
+    grid-template-columns: 1fr 50pt 50pt;
+    gap: 10pt;
+    align-items: center;
+}
+
+.income-row {
+    display: grid;
+    grid-template-columns: auto 1fr 50pt 50pt;
+    gap: 10pt;
+    margin-bottom: 5pt;
+}
+
+.income-header {
+    display: grid;
+    grid-template-columns: 1fr 50pt 50pt;
+    gap: 10pt;
+    text-align: center;
+    font-weight: bold;
+}
+.row {
+    display: flex;
+    gap: 10pt;
+    margin-bottom: 5pt;
+}
+.income-title {
+    text-align: center;
+}
+.section-header {
+    display: grid;
+    margin-bottom: 5pt;
+    align-items: end;
+}
+
+.section-header > span {
+}
+
+.section-header > span:nth-child(2) {
+    margin-right: 10pt;
+}
+
+.section-footer {
+    display: grid;
+    margin-bottom: 5pt;
+    align-items: end;
+}
+
+.section-title {
+}
+.col-due,
+.col-amount,
+.col-paid {
+    text-align: center;
+}
+
+.row-items {
+    display: grid;
+    gap: 10pt;
+    margin-bottom: 8pt;
+    align-items: center;
+}
+
+.line-grow {
+    border-bottom: 2pt solid;
+    height: 14pt;
+}
+
+.box-due {
+    width: 100%;
+    border: 2pt solid;
+    height: 14pt;
+    box-sizing: border-box;
+}
+
+.box-amount {
+    width: 100%;
+    border: 2pt solid;
+    height: 14pt;
+}
+
+.box-paid {
+    width: 100%;
+    border: 2pt solid;
+    height: 14pt;
+}
+
+.section-footer {
+    display: grid;
+    text-align: end;
+    gap: 10pt;
+    align-items: center;
+}
+
+.footer-bills {
+    display: grid;
+    grid-template-columns: auto 50pt 15pt !important;
+    text-align: right;
+}
+
+.footer-box {
+    border: 2pt solid;
+    height: 14pt;
+}
+
+.summary-box {
+    border: 2pt solid;
+    padding: 15pt;
+    margin-top: 20pt;
+}
+.summary-row {
+    display: grid;
+    grid-template-columns: 1fr 80pt;
+    gap: 10pt;
+    margin-bottom: 5pt;
+    align-items: center;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20pt;
+}
