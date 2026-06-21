@@ -1,24 +1,21 @@
 body {
-    font-size: 9pt;
+    font-size: 10pt;
     font-weight: bold;
     text-transform: uppercase;
-}
-main {
-}
-.month-header {
-    display: flex;
-    justify-content: space-between;
+    letter-spacing: 1.5pt;
 }
 
 header {
     display: flex;
+    margin-top: 10pt;
 }
 
 h1 {
-    flex: 7;
+    flex: 6;
     font-size: 30pt;
     font-weight: 900;
     align-content: center;
+    color: #ad09ad;
 }
 
 .date-box {
@@ -30,130 +27,159 @@ h1 {
 
 .grid-layout {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20pt;
+    grid-template-columns: 5fr 4fr;
+    gap: 15pt;
+    margin-top: 10pt;
 }
 
-/* Shared grid for both header and rows */
-.income-grid {
-    display: grid;
-    grid-template-columns: 1fr 50pt 50pt;
+.column {
+    display: flex;
+    flex-direction: column;
     gap: 10pt;
-    align-items: center;
-}
-
-.income-row {
-    display: grid;
-    grid-template-columns: auto 1fr 50pt 50pt;
-    gap: 10pt;
-    margin-bottom: 5pt;
 }
 
 .income-header {
     display: grid;
-    grid-template-columns: 1fr 50pt 50pt;
-    gap: 10pt;
+    grid-template-columns: 1fr 60pt 60pt;
+    gap: 6pt;
+    margin-top: 6pt;
     text-align: center;
     font-weight: bold;
 }
-.row {
-    display: flex;
-    gap: 10pt;
-    margin-bottom: 5pt;
-}
-.income-title {
-    text-align: center;
-}
-.section-header {
+
+.income-row {
     display: grid;
-    margin-bottom: 5pt;
-    align-items: end;
+    grid-template-columns: auto 1fr 60pt 60pt;
+    gap: 3pt;
+    margin-bottom: 3pt;
 }
 
-.section-header > span {
+.income-row div {
+    align-content: end;
 }
 
-.section-header > span:nth-child(2) {
-    margin-right: 10pt;
+.grid-income {
+    grid-template-columns: 1fr 60pt 60pt;
 }
 
-.section-footer {
-    display: grid;
-    margin-bottom: 5pt;
-    align-items: end;
+.grid-bills {
+    grid-template-columns: 1fr 52pt 52pt 25pt;
+}
+
+.grid-spending {
+    grid-template-columns: 1fr 52pt 52pt;
+}
+
+.grid-savings-goal,
+.grid-extra-debts {
+    grid-template-columns: 1fr 52pt;
 }
 
 .section-title {
+    font-size: 13pt;
 }
-.col-due,
-.col-amount,
-.col-paid {
+
+.section-header {
+    margin-bottom: 3pt;
     text-align: center;
+    letter-spacing: 1.0pt;
 }
 
 .row-items {
-    display: grid;
-    gap: 10pt;
-    margin-bottom: 8pt;
+    margin-bottom: 3pt;
     align-items: center;
-}
-
-.line-grow {
-    border-bottom: 2pt solid;
-    height: 14pt;
-}
-
-.box-due {
-    width: 100%;
-    border: 2pt solid;
-    height: 14pt;
-    box-sizing: border-box;
-}
-
-.box-amount {
-    width: 100%;
-    border: 2pt solid;
-    height: 14pt;
-}
-
-.box-paid {
-    width: 100%;
-    border: 2pt solid;
-    height: 14pt;
 }
 
 .section-footer {
-    display: grid;
     text-align: end;
-    gap: 10pt;
     align-items: center;
-}
-
-.footer-bills {
-    display: grid;
-    grid-template-columns: auto 50pt 15pt !important;
-    text-align: right;
-}
-
-.footer-box {
-    border: 2pt solid;
-    height: 14pt;
 }
 
 .summary-box {
     border: 2pt solid;
-    padding: 15pt;
-    margin-top: 20pt;
+    padding: 6pt;
 }
+
+.summary-box .section-title{
+    font-weight: 900;
+}
+
+.box-due, 
+.box-amount, 
+.box-paid, 
+.footer-box,
+.line-grow {
+    height: 22.8pt;
+    border: 2pt solid;
+}
+
+.line-grow {
+    border: none;
+    border-bottom: 2pt solid;
+}
+
 .summary-row {
     display: grid;
     grid-template-columns: 1fr 80pt;
-    gap: 10pt;
-    margin-bottom: 5pt;
+    gap: 6pt;
+    margin-bottom: 3pt;
+    text-align: right;
+    font-weight: normal;
     align-items: center;
 }
-.column {
+
+.summary-row:last-child {
+    margin-bottom: 0pt;
+}
+
+.income-title {
+    text-align: right;
+    padding-right: 80pt;
+}
+
+.income-header div:nth-child(2) {
+    padding-left: 8pt;
+}
+
+.month-header {
     display: flex;
-    flex-direction: column;
-    gap: 20pt;
+        justify-content: space-between;
+    }
+
+    .section-footer.grid-bills {
+        display: grid;
+        grid-template-columns: auto 52pt 25pt;
+    }
+
+.section-footer.grid-spending {
+    display: grid;
+    grid-template-columns: auto 52pt;
+}
+
+.section-header,
+.row-items,
+.section-footer {
+    display: grid;
+    gap: 3pt;
+    align-items: center;
+}
+
+.minus-text {
+    font-weight: 700;
+    font-size: 12pt;
+    text-align: center;
+}
+
+.summary-row:last-child div {
+    background-color: #E0E0E0;
+}
+
+.summary-row:nth-child(2), .summary-row:last-child {
+    font-weight: bold;
+}
+
+.box-paid {
+    height: 15pt; 
+    width: 15pt;
+    margin-left: 5pt;
 }

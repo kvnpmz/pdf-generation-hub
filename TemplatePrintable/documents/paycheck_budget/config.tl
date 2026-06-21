@@ -13,7 +13,7 @@ return {
         { -- Column 2 
             items = {
                 { title = "Savings Goal", id = 5, fields = { {key="amount", label="Amount"} } },
-                { title = "Extra Debt", id = 4, fields = { {key="amount", label="Amount"} } },
+                { title = "Extra Debts", id = 4, fields = { {key="amount", label="Amount"} } },
                 { type = "summary" }
             }
         }

@@ -23,7 +23,7 @@ public class Renderer : IPipelineStep
         var applyStyling = (LuaFunction)lua["ApplyStyling"];
 
         html = (string)applyStyling.Call(html, config)[0];
-        Console.WriteLine(html);
+//        Console.WriteLine(html);
 
         context.Html = html;
         context.OutputName = outputName;
