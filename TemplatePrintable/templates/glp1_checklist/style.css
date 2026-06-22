@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;    
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex: 1;
+    gap: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sections-container {
+    flex: 1;
+    padding: 3pt;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+}
+
+h1 {
+    color: #00b3ff;
+    letter-spacing: 2pt;
+    font-size: 30pt;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 18pt;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 3pt;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+}
+
+h3 {
+    font-size: 10.0pt;
+    border-bottom: 1pt solid;
+    margin: 2pt 0;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 4pt;
+}
+
+ul:last-child {
+    margin-bottom: 0pt;
+}
+
+li {
+    position: relative;
+    padding-left: 12pt;
+    font-weight: bold;
+    font-size: 9.0pt;
+}
+
+li::before {
+    content: "●";
+    font-size: 5.5pt;
+    position: absolute;
+    left: 3pt;
+    top: 2.5pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+}
+
+.middle {
+    background-color: #FFFDE7;
+}
+
+.right {
+    background-color: #FFEBEE;
+}
+
+h2.left {
+    background-color: #A7E8B8;
+    color: #2A7F2A;
+}
+
+h2.middle {
+    background-color: #F8FF9A;
+    color: #795901;
+}
+
+h2.right {
+    background-color: #FF89A6;
+    color: #B22222;
+}

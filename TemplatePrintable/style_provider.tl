@@ -1,21 +1,37 @@
 local M = {}
 local contracts = require("contracts")
-local utils = require("utils")
+local utils = require("encoding")
+
+local function read_file(path: string): string
+    local f = io.open(path, "r")
+    if not f then return nil end
+    local content = f:read("*a")
+    f:close()
+    return content
+end
 
 function M.Apply(html: string, config: contracts.Config): string
-    local baseCss = utils.escape_css(io.open("templates/base/style.css", "r"):read("*a"))
-    local styleFilename = (config.style or "style") .. ".css"
+    local base = utils.escape_css(read_file("templates/base/style.css") or "")
+    local themeFilename = (config.style or "style") .. ".css"
 
-    local customPath = "templates/" .. config.template .. "/" .. styleFilename
-    local customCss = ""
+    local themePath = "templates/" .. config.template .. "/" .. themeFilename
+    local theme = ""
 
-    local f = io.open(customPath, "r")
-    if f then
-        customCss = utils.escape_css(f:read("*a"))
-        f:close()
+    local content = read_file(themePath)
+    if content then
+        theme = utils.escape_css(content)
     end
 
-    local styleBlock = "<style>" .. baseCss .. "</style><style>" .. customCss .. "</style></head>"
+    if config.overrides then
+        local overridesPath = "templates/" .. config.template .. "/" .. config.overrides .. ".css"
+        local overridesContent = read_file(overridesPath)
+
+        if overridesContent then
+            theme = theme .. utils.escape_css(overridesContent)
+        end
+    end
+    
+    local styleBlock = "<style>" .. base .. "</style><style>" .. theme .. "</style></head>"
     local start, finish = html:find("</head>", 1, true)
 
     if start then

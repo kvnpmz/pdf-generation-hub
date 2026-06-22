@@ -5,6 +5,7 @@ local record M
         template: string
         header: string
         style: string
+        overrides: string
         completed_date: string
     end
 

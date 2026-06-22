@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require("encoding")
 
 global function GenerateDocument(data: {any: any}): string
     local html = (data.renderTemplate as function(any): string)(data.config)

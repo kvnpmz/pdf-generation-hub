@@ -1,23 +1,28 @@
-local record Group
-    sub: string
-    items: {string}
+local record Field
+    key: string
+    label: string
 end
 
 local record Section
     title: string
-    items: {string}
-    groups: {Group}
+    type: string
+    id: integer
+    fields: {Field}
+end
+
+local record Column
+    items: {Section}
 end
 
 local record Config
     header: string
-    columns: {{Section}}
+    columns: {Column}
 end
 
 local contracts = require("contracts")
 local M = {}
 
-local function render_headers(fields)
+local function render_headers(fields: {Field}): string
     local html = '<div></div>'
     for _, field in ipairs(fields or {}) do
         html = html .. string.format('<div class="col-%s">%s</div>',
@@ -26,11 +31,11 @@ local function render_headers(fields)
     return html
 end
 
-local function render_section(title, rows, fields)
+local function render_section(title: string, rows: integer, fields: {Field}): string
     local grid_class = "grid-" .. title:lower():gsub("%s+", "-")
     local row_html = ""
 
-    local footerMap = {
+    local footerMap: {string: string} = {
         Bills = "Total Bills Paid",
         Spending = "Total Spending",
         ["Savings Goal"] = "Total Savings",
@@ -67,9 +72,9 @@ local function render_section(title, rows, fields)
     row_html, grid_class, footer_text)
 end
 
-local function render_summary()
-    local function row(label)
-        if not label then
+local function render_summary(): string
+    local function row(label: string): string
+        if label == nil then
             return '<div class="summary-row minus-text"><div></div>minus</div>'
         end
         return '<div class="summary-row">' .. label .. ' <div class="box-amount"></div></div>'
@@ -79,7 +84,7 @@ local function render_summary()
         <section class="summary-box">
             <div class="section-title">Budget Summary</div>
             ]] .. row("total income") .. [[
-            ]] .. row() .. [[
+            ]] .. row(nil) .. [[
             ]] .. row("total bills paid") .. [[
             ]] .. row("total spending") .. [[
             ]] .. row("total savings") .. [[
@@ -102,8 +107,8 @@ function M.render(config: Config): string
     end
 
     html = html .. '</div>'
-    html = html .. '<header><h1>' 
-        .. config.header .. '</h1><div class="date-box"><div>DATE:</div></div></header>'
+    html = html .. '<header><h1>' .. config.header ..
+        '</h1><div class="date-box"><div>Date</div></div></header>'
 
     html = html ..[[<div class="income-header">
                     <div class="income-title">Sources of Income</div>

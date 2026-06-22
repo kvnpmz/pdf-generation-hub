@@ -1,8 +1,9 @@
 return {
-    id = "paycheck_budget",
+    id = "paycheck_budget_blue",
     output_name = "paycheck_budget",
     template = "paycheck_budget",
     header = "Paycheck Budget",
+    style = "blue_style",
     completed_date = "2026-06-21",
     columns = {
         { -- Column 1

@@ -1,6 +1,6 @@
 local M = {}
 local contracts = require("contracts")
-local utils = require("utils")
+local utils = require("encoding")
 
 local function sanitize_unicode(data: any): any
     if type(data) == "string" then
