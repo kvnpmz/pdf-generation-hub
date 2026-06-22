@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<style>*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    padding: 36pt 50.4pt;
+    color: #121212;
+}
+
+body {
+    height: 100%;
+    font-family: Inter;
+    font-size: 6pt;
+}
+
+h1 {
+}
+
+main {
+}
+
+.column {
+}
+
+section {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+.item {
+}
+</style><style>:root {
+    --blue: #6FAED9;
+    --light-blue: #CFE7F5;
+    --sky-blue: #F4FAFF;
+}
+
+body {
+    color: #121212;
+    font-size: 10pt;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: var(--blue);
+    text-align: center;
+    font-size: 30pt;
+    font-weight: 900;
+    letter-spacing: 1.5pt;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 5pt;
+    column-gap: 25pt;
+    margin-bottom: 5pt; 
+}
+
+.header-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+}
+
+.line {
+    border-bottom: 1pt solid;
+    margin-left: 10pt;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1.5pt solid var(--blue);
+    border-radius: 10pt;
+}
+
+th, 
+td {
+    height: 19pt;
+    border: 0.5pt solid var(--blue);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--sky-blue);
+}
+
+th {
+    background-color: var(--light-blue);
+    font-weight: bold;
+    text-align: center;
+}
+
+th:first-child {
+    border-top-left-radius: 10pt;
+}
+
+th:last-child {
+    border-top-right-radius: 10pt;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--sky-blue);
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10pt;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10pt;
+}
+
+.total-row td {
+    padding-left: 20pt;
+    font-weight: bold;
+    background-color: var(--light-blue);
+}
+
+.total-row td:first-child {
+    background-color: white;
+}
+
+.col-category { width: 35%; }
+.col-data     { width: 13%; }
+.col-notes    { width: 18%; }
+.col-paid     { width: 8%; text-align: center; }
+
+.bullet-base::before {
+    content: "\25A0";
+    display: inline-block;
+}
+
+.bullet-category::before {
+    font-size: 12pt;
+    margin-left: 1pt;
+    color: var(--blue);
+}
+
+.bullet-paid::before {
+    color: var(--light-blue);
+    font-size: 12pt;
+    margin-left: 14pt;
+}
+:root {
+    --blue: #EC93F6;
+    --light-blue: #F3BDF9;
+    --sky-blue: #FBE8FD;
+}
+
+h1 {
+    color: #D71EEB;
+}
+</style></head>
+<body>
+<div><h1>Monthly Budget Template</h1><header>
+<div class="header-item">Month:
+<div class="line"></div></div>
+<div class="header-item">Total Income:
+<div class="line"></div></div>
+<div class="header-item">Income &#x2013; Expenses:
+<div class="line"></div></div>
+<div class="header-item">Balance:
+<div class="line"></div></div></header></div><main><table><thead><tr>
+<th class="col-category">Expenses Category</th>
+<th class="col-data">Budgeted</th>
+<th class="col-data">Actual</th>
+<th class="col-data">Balance</th>
+<th class="col-notes">Notes</th>
+<th class="col-paid">Paid</th></tr></thead><tbody><tr>
+<td class="bullet-base bullet-category">Rent or Mortgage</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Property Taxes</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Home Insurance</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Electricity</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Water and Sewer</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Internet</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Mobile Phone</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Groceries</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Dining Out</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Fuel</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Vehicle Maintenance</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Car Payment</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Auto Insurance</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Public Transit</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Health Insurance</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Medical Expenses</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Medications</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Personal Care</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Childcare</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Tuition and Education</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Student Loans</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Emergency Savings</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Retirement Savings</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Investments</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Credit Card Payments</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Subscriptions</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Entertainment</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Travel</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Gifts and Charity</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Clothing</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Household Supplies</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr><tr>
+<td class="bullet-base bullet-category">Miscellaneous</td><td></td><td></td><td></td><td></td>
+<td class="bullet-base bullet-paid"></td></tr>
+<tr class="total-row"><td>Total Expenses</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></main>
+</body>
+</html>

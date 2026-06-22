@@ -9,7 +9,6 @@
     <ItemGroup>
         <Watch Include="**/*.tl" />
         <Watch Include="**/*.css" />
-        <Watch Include="**/*.html" />
     </ItemGroup>
 
     <Target Name="CompileTeal" BeforeTargets="Build">

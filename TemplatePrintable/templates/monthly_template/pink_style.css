@@ -1,9 +1,9 @@
 :root {
-    --blue: #C5C5C5;
-    --light-blue: #DCDCDC;
-    --sky-blue: #F2F2F2;
+    --blue: #EC93F6;
+    --light-blue: #F3BDF9;
+    --sky-blue: #FBE8FD;
 }
 
 h1 {
-    color: pink;
+    color: #D71EEB;
 }
