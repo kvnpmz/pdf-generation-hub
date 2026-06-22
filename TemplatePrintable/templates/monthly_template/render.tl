@@ -8,10 +8,10 @@ local dom = require("dom")
 local M = {}
 
 function M.render(config: Config): string
-   local month = dom.div("header-item", "Month: ", dom.div("line", ""))
-   local income = dom.div("header-item", "Total Income: ", dom.div("line", ""))
-   local expenses = dom.div("header-item", "Income - Expenses: ", dom.div("line", ""))
-   local balance = dom.div("header-item", "Balance: ", dom.div("line", ""))
+   local month = dom.div("header-item", "Month:", dom.div("line", ""))
+   local income = dom.div("header-item", "Total Income:", dom.div("line", ""))
+   local expenses = dom.div("header-item", "Income – Expenses:", dom.div("line", ""))
+   local balance = dom.div("header-item", "Balance:", dom.div("line", ""))
 
    local html_header = dom.div("",
         dom.h1("", config.header),
