@@ -4,40 +4,65 @@ using System.Threading.Tasks;
 
 public class Initializer : IPipelineStep
 {
-    private const string BaseTemplate = "monthly_template";
-    private const string DocsDir = "documents";
-    private const string TemplatesDir = "templates";
+    private const string BaseProjectName = "apartment_checklist";
+    private const string DocsDirectory = "documents";
+    private const string TemplatesDirectory = "templates";
 
     public async Task ExecuteAsync(PipelineContext context)
     {
-        string docPath = Path.Combine(DocsDir, context.DocId);
-
+        string projectPath = Path.Combine(DocsDirectory, context.DocId);
         // If the project exists, we skip scaffolding (Idempotency)
-        if (Directory.Exists(docPath)) return;
+        if (Directory.Exists(projectPath)) return;
 
-        Directory.CreateDirectory(docPath);
-        string templateDest = Path.Combine(TemplatesDir, context.DocId);
-        Directory.CreateDirectory(templateDest);
+        string baseConfigContent = await File.ReadAllTextAsync(Path.Combine(DocsDirectory, BaseProjectName, "config.tl"));
+        string? templateName = Regex.Match(
+            baseConfigContent,
+            @"template\s*=\s*""([^""]+)"""
+        ).Groups[1].Value;
 
-        CopyDirectory(Path.Combine(DocsDir, BaseTemplate), docPath);
-        CopyDirectory(Path.Combine(TemplatesDir, BaseTemplate), templateDest);
+        string templateSourcePath = Path.Combine(TemplatesDirectory, templateName);
 
-        string configPath = Path.Combine(docPath, "config.tl");
-        string configContent = await File.ReadAllTextAsync(configPath);
+        if (!Directory.Exists(templateSourcePath))
+        {
+            throw new DirectoryNotFoundException($"Template does not exist: {templateSourcePath}");
+        }
 
-        configContent = Regex.Replace(configContent, @"id\s*=\s*"".*?""", $"id = \"{context.DocId}\"");
+        string baseDocumentPath = Path.Combine(DocsDirectory, BaseProjectName);
+        CopyDirectory(baseDocumentPath, projectPath);
 
-        await File.WriteAllTextAsync(configPath, configContent);
+
+        string projectConfigPath = (Path.Combine(projectPath, "config.tl"));
+        string projectConfigContent = await File.ReadAllTextAsync(projectConfigPath);
+
+        bool baseHasId = Regex.IsMatch(baseConfigContent, @"id\s*=\s*""[^""]*""");
+        var ReturnPattern = @"return\s*\{\s*";
+        var IdPattern = @"id\s*=\s*"".*?""";
+
+        if (!baseHasId)
+        {
+            projectConfigContent = Regex.Replace(
+                projectConfigContent,
+                ReturnPattern,
+                match => match.Value + $"id = \"{context.DocId}\",{Environment.NewLine}    "
+            );
+        }
+        else
+        {
+            projectConfigContent = Regex.Replace(projectConfigContent, IdPattern, $"id = \"{context.DocId}\"");
+        }
+
+        await File.WriteAllTextAsync(projectConfigPath, projectConfigContent);
         
         Console.WriteLine($"[SUCCESS] Project {context.DocId} scaffolded.");
     }
 
-    private void CopyDirectory(string source, string dest)
+    private void CopyDirectory(string source, string destination)
     {
+        Directory.CreateDirectory(destination);
         foreach (var file in Directory.GetFiles(source))
         {
             string fileName = Path.GetFileName(file);
-            File.Copy(file, Path.Combine(dest, fileName), true);
+            File.Copy(file, Path.Combine(destination, fileName), true);
         }
     }
 }
