@@ -1,23 +1,48 @@
 body {
-    font-size: 10pt;
+    font-size: 13pt;
     display: flex;
     flex-direction: column;
     text-align: center;
     text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2pt;
+}
+
+h1 {
+/*    color: #6A2C70;*/
+    color: #2F5D8A;
+    font-size: 30pt;
+    font-weight: 900;
+    margin-bottom: 5pt;
+}
+
+h2 {
+    font-size: 14pt;
+    flex: 0 0 20pt;
+    border-top: 1.5pt solid;
+    align-content: center;
+} 
+
+h3 {
+    font-size: inherit;
+    background-color: white;
+    border-top: 1.5pt solid;
+    border-bottom: 1.5pt solid;
 }
 
 header {
-    font-weight: bold;
-    border: 1pt solid;
+    border: 1.5pt solid;
     text-align: left;
-    line-height: 20pt;
+    padding-left: 10pt;
+    line-height: 25pt;
+    background-color: #EAEDE5;
 }
 
 main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     flex: 1;
-    gap: 15pt;
+    gap: 12pt;
     padding-top: 10pt;
 }
 
@@ -25,78 +50,68 @@ main {
     height: inherit;
     display: flex;
     flex-direction: column;
-}
-
-h1 {
-    font-size: 30pt;
-    font-weight: 900;
-    margin-bottom: 5pt;
+    border-bottom: 1.5pt solid;
 }
 
 .day-box {
     display: flex;
     flex-direction: column;
-    border-top: 1pt solid;
-    border-left: 1pt solid;
-    border-right: 1pt solid;
+    justify-content: space-between;
+    padding-bottom: 5pt;
+    border-left: 1.5pt solid;
+    border-right: 1.5pt solid;
     flex: 1;
 }
-
-.column > *:last-child {
-    border-bottom: 1pt solid;
-}
-
-.day-title {
-    font-weight: bold;
-    border-bottom: 1pt solid;
-    background-color: white;
-}
-
-.meal-row {
-    padding: 2.5pt 0;
-    text-align: left;
-}
-
-.dotted-line {
-    margin-left: 1pt;
-    letter-spacing: 3pt;
-    font-size: 1.5pt;
-}
-
-.shopping-header {
-    flex: 0 0 20pt;
-    font-weight: bold;
-    border-top: 1pt solid;
-    align-content: center;
-} 
-.list-title {
-    font-weight: bold;
-    border-top: 1pt solid;
-    border-bottom: 1pt solid;
-} 
-
-.sub-col:first-child {
-    border-right: 1pt solid;
-} 
 
 .sub-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-left: 1pt solid;
-    border-right: 1pt solid;
+    border-left: 1.5pt solid;
+    border-right: 1.5pt solid;
     flex: 1;
 }
 
-.list-item {
+.sub-col {
     display: flex;
-    align-items: center;
-    margin: 5pt 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 5pt;
 }
 
-.bg-blue { background-color: #d1e7dd; }
-.bg-green { background-color: #d4edda; }
-.bg-orange { background-color: #fff3cd; }
-.bg-pink { background-color: #f8d7da; }
-.bg-peach { background-color: #ffe5d9; }
-.bg-purple { background-color: #e2d9f3; }
-.bg-red { background-color: #f8d7da; }
+.sub-col:first-child {
+    border-right: 1.5pt solid;
+} 
+
+.meal-row {
+    padding-left: 8pt;
+    text-align: left;
+}
+
+.shopping-row {
+    color: white;
+    padding-left: 4pt;
+    -webkit-text-stroke: 1pt #121212;
+    text-align: left;
+    font-size: 10pt;
+}
+
+.dotted-line {
+    margin-left: 4.0pt;
+    letter-spacing: 6pt;
+    font-size: 1.5pt;
+}
+
+.bg-sunday { background-color: #E1EAF2; }
+.bg-monday { background-color: #C4DBC4; }
+.bg-tuesday { background-color: #FBE3C4; }
+.bg-wednesday { background-color: #FCC7D0; }
+.bg-thursday { background-color: #FAD8C5; }
+.bg-friday { background-color: #E4D0E5; }
+.bg-saturday { background-color: #FDC7CF; }
+
+.category-dairy { background-color: #FCC7CF; }
+.category-produce { background-color: #F7E0BD; }
+.category-grains { background-color: #DDEFF6; }
+.category-meat { background-color: #C4DBC4; }
+.category-frozen { background-color: #FAD8C5; }
+.category-misc { background-color: #E3CFE4; }

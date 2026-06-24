@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 public class Initializer : IPipelineStep
 {
-    private const string BaseProjectName = "kidney_checklist_tabbed";
+    private const string BaseProjectName = "meal_plan";
     private const string DocsDirectory = "documents";
     private const string TemplatesDirectory = "templates";
 
