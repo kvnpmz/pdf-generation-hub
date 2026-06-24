@@ -24,11 +24,8 @@ public class Renderer : IPipelineStep
 
         html = (string)applyStyling.Call(html, config)[0];
 
-        bool writePreview = false;
-        if (writePreview)
-        {
+        if (Convert.ToBoolean(1))
             File.WriteAllText("render-preview.html", html);
-        }
 
         context.Html = html;
         context.OutputName = outputName;

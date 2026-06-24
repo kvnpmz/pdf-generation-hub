@@ -1,0 +1,102 @@
+body {
+    font-size: 10pt;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header {
+    font-weight: bold;
+    border: 1pt solid;
+    text-align: left;
+    line-height: 20pt;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    gap: 15pt;
+    padding-top: 10pt;
+}
+
+.column {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 30pt;
+    font-weight: 900;
+    margin-bottom: 5pt;
+}
+
+.day-box {
+    display: flex;
+    flex-direction: column;
+    border-top: 1pt solid;
+    border-left: 1pt solid;
+    border-right: 1pt solid;
+    flex: 1;
+}
+
+.column > *:last-child {
+    border-bottom: 1pt solid;
+}
+
+.day-title {
+    font-weight: bold;
+    border-bottom: 1pt solid;
+    background-color: white;
+}
+
+.meal-row {
+    padding: 2.5pt 0;
+    text-align: left;
+}
+
+.dotted-line {
+    margin-left: 1pt;
+    letter-spacing: 3pt;
+    font-size: 1.5pt;
+}
+
+.shopping-header {
+    flex: 0 0 20pt;
+    font-weight: bold;
+    border-top: 1pt solid;
+    align-content: center;
+} 
+.list-title {
+    font-weight: bold;
+    border-top: 1pt solid;
+    border-bottom: 1pt solid;
+} 
+
+.sub-col:first-child {
+    border-right: 1pt solid;
+} 
+
+.sub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-left: 1pt solid;
+    border-right: 1pt solid;
+    flex: 1;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    margin: 5pt 0;
+}
+
+.bg-blue { background-color: #d1e7dd; }
+.bg-green { background-color: #d4edda; }
+.bg-orange { background-color: #fff3cd; }
+.bg-pink { background-color: #f8d7da; }
+.bg-peach { background-color: #ffe5d9; }
+.bg-purple { background-color: #e2d9f3; }
+.bg-red { background-color: #f8d7da; }
