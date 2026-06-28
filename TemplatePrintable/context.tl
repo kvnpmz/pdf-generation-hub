@@ -1,7 +1,12 @@
 local M = {}
 local contracts = require("contracts")
 
-function M.Execute(docId: string): (contracts.Config, any)
+local record RenderContext
+    config: contracts.Config
+    render: function(any): string
+end
+
+function M.Execute(docId: string): RenderContext
     local configPath = "documents." .. docId .. ".config"
     local config = require(configPath) as contracts.Config
     

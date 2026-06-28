@@ -16,7 +16,7 @@ public class Renderer : IPipelineStep
         var result = (LuaTable)render.Call(context.DocumentId)[0];
         context.Html = result["html"]?.ToString() ?? string.Empty;
 
-        context.OutputName = result["output_name"]?.ToString() ?? "output";
+        context.OutputName = result["outputName"]?.ToString() ?? "output";
         File.WriteAllText("preview.html", context.Html);
     }
 }

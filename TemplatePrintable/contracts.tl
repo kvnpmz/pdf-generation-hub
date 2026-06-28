@@ -12,6 +12,12 @@ local record M
     record TemplateRender
         render: function(any): string
     end
+
+    record RenderContext
+        config: Config
+        render: function(any): string
+    end
+
 end
 
 return M
