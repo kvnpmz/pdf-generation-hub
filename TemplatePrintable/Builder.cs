@@ -1,8 +1,12 @@
 ﻿public class Builder
 {
-    public async Task ExecuteAsync(string docId, int imageToggle)
+    public async Task ExecuteAsync(string docId, int enableImages)
     {
-        var context = new PipelineContext { DocId = docId };
+        var context = new PipelineContext
+        {
+            DocId = docId,
+            EnableImages = Convert.ToBoolean(enableImages),
+        };
 
         var steps = new List<IPipelineStep>
         {
@@ -11,7 +15,7 @@
             new Exporter()
         };
 
-        if (Convert.ToBoolean(imageToggle))
+        if (context.EnableImages)
         {
             steps.Add(new ImageConverter());
         }

@@ -29,24 +29,7 @@ public class Renderer : IPipelineStep
 
         html = (string)applyStyling.Call(html, config)[0];
 
-        if (Convert.ToBoolean(1))
-        {
-//            string htmlDecoded = WebUtility.HtmlDecode(html);
-//
-//            string cssDecoded = Regex.Replace(
-//                htmlDecoded,
-//                @"\\([0-9a-fA-F]{1,6})\s?",
-//                match =>
-//                {
-//                    string hex = match.Groups[1].Value;
-//                    int codePoint = Convert.ToInt32(hex, 16);
-//                    return char.ConvertFromUtf32(codePoint);
-//                });
-//
-//            File.WriteAllText("render-preview.html", cssDecoded, Encoding.UTF8);
-              File.WriteAllText("render-preview.html", html);
-        }
-
+        File.WriteAllText("preview.html", html);
         context.Html = html;
         context.OutputName = outputName;
     }
