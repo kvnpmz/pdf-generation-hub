@@ -1,16 +1,8 @@
-html, body {
+body {
     display: flex;
     flex-direction: column;
-}
-
-h1 {
-    color: #202020;
-    letter-spacing: 2pt;
-    font-size: 25pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 900;
+    letter-spacing: 1pt;
+    font-size: 12.5pt;
 }
 
 main {
@@ -30,19 +22,14 @@ main {
     padding: 3pt;
 }
 
-.left {
-    background-color: #E8F5E9;
-    color: #2A7F2A;
-}
-
-.middle {
-    background-color: #FFFDE7;
-    color: #795901;
-}
-
-.right {
-    background-color: #FFEBEE;
-    color: #B22222;
+h1 {
+    color: #202020;
+    letter-spacing: 3pt;
+    font-size: 30pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
 }
 
 h2 {
@@ -52,6 +39,7 @@ h2 {
     text-transform: uppercase;
     text-align: center;
     padding-bottom: 3pt;
+    color: var(--h2-color);
 }
 
 ul {
@@ -63,12 +51,10 @@ ul {
 }
 
 li {
-    color: #121212;
     position: relative;
     flex: 1;
     padding-left: 13pt;
     font-weight: bold;
-    font-size: 10.5pt;
 }
 
 li::before {
@@ -77,4 +63,19 @@ li::before {
     font-size: 6pt;
     left: 3pt;
     top: 4pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+    --h2-color: #2A7F2A;
+}
+
+.middle {
+    background-color: #FFFDE7;
+    --h2-color: #795901;
+}
+
+.right {
+    background-color: #FFEBEE;
+    --h2-color: #B22222;
 }
