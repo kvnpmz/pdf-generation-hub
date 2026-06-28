@@ -1,5 +1,3 @@
-local utils = require("encoding")
-
 global function GenerateDocument(data: {any: any}): string
     local html = (data.renderTemplate as function(any): string)(data.config)
 
@@ -10,7 +8,7 @@ global function GenerateDocument(data: {any: any}): string
 </body>
 </html>]], html)
 
-    return utils.escape_html(html)
+    return html
 end 
 
 return GenerateDocument

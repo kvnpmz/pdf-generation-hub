@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <style>*, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -38,304 +38,183 @@ h3 {
 .item {
 }
 </style><style>body {
-    font-size: 13pt;
+    font-size: 10pt;
+    color: #121212;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2pt;
-}
-
-h1 {
-/*    color: #6A2C70;*/
-    color: #2F5D8A;
-    font-size: 30pt;
-    font-weight: 900;
-    margin-bottom: 5pt;
-}
-
-h2 {
-    font-size: 14pt;
-    flex: 0 0 20pt;
-    border-top: 1.5pt solid;
-    align-content: center;
-} 
-
-h3 {
-    font-size: inherit;
-    background-color: white;
-    border-top: 1.5pt solid;
-    border-bottom: 1.5pt solid;
-}
-
-header {
-    border: 1.5pt solid;
-    text-align: left;
-    padding-left: 10pt;
-    line-height: 25pt;
-    background-color: #EAEDE5;
 }
 
 main {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 15pt;
     flex: 1;
-    gap: 12pt;
-    padding-top: 10pt;
 }
 
 .column {
-    height: inherit;
     display: flex;
     flex-direction: column;
-    border-bottom: 1.5pt solid;
 }
 
-.day-box {
+.column:last-child {
+    position: relative;
+}
+
+.column:last-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -7.5pt; /* half the gap */
+    width: 1.5pt;
+    height: 100%;
+    background-color: #121212;
+}
+
+.section-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 5pt;
-    border-left: 1.5pt solid;
-    border-right: 1.5pt solid;
     flex: 1;
-}
-
-.sub-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-left: 1.5pt solid;
-    border-right: 1.5pt solid;
-    flex: 1;
-}
-
-.sub-col {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 5pt;
 }
 
-.sub-col:first-child {
-    border-right: 1.5pt solid;
-} 
-
-.meal-row {
-    padding-left: 8pt;
-    text-align: left;
+h1 {
+    font-size: 30pt;
+    text-align: center;
+    margin-bottom: 5pt;
+    font-weight: inherit;
+    letter-spacing: 1.5pt;
 }
 
-.shopping-row {
+h1 span {
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 14pt;
+    text-align: center;
     color: white;
-    padding-left: 4pt;
-    -webkit-text-stroke: 1pt #121212;
-    text-align: left;
-    font-size: 10pt;
+    padding: 3pt 0;
+    margin-bottom: 5pt;
+    border-radius: 7pt;
+    font-weight: bold;
+    letter-spacing: 1.5pt;
+    border: 2pt solid var(--theme-color);
+    box-shadow: inset 0 0 0 1pt white;
+    background-color: var(--theme-color);
 }
 
-.dotted-line {
-    margin-left: 4.0pt;
-    letter-spacing: 6pt;
-    font-size: 1.5pt;
+h3 {
+    font-weight: bold;
+    font-size: 11pt;
+    text-align: center;
+    color: white;
+    padding: 1pt 0;
+    margin-bottom: 2pt;
+    border-radius: 5pt;
+    background-color: var(--theme-color);
 }
 
-.bg-sunday { background-color: #E1EAF2; }
-.bg-monday { background-color: #C4DBC4; }
-.bg-tuesday { background-color: #FBE3C4; }
-.bg-wednesday { background-color: #FCC7D0; }
-.bg-thursday { background-color: #FAD8C5; }
-.bg-friday { background-color: #E4D0E5; }
-.bg-saturday { background-color: #FDC7CF; }
+li {
+    position: relative;    
+    padding-left: 8pt;
+}
 
-.category-dairy { background-color: #FCC7CF; }
-.category-produce { background-color: #F7E0BD; }
-.category-grains { background-color: #DDEFF6; }
-.category-meat { background-color: #C4DBC4; }
-.category-frozen { background-color: #FAD8C5; }
-.category-misc { background-color: #E3CFE4; }
+ul {
+    list-style-type: none;
+    padding-left: 2pt;
+}
+
+li::before {
+    content: "●";
+    position: absolute;
+    top: 4pt;
+    left: 0;
+    font-size: 5pt;
+}
+
+.green-theme {
+    --theme-color: #008000;
+}
+
+.red-theme {
+    --theme-color: #b22222;
+}
+
+.three-column-list {
+    column-count: 3;
+}
+
+.two-column-list {
+    column-count: 2;
+}
+
+.three-column-list li, .two-column-list li {
+    break-inside: avoid;
+}
+section {
+    border: 1pt solid var(--theme-color);
+    border-radius: 7pt;
+}
+
+h3 {
+    border-radius: 5pt 5pt 0 0;
+}
 </style></head>
 <body>
-<h1>Weekly Meal Plan</h1><header><div>Week Of:</div></header><main>
+<h1><span class="bold">Kidney</span> Food List</h1><main>
 <div class="column">
-<div class="day-box bg-sunday"><h3>Sunday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="day-box bg-monday"><h3>Monday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="day-box bg-tuesday"><h3>Tuesday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="day-box bg-wednesday"><h3>Wednesday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="day-box bg-thursday"><h3>Thursday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="day-box bg-friday"><h3>Friday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="day-box bg-saturday"><h3>Saturday</h3>
-<div class="meal-row">B</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">L</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="meal-row">D</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div></div>
-<div class="column"><h2>Shopping List</h2>
-<div class="sub-grid">
-<div class="sub-col category-dairy"><h3>dairy</h3>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="sub-col category-produce"><h3>produce</h3>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div></div>
-<div class="sub-grid">
-<div class="sub-col category-grains"><h3>grains</h3>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="sub-col category-meat"><h3>meat</h3>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div></div>
-<div class="sub-grid">
-<div class="sub-col category-frozen"><h3>frozen</h3>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div>
-<div class="sub-col category-misc"><h3>misc.</h3>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div>
-<div class="shopping-row">●</div>
-<div class="dotted-line">⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤⬤</div></div></div></div></main>
+<h2 class="green-theme">Foods To Eat Freely</h2>
+<div class="section-container">
+<section class="green-theme">
+<h3 class="green-theme">Low-Potassium Vegetables</h3>
+<ul class="three-column-list"><li>Bell peppers</li><li>Cabbage</li><li>Cauliflower</li><li>Cucumbers</li><li>Eggplant</li><li>Green beans</li><li>Lettuce</li><li>Onions</li><li>Radishes</li><li>Zucchini</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Low-Potassium Fruits</h3>
+<ul class="three-column-list"><li>Apples</li><li>Blackberries</li><li>Blueberries</li><li>Grapes</li><li>Lemons</li><li>Pears</li><li>Pineapple</li><li>Watermelon</li><li>Raspberries</li><li>Strawberries</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Low-Phosphorus Proteins</h3>
+<ul class="two-column-list"><li>Egg whites</li><li>Skinless chicken</li><li>Skinless turkey</li><li>Tofu (in moderation)</li><li>White fish (cod, halibut, tilapia)</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Low-Potassium Dairy Substitutes</h3>
+<ul class="two-column-list"><li>Almond milk</li><li>Coconut milk</li><li>Macadamia milk</li><li>Rice milk</li><li>All unsweetened and without potassium phosphate (Check ingredients list)</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Low-Potassium Grains</h3>
+<ul class="three-column-list"><li>Barley</li><li>Corn tortillas</li><li>Couscous</li><li>Rolled oats</li><li>Plain pasta</li><li>Rice cakes</li><li>Unsalted crackers</li><li>White bread</li><li>White rice</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Kidney-Friendly Fats & Oils</h3>
+<ul class="three-column-list"><li>Avocado oil</li><li>Canola oil</li><li>Flaxseed oil</li><li>Grapeseed oil</li><li>Hempseed oil</li><li>Olive oil</li><li>Unsalted butter</li><li>Walnut oil</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Low-Potassium Herbs & Spices</h3>
+<ul class="three-column-list"><li>Basil</li><li>Cilantro</li><li>Cinnamon</li><li>Garlic powder</li><li>Ginger</li><li>Onion powder</li><li>Oregano</li><li>Paprika</li><li>Parsley</li><li>Pepper</li><li>Rosemary</li><li>Tarragon</li><li>Thyme</li><li>Turmeric</li></ul></section>
+<section class="green-theme">
+<h3 class="green-theme">Low-Phosphorous Beverages</h3>
+<ul class="three-column-list"><li>Black coffee</li><li>Black tea</li><li>Green tea</li><li>Ginger tea</li><li>Lemon balm tea</li><li>Peppermint tea</li><li>Rooibos tea</li><li>Water</li></ul></section></div></div>
+<div class="column">
+<h2 class="red-theme">Foods To Limit and Avoid</h2>
+<div class="section-container">
+<section class="red-theme">
+<h3 class="red-theme">High-Potassium Vegetables</h3>
+<ul class="three-column-list"><li>Artichokes</li><li>Beet greens</li><li>Beets</li><li>Bok choy</li><li>Brussels sprouts</li><li>Carrots</li><li>Edamame</li><li>Kale</li><li>Legumes</li><li>Potatoes</li><li>Spinach</li><li>Tomatoes</li><li>Yams</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">High-Potassium Fruits</h3>
+<ul class="three-column-list"><li>Apricots</li><li>Avocados</li><li>All dried fruits</li><li>Bananas</li><li>Cantaloupe</li><li>Dates</li><li>Figs</li><li>Kiwi</li><li>Mangos</li><li>Nectarines</li><li>Oranges</li><li>Peaches</li><li>Plums</li><li>Pomegranates</li><li>Prunes</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">High-Phosphorus Protein</h3>
+<ul class="three-column-list"><li>Bacon</li><li>Canned meat</li><li>Cured meat</li><li>Deli meat</li><li>Hot dogs</li><li>Lamb</li><li>Lean beef</li><li>Lean pork</li><li>Lentils</li><li>Processed meat</li><li>Shellfish (crab, shrimp)</li><li>Sausage</li><li>Tuna</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">High-Potassium Dairy</h3>
+<ul class="three-column-list"><li>Buttermilk</li><li>Cheese</li><li>Condensed milk</li><li>Ice cream</li><li>Milk</li><li>Pudding</li><li>Soy milk</li><li>Yogurt</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">High-Potassium Grains</h3>
+<ul class="three-column-list"><li>Bran cereal</li><li>Brown rice</li><li>Buckwheat</li><li>Instant oatmeal</li><li>Millet</li><li>Salted crackers</li><li>Whole wheat bread</li><li>Whole wheat pasta</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">Fats & Oils</h3>
+<ul class="three-column-list"><li>Coconut oil</li><li>Hydrogenated oils</li><li>Pumpkin seed oil</li><li>Lard</li><li>Nut butters</li><li>Margarine</li><li>Shortening</li><li>Sour cream</li><li>Tahini</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">Sugary & Salty Foods</h3>
+<ul class="three-column-list"><li>Breaded foods</li><li>Canned soup</li><li>Candy</li><li>Cookies</li><li>Frozen meals</li><li>Fast food</li><li>Fried food</li><li>Pickles</li><li>Salt</li><li>Soy sauce</li><li>Syrups</li><li>Sugary cereals</li><li>Sugary baked goods (cakes, pastries, pies)</li></ul></section>
+<section class="red-theme">
+<h3 class="red-theme">Beverages</h3>
+<ul class="three-column-list"><li>Alcohol</li><li>Coconut water</li><li>Dark-colored soda</li><li>Energy drinks</li><li>Fruit juice</li><li>Veggie juice</li><li>Milkshakes</li><li>Protein shakes</li><li>Root beer</li><li>Sports drinks</li></ul></section></div></div></main>
 </body>
 </html>

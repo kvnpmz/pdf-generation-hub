@@ -9,6 +9,7 @@ public class Renderer : IPipelineStep
     public async Task ExecuteAsync(PipelineContext context)
     {
         using var lua = new Lua();
+        lua.State.Encoding = System.Text.Encoding.UTF8; 
         lua.DoString("require('init')");
 
         var setupFunction = (LuaFunction)lua["SetupDocument"];
@@ -30,19 +31,20 @@ public class Renderer : IPipelineStep
 
         if (Convert.ToBoolean(1))
         {
-            string htmlDecoded = WebUtility.HtmlDecode(html);
-
-            string cssDecoded = Regex.Replace(
-                htmlDecoded,
-                @"\\([0-9a-fA-F]{1,6})\s?",
-                match =>
-                {
-                    string hex = match.Groups[1].Value;
-                    int codePoint = Convert.ToInt32(hex, 16);
-                    return char.ConvertFromUtf32(codePoint);
-                });
-
-            File.WriteAllText("render-preview.html", cssDecoded, Encoding.UTF8);
+//            string htmlDecoded = WebUtility.HtmlDecode(html);
+//
+//            string cssDecoded = Regex.Replace(
+//                htmlDecoded,
+//                @"\\([0-9a-fA-F]{1,6})\s?",
+//                match =>
+//                {
+//                    string hex = match.Groups[1].Value;
+//                    int codePoint = Convert.ToInt32(hex, 16);
+//                    return char.ConvertFromUtf32(codePoint);
+//                });
+//
+//            File.WriteAllText("render-preview.html", cssDecoded, Encoding.UTF8);
+              File.WriteAllText("render-preview.html", html);
         }
 
         context.Html = html;

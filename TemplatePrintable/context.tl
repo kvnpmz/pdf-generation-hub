@@ -1,10 +1,9 @@
 local M = {}
 local contracts = require("contracts")
-local utils = require("encoding")
 
 local function sanitize_unicode(data: any): any
     if type(data) == "string" then
-        return utils.escape_html(data as string)
+        return data as string
     elseif type(data) == "table" then
         local t = {}
         for k, v in pairs(data as {any:any}) do

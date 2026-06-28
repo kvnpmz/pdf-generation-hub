@@ -1,6 +1,5 @@
 local M = {}
 local contracts = require("contracts")
-local utils = require("encoding")
 
 local function read_file(path: string): string
     local f = io.open(path, "r")
@@ -11,7 +10,7 @@ local function read_file(path: string): string
 end
 
 function M.Apply(html: string, config: contracts.Config): string
-    local base = utils.escape_css(read_file("templates/base/style.css") or "")
+    local base = read_file("templates/base/style.css") or ""
     local themeFilename = (config.style or "style") .. ".css"
 
     local themePath = "templates/" .. config.template .. "/" .. themeFilename
@@ -19,7 +18,7 @@ function M.Apply(html: string, config: contracts.Config): string
 
     local content = read_file(themePath)
     if content then
-        theme = utils.escape_css(content)
+        theme = content
     end
 
     if config.overrides then
@@ -27,7 +26,7 @@ function M.Apply(html: string, config: contracts.Config): string
         local overridesContent = read_file(overridesPath)
 
         if overridesContent then
-            theme = theme .. utils.escape_css(overridesContent)
+            theme = theme .. overridesContent
         end
     end
     
