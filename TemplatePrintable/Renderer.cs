@@ -10,11 +10,11 @@ public class Renderer : IPipelineStep
     {
         using var lua = new Lua();
         lua.State.Encoding = System.Text.Encoding.UTF8; 
+
         lua.DoString("require('init')");
-
         var setupFunction = (LuaFunction)lua["SetupDocument"];
-        var results = (object[])setupFunction.Call(context.DocId);
 
+        var results = (object[])setupFunction.Call(context.DocId);
         var config = (LuaTable)results[0];
         var renderTemplate = (LuaFunction)results[1];
 
@@ -28,8 +28,8 @@ public class Renderer : IPipelineStep
         var applyStyling = (LuaFunction)lua["ApplyStyling"];
 
         html = (string)applyStyling.Call(html, config)[0];
-
         File.WriteAllText("preview.html", html);
+
         context.Html = html;
         context.OutputName = outputName;
     }

@@ -8,6 +8,12 @@ public class ImageConverter : IPipelineStep
 
     public async Task ExecuteAsync(PipelineContext context)
     {
+        if (!context.EnableImages)
+        {
+            Console.WriteLine("[INFO] ImageConverter is disabled. Skipping.");
+            return;
+        }
+
         string folderPath = Path.Combine(Environment.CurrentDirectory, "output", context.DocId);
 
         if (!Directory.Exists(folderPath))
@@ -45,7 +51,7 @@ public class ImageConverter : IPipelineStep
         RunCommand("pdftoppm", $"-png -r 300 -singlefile \"{absPath}\" \"{Path.Combine(outputDir, name)}\"");
 
         string pngPath = Path.Combine(outputDir, name) + ".png";
-        Console.WriteLine($"[INFO] Converting PDF to PNG using prefix: {pngPath}");
+        Console.WriteLine($"[SUCCESS] Converting PDF to PNG using prefix: {pngPath}");
 
         if (File.Exists(pngPath))
         {
@@ -77,7 +83,7 @@ public class ImageConverter : IPipelineStep
             string args = $"convert \"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 
             RunCommand("", args);
-            Console.WriteLine($"[INFO] Saved: {outPath}");
+            Console.WriteLine($"[SUCCESS] Saved: {outPath}");
         }
     }
 
