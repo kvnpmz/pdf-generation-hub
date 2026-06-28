@@ -16,8 +16,8 @@ local M = {}
 function M.render(config: Config): string
     local first, rest = config.header:match("^(%S+)%s*(.*)$")
 
-    local headerHtml = dom.h1("", 
-      string.format('<span class="bold">%s</span> %s', first, rest)
+    local headerHtml = dom.h1("", string.format("%s ", first), 
+        dom.div("", rest)
     )
     local renderedColumns = {}
 
@@ -55,4 +55,4 @@ function M.render(config: Config): string
     return headerHtml .. dom.main("", table.unpack(renderedColumns))
 end
 
-return M as contracts.RenderStrategy
+return M as contracts.LayoutProcessor

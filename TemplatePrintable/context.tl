@@ -8,14 +8,14 @@ function M.Execute(docId: string): (contracts.Config, any)
     local templatePath = "templates." .. config.template .. ".render"
     local templateModule = require(templatePath)
 
-    local module = templateModule as contracts.RenderStrategy
+    local module = templateModule as contracts.LayoutProcessor
     local rawRender = module.render as function(any): string
 
-    local renderStrategy = function(data: any): string
+    local layoutProcessor = function(data: any): string
         return rawRender(data)
     end
 
-    return config, renderStrategy
+    return config, layoutProcessor
 end
 
 return M

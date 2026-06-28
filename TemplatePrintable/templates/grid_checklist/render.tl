@@ -51,4 +51,4 @@ function M.render(config: Config): string
     return html
 end
 
-return M as RenderStrategy
+return M as LayoutProcessor

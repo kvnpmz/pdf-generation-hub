@@ -14,7 +14,7 @@ public class Renderer : IPipelineStep
         lua.DoString("require('init')");
         var setupFunction = (LuaFunction)lua["SetupDocument"];
 
-        var results = (object[])setupFunction.Call(context.DocId);
+        var results = (object[])setupFunction.Call(context.DocumentId);
         var config = (LuaTable)results[0];
         var renderTemplate = (LuaFunction)results[1];
 
@@ -22,14 +22,12 @@ public class Renderer : IPipelineStep
         string template = config["template"]?.ToString() ?? "default";
 
         lua["data"] = new { config = config, renderTemplate = renderTemplate };
-        var renderBase = (LuaTable)lua["render"];
+        var generateDocument = (LuaFunction)lua["GenerateBase"];
 
-        var generateDoc = (LuaFunction)renderBase["GenerateDocument"];
-        string html = (string)generateDoc.Call(lua["data"])[0];
-
+        string html = (string)generateDocument.Call(lua["data"])[0];
         var applyStyling = (LuaFunction)lua["ApplyStyling"];
-        html = (string)applyStyling.Call(html, config)[0];
 
+        html = (string)applyStyling.Call(html, config)[0];
         File.WriteAllText("preview.html", html);
 
         context.Html = html;

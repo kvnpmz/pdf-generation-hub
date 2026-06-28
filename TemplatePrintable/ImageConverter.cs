@@ -14,7 +14,7 @@ public class ImageConverter : IPipelineStep
             return;
         }
 
-        string folderPath = Path.Combine(Environment.CurrentDirectory, "output", context.DocId);
+        string folderPath = Path.Combine(Environment.CurrentDirectory, "output", context.DocumentId);
 
         if (!Directory.Exists(folderPath))
         {

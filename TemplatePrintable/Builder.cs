@@ -4,7 +4,7 @@
     {
         var context = new PipelineContext
         { 
-            DocId = docId,
+            DocumentId = docId,
             EnableImages = Convert.ToBoolean(enableImages)
         };
 

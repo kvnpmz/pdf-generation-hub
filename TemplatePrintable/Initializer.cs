@@ -10,7 +10,7 @@ public class Initializer : IPipelineStep
 
     public async Task ExecuteAsync(PipelineContext context)
     {
-        string projectPath = Path.Combine(DocsDirectory, context.DocId);
+        string projectPath = Path.Combine(DocsDirectory, context.DocumentId);
         // If the project exists, we skip scaffolding (Idempotency)
         if (Directory.Exists(projectPath)) return;
 
@@ -43,17 +43,17 @@ public class Initializer : IPipelineStep
             projectConfigContent = Regex.Replace(
                 projectConfigContent,
                 ReturnPattern,
-                match => match.Value + $"id = \"{context.DocId}\",{Environment.NewLine}    "
+                match => match.Value + $"id = \"{context.DocumentId}\",{Environment.NewLine}    "
             );
         }
         else
         {
-            projectConfigContent = Regex.Replace(projectConfigContent, IdPattern, $"id = \"{context.DocId}\"");
+            projectConfigContent = Regex.Replace(projectConfigContent, IdPattern, $"id = \"{context.DocumentId}\"");
         }
 
         await File.WriteAllTextAsync(projectConfigPath, projectConfigContent);
         
-        Console.WriteLine($"[SUCCESS] Project {context.DocId} scaffolded.");
+        Console.WriteLine($"[SUCCESS] Project {context.DocumentId} scaffolded.");
     }
 
     private void CopyDirectory(string source, string destination)

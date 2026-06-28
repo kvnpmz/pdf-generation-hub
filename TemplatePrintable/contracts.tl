@@ -9,7 +9,7 @@ local record M
         completed_date: string
     end
 
-    record RenderStrategy
+    record LayoutProcessor
         render: function(any): string
     end
 end

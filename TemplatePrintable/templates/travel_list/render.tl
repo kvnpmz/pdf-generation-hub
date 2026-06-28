@@ -47,4 +47,4 @@ function M.render(config: Config): string
     return html
 end
 
-return M as contracts.RenderStrategy
+return M as contracts.LayoutProcessor

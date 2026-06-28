@@ -5,7 +5,7 @@ public class Exporter : IPipelineStep
     public async Task ExecuteAsync(PipelineContext context)
     {
         string html = context.Html;
-        string docId = context.DocId;
+        string docId = context.DocumentId;
         string outputName = context.OutputName;
 
         string docPath = $"output/{docId}"; 
