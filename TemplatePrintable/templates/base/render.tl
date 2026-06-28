@@ -1,4 +1,6 @@
-global function GenerateDocument(data: {any: any}): string
+local M = {}
+
+function M.GenerateDocument(data: {any: any}): string
     local html = (data.renderTemplate as function(any): string)(data.config)
 
     html = string.format([[<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
@@ -11,4 +13,4 @@ global function GenerateDocument(data: {any: any}): string
     return html
 end 
 
-return GenerateDocument
+return M

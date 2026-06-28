@@ -1,19 +1,6 @@
 local M = {}
 local contracts = require("contracts")
 
-local function sanitize_unicode(data: any): any
-    if type(data) == "string" then
-        return data as string
-    elseif type(data) == "table" then
-        local t = {}
-        for k, v in pairs(data as {any:any}) do
-            t[k] = sanitize_unicode(v)
-        end
-        return t
-    end
-    return data
-end
-
 function M.Execute(docId: string): (contracts.Config, any)
     local configPath = "documents." .. docId .. ".config"
     local config = require(configPath) as contracts.Config
@@ -25,7 +12,7 @@ function M.Execute(docId: string): (contracts.Config, any)
     local rawRender = module.render as function(any): string
 
     local renderStrategy = function(data: any): string
-        return rawRender(sanitize_unicode(data))
+        return rawRender(data)
     end
 
     return config, renderStrategy

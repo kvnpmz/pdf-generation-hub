@@ -22,12 +22,14 @@ public class Renderer : IPipelineStep
         string template = config["template"]?.ToString() ?? "default";
 
         lua["data"] = new { config = config, renderTemplate = renderTemplate };
-        var generateDoc = (LuaFunction)lua["GenerateDocument"];
+        var renderBase = (LuaTable)lua["render"];
 
+        var generateDoc = (LuaFunction)renderBase["GenerateDocument"];
         string html = (string)generateDoc.Call(lua["data"])[0];
-        var applyStyling = (LuaFunction)lua["ApplyStyling"];
 
+        var applyStyling = (LuaFunction)lua["ApplyStyling"];
         html = (string)applyStyling.Call(html, config)[0];
+
         File.WriteAllText("preview.html", html);
 
         context.Html = html;
