@@ -1,3 +1,5 @@
+local M = {}
+
 local render = require("templates.base.render")
 local context = require("context")
 local style_provider = require("style_provider")
@@ -7,7 +9,7 @@ local record RenderResult
     output_name: string
 end
 
-local function Render(document_id: string): RenderResult
+function M.Render(document_id: string): RenderResult
     local config, render_template = context.Execute(document_id)
 
     local html = render.GenerateDocument({
@@ -23,6 +25,4 @@ local function Render(document_id: string): RenderResult
     }
 end
 
-return {
-    Render = Render
-}
+return M
