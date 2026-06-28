@@ -1,4 +1,4 @@
-local record M
+local record M 
     record Config
         id: string
         output_name: string
@@ -17,7 +17,6 @@ local record M
         config: Config
         render: function(any): string
     end
-
 end
 
 return M
