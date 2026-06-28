@@ -77,5 +77,5 @@ function M.render(config: Config): string
     return fullPage
 end
 
-return M as contracts.LayoutProcessor
+return M as contracts.TemplateRender
 

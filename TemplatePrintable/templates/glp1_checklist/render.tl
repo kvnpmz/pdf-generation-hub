@@ -47,4 +47,4 @@ function M.render(config: Config): string
     return string.format([[<h1>%s</h1><main>%s</main>]], config.header, columnsHtml)
 end
 
-return M as contracts.LayoutProcessor
+return M as contracts.TemplateRender

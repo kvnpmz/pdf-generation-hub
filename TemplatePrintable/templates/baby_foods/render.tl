@@ -38,4 +38,4 @@ function M.render(config: Config): string
 
 end
 
-return M as LayoutProcessor
+return M as TemplateRender

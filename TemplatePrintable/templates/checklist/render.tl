@@ -47,4 +47,4 @@ function M.render(config: Config): string
     return headerHtml .. string.format('<main>%s</main>', columnsHtml)
 end
 
-return M as LayoutProcessor
+return M as TemplateRender
