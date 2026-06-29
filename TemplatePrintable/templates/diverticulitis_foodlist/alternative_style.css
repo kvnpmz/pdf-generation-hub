@@ -1,0 +1,18 @@
+h1 {
+    color: #AD1457;
+}
+
+.left {
+    background-color: #F3E5F5;
+    --h2-color: #6A1B9A;
+}
+
+.middle {
+    background-color: #E3F2FD;
+    --h2-color: #1E5AA8;
+}
+
+.right {
+    background-color: #FFF3E0;
+    --h2-color: #E65100;
+}

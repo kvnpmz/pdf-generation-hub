@@ -1,0 +1,112 @@
+body {
+    display: flex;
+    flex-direction: column;    
+    font-size: 12.0pt;
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex: 1;
+    gap: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+ul {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3pt;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #121212;
+    letter-spacing: 2pt;
+    font-size: 30pt;
+    font-weight: 900;
+}
+
+h2 {
+    display: inline-block;
+    color: #eb3e58;
+    letter-spacing: 2pt;
+    font-size: 24pt;
+    font-family: Source-Serif4;
+    font-weight: 900;
+    margin-right: 8pt;
+}
+
+h3 {
+    display: inline-block;
+    color: #121212;
+    letter-spacing: 2pt;
+    font-size: 22pt;
+    font-weight: 400;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 18pt;
+    text-align: center;
+    line-height: 30pt;
+    margin-bottom: 3pt;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+}
+
+li {
+    position: relative;
+    padding-left: 12pt;
+    font-weight: bold;
+}
+
+li::before {
+    content: "●";
+    font-size: 5.5pt;
+    position: absolute;
+    left: 3pt;
+    top: 4.5pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+}
+
+.middle {
+    background-color: #FFFDE7;
+}
+
+.right {
+    background-color: #FFEBEE;
+}
+
+h4.left {
+    background-color: #A7E8B8;
+    color: #2A7F2A;
+}
+
+h4.middle {
+    background-color: #F8FF9A;
+    color: #795901;
+}
+
+h4.right {
+    background-color: #FF89A6;
+    color: #B22222;
+}

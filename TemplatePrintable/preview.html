@@ -41,374 +41,245 @@ h3 {
 .item {
 }</style>
             <style>body {
-    font-size: 10pt;
-    color: #121212;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+    font-size: 12.0pt;
+    text-transform: uppercase;
 }
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15pt;
+    grid-template-columns: repeat(3, 1fr);
     flex: 1;
+    gap: 5pt;
 }
 
 .column {
     display: flex;
     flex-direction: column;
-}
-
-.column:last-child {
-    position: relative;
-}
-
-.column:last-child::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -7.5pt; /* half the gap */
-    width: 1.5pt;
-    height: 100%;
-    background-color: #121212;
-}
-
-.section-container {
-    display: flex;
-    flex-direction: column;
     flex: 1;
-    justify-content: space-between;
-}
-
-h1 {
-    font-size: 30pt;
-    text-align: center;
-    margin-bottom: 5pt;
-    font-weight: 700;
-    letter-spacing: 1.5pt;
-}
-
-h1 div {
-    display: inline-block;
-    font-weight: 400;
-}
-
-h2 {
-    font-size: 14pt;
-    text-align: center;
-    color: white;
-    padding: 3pt 0;
-    margin-bottom: 5pt;
-    border-radius: 7pt;
-    font-weight: bold;
-    letter-spacing: 1.5pt;
-    border: 2pt solid var(--theme-color);
-    box-shadow: inset 0 0 0 1pt white;
-    background-color: var(--theme-color);
-}
-
-h3 {
-    font-weight: bold;
-    font-size: 11pt;
-    text-align: center;
-    color: white;
-    padding: 1pt 0;
-    margin-bottom: 2pt;
-    border-radius: 5pt;
-    background-color: var(--theme-color);
-}
-
-li {
-    position: relative;    
-    padding-left: 8pt;
 }
 
 ul {
-    list-style-type: none;
-    padding-left: 2pt;
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3pt;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #121212;
+    letter-spacing: 2pt;
+    font-size: 30pt;
+    font-weight: 900;
+}
+
+h2 {
+    display: inline-block;
+    color: #eb3e58;
+    letter-spacing: 2pt;
+    font-size: 24pt;
+    font-family: Source-Serif4;
+    font-weight: 900;
+    margin-right: 8pt;
+}
+
+h3 {
+    display: inline-block;
+    color: #121212;
+    letter-spacing: 2pt;
+    font-size: 22pt;
+    font-weight: 400;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 18pt;
+    text-align: center;
+    line-height: 30pt;
+    margin-bottom: 3pt;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+}
+
+li {
+    position: relative;
+    padding-left: 12pt;
+    font-weight: bold;
 }
 
 li::before {
     content: "●";
+    font-size: 5.5pt;
     position: absolute;
-    top: 4pt;
-    left: 0;
-    font-size: 5pt;
+    left: 3pt;
+    top: 4.5pt;
 }
 
-.green-theme {
-    --theme-color: #008000;
+.left {
+    background-color: #E8F5E9;
 }
 
-.red-theme {
-    --theme-color: #b22222;
+.middle {
+    background-color: #FFFDE7;
 }
 
-.three-column-list {
-    column-count: 3;
+.right {
+    background-color: #FFEBEE;
 }
 
-.two-column-list {
-    column-count: 2;
+h4.left {
+    background-color: #A7E8B8;
+    color: #2A7F2A;
 }
 
-.three-column-list li, .two-column-list li {
-    break-inside: avoid;
+h4.middle {
+    background-color: #F8FF9A;
+    color: #795901;
+}
+
+h4.right {
+    background-color: #FF89A6;
+    color: #B22222;
+}
+.left {
+    background-color: #E3F2FD;
+}
+
+.middle {
+    background-color: #FFF8E1;
+}
+
+.right {
+    background-color: #F5F5F5;
+}
+
+h4.left {
+    background-color: #90CAF9;
+    color: #0D47A1;
+}
+
+h4.middle {
+    background-color: #FFD54F;
+    color: #7A5A00;
+}
+
+h4.right {
+    background-color: #E0E0E0;
+    color: #333333;
 }</style>
         </head>
         <body>
-        <h1>
-            Kidney
-            <div>Food List</div>
-        </h1>
-        <main class="hi">
+        <header>
+            <h1>Diverticulitis</h1>
+            <div>
+                <h2>Flare-Up</h2>
+                <h3>Food List</h3>
+            </div>
+        </header>
+        <main>
             <div class="column">
-                <h2 class="green-theme">Foods To Eat Freely</h2>
-                <div class="section-container">
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Potassium Vegetables</h3>
-                        <ul class="three-column-list">
-                            <li>Bell peppers</li>
-                            <li>Cabbage</li>
-                            <li>Cauliflower</li>
-                            <li>Cucumbers</li>
-                            <li>Eggplant</li>
-                            <li>Green beans</li>
-                            <li>Lettuce</li>
-                            <li>Onions</li>
-                            <li>Radishes</li>
-                            <li>Zucchini</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Potassium Fruits</h3>
-                        <ul class="three-column-list">
-                            <li>Apples</li>
-                            <li>Blackberries</li>
-                            <li>Blueberries</li>
-                            <li>Grapes</li>
-                            <li>Lemons</li>
-                            <li>Pears</li>
-                            <li>Pineapple</li>
-                            <li>Watermelon</li>
-                            <li>Raspberries</li>
-                            <li>Strawberries</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Phosphorus Proteins</h3>
-                        <ul class="two-column-list">
-                            <li>Egg whites</li>
-                            <li>Skinless chicken</li>
-                            <li>Skinless turkey</li>
-                            <li>Tofu (in moderation)</li>
-                            <li>White fish (cod, halibut, tilapia)</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Potassium Dairy Substitutes</h3>
-                        <ul class="two-column-list">
-                            <li>Almond milk</li>
-                            <li>Coconut milk</li>
-                            <li>Macadamia milk</li>
-                            <li>Rice milk</li>
-                            <li>All unsweetened and without potassium phosphate (Check ingredients list)</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Potassium Grains</h3>
-                        <ul class="three-column-list">
-                            <li>Barley</li>
-                            <li>Corn tortillas</li>
-                            <li>Couscous</li>
-                            <li>Rolled oats</li>
-                            <li>Plain pasta</li>
-                            <li>Rice cakes</li>
-                            <li>Unsalted crackers</li>
-                            <li>White bread</li>
-                            <li>White rice</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Kidney-Friendly Fats & Oils</h3>
-                        <ul class="three-column-list">
-                            <li>Avocado oil</li>
-                            <li>Canola oil</li>
-                            <li>Flaxseed oil</li>
-                            <li>Grapeseed oil</li>
-                            <li>Hempseed oil</li>
-                            <li>Olive oil</li>
-                            <li>Unsalted butter</li>
-                            <li>Walnut oil</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Potassium Herbs & Spices</h3>
-                        <ul class="three-column-list">
-                            <li>Basil</li>
-                            <li>Cilantro</li>
-                            <li>Cinnamon</li>
-                            <li>Garlic powder</li>
-                            <li>Ginger</li>
-                            <li>Onion powder</li>
-                            <li>Oregano</li>
-                            <li>Paprika</li>
-                            <li>Parsley</li>
-                            <li>Pepper</li>
-                            <li>Rosemary</li>
-                            <li>Tarragon</li>
-                            <li>Thyme</li>
-                            <li>Turmeric</li>
-                        </ul>
-                    </section>
-                    <section class="green-theme">
-                        <h3 class="green-theme">Low-Phosphorous Beverages</h3>
-                        <ul class="three-column-list">
-                            <li>Black coffee</li>
-                            <li>Black tea</li>
-                            <li>Green tea</li>
-                            <li>Ginger tea</li>
-                            <li>Lemon balm tea</li>
-                            <li>Peppermint tea</li>
-                            <li>Rooibos tea</li>
-                            <li>Water</li>
-                        </ul>
-                    </section>
-                </div>
+                <h4 class="left">Eat</h4>
+                <ul class="left">
+                    <li>White rice</li>
+                    <li>Plain pasta</li>
+                    <li>White bread (no seeds)</li>
+                    <li>Plain crackers</li>
+                    <li>Cooked carrots</li>
+                    <li>Cooked zucchini (peeled)</li>
+                    <li>Cooked potatoes (peeled)</li>
+                    <li>Cooked green beans</li>
+                    <li>Cooked spinach</li>
+                    <li>Cooked beets</li>
+                    <li>Canned peaches (no syrup)</li>
+                    <li>Canned pears (no syrup)</li>
+                    <li>Applesauce</li>
+                    <li>Ripe bananas</li>
+                    <li>Watermelon (seedless)</li>
+                    <li>Eggs (boiled/scrambled)</li>
+                    <li>Chicken breast (skinless)</li>
+                    <li>Turkey breast</li>
+                    <li>Lean ground beef</li>
+                    <li>Broth-based soups</li>
+                    <li>Bone broth</li>
+                    <li>Tofu</li>
+                    <li>White fish (baked/steamed)</li>
+                    <li>Smooth peanut butter</li>
+                </ul>
             </div>
             <div class="column">
-                <h2 class="red-theme">Foods To Limit and Avoid</h2>
-                <div class="section-container">
-                    <section class="red-theme">
-                        <h3 class="red-theme">High-Potassium Vegetables</h3>
-                        <ul class="three-column-list">
-                            <li>Artichokes</li>
-                            <li>Beet greens</li>
-                            <li>Beets</li>
-                            <li>Bok choy</li>
-                            <li>Brussels sprouts</li>
-                            <li>Carrots</li>
-                            <li>Edamame</li>
-                            <li>Kale</li>
-                            <li>Legumes</li>
-                            <li>Potatoes</li>
-                            <li>Spinach</li>
-                            <li>Tomatoes</li>
-                            <li>Yams</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">High-Potassium Fruits</h3>
-                        <ul class="three-column-list">
-                            <li>Apricots</li>
-                            <li>Avocados</li>
-                            <li>All dried fruits</li>
-                            <li>Bananas</li>
-                            <li>Cantaloupe</li>
-                            <li>Dates</li>
-                            <li>Figs</li>
-                            <li>Kiwi</li>
-                            <li>Mangos</li>
-                            <li>Nectarines</li>
-                            <li>Oranges</li>
-                            <li>Peaches</li>
-                            <li>Plums</li>
-                            <li>Pomegranates</li>
-                            <li>Prunes</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">High-Phosphorus Protein</h3>
-                        <ul class="three-column-list">
-                            <li>Bacon</li>
-                            <li>Canned meat</li>
-                            <li>Cured meat</li>
-                            <li>Deli meat</li>
-                            <li>Hot dogs</li>
-                            <li>Lamb</li>
-                            <li>Lean beef</li>
-                            <li>Lean pork</li>
-                            <li>Lentils</li>
-                            <li>Processed meat</li>
-                            <li>Shellfish (crab, shrimp)</li>
-                            <li>Sausage</li>
-                            <li>Tuna</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">High-Potassium Dairy</h3>
-                        <ul class="three-column-list">
-                            <li>Buttermilk</li>
-                            <li>Cheese</li>
-                            <li>Condensed milk</li>
-                            <li>Ice cream</li>
-                            <li>Milk</li>
-                            <li>Pudding</li>
-                            <li>Soy milk</li>
-                            <li>Yogurt</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">High-Potassium Grains</h3>
-                        <ul class="three-column-list">
-                            <li>Bran cereal</li>
-                            <li>Brown rice</li>
-                            <li>Buckwheat</li>
-                            <li>Instant oatmeal</li>
-                            <li>Millet</li>
-                            <li>Salted crackers</li>
-                            <li>Whole wheat bread</li>
-                            <li>Whole wheat pasta</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">Fats & Oils</h3>
-                        <ul class="three-column-list">
-                            <li>Coconut oil</li>
-                            <li>Hydrogenated oils</li>
-                            <li>Pumpkin seed oil</li>
-                            <li>Lard</li>
-                            <li>Nut butters</li>
-                            <li>Margarine</li>
-                            <li>Shortening</li>
-                            <li>Sour cream</li>
-                            <li>Tahini</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">Sugary & Salty Foods</h3>
-                        <ul class="three-column-list">
-                            <li>Breaded foods</li>
-                            <li>Canned soup</li>
-                            <li>Candy</li>
-                            <li>Cookies</li>
-                            <li>Frozen meals</li>
-                            <li>Fast food</li>
-                            <li>Fried food</li>
-                            <li>Pickles</li>
-                            <li>Salt</li>
-                            <li>Soy sauce</li>
-                            <li>Syrups</li>
-                            <li>Sugary cereals</li>
-                            <li>Sugary baked goods (cakes, pastries, pies)</li>
-                        </ul>
-                    </section>
-                    <section class="red-theme">
-                        <h3 class="red-theme">Beverages</h3>
-                        <ul class="three-column-list">
-                            <li>Alcohol</li>
-                            <li>Coconut water</li>
-                            <li>Dark-colored soda</li>
-                            <li>Energy drinks</li>
-                            <li>Fruit juice</li>
-                            <li>Veggie juice</li>
-                            <li>Milkshakes</li>
-                            <li>Protein shakes</li>
-                            <li>Root beer</li>
-                            <li>Sports drinks</li>
-                        </ul>
-                    </section>
-                </div>
+                <h4 class="middle">Limit</h4>
+                <ul class="middle">
+                    <li>Whole wheat bread</li>
+                    <li>Brown rice</li>
+                    <li>Quinoa</li>
+                    <li>Sweet potato (peeled)</li>
+                    <li>Cucumber (peeled, no seeds)</li>
+                    <li>Tomato (peeled, no seeds)</li>
+                    <li>Avocado</li>
+                    <li>Steamed broccoli</li>
+                    <li>Steamed cauliflower</li>
+                    <li>Lettuce</li>
+                    <li>Melon</li>
+                    <li>Blueberries (no skin)</li>
+                    <li>Raspberries (strained)</li>
+                    <li>Cooked apples</li>
+                    <li>Low-fiber cereals</li>
+                    <li>Baked chicken with light seasoning</li>
+                    <li>Poached fish</li>
+                    <li>Scrambled eggs with herbs</li>
+                    <li>Greek yogurt (plain)</li>
+                    <li>Almond milk (unsweetened)</li>
+                    <li>Low-fat cheese</li>
+                    <li>Mashed lentils</li>
+                    <li>Cooked squash</li>
+                    <li>Pumpkin puree</li>
+                    <li>Cooked oats</li>
+                    <li>Plain rice cakes</li>
+                    <li>Light peanut butter</li>
+                    <li>Coconut water</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4 class="right">Avoid</h4>
+                <ul class="right">
+                    <li>Corn</li>
+                    <li>Popcorn</li>
+                    <li>Nuts (almonds, walnuts, etc.)</li>
+                    <li>Seeds (chia, flax, sesame)</li>
+                    <li>Raw vegetables (carrots, celery, broccoli)</li>
+                    <li>Cabbage</li>
+                    <li>Beans (black, kidney, chickpeas)</li>
+                    <li>Lentils (whole)</li>
+                    <li>Dried fruits</li>
+                    <li>Apples (with skin)</li>
+                    <li>Berries with seeds</li>
+                    <li>Grapes (with skin)</li>
+                    <li>Prunes</li>
+                    <li>Coconut (shredded, oil)</li>
+                    <li>Spicy foods</li>
+                    <li>Fried foods</li>
+                    <li>Sausage</li>
+                    <li>Bacon</li>
+                    <li>Processed meats</li>
+                    <li>Pizza</li>
+                    <li>Chips</li>
+                    <li>Pastries</li>
+                    <li>Ice cream</li>
+                    <li>Carbonated drinks</li>
+                    <li>Caffeinated coffee</li>
+                    <li>Alcohol</li>
+                </ul>
             </div>
         </main>
     </body>

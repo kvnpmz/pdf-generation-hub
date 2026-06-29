@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 public class Initializer : IPipelineStep
 {
-    private const string BaseProjectName = "fattyliver_foodlist";
+    private const string BaseProjectName = "diverticulitis_foodlist";
     private const string DocsDirectory = "documents";
     private const string TemplatesDirectory = "templates";
 

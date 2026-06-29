@@ -1,2 +1,2 @@
 ﻿var builder = new Builder();
-await builder.ExecuteAsync("kidney_foodlist", 0);
+await builder.ExecuteAsync("diverticulitis_foodlist_regal", 0);

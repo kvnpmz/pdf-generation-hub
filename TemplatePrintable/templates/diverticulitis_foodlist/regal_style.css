@@ -1,0 +1,26 @@
+.left {
+    background-color: #E3F2FD;
+}
+
+.middle {
+    background-color: #FFF8E1;
+}
+
+.right {
+    background-color: #F5F5F5;
+}
+
+h4.left {
+    background-color: #90CAF9;
+    color: #0D47A1;
+}
+
+h4.middle {
+    background-color: #FFD54F;
+    color: #7A5A00;
+}
+
+h4.right {
+    background-color: #E0E0E0;
+    color: #333333;
+}
