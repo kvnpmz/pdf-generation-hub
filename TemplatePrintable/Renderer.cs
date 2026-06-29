@@ -20,8 +20,8 @@ public class Renderer : IPipelineStep
         var files = new[]
         {
             "init.tl",
-            $"documents/{context.DocumentId}/config.tl",
-            $"templates/{template}/render.tl"
+            Path.Combine("documents", context.DocumentId, "config.tl"),
+            Path.Combine("templates", template, "render.tl")
         };
 
         await RunTlCheckAsync(files);
@@ -54,18 +54,32 @@ public class Renderer : IPipelineStep
         foreach (var file in files)
             psi.ArgumentList.Add(file);
 
-        using var process = Process.Start(psi)
-            ?? throw new InvalidOperationException("Failed to start tl process");
+        using var process = new Process
+        {
+            StartInfo = psi,
+            EnableRaisingEvents = true
+        };
 
-        var stdoutTask = process.StandardOutput.ReadToEndAsync();
-        var stderrTask = process.StandardError.ReadToEndAsync();
+        process.OutputDataReceived += (_, e) =>
+        {
+            if (!string.IsNullOrEmpty(e.Data))
+                Console.WriteLine(e.Data);
+        };
+
+        process.ErrorDataReceived += (_, e) =>
+        {
+            if (!string.IsNullOrEmpty(e.Data))
+                Console.Error.WriteLine(e.Data);
+        };
+
+        process.Start();
+
+        process.BeginOutputReadLine();
+        process.BeginErrorReadLine();
 
         await process.WaitForExitAsync();
 
-        var stdout = await stdoutTask;
-        var stderr = await stderrTask;
-
         if (process.ExitCode != 0)
-            throw new Exception($"{stdout}\n{stderr}".Trim());
+            throw new Exception($"tl check failed (exit {process.ExitCode})");
     }
 }
