@@ -40,17 +40,19 @@ public class Renderer : IPipelineStep
 
     private static async Task RunTlCheckAsync(IEnumerable<string> files)
     {
-        var args = string.Join(" ", files);
-
         var psi = new ProcessStartInfo
         {
             FileName = "tl",
-            Arguments = $"check {args}",
             RedirectStandardOutput = true,
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true
         };
+
+        psi.ArgumentList.Add("check");
+
+        foreach (var file in files)
+            psi.ArgumentList.Add(file);
 
         using var process = Process.Start(psi)
             ?? throw new InvalidOperationException("Failed to start tl process");
