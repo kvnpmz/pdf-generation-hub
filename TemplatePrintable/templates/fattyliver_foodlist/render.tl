@@ -36,7 +36,7 @@ function M.render(config: Config): string
         )
     end
 
-    return dom.h1("", config.header) .. dom.main("", table.unpack(columnNodes))
+    return dom.h1("", config.header) .. dom.main("hi", table.unpack(columnNodes))
 end
 
 return M

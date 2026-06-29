@@ -1,2 +1,2 @@
 ﻿var builder = new Builder();
-await builder.ExecuteAsync("fattyliver_foodlist_alternative", 0);
+await builder.ExecuteAsync("kidney_foodlist", 0);

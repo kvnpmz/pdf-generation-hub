@@ -17,6 +17,8 @@ public class Renderer : IPipelineStep
         context.Html = result["html"]?.ToString() ?? string.Empty;
 
         context.OutputName = result["outputName"]?.ToString() ?? "output";
-        File.WriteAllText("preview.html", context.Html);
+        string formattedHtml = HtmlFormatter.Beautify(context.Html);
+        
+        File.WriteAllText("preview.html", formattedHtml);
     }
 }
