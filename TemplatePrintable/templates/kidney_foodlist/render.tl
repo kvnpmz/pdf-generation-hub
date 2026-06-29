@@ -52,7 +52,7 @@ function M.render(config: Config): string
         table.insert(renderedColumns, dom.div("column", table.unpack(columnNodes)))
     end
 
-    return headerHtml .. dom.main("", table.unpack(renderedColumns))
+    return headerHtml .. dom.main("hi", table.unpack(renderedColumns))
 end
 
 return M as contracts.TemplateRender

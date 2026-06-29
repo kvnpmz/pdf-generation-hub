@@ -11,13 +11,6 @@
         <Watch Include="**/*.css" />
     </ItemGroup>
 
-    <Target Name="CompileTeal" BeforeTargets="Build">
-        <Message Importance="high" Text="Triggering Teal compiler..." />
-        <Exec Command="lua_modules/bin/tl gen init.tl" />
-        <!-- <Exec Command="lua_modules/bin/tl gen templates/document.tl" /> -->
-        <!-- <Exec Command="lua_modules/bin/tl gen documents/example-checklist/data.tl" /> -->
-    </Target>
-
     <ItemGroup>
         <PackageReference Include="Microsoft.Playwright" Version="1.60.0" />
         <PackageReference Include="NLua" Version="1.7.9" />
