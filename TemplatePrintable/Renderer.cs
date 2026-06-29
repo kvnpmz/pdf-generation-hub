@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 using NLua;
 
@@ -9,6 +10,22 @@ public class Renderer : IPipelineStep
         lua.State.Encoding = Encoding.UTF8;
         lua.DoString("local tl = require('tl'); tl.loader();");
 
+        var config = (LuaTable)lua.DoString(
+            $"return require('documents.{context.DocumentId}.config')"
+        )[0];
+
+        var template = config["template"]?.ToString()
+            ?? throw new Exception("Missing template");
+
+        var files = new[]
+        {
+            "init.tl",
+            $"documents/{context.DocumentId}/config.tl",
+            $"templates/{template}/render.tl"
+        };
+
+        await RunTlCheckAsync(files);
+
         var exports = (LuaTable)lua.DoString("return require('init')")[0];
         var render = (LuaFunction)exports["Render"];
 
@@ -19,5 +36,34 @@ public class Renderer : IPipelineStep
         string formattedHtml = HtmlFormatter.Beautify(context.Html);
         
         File.WriteAllText("preview.html", formattedHtml);
+    }
+
+    private static async Task RunTlCheckAsync(IEnumerable<string> files)
+    {
+        var args = string.Join(" ", files);
+
+        var psi = new ProcessStartInfo
+        {
+            FileName = "tl",
+            Arguments = $"check {args}",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+
+        using var process = Process.Start(psi)
+            ?? throw new InvalidOperationException("Failed to start tl process");
+
+        var stdoutTask = process.StandardOutput.ReadToEndAsync();
+        var stderrTask = process.StandardError.ReadToEndAsync();
+
+        await process.WaitForExitAsync();
+
+        var stdout = await stdoutTask;
+        var stderr = await stderrTask;
+
+        if (process.ExitCode != 0)
+            throw new Exception($"{stdout}\n{stderr}".Trim());
     }
 }

@@ -39,4 +39,4 @@ function M.render(config: Config): string
     return dom.h1("", config.header) .. dom.main("", table.unpack(columnNodes))
 end
 
-return M
+return M as contracts.TemplateRender
