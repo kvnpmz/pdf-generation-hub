@@ -1,0 +1,112 @@
+body {
+    display: flex;
+    flex-direction: column;    
+    font-size: 9.0pt;
+    text-transform: uppercase;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+    flex: 1;
+    padding: 5pt;
+}
+
+ul {
+    list-style: none;
+    column-count: 2;
+    flex: 1;
+}
+
+h1 {
+    color: #121212;
+    letter-spacing: 2pt;
+    font-size: 30pt;
+    font-weight: 900;
+}
+
+h2 {
+    color: #121212;
+    letter-spacing: 2pt;
+    font-size: 18pt;
+    margin-bottom: 3pt;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 18pt;
+    text-align: center;
+    line-height: 28pt;
+    margin-bottom: 3pt;
+    border: 1.5pt solid var(--border-color);
+    color: var(--border-color);
+    border-radius: 10pt;
+}
+
+h4 {
+    font-size: 10pt;
+    border-bottom: 1.5pt solid;
+}
+
+li {
+    text-transform: capitalize;
+    padding-left: 7pt;
+    text-indent: -7.5pt;
+    break-inside: avoid;
+}
+
+li::before {
+    content: "●";
+    font-size: 4.5pt;
+    padding-right: 3pt;
+    position: relative;
+    bottom: 1.5pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+    --border-color: #2A7F2A;;
+}
+
+.middle {
+    background-color: #FFFDE7;
+    --border-color: #795901;
+}
+
+.right {
+    background-color: #FFEBEE;
+    --border-color: #B22222;
+}
+
+h3.left {
+    background-color: #A7E8B8;
+}
+
+h3.middle {
+    background-color: #F8FF9A;
+}
+
+h3.right {
+    background-color: #FF89A6;
+}

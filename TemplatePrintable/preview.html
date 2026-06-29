@@ -43,13 +43,19 @@ h3 {
             <style>body {
     display: flex;
     flex-direction: column;    
-    font-size: 12.0pt;
+    font-size: 9.0pt;
     text-transform: uppercase;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: row;
     flex: 1;
     gap: 5pt;
 }
@@ -60,21 +66,19 @@ main {
     flex: 1;
 }
 
-ul {
-    list-style: none;
-    flex: 1;
+.section-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 3pt;
     border: 1.5pt solid;
     border-radius: 10pt;
+    flex: 1;
+    padding: 5pt;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+ul {
+    list-style: none;
+    column-count: 2;
+    flex: 1;
 }
 
 h1 {
@@ -85,201 +89,362 @@ h1 {
 }
 
 h2 {
-    display: inline-block;
-    color: #eb3e58;
-    letter-spacing: 2pt;
-    font-size: 24pt;
-    font-family: Source-Serif4;
-    font-weight: 900;
-    margin-right: 8pt;
-}
-
-h3 {
-    display: inline-block;
     color: #121212;
     letter-spacing: 2pt;
-    font-size: 22pt;
+    font-size: 18pt;
+    margin-bottom: 3pt;
     font-weight: 400;
 }
 
-h4 {
-    font-weight: bold;
+h3 {
     font-size: 18pt;
     text-align: center;
-    line-height: 30pt;
+    line-height: 28pt;
     margin-bottom: 3pt;
-    border: 1.5pt solid;
+    border: 1.5pt solid var(--border-color);
+    color: var(--border-color);
     border-radius: 10pt;
 }
 
+h4 {
+    font-size: 10pt;
+    border-bottom: 1.5pt solid;
+}
+
 li {
-    position: relative;
-    padding-left: 12pt;
-    font-weight: bold;
+    text-transform: capitalize;
+    padding-left: 7pt;
+    text-indent: -7.5pt;
+    break-inside: avoid;
 }
 
 li::before {
     content: "●";
-    font-size: 5.5pt;
-    position: absolute;
-    left: 3pt;
-    top: 4.5pt;
+    font-size: 4.5pt;
+    padding-right: 3pt;
+    position: relative;
+    bottom: 1.5pt;
 }
 
 .left {
     background-color: #E8F5E9;
+    --border-color: #2A7F2A;;
 }
 
 .middle {
     background-color: #FFFDE7;
+    --border-color: #795901;
 }
 
 .right {
     background-color: #FFEBEE;
+    --border-color: #B22222;
 }
 
-h4.left {
+h3.left {
     background-color: #A7E8B8;
-    color: #2A7F2A;
 }
 
-h4.middle {
+h3.middle {
     background-color: #F8FF9A;
-    color: #795901;
 }
 
-h4.right {
+h3.right {
     background-color: #FF89A6;
-    color: #B22222;
 }
-.left {
-    background-color: #E3F2FD;
-}
-
-.middle {
-    background-color: #FFF8E1;
+.section-container {
+    border: 1.5pt solid var(--border-color);
 }
 
-.right {
-    background-color: #F5F5F5;
+h1 {
+    color: #f0746f;
 }
 
-h4.left {
-    background-color: #90CAF9;
-    color: #0D47A1;
+h2 {
+    font-family: Source-Serif4;
 }
 
-h4.middle {
-    background-color: #FFD54F;
-    color: #7A5A00;
-}
-
-h4.right {
-    background-color: #E0E0E0;
-    color: #333333;
+h4 {
+    border-bottom: none;
 }</style>
         </head>
         <body>
         <header>
-            <h1>Diverticulitis</h1>
-            <div>
-                <h2>Flare-Up</h2>
-                <h3>Food List</h3>
-            </div>
+            <h1>Low Potassium Diet</h1>
+            <h2>Food List</h2>
         </header>
         <main>
             <div class="column">
-                <h4 class="left">Eat</h4>
-                <ul class="left">
-                    <li>White rice</li>
-                    <li>Plain pasta</li>
-                    <li>White bread (no seeds)</li>
-                    <li>Plain crackers</li>
-                    <li>Cooked carrots</li>
-                    <li>Cooked zucchini (peeled)</li>
-                    <li>Cooked potatoes (peeled)</li>
-                    <li>Cooked green beans</li>
-                    <li>Cooked spinach</li>
-                    <li>Cooked beets</li>
-                    <li>Canned peaches (no syrup)</li>
-                    <li>Canned pears (no syrup)</li>
-                    <li>Applesauce</li>
-                    <li>Ripe bananas</li>
-                    <li>Watermelon (seedless)</li>
-                    <li>Eggs (boiled/scrambled)</li>
-                    <li>Chicken breast (skinless)</li>
-                    <li>Turkey breast</li>
-                    <li>Lean ground beef</li>
-                    <li>Broth-based soups</li>
-                    <li>Bone broth</li>
-                    <li>Tofu</li>
-                    <li>White fish (baked/steamed)</li>
-                    <li>Smooth peanut butter</li>
-                </ul>
+                <h3 class="left">Eat</h3>
+                <div class="section-container left">
+                    <h4>Vegetables</h4>
+                    <ul>
+                        <li>Green beans</li>
+                        <li>Cabbage</li>
+                        <li>Cauliflower</li>
+                        <li>Cucumber</li>
+                        <li>Eggplant</li>
+                        <li>Lettuce</li>
+                        <li>Onions</li>
+                        <li>Bell peppers</li>
+                        <li>Radishes</li>
+                        <li>Zucchini</li>
+                        <li>Yellow squash</li>
+                        <li>Celery</li>
+                        <li>Asparagus</li>
+                        <li>Turnips</li>
+                        <li>Water chestnuts</li>
+                    </ul>
+                    <h4>Fruits</h4>
+                    <ul>
+                        <li>Apples</li>
+                        <li>Pears</li>
+                        <li>Grapes</li>
+                        <li>Strawberries</li>
+                        <li>Berries</li>
+                        <li>Pineapple</li>
+                        <li>Watermelon</li>
+                        <li>Cantaloupe</li>
+                        <li>Honeydew</li>
+                        <li>Peaches</li>
+                        <li>Plums</li>
+                        <li>Nectarines</li>
+                    </ul>
+                    <h4>Proteins</h4>
+                    <ul>
+                        <li>Chicken breast</li>
+                        <li>Turkey breast</li>
+                        <li>Lean pork loin</li>
+                        <li>Cod</li>
+                        <li>Tilapia</li>
+                        <li>Haddock</li>
+                        <li>Pollock</li>
+                        <li>Sole</li>
+                        <li>Egg whites</li>
+                        <li>Tuna (canned in water)</li>
+                        <li>Shrimp</li>
+                        <li>Crab</li>
+                        <li>Lobster</li>
+                    </ul>
+                    <h4>Grains & starches</h4>
+                    <ul>
+                        <li>White rice</li>
+                        <li>Brown rice</li>
+                        <li>White bread</li>
+                        <li>Whole wheat bread</li>
+                        <li>Pasta</li>
+                        <li>Egg noodles</li>
+                        <li>Couscous</li>
+                        <li>Barley</li>
+                        <li>Oats</li>
+                        <li>Cornflakes</li>
+                        <li>Rice cereal</li>
+                        <li>Cream of wheat</li>
+                        <li>Unsalted popcorn</li>
+                    </ul>
+                    <h4>Dairy & alternatives</h4>
+                    <ul>
+                        <li>Rice milk</li>
+                        <li>Almond milk</li>
+                        <li>Coconut milk beverage</li>
+                        <li>Cream cheese</li>
+                        <li>Brie cheese</li>
+                        <li>Goat cheese</li>
+                    </ul>
+                    <h4>Fats & oils</h4>
+                    <ul>
+                        <li>Olive oil</li>
+                        <li>Canola oil</li>
+                        <li>Vegetable oil</li>
+                        <li>Sunflower oil</li>
+                        <li>Butter/margarine</li>
+                        <li>Mayonnaise</li>
+                        <li>Salad dressing</li>
+                    </ul>
+                    <h4>Snacks & desserts</h4>
+                    <ul>
+                        <li>Vanilla wafers</li>
+                        <li>Graham crackers</li>
+                        <li>Shortbread/plain cookies</li>
+                        <li>Pound cake</li>
+                        <li>Hard candies</li>
+                        <li>Jelly beans</li>
+                        <li>Marshmallow</li>
+                    </ul>
+                </div>
             </div>
             <div class="column">
-                <h4 class="middle">Limit</h4>
-                <ul class="middle">
-                    <li>Whole wheat bread</li>
-                    <li>Brown rice</li>
-                    <li>Quinoa</li>
-                    <li>Sweet potato (peeled)</li>
-                    <li>Cucumber (peeled, no seeds)</li>
-                    <li>Tomato (peeled, no seeds)</li>
-                    <li>Avocado</li>
-                    <li>Steamed broccoli</li>
-                    <li>Steamed cauliflower</li>
-                    <li>Lettuce</li>
-                    <li>Melon</li>
-                    <li>Blueberries (no skin)</li>
-                    <li>Raspberries (strained)</li>
-                    <li>Cooked apples</li>
-                    <li>Low-fiber cereals</li>
-                    <li>Baked chicken with light seasoning</li>
-                    <li>Poached fish</li>
-                    <li>Scrambled eggs with herbs</li>
-                    <li>Greek yogurt (plain)</li>
-                    <li>Almond milk (unsweetened)</li>
-                    <li>Low-fat cheese</li>
-                    <li>Mashed lentils</li>
-                    <li>Cooked squash</li>
-                    <li>Pumpkin puree</li>
-                    <li>Cooked oats</li>
-                    <li>Plain rice cakes</li>
-                    <li>Light peanut butter</li>
-                    <li>Coconut water</li>
-                </ul>
+                <h3 class="middle">Limit</h3>
+                <div class="section-container middle">
+                    <h4>Vegetables</h4>
+                    <ul>
+                        <li>Broccoli</li>
+                        <li>Carrots</li>
+                        <li>Spinach (cooked)</li>
+                        <li>Kale</li>
+                        <li>Brussels sprouts</li>
+                        <li>Corn</li>
+                        <li>Peas</li>
+                        <li>Pumpkin</li>
+                        <li>Butternut squash</li>
+                        <li>Acorn squash</li>
+                        <li>Artichokes</li>
+                        <li>Okra</li>
+                    </ul>
+                    <h4>Fruits</h4>
+                    <ul>
+                        <li>Banana (small portion)</li>
+                        <li>Orange</li>
+                        <li>Tangerine</li>
+                        <li>Clementine</li>
+                        <li>Mango</li>
+                        <li>Papaya</li>
+                        <li>Kiwi</li>
+                        <li>Pomegranate</li>
+                        <li>Guava</li>
+                        <li>Apricots (fresh)</li>
+                        <li>Cherries</li>
+                        <li>Figs</li>
+                    </ul>
+                    <h4>Proteins</h4>
+                    <ul>
+                        <li>Lean ground beef</li>
+                        <li>Beef steak</li>
+                        <li>Pork chops</li>
+                        <li>Salmon</li>
+                        <li>Sardines</li>
+                        <li>Mackerel</li>
+                        <li>Eggs (whole)</li>
+                        <li>Tofu</li>
+                        <li>Tempeh</li>
+                        <li>Chickpeas</li>
+                        <li>Lentils</li>
+                        <li>Black beans</li>
+                    </ul>
+                    <h4>Grains & starches</h4>
+                    <ul>
+                        <li>Quinoa</li>
+                        <li>Whole wheat pasta</li>
+                        <li>Bran cereal</li>
+                        <li>Multigrain bread</li>
+                        <li>Granola</li>
+                        <li>Bran muffins</li>
+                        <li>Oat bran</li>
+                        <li>Whole grain crackers</li>
+                        <li>Cornbread</li>
+                    </ul>
+                    <h4>Dairy & alternatives</h4>
+                    <ul>
+                        <li>Milk</li>
+                        <li>Yogurt</li>
+                        <li>Greek yogurt</li>
+                        <li>Cottage cheese</li>
+                        <li>Ricotta</li>
+                        <li>Mozzarella</li>
+                        <li>Cheddar cheese</li>
+                        <li>Ice cream</li>
+                    </ul>
+                    <h4>Fats & oils</h4>
+                    <ul>
+                        <li>Avocado oil</li>
+                        <li>Sesame oil</li>
+                        <li>Peanut oil</li>
+                        <li>Coconut oil</li>
+                        <li>Nut butters</li>
+                        <li>Tahini</li>
+                    </ul>
+                    <h4>Snacks & desserts</h4>
+                    <ul>
+                        <li>Chocolate pudding/cake</li>
+                        <li>Brownies</li>
+                        <li>Chocolate</li>
+                        <li>Trail mix</li>
+                        <li>Granola</li>
+                        <li>Protein bars</li>
+                        <li>Peanut butter cookies</li>
+                        <li>Nut bars</li>
+                    </ul>
+                </div>
             </div>
             <div class="column">
-                <h4 class="right">Avoid</h4>
-                <ul class="right">
-                    <li>Corn</li>
-                    <li>Popcorn</li>
-                    <li>Nuts (almonds, walnuts, etc.)</li>
-                    <li>Seeds (chia, flax, sesame)</li>
-                    <li>Raw vegetables (carrots, celery, broccoli)</li>
-                    <li>Cabbage</li>
-                    <li>Beans (black, kidney, chickpeas)</li>
-                    <li>Lentils (whole)</li>
-                    <li>Dried fruits</li>
-                    <li>Apples (with skin)</li>
-                    <li>Berries with seeds</li>
-                    <li>Grapes (with skin)</li>
-                    <li>Prunes</li>
-                    <li>Coconut (shredded, oil)</li>
-                    <li>Spicy foods</li>
-                    <li>Fried foods</li>
-                    <li>Sausage</li>
-                    <li>Bacon</li>
-                    <li>Processed meats</li>
-                    <li>Pizza</li>
-                    <li>Chips</li>
-                    <li>Pastries</li>
-                    <li>Ice cream</li>
-                    <li>Carbonated drinks</li>
-                    <li>Caffeinated coffee</li>
-                    <li>Alcohol</li>
-                </ul>
+                <h3 class="right">Avoid</h3>
+                <div class="section-container right">
+                    <h4>Vegetables</h4>
+                    <ul>
+                        <li>Potatoes</li>
+                        <li>Sweet potatoes</li>
+                        <li>Baked potatoes</li>
+                        <li>Potato skins</li>
+                        <li>Beet greens</li>
+                        <li>Tomato sauce</li>
+                        <li>Tomato paste</li>
+                        <li>Sun-dried tomatoes</li>
+                        <li>Swiss chard</li>
+                        <li>Collard greens</li>
+                        <li>Parsnips</li>
+                        <li>Rutabaga</li>
+                    </ul>
+                    <h4>Fruits</h4>
+                    <ul>
+                        <li>Bananas (large portion)</li>
+                        <li>Dried bananas</li>
+                        <li>Raisins</li>
+                        <li>Dried peaches</li>
+                        <li>Dried nectarines</li>
+                        <li>Dried apricots</li>
+                        <li>Dates</li>
+                        <li>Prunes</li>
+                        <li>Prune juice</li>
+                        <li>Jackfruit</li>
+                        <li>Durian</li>
+                    </ul>
+                    <h4>Proteins</h4>
+                    <ul>
+                        <li>Refried beans</li>
+                        <li>White beans</li>
+                        <li>Lima beans</li>
+                        <li>Kidney beans</li>
+                        <li>Soybeans</li>
+                        <li>Edamame</li>
+                        <li>Baked beans</li>
+                        <li>Black-eyed peas</li>
+                        <li>Large portions of lentils</li>
+                        <li>Large portions of chickpeas</li>
+                    </ul>
+                    <h4>Grains & starches</h4>
+                    <ul>
+                        <li>Potato chips</li>
+                        <li>Sweet potato fries</li>
+                        <li>Instant mashed potatoes</li>
+                        <li>Potato wedges</li>
+                        <li>Potato hash browns</li>
+                        <li>Tater tots</li>
+                        <li>Cassava</li>
+                        <li>Yucca root</li>
+                    </ul>
+                    <h4>Dairy</h4>
+                    <ul>
+                        <li>Evaporated milk</li>
+                        <li>Condensed milk</li>
+                        <li>Milkshakes</li>
+                        <li>Chocolate milk</li>
+                        <li>Buttermilk</li>
+                        <li>Yogurt (large portion)</li>
+                        <li>Milk (large portion)</li>
+                    </ul>
+                    <h4>Fats & oils</h4>
+                    <ul>
+                        <li>Avocado (large portion)</li>
+                        <li>Guacamole (large portion)</li>
+                        <li>Coconut cream</li>
+                    </ul>
+                    <h4>Snacks & desserts</h4>
+                    <ul>
+                        <li>Chocolate fudge</li>
+                        <li>Dark chocolate bar</li>
+                        <li>Chocolate ice cream</li>
+                    </ul>
+                </div>
             </div>
         </main>
     </body>
