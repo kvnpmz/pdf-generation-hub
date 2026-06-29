@@ -1,2 +1,2 @@
-*.tl linguist-language=Teal
-*.tl linguist-detectable=true
+*.tl linguist-language=Teal 
+*.tl linguist-detectable=true -linguist-vendored -linguist-generated
