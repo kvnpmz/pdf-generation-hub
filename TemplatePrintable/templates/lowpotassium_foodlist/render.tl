@@ -40,7 +40,6 @@ function M.render(config: Config): string
             table.insert(sectionHtml, dom.ul("", table.unpack(itemHtml)))
         end
 
-
         table.insert(
             columnHtml,
             dom.div(

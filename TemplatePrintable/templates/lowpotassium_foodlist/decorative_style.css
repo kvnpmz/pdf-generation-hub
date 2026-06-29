@@ -14,4 +14,29 @@ h4 {
     border-bottom: none;
 }
 
+.left {
+    background-color: #E4F4E6;
+    --border-color: #388E3C;
+}
 
+.middle {
+    background-color: #FFF9D6;
+    --border-color: #8A6D1F;
+}
+
+.right {
+    background-color: #FCE6E8;
+    --border-color: #C0392B;
+}
+
+h3.left {
+    background-color: #BFE8C7;
+}
+
+h3.middle {
+    background-color: #FFF2A8;
+}
+
+h3.right {
+    background-color: #F7A4B4;
+}
