@@ -1,8 +1,8 @@
 using Microsoft.Playwright;
 
-public class PlaywrightExport : IPdfExport
+public class Chrome : IPdfRender
 {
-    public async Task ExecuteAsync(PipelineContext context)
+    public async Task ExecuteAsync(Context context)
     {
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync();

@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-public static class HtmlFormatter
+public static class Format
 {
     public static string Beautify(string html)
     {

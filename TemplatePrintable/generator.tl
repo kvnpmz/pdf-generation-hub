@@ -2,7 +2,7 @@ local M = {}
 
 local baseRender = require("templates.base.render")
 local context = require("context")
-local styleProvider = require("style_provider")
+local style = require("style")
 
 local record RenderResult
     html: string
@@ -20,7 +20,7 @@ function M.Render(documentId: string): RenderResult
         renderTemplate = renderTemplate,
     })
 
-    html = styleProvider.Apply(html, config)
+    html = style.Apply(html, config)
 
     return {
         html = html,

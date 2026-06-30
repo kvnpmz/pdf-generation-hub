@@ -1,2 +1,2 @@
-﻿var builder = new Builder();
-await builder.ExecuteAsync("weekly_schedule", 0, 1);
+﻿var flow = new Flow();
+await flow.ExecuteAsync("weekly_schedule", 0, 1);

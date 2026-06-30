@@ -1,10 +1,10 @@
 using System.Diagnostics;
 
-public class ImageConverter : IPipelineStep
+public class Image : IStep
 {
     private readonly string _assetsDir = "./assets";
 
-    public async Task ExecuteAsync(PipelineContext context)
+    public async Task ExecuteAsync(Context context)
     {
         if (!context.EnableImages)
         {

@@ -2,9 +2,9 @@ using System.Diagnostics;
 using System.Text;
 using NLua;
 
-public class Renderer : IPipelineStep
+public class Build : IStep
 {
-    public async Task ExecuteAsync(PipelineContext context)
+    public async Task ExecuteAsync(Context context)
     {
         using var lua = new Lua();
         lua.State.Encoding = Encoding.UTF8;
@@ -33,7 +33,7 @@ public class Renderer : IPipelineStep
         context.Html = result["html"]?.ToString() ?? string.Empty;
 
         context.OutputName = result["outputName"]?.ToString() ?? "output";
-        string formattedHtml = HtmlFormatter.Beautify(context.Html);
+        string formattedHtml = Format.Beautify(context.Html);
         
         var htmlPath = Path.Combine(context.OutputDirectory, $"{context.OutputName}.html");
         File.WriteAllText(htmlPath, formattedHtml);

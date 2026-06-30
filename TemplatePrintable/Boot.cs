@@ -1,13 +1,13 @@
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-public class Initializer : IPipelineStep
+public class Boot : IStep
 {
     private const string BaseProjectName = "lowpotassium_foodlist";
     private const string DocsDirectory = "documents";
     private const string TemplatesDirectory = "templates";
 
-    public async Task ExecuteAsync(PipelineContext context)
+    public async Task ExecuteAsync(Context context)
     {
         string projectPath = Path.Combine(DocsDirectory, context.DocumentId);
         // If the project exists, we skip scaffolding (Idempotency)

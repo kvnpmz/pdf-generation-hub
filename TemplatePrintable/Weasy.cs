@@ -1,8 +1,8 @@
 using System.Diagnostics;
 
-public class WeasyPrintExport : IPdfExport
+public class Weasy : IPdfRender
 {
-    public async Task ExecuteAsync(PipelineContext context)
+    public async Task ExecuteAsync(Context context)
     {
         Console.WriteLine("Executing WeasyPrint strategy...");
         var tempDir = Path.Combine(Path.GetTempPath(), "WeasyPrint");

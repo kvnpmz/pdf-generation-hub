@@ -1,4 +1,4 @@
-public class PipelineContext
+public class Context
 {
     public string DocumentId { get; set; } = string.Empty;
     public string Html { get; set; } = string.Empty;

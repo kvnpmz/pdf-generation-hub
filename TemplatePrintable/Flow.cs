@@ -1,8 +1,8 @@
-﻿public class Builder
+﻿public class Flow
 {
     public async Task ExecuteAsync(string documentId, int enableImages, int isInteractive)
     {
-        var context = new PipelineContext
+        var context = new Context
         { 
             DocumentId = documentId,
             EnableImages = Convert.ToBoolean(enableImages),
@@ -12,12 +12,12 @@
 
         Directory.CreateDirectory(context.OutputDirectory);
 
-        var steps = new List<IPipelineStep>
+        var steps = new List<IStep>
         {
-            new Initializer(),
-            new Renderer(),
-            new Exporter(),
-            new ImageConverter()
+            new Boot(),
+            new Build(),
+            new Render(),
+            new Image()
         };
 
         foreach (var step in steps)
