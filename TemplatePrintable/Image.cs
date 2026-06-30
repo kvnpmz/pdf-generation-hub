@@ -12,15 +12,7 @@ public class Image : IStep
             return;
         }
 
-        string folderPath = Path.Combine(Environment.CurrentDirectory, "output", context.DocumentId);
-
-        if (!Directory.Exists(folderPath))
-        {
-            Console.WriteLine($"[ERROR] Folder not found: {folderPath}");
-            return;
-        }
-
-        string[] pdfFiles = Directory.GetFiles(folderPath, $"*.pdf");
+        string[] pdfFiles = Directory.GetFiles(context.OutputDirectory, $"*.pdf");
         
         foreach (string filePath in pdfFiles)
         {
@@ -30,6 +22,12 @@ public class Image : IStep
 
     public void ProcessPdfToImages(string pdfPath)
     {
+        if (pdfPath.Contains("editable", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("[INFO] Pdf is editable. Skipping.");
+            return;
+        }
+
         string absPath = Path.GetFullPath(pdfPath);
         string? dir = Path.GetDirectoryName(absPath);
         string name = Path.GetFileNameWithoutExtension(absPath);

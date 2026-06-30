@@ -62,7 +62,7 @@ function M.render(config: Config): string
         dom.h2("", string.format("%s %s", words[4], words[5]))
     )
 
-    local html = headerHtml .. dom.main("", table.unpack(columnHtml))
+    local html = headerHtml .. dom.main("", table.concat(columnHtml))
     return html
 end
 

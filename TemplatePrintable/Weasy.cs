@@ -4,7 +4,6 @@ public class Weasy : IPdfRender
 {
     public async Task ExecuteAsync(Context context)
     {
-        Console.WriteLine("Executing WeasyPrint strategy...");
         var tempDir = Path.Combine(Path.GetTempPath(), "WeasyPrint");
         Directory.CreateDirectory(tempDir);
 
@@ -29,8 +28,8 @@ HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
 
 letter_css = CSS(string='@page { size: Letter; }')
 HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
-print(f"Generated {output_a4}");       
-print(f"Generated {output_letter}");       
+print(f"Generated {document_id}_editable_a4.pdf");       
+print(f"Generated {document_id}_editable.pdf");       
 """);
 
         var psi = new ProcessStartInfo

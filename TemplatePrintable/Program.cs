@@ -1,2 +1,2 @@
 ﻿var flow = new Flow();
-await flow.ExecuteAsync("weekly_schedule", 0, 1);
+await flow.ExecuteAsync("weekly_plan", 1, 1);

@@ -38,8 +38,6 @@ public class Build : IStep
         var htmlPath = Path.Combine(context.OutputDirectory, $"{context.OutputName}.html");
         File.WriteAllText(htmlPath, formattedHtml);
         File.WriteAllText("preview.html", formattedHtml);
-
-        Console.WriteLine($"Wrote HTML preview: {htmlPath}");
     }
 
     private static async Task RunTlCheckAsync(IEnumerable<string> files)
