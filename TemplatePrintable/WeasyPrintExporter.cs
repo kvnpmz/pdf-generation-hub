@@ -1,16 +1,17 @@
 using System.Diagnostics;
 
-public static class WeasyPrint
+public class WeasyPrintExporter : IPipelineStep
 {
-    public static async Task RenderAsync(string html, string outputBaseName)
+    public async Task ExecuteAsync(PipelineContext context)
     {
+        Console.WriteLine("Executing WeasyPrint strategy...");
         var tempDir = Path.Combine(Path.GetTempPath(), "WeasyPrint");
         Directory.CreateDirectory(tempDir);
 
-        var htmlFile = Path.Combine(tempDir, Guid.NewGuid() + ".html");
+        var htmlFile = "preview.html";
         var scriptFile = Path.Combine(tempDir, Guid.NewGuid() + ".py");
 
-        await File.WriteAllTextAsync(htmlFile, html);
+        var fullOutputPath = $"output/{context.DocumentId}";
         await File.WriteAllTextAsync(scriptFile, 
 
 """
@@ -18,20 +19,17 @@ import sys
 from pathlib import Path
 from weasyprint import HTML, CSS
 
-html_path = sys.argv[1] 
-base_output_path = sys.argv[2]
+html_path = Path(sys.argv[1])
+output_directory = Path(sys.argv[2])
+document_id = sys.argv[3]
 
-html_content = Path(html_path).read_text(encoding='utf-8')
+output_a4 = output_directory / f"{document_id}_editable_a4.pdf"
+output_letter = output_directory / f"{document_id}_editable.pdf"
 
-base_url = Path(html_path).parent.as_uri()
-
-output_a4 = base_output_path + "_a4.pdf"
-output_letter = base_output_path + "_letter.pdf"
-
-HTML(string=html_content, base_url=base_url).write_pdf(output_a4, pdf_forms=True)
+HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
 
 letter_css = CSS(string='@page { size: Letter; }')
-HTML(string=html_content, base_url=base_url).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
+HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
 """);
 
         var psi = new ProcessStartInfo
@@ -42,11 +40,10 @@ HTML(string=html_content, base_url=base_url).write_pdf(output_letter, pdf_forms=
             RedirectStandardOutput = true,
             CreateNoWindow = true
         };
-
-        var fullOutputPath = Path.GetFullPath(outputBaseName);
-        psi.ArgumentList.Add(scriptFile); 
+        psi.ArgumentList.Add(scriptFile);
         psi.ArgumentList.Add(htmlFile);
         psi.ArgumentList.Add(fullOutputPath);
+        psi.ArgumentList.Add(context.DocumentId);
 
         using var process = Process.Start(psi)!;
 
@@ -55,11 +52,7 @@ HTML(string=html_content, base_url=base_url).write_pdf(output_letter, pdf_forms=
 
         await process.WaitForExitAsync();
 
-        if (File.Exists(htmlFile))
-            File.Delete(htmlFile);
-
-        if (File.Exists(scriptFile))
-            File.Delete(scriptFile);
+        File.Delete(scriptFile);
 
         if (process.ExitCode != 0)
             throw new Exception(stderr);

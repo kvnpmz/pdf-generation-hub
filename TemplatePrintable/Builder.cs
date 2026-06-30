@@ -1,11 +1,12 @@
 ﻿public class Builder
 {
-    public async Task ExecuteAsync(string docId, int enableImages)
+    public async Task ExecuteAsync(string documentId, int enableImages, int isInteractive)
     {
         var context = new PipelineContext
         { 
-            DocumentId = docId,
-            EnableImages = Convert.ToBoolean(enableImages)
+            DocumentId = documentId,
+            EnableImages = Convert.ToBoolean(enableImages),
+            IsInteractive = Convert.ToBoolean(isInteractive)
         };
 
         var steps = new List<IPipelineStep>
