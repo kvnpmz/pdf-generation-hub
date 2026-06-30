@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-public class WeasyPrintExporter : IPipelineStep
+public class WeasyPrintExport : IPdfExport
 {
     public async Task ExecuteAsync(PipelineContext context)
     {
@@ -11,7 +11,6 @@ public class WeasyPrintExporter : IPipelineStep
         var htmlFile = "preview.html";
         var scriptFile = Path.Combine(tempDir, Guid.NewGuid() + ".py");
 
-        var fullOutputPath = $"output/{context.DocumentId}";
         await File.WriteAllTextAsync(scriptFile, 
 
 """
@@ -30,6 +29,8 @@ HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
 
 letter_css = CSS(string='@page { size: Letter; }')
 HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
+print(f"Generated {output_a4}");       
+print(f"Generated {output_letter}");       
 """);
 
         var psi = new ProcessStartInfo
@@ -42,7 +43,7 @@ HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[l
         };
         psi.ArgumentList.Add(scriptFile);
         psi.ArgumentList.Add(htmlFile);
-        psi.ArgumentList.Add(fullOutputPath);
+        psi.ArgumentList.Add(context.OutputDirectory);
         psi.ArgumentList.Add(context.DocumentId);
 
         using var process = Process.Start(psi)!;
@@ -50,11 +51,14 @@ HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[l
         string stdout = await process.StandardOutput.ReadToEndAsync();
         string stderr = await process.StandardError.ReadToEndAsync();
 
+        Console.WriteLine(stdout);
+
         await process.WaitForExitAsync();
 
         File.Delete(scriptFile);
 
         if (process.ExitCode != 0)
             throw new Exception(stderr);
+
     }
 }

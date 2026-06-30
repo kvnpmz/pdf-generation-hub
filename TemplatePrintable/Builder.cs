@@ -6,8 +6,11 @@
         { 
             DocumentId = documentId,
             EnableImages = Convert.ToBoolean(enableImages),
-            IsInteractive = Convert.ToBoolean(isInteractive)
+            IsInteractive = Convert.ToBoolean(isInteractive),
+            OutputDirectory = Path.Combine("output", documentId)
         };
+
+        Directory.CreateDirectory(context.OutputDirectory);
 
         var steps = new List<IPipelineStep>
         {

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="utf-8">
+            <style>*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@page {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+    padding: 36pt 50.4pt;
+    color: #121212;
+}
+
+body {
+    height: inherit;
+    font-family: Inter;
+    font-size: 6pt;
+}
+
+h1 {
+}
+
+main {
+}
+
+.column {
+}
+
+section {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+.item {
+}</style>
+            <style>body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30pt 1fr 1fr 1fr 1fr;
+    row-gap: 5pt;
+    column-gap: 10pt;
+	font-family: 'Source Serif 4';
+    text-transform: uppercase;
+    border: 1pt solid red;
+
+}
+
+main {
+    flex: 1;
+    padding-top: 5pt;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.line-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/*
+.line {
+    flex: 1;
+    border-bottom: 1.5pt solid;
+}
+
+.line::before {
+    content: "⬤";
+    position: relative;
+    font-size: 9pt;
+    top: 1.5pt;
+    left: 2pt;
+    color: var(--theme-color);
+}
+*/
+
+textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    margin-left: 15pt;
+    height: 12pt;
+    font-size: 7.5pt;
+    background: transparent;
+}
+
+.line-wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-bottom: 1.5pt solid;
+    position: relative;
+}
+
+.line-wrapper::before {
+    content: "⬤";
+    position: absolute;
+    font-size: 9pt;
+    top: 1.5pt;
+    left: 2pt;
+    color: var(--theme-color);
+}
+
+h1 {
+    font-size: 22pt;
+    letter-spacing: 1pt;
+}
+
+h2 {
+    display: flex;
+    align-items: end;
+    position: relative;
+    font-size: 14pt;
+    padding-bottom: 2pt;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 45pt);
+    right: 0;
+    bottom: 5pt;
+    border-bottom: 1.5pt solid;
+}
+
+h3 {
+    line-height: 24pt;
+    font-size: 16pt;
+    text-align: center;
+    background-color: var(--theme-color);
+}
+
+.tab-color-1 { --theme-color: #FFC8DD; }
+.tab-color-2 { --theme-color: #CDB4DB; }
+.tab-color-3 { --theme-color: #D4E09B; }
+.tab-color-4 { --theme-color: #BDE0FE; }
+.tab-color-5 { --theme-color: #FAD2E1; }
+.tab-color-6 { --theme-color: #FFDEB4; }
+.tab-color-7 { --theme-color: #A2D2FF; }
+.tab-color-8 { --theme-color: #FFF1A8; }</style>
+        </head>
+        <body>
+        <h1>Weekly Schedule</h1>
+        <h2>Date:</h2>
+        <section>
+            <h3 class="tab-color-1">Monday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-2">Tuesday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-3">Wednesday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-4">Thursday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-5">Friday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-6">Saturday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-7">Sunday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-8">Notes</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

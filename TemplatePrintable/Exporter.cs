@@ -1,11 +1,16 @@
+public interface IPdfExport
+{
+    Task ExecuteAsync(PipelineContext context);
+}
+
 public class Exporter : IPipelineStep
 {
     public async Task ExecuteAsync(PipelineContext context)
     {
-        IPipelineStep exporter = context.IsInteractive 
-            ? new WeasyPrintExporter() 
-            : new PlaywrightExporter();
+        IPdfExport pdfExport = context.IsInteractive
+            ? new WeasyPrintExport()
+            : new PlaywrightExport();
 
-        await exporter.ExecuteAsync(context);
+        await pdfExport.ExecuteAsync(context);
     }
 }

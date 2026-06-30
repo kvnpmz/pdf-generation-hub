@@ -1,12 +1,9 @@
 using Microsoft.Playwright;
 
-public class PlaywrightExporter : IPipelineStep
+public class PlaywrightExport : IPdfExport
 {
     public async Task ExecuteAsync(PipelineContext context)
     {
-        string docPath = $"output/{context.DocumentId}"; 
-        Directory.CreateDirectory(docPath);
-
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync();
         var page = await browser.NewPageAsync();
@@ -22,7 +19,7 @@ public class PlaywrightExporter : IPipelineStep
             string fileName = $"{context.OutputName}{item.Suffix}.pdf";
             await page.PdfAsync(new()
             {
-                Path = $"{docPath}/{fileName}",
+                Path = $"{context.OutputDirectory}/{fileName}",
                 Format = item.Format,
                 PrintBackground = true
             });
