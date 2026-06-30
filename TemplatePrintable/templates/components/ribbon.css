@@ -1,0 +1,14 @@
+.ribbon {
+width: 20pt;
+height: 20pt;
+background: #4a90e2;
+clip-path: polygon(0% 0%,
+    100% 0%,
+    100% 100%,
+    calc(100% - 2pt) 100%,
+    50% calc(100% - 10pt),
+    2pt 100%,
+    0% 100%);
+padding: 20px;
+color: white;
+}

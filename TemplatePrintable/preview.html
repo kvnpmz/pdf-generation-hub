@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+@page {
+    margin: 0;
+}
+
 html {
     height: 100%;
     padding: 36pt 50.4pt;
@@ -41,396 +45,372 @@ h3 {
 .item {
 }</style>
             <style>body {
-    display: flex;
-    flex-direction: column;    
-    font-size: 9.0pt;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30pt 1fr 1fr 1fr 1fr;
+    row-gap: 5pt;
+    column-gap: 10pt;
+	font-family: 'Source Serif 4';
     text-transform: uppercase;
-}
+    border: 1pt solid red;
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
     flex: 1;
-    gap: 5pt;
+    padding-top: 5pt;
 }
 
-.column {
+section {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.section-container {
+.line-container {
     display: flex;
     flex-direction: column;
-    border: 1.5pt solid;
-    border-radius: 10pt;
-    flex: 1;
-    padding: 5pt;
-}
-
-ul {
-    list-style: none;
-    column-count: 2;
     flex: 1;
 }
 
-h1 {
-    color: #121212;
-    letter-spacing: 2pt;
-    font-size: 30pt;
-    font-weight: 900;
-}
-
-h2 {
-    color: #121212;
-    letter-spacing: 2pt;
-    font-size: 18pt;
-    margin-bottom: 3pt;
-    font-weight: 400;
-}
-
-h3 {
-    font-size: 18pt;
-    text-align: center;
-    line-height: 28pt;
-    margin-bottom: 3pt;
-    border: 1.5pt solid var(--border-color);
-    color: var(--border-color);
-    border-radius: 10pt;
-}
-
-h4 {
-    font-size: 10pt;
+/*
+.line {
+    flex: 1;
     border-bottom: 1.5pt solid;
 }
 
-li {
-    text-transform: capitalize;
-    padding-left: 7pt;
-    text-indent: -7.5pt;
-    break-inside: avoid;
-}
-
-li::before {
-    content: "●";
-    font-size: 4.5pt;
-    padding-right: 3pt;
+.line::before {
+    content: "⬤";
     position: relative;
-    bottom: 1.5pt;
+    font-size: 9pt;
+    top: 1.5pt;
+    left: 2pt;
+    color: var(--theme-color);
+}
+*/
+
+textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    margin-left: 15pt;
+    height: 12pt;
+    background: transparent;
 }
 
-.left {
-    background-color: #E8F5E9;
-    --border-color: #2A7F2A;;
+.line-wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-bottom: 1.5pt solid;
+    position: relative;
 }
 
-.middle {
-    background-color: #FFFDE7;
-    --border-color: #795901;
+.line-wrapper::before {
+    content: "⬤";
+    position: absolute;
+    font-size: 9pt;
+    top: 1.5pt;
+    left: 2pt;
+    color: var(--theme-color);
 }
 
-.right {
-    background-color: #FFEBEE;
-    --border-color: #B22222;
+h1 {
+    font-size: 22pt;
+    letter-spacing: 1pt;
 }
 
-h3.left {
-    background-color: #A7E8B8;
+h2 {
+    display: flex;
+    align-items: end;
+    position: relative;
+    font-size: 14pt;
+    padding-bottom: 2pt;
 }
 
-h3.middle {
-    background-color: #F8FF9A;
+h2::after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 45pt);
+    right: 0;
+    bottom: 5pt;
+    border-bottom: 1.5pt solid;
 }
 
-h3.right {
-    background-color: #FF89A6;
-}</style>
+h3 {
+    line-height: 24pt;
+    font-size: 16pt;
+    text-align: center;
+    background-color: var(--theme-color);
+}
+
+.tab-color-1 { --theme-color: #FFC8DD; }
+.tab-color-2 { --theme-color: #CDB4DB; }
+.tab-color-3 { --theme-color: #D4E09B; }
+.tab-color-4 { --theme-color: #BDE0FE; }
+.tab-color-5 { --theme-color: #FAD2E1; }
+.tab-color-6 { --theme-color: #FFDEB4; }
+.tab-color-7 { --theme-color: #A2D2FF; }
+.tab-color-8 { --theme-color: #FFF1A8; }</style>
         </head>
         <body>
-        <header>
-            <h1>Low Potassium Diet</h1>
-            <h2>Food List</h2>
-        </header>
-        <main>
-            <div class="column">
-                <h3 class="left">Eat</h3>
-                <div class="section-container left">
-                    <h4>Vegetables</h4>
-                    <ul>
-                        <li>Green beans</li>
-                        <li>Cabbage</li>
-                        <li>Cauliflower</li>
-                        <li>Cucumber</li>
-                        <li>Eggplant</li>
-                        <li>Lettuce</li>
-                        <li>Onions</li>
-                        <li>Bell peppers</li>
-                        <li>Radishes</li>
-                        <li>Zucchini</li>
-                        <li>Yellow squash</li>
-                        <li>Celery</li>
-                        <li>Asparagus</li>
-                        <li>Turnips</li>
-                        <li>Water chestnuts</li>
-                    </ul>
-                    <h4>Fruits</h4>
-                    <ul>
-                        <li>Apples</li>
-                        <li>Pears</li>
-                        <li>Grapes</li>
-                        <li>Strawberries</li>
-                        <li>Berries</li>
-                        <li>Pineapple</li>
-                        <li>Watermelon</li>
-                        <li>Cantaloupe</li>
-                        <li>Honeydew</li>
-                        <li>Peaches</li>
-                        <li>Plums</li>
-                        <li>Nectarines</li>
-                    </ul>
-                    <h4>Proteins</h4>
-                    <ul>
-                        <li>Chicken breast</li>
-                        <li>Turkey breast</li>
-                        <li>Lean pork loin</li>
-                        <li>Cod</li>
-                        <li>Tilapia</li>
-                        <li>Haddock</li>
-                        <li>Pollock</li>
-                        <li>Sole</li>
-                        <li>Egg whites</li>
-                        <li>Tuna (canned in water)</li>
-                        <li>Shrimp</li>
-                        <li>Crab</li>
-                        <li>Lobster</li>
-                    </ul>
-                    <h4>Grains & starches</h4>
-                    <ul>
-                        <li>White rice</li>
-                        <li>Brown rice</li>
-                        <li>White bread</li>
-                        <li>Whole wheat bread</li>
-                        <li>Pasta</li>
-                        <li>Egg noodles</li>
-                        <li>Couscous</li>
-                        <li>Barley</li>
-                        <li>Oats</li>
-                        <li>Cornflakes</li>
-                        <li>Rice cereal</li>
-                        <li>Cream of wheat</li>
-                        <li>Unsalted popcorn</li>
-                    </ul>
-                    <h4>Dairy & alternatives</h4>
-                    <ul>
-                        <li>Rice milk</li>
-                        <li>Almond milk</li>
-                        <li>Coconut milk beverage</li>
-                        <li>Cream cheese</li>
-                        <li>Brie cheese</li>
-                        <li>Goat cheese</li>
-                    </ul>
-                    <h4>Fats & oils</h4>
-                    <ul>
-                        <li>Olive oil</li>
-                        <li>Canola oil</li>
-                        <li>Vegetable oil</li>
-                        <li>Sunflower oil</li>
-                        <li>Butter/margarine</li>
-                        <li>Mayonnaise</li>
-                        <li>Salad dressing</li>
-                    </ul>
-                    <h4>Snacks & desserts</h4>
-                    <ul>
-                        <li>Vanilla wafers</li>
-                        <li>Graham crackers</li>
-                        <li>Shortbread/plain cookies</li>
-                        <li>Pound cake</li>
-                        <li>Hard candies</li>
-                        <li>Jelly beans</li>
-                        <li>Marshmallow</li>
-                    </ul>
+        <h1>Weekly Schedule</h1>
+        <h2>Date:</h2>
+        <section>
+            <h3 class="tab-color-1">Monday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-1">
+                    <textarea class="line-input "></textarea>
                 </div>
             </div>
-            <div class="column">
-                <h3 class="middle">Limit</h3>
-                <div class="section-container middle">
-                    <h4>Vegetables</h4>
-                    <ul>
-                        <li>Broccoli</li>
-                        <li>Carrots</li>
-                        <li>Spinach (cooked)</li>
-                        <li>Kale</li>
-                        <li>Brussels sprouts</li>
-                        <li>Corn</li>
-                        <li>Peas</li>
-                        <li>Pumpkin</li>
-                        <li>Butternut squash</li>
-                        <li>Acorn squash</li>
-                        <li>Artichokes</li>
-                        <li>Okra</li>
-                    </ul>
-                    <h4>Fruits</h4>
-                    <ul>
-                        <li>Banana (small portion)</li>
-                        <li>Orange</li>
-                        <li>Tangerine</li>
-                        <li>Clementine</li>
-                        <li>Mango</li>
-                        <li>Papaya</li>
-                        <li>Kiwi</li>
-                        <li>Pomegranate</li>
-                        <li>Guava</li>
-                        <li>Apricots (fresh)</li>
-                        <li>Cherries</li>
-                        <li>Figs</li>
-                    </ul>
-                    <h4>Proteins</h4>
-                    <ul>
-                        <li>Lean ground beef</li>
-                        <li>Beef steak</li>
-                        <li>Pork chops</li>
-                        <li>Salmon</li>
-                        <li>Sardines</li>
-                        <li>Mackerel</li>
-                        <li>Eggs (whole)</li>
-                        <li>Tofu</li>
-                        <li>Tempeh</li>
-                        <li>Chickpeas</li>
-                        <li>Lentils</li>
-                        <li>Black beans</li>
-                    </ul>
-                    <h4>Grains & starches</h4>
-                    <ul>
-                        <li>Quinoa</li>
-                        <li>Whole wheat pasta</li>
-                        <li>Bran cereal</li>
-                        <li>Multigrain bread</li>
-                        <li>Granola</li>
-                        <li>Bran muffins</li>
-                        <li>Oat bran</li>
-                        <li>Whole grain crackers</li>
-                        <li>Cornbread</li>
-                    </ul>
-                    <h4>Dairy & alternatives</h4>
-                    <ul>
-                        <li>Milk</li>
-                        <li>Yogurt</li>
-                        <li>Greek yogurt</li>
-                        <li>Cottage cheese</li>
-                        <li>Ricotta</li>
-                        <li>Mozzarella</li>
-                        <li>Cheddar cheese</li>
-                        <li>Ice cream</li>
-                    </ul>
-                    <h4>Fats & oils</h4>
-                    <ul>
-                        <li>Avocado oil</li>
-                        <li>Sesame oil</li>
-                        <li>Peanut oil</li>
-                        <li>Coconut oil</li>
-                        <li>Nut butters</li>
-                        <li>Tahini</li>
-                    </ul>
-                    <h4>Snacks & desserts</h4>
-                    <ul>
-                        <li>Chocolate pudding/cake</li>
-                        <li>Brownies</li>
-                        <li>Chocolate</li>
-                        <li>Trail mix</li>
-                        <li>Granola</li>
-                        <li>Protein bars</li>
-                        <li>Peanut butter cookies</li>
-                        <li>Nut bars</li>
-                    </ul>
+        </section>
+        <section>
+            <h3 class="tab-color-2">Tuesday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-2">
+                    <textarea class="line-input "></textarea>
                 </div>
             </div>
-            <div class="column">
-                <h3 class="right">Avoid</h3>
-                <div class="section-container right">
-                    <h4>Vegetables</h4>
-                    <ul>
-                        <li>Potatoes</li>
-                        <li>Sweet potatoes</li>
-                        <li>Baked potatoes</li>
-                        <li>Potato skins</li>
-                        <li>Beet greens</li>
-                        <li>Tomato sauce</li>
-                        <li>Tomato paste</li>
-                        <li>Sun-dried tomatoes</li>
-                        <li>Swiss chard</li>
-                        <li>Collard greens</li>
-                        <li>Parsnips</li>
-                        <li>Rutabaga</li>
-                    </ul>
-                    <h4>Fruits</h4>
-                    <ul>
-                        <li>Bananas (large portion)</li>
-                        <li>Dried bananas</li>
-                        <li>Raisins</li>
-                        <li>Dried peaches</li>
-                        <li>Dried nectarines</li>
-                        <li>Dried apricots</li>
-                        <li>Dates</li>
-                        <li>Prunes</li>
-                        <li>Prune juice</li>
-                        <li>Jackfruit</li>
-                        <li>Durian</li>
-                    </ul>
-                    <h4>Proteins</h4>
-                    <ul>
-                        <li>Refried beans</li>
-                        <li>White beans</li>
-                        <li>Lima beans</li>
-                        <li>Kidney beans</li>
-                        <li>Soybeans</li>
-                        <li>Edamame</li>
-                        <li>Baked beans</li>
-                        <li>Black-eyed peas</li>
-                        <li>Large portions of lentils</li>
-                        <li>Large portions of chickpeas</li>
-                    </ul>
-                    <h4>Grains & starches</h4>
-                    <ul>
-                        <li>Potato chips</li>
-                        <li>Sweet potato fries</li>
-                        <li>Instant mashed potatoes</li>
-                        <li>Potato wedges</li>
-                        <li>Potato hash browns</li>
-                        <li>Tater tots</li>
-                        <li>Cassava</li>
-                        <li>Yucca root</li>
-                    </ul>
-                    <h4>Dairy</h4>
-                    <ul>
-                        <li>Evaporated milk</li>
-                        <li>Condensed milk</li>
-                        <li>Milkshakes</li>
-                        <li>Chocolate milk</li>
-                        <li>Buttermilk</li>
-                        <li>Yogurt (large portion)</li>
-                        <li>Milk (large portion)</li>
-                    </ul>
-                    <h4>Fats & oils</h4>
-                    <ul>
-                        <li>Avocado (large portion)</li>
-                        <li>Guacamole (large portion)</li>
-                        <li>Coconut cream</li>
-                    </ul>
-                    <h4>Snacks & desserts</h4>
-                    <ul>
-                        <li>Chocolate fudge</li>
-                        <li>Dark chocolate bar</li>
-                        <li>Chocolate ice cream</li>
-                    </ul>
+        </section>
+        <section>
+            <h3 class="tab-color-3">Wednesday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-3">
+                    <textarea class="line-input "></textarea>
                 </div>
             </div>
-        </main>
+        </section>
+        <section>
+            <h3 class="tab-color-4">Thursday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-4">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-5">Friday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-5">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-6">Saturday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-6">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-7">Sunday</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-7">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="tab-color-8">Notes</h3>
+            <div class="line-container">
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+                <div class="line-wrapper tab-color-8">
+                    <textarea class="line-input "></textarea>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
