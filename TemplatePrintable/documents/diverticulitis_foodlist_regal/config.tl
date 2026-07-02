@@ -4,6 +4,7 @@ return {
     output_name = "diverticulitis_foodlist",
     overrides = "regal_style",
     header = "Diverticulitis Flare-Up Food List",
+    completed_date = "2026-06-29",
     columns = {
         {
             title = "Eat",

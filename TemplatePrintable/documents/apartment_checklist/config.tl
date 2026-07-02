@@ -1,6 +1,7 @@
 return {
     template = "checklist",
     header = "First Apartment Checklist",
+    completed_date = "2025-06-22",
     columns = {
         { -- Column 1
             { title = "Entrance", items = { "Coat Rack", "Doormat", "Couch", "Cushions", "Chairs", "Coffee Table", "TV", "Book Case", "Floor Lamp", "Speakers", "Power Sockets", "Curtains", "Wall Art", "Ceiling Lights" } },

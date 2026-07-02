@@ -1,0 +1,5 @@
+find documents -path '*/config.tl' | while read -r f; do
+    if ! grep -q 'completed_date' "$f"; then
+        stat --format='%y %n' "$f"
+    fi
+done

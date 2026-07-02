@@ -3,6 +3,7 @@ return {
     template = "diverticulitis_foodlist",
     output_name = "diverticulitis_foodlist",
     header = "Diverticulitis Flare-Up Food List",
+    completed_date = "2026-06-29",
     columns = {
         {
             title = "Eat",

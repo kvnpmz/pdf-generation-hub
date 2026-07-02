@@ -7,7 +7,7 @@ public class Render : IStep
 {
     public async Task ExecuteAsync(Context context)
     {
-        IPdfRender pdfRender = context.IsInteractive
+        IPdfRender pdfRender = context.IsEditable
             ? new Weasy()
             : new Chrome();
 

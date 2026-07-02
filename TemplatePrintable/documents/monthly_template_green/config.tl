@@ -2,6 +2,7 @@ return {
     id = "monthly_template_green",
     template = "monthly_template",
     output_name = "budget_template",
+    completed_date = "2025-06-22",
     header = "Monthly Budget Template",
     overrides = "green_style",
     categories = {

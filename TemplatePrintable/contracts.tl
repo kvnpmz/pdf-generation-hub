@@ -5,6 +5,7 @@ local record Config
     header: string
     style: string
     overrides: string
+    is_editable: boolean
     completed_date: string
 end
 

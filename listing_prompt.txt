@@ -1,2 +1,1 @@
-i need 2 variatons of titles for the pdf single page above i sell on etsy. title with pipes. then, tags. 13 max, but use 2-3 words, all unique words across the tags to maximize word coverage. then 1 sentence description of pdf.
-
+i need 2 variations of titles for the pdf single page above i sell on etsy. title with pipes. then, tags. 13 max, but use 2-3 words, all unique words across the tags to maximize word coverage, comma separated. then 1 sentence description of pdf NO call to action. and can't say "clean".

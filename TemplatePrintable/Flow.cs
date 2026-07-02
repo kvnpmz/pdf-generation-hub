@@ -1,12 +1,11 @@
 ﻿public class Flow
 {
-    public async Task ExecuteAsync(string documentId, int enableImages, int isInteractive)
+    public async Task ExecuteAsync(string documentId, int enableImages)
     {
         var context = new Context
         { 
             DocumentId = documentId,
             EnableImages = Convert.ToBoolean(enableImages),
-            IsInteractive = Convert.ToBoolean(isInteractive),
             OutputDirectory = Path.Combine("output", documentId)
         };
 
@@ -17,7 +16,8 @@
             new Boot(),
             new Build(),
             new Render(),
-            new Image()
+            new Image(),
+            new Indexer()
         };
 
         foreach (var step in steps)

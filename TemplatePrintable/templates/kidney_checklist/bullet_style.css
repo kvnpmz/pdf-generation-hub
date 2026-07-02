@@ -1,0 +1,11 @@
+h1 {
+    color: #D82F60;
+}
+
+li::before {
+    font-size: 7pt;
+    -webkit-text-stroke: 0.8pt #121212;
+    color: #FFF;
+    left: 3pt;
+    top: 3pt;
+}

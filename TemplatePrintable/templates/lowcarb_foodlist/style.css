@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 10.0pt;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2pt;
+    flex: 1;
+}
+
+.column {
+    padding-top: 5pt;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section {
+    padding: 2pt;
+}
+
+h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 30pt;
+    color: #59989F;
+    font-family: "Source Serif 4";
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 14pt;
+    padding: 0 5pt;
+    color: var(--theme-color);
+    font-family: "Source Serif 4";
+}
+
+h3 { 
+    color: var(--theme-color); 
+    font-size: 13pt;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    position: relative;
+    padding-left: 5pt;
+}
+
+li::before {
+    content: "●";
+    font-size: 5.5pt;
+    left: -2pt;
+    top: 2.5pt;
+    position: absolute;
+}
+
+.green { --theme-color: #7B994C; }
+.amber { --theme-color: #C98A1D; }
+.red { --theme-color: #B5524A; }

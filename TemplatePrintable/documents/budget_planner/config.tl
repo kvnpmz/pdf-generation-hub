@@ -2,6 +2,7 @@ return {
     template = "planner",
     header = "Budget Planner",
     style = "budget_planner_style",
+    completed_date = "2025-06-18",
     columns = {
         { -- Column 1
             { title = "Income", max_rows = 5, items = {} },

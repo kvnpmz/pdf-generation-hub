@@ -17,6 +17,8 @@ public class Build : IStep
         var template = config["template"]?.ToString()
             ?? throw new Exception("Missing template");
 
+        context.IsEditable = config["is_editable"] is bool b && b;
+
         var files = new[]
         {
             "init.tl",

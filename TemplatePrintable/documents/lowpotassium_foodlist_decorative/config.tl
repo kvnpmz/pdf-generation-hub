@@ -4,6 +4,7 @@ return {
     output_name = "lowpotassium_foodlist",
     overrides = "decorative_style",
     header = "Low Potassium Diet Food List",
+    completed_date = "2026-06-29",
     columns = {
         { 
             title = "Eat",

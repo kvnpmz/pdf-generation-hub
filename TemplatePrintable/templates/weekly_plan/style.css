@@ -4,13 +4,7 @@ body {
     grid-template-rows: 36pt 1fr 1fr 1fr 1fr;
     row-gap: 5pt;
     column-gap: 10pt;
-	font-family: 'Source Serif 4';
-    text-transform: uppercase;
-}
-
-main {
-    flex: 1;
-    padding-top: 5pt;
+	font-family: "Inter";
 }
 
 section {
@@ -19,59 +13,11 @@ section {
     flex: 1;
 }
 
-.line-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-/*
-.line {
-    flex: 1;
-    border-bottom: 1.5pt solid;
-}
-
-.line::before {
-    content: "⬤";
-    position: relative;
-    font-size: 9pt;
-    top: 1.5pt;
-    left: 2pt;
-    color: var(--theme-color);
-}
-*/
-
-textarea {
-    flex: 1;
-    border: none;
-    outline: none;
-    margin-left: 15pt;
-    height: 12pt;
-    font-size: 7.5pt;
-    background: transparent;
-    resize: none;
-}
-
-.line-wrapper {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    border-bottom: 1.5pt solid;
-    position: relative;
-}
-
-.line-wrapper::before {
-    content: "⬤";
-    position: absolute;
-    font-size: 9pt;
-    top: 1.5pt;
-    left: 2pt;
-    color: var(--theme-color);
-}
-
 h1 {
     font-size: 30pt;
     letter-spacing: 1pt;
+	font-family: "Source Serif 4";
+    text-align: center;
 }
 
 h2 {
@@ -98,11 +44,45 @@ h3 {
     background-color: var(--theme-color);
 }
 
-.tab-color-1 { --theme-color: #FAD2E1; }
+.line-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.line-box {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-bottom: 1.5pt solid;
+    position: relative;
+}
+
+.line-box::before {
+    content: "⬤";
+    position: absolute;
+    font-size: 7pt;
+    top: 3.5pt;
+    left: 2pt;
+    color: var(--theme-color);
+}
+
+textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    margin-left: 15pt;
+    height: 12pt;
+    font-size: 7.5pt;
+    background: transparent;
+    resize: none;
+}
+
+.tab-color-1 { --theme-color: #FFDEB4; }
 .tab-color-2 { --theme-color: #D4E09B; }
-.tab-color-3 { --theme-color: #f6de52; }
-.tab-color-4 { --theme-color: #BDE0FE; }
-.tab-color-5 { --theme-color: #D1EDE4; }
-.tab-color-6 { --theme-color: #FFDEB4; }
-.tab-color-7 { --theme-color: #CDB4DB; }
+.tab-color-3 { --theme-color: #FAD2E1; }
+.tab-color-4 { --theme-color: #D1EDE4; }
+.tab-color-5 { --theme-color: #FFEB27; }
+.tab-color-6 { --theme-color: #CDB4DB; }
+.tab-color-7 { --theme-color: #BDE0FE; }
 .tab-color-8 { --theme-color: #FFC8DD; }

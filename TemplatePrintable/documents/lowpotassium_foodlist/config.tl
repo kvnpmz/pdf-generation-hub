@@ -3,6 +3,7 @@ return {
     template = "lowpotassium_foodlist",
     output_name = "lowpotassium_foodlist",
     header = "Low Potassium Diet Food List",
+    completed_date = "2026-06-29",
     columns = {
         { 
             title = "Eat",

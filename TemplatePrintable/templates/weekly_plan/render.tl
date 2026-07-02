@@ -19,7 +19,7 @@ function M.render(config: Config): string
         local className = "tab-color-" .. i
 
         for _ = 1, 9 do
-            table.insert(lines, dom.div("line-wrapper " .. className, dom.tag("textarea", "line-input ", "")))
+            table.insert(lines, dom.div("line-box " .. className, dom.tag("textarea", "line-input", "")))
         end
 
         table.insert(html, dom.section("", dom.h3(className, section), dom.div("line-container", table.concat(lines))))
