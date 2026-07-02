@@ -36,18 +36,19 @@ CREATE TABLE IF NOT EXISTS Projects (
     {
         var existingIds = new HashSet<string>();
 
-        foreach (var dir in Directory.GetDirectories(rootFolder))
+        foreach (var directory in Directory.GetDirectories(rootFolder))
         {
-            var id = Path.GetFileName(dir);
+            var id = Path.GetFileName(directory);
             existingIds.Add(id);
 
-            var configPath = Path.Combine(dir, "config.tl");
+            var configPath = Path.Combine(directory, "config.tl");
             if (!File.Exists(configPath)) continue;
 
             var lua = File.ReadAllText(configPath);
 
             string template = Extract(lua, "template");
             int editable = Extract(lua, "is_editable") == "true" ? 1 : 0;
+            var completed = Extract(lua, "completed_date");
 
             using var cmd = conn.CreateCommand();
             cmd.CommandText = @"
@@ -56,12 +57,11 @@ INSERT OR REPLACE INTO Projects
 VALUES 
 ($id, $path, $completed, $overrides, $output, $edit, $template);
 ";
-
-            cmd.Parameters.AddWithValue("$id", Path.GetFileName(dir));
-            cmd.Parameters.AddWithValue("$path", dir);
+            cmd.Parameters.AddWithValue("$id", Path.GetFileName(directory));
+            cmd.Parameters.AddWithValue("$path", directory);
             cmd.Parameters.AddWithValue("$edit", editable);
             cmd.Parameters.AddWithValue("$template", template);
-            cmd.Parameters.AddWithValue("$completed", Extract(lua, "completed_date"));
+            cmd.Parameters.AddWithValue("$completed", string.IsNullOrWhiteSpace(completed) ? DBNull.Value : completed);
             cmd.Parameters.AddWithValue("$overrides", Extract(lua, "overrides"));
             cmd.Parameters.AddWithValue("$output", Extract(lua, "output_name"));
 
