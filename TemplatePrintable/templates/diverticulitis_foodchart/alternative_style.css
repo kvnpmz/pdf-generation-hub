@@ -1,0 +1,19 @@
+h1 {
+    color: #2563EB;
+}
+
+.green {
+    --theme-color: #D6EBFF;
+    --title-color: #2563EB;
+    --title-text-color: #FFFFFF;
+}
+
+.red {
+    --theme-color: #FFE4B5;
+    --title-color: #FBBF24;
+    --title-text-color: #121212;
+}
+
+h2 {
+    color: var(--title-text-color);
+}

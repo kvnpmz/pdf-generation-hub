@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    flex-direction: column;    
+    font-size: 10.5pt;
+    text-align: center;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 40pt 1fr;
+}
+
+body > :first-child {
+    grid-column: 1 / -1;
+}
+
+.column {
+    display: grid;
+    grid-template-rows: 30pt;
+    grid-auto-rows: auto;
+}
+
+section {
+    background-color: var(--theme-color);
+}
+
+ul {
+    position: relative;
+    list-style: none;
+    padding: 2pt;
+}
+
+.one-column-list {
+    column-count: 1;
+}
+
+.two-column-list {
+    column-count: 2;
+}
+
+li {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    break-inside: avoid;
+}
+
+li::before {
+    content: "●";
+    padding-top: 3pt;
+    padding-right: 2pt;
+    font-size: 6pt;
+}
+
+h1 {
+    color: #177040;
+    font-size: 30pt;
+    font-family: "Source Serif 4";
+    letter-spacing: 2pt;
+}
+
+h2 {
+    text-transform: uppercase;
+    line-height: 30pt;
+    letter-spacing: 1.5pt;
+    color: #FFFFFF;
+    background-color: var(--title-color);
+}
+
+h3 {
+    letter-spacing: 1.5pt;
+    background-color: white;
+    padding: 2pt 0;
+}
+
+h4 {
+    letter-spacing: 1.5pt;
+    text-align: left;
+}
+
+.detail-item {
+    text-align: left;
+    padding: 2pt;
+}
+
+.green {
+    --theme-color: #D3E4C1;
+    --title-color: #63B34F;
+}
+
+.red {
+    --theme-color: #F3A79C;
+    --title-color: #E73C4D;
+}
