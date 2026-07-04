@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 public class Boot : IStep
 {
     private const string BaseProjectName = "kidney_checklist_tabbed";
-    private const string DocsDirectory = "documents";
-    private const string TemplatesDirectory = "templates";
+    private static readonly string DocsDirectory = Path.Combine(AppConfig.RootPath, "documents");
+    private static readonly string TemplatesDirectory = Path.Combine(AppConfig.RootPath, "templates");
 
     public async Task ExecuteAsync(Context context)
     {

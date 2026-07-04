@@ -19,7 +19,7 @@ public class Chrome : IPdfRender
             string fileName = $"{context.OutputName}{item.Suffix}.pdf";
             await page.PdfAsync(new()
             {
-                Path = $"{context.OutputDirectory}/{fileName}",
+                Path = Path.Combine(AppConfig.RootPath, context.OutputDirectory, fileName),
                 Format = item.Format,
                 PrintBackground = true
             });

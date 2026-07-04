@@ -2,12 +2,13 @@ using System.Diagnostics;
 
 public class Weasy : IPdfRender
 {
+    private static readonly string htmlFile = Path.Combine(AppConfig.RootPath, "preview.html");
+
     public async Task ExecuteAsync(Context context)
     {
         var tempDir = Path.Combine(Path.GetTempPath(), "WeasyPrint");
         Directory.CreateDirectory(tempDir);
 
-        var htmlFile = "preview.html";
         var scriptFile = Path.Combine(tempDir, Guid.NewGuid() + ".py");
 
         await File.WriteAllTextAsync(scriptFile, 
@@ -34,7 +35,7 @@ print(f"Generated {document_id}_editable.pdf");
 
         var psi = new ProcessStartInfo
         {
-            FileName = "/home/kevin/z_ob/venv/bin/python",
+            FileName = AppConfig.PythonPath,
             UseShellExecute = false,
             RedirectStandardError = true,
             RedirectStandardOutput = true,

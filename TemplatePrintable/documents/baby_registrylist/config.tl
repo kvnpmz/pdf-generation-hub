@@ -2,8 +2,8 @@ return {
     id = "baby_registrylist",
     output_name = "baby_registrylist",
     template = "baby_registrylist",
-    header = "baby_registrylist",
-    completed_date = "",
+    header = "Baby Registry List",
+    completed_date = "2026-07-04",
     columns = {
         { -- Column 1
             { title = "Nursery & Decor", items = { "Crib", "Crib Mattress", "Waterproof Mattress Pad", "Fitted Crib Sheets", "Changing Table/Dresser", "Changing Pad", "Bassinet", "Glider/Ottoman", "Storage Baskets/Bins", "Hamper", "White Noise Machine", "Blackout Curtains", "Baby Sized Hangers" } },

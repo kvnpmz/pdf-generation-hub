@@ -8,53 +8,44 @@ end
 
 local record Config
     header: string
-    columns: {Section}
+    columns: {{Section}}
 end
 
 local M = {}
 
 function M.render(config: Config): string
-    local headerHtml = dom.h1("", config.header)
-    
-    local buckets: {{Section}} = {{}, {}, {}, {}, {}}
-    
-    for i, section in ipairs(config.columns) do
-        local bucketIndex = ((i - 1) % 5) + 1
-        table.insert(buckets[bucketIndex], section)
-    end
+    local columnsHtml = {}
 
-    local seq = {1, 2, 3, 4, 5, 6, 7, 8}
-    for i = #seq, 2, -1 do
-        local j = math.random(i)
-        seq[i], seq[j] = seq[j], seq[i]
-    end
-    local colorIndex = 1
-
-    local columnDivs = {}
-    for _, colSections in ipairs(buckets) do
-        local sectionNodes = {}
-        for _, section in ipairs(colSections) do
-            if section.title == "SPACER" then
-                table.insert(sectionNodes, dom.div("spacer-element", ""))
-            else
-                local colorNum = seq[colorIndex]
-                local colorClass = string.format("color-%d", colorNum)
-                colorIndex = (colorIndex % #seq) + 1
-
-                local listItems = {}
-                for _, item in ipairs(section.items or {}) do
-                    table.insert(listItems, dom.li("", item))
-                end
-
-                local sectionHeader = dom.h2(colorClass, section.title or "")
-                local ul = dom.ul("", table.unpack(listItems))
-                table.insert(sectionNodes, dom.section(colorClass .. "-border", sectionHeader, ul))
+    for _, column in ipairs(config.columns) do
+        local sectionsHtml = {}
+        
+        for _, section in ipairs(column) do
+            local itemsHtml = {}
+            
+            for _, item in ipairs(section.items) do
+                table.insert(itemsHtml, dom.li("", item))
             end
+
+            if section.title == "Other" then
+                for _ = 1, 8 do
+                    table.insert(itemsHtml, dom.li("blank-line", ""))
+                end
+            end
+            
+            table.insert(sectionsHtml, dom.section("", 
+                dom.h2("", section.title), dom.ul("", table.concat(itemsHtml))))
         end
-        table.insert(columnDivs, dom.div("column", table.unpack(sectionNodes)))
+        
+        table.insert(columnsHtml, dom.div("column", table.concat(sectionsHtml)))
     end
 
-    return headerHtml .. dom.main("", table.unpack(columnDivs))
+    local bodyHtml = {}
+    table.insert(bodyHtml, dom.h1("", config.header))
+
+    table.insert(bodyHtml, table.concat(columnsHtml))
+    local html = table.concat(bodyHtml)
+
+    return html 
 end
 
 return M as contracts.TemplateRender

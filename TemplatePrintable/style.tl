@@ -1,6 +1,8 @@
 local M = {}
 local contracts = require("contracts")
 
+global ROOT_PATH: string
+
 local function read_file(path: string): string
     local f = io.open(path, "r")
     if not f then return nil end
@@ -10,10 +12,10 @@ local function read_file(path: string): string
 end
 
 function M.Apply(html: string, config: contracts.Config): string
-    local base = read_file("templates/base/style.css") or ""
+    local base = read_file(ROOT_PATH .. "/templates/base/style.css") or ""
     local themeFilename = (config.style or "style") .. ".css"
 
-    local themePath = "templates/" .. config.template .. "/" .. themeFilename
+    local themePath = ROOT_PATH .. "/templates/" .. config.template .. "/" .. themeFilename
     local theme = ""
 
     local content = read_file(themePath)
@@ -22,7 +24,7 @@ function M.Apply(html: string, config: contracts.Config): string
     end
 
     if config.overrides then
-        local overridesPath = "templates/" .. config.template .. "/" .. config.overrides .. ".css"
+        local overridesPath = ROOT_PATH .. "/templates/" .. config.template .. "/" .. config.overrides .. ".css"
         local overridesContent = read_file(overridesPath)
 
         if overridesContent then

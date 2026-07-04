@@ -8,6 +8,14 @@ public class Build : IStep
     {
         using var lua = new Lua();
         lua.State.Encoding = Encoding.UTF8;
+
+        var luaPath =
+            $"package.path = package.path .. ';{Path.Combine(AppConfig.RootPath, "?.tl")}' " +
+            $".. ';{Path.Combine(AppConfig.RootPath, "?/init.tl")}'";
+
+        lua.DoString(luaPath);
+        lua["ROOT_PATH"] = AppConfig.RootPath;
+
         lua.DoString("local tl = require('tl'); tl.loader();");
 
         var config = (LuaTable)lua.DoString(
@@ -50,7 +58,8 @@ public class Build : IStep
             RedirectStandardOutput = true,
             RedirectStandardError = true,
             UseShellExecute = false,
-            CreateNoWindow = true
+            CreateNoWindow = true,
+            WorkingDirectory = AppConfig.RootPath
         };
 
         psi.ArgumentList.Add("check");
