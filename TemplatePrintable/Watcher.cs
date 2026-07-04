@@ -47,9 +47,7 @@ public class Watcher
             do
             {
                 _rebuildRequested = false;
-
                 Console.WriteLine($"[{DateTime.Now:T}] Building...");
-
                 await _flow.ExecuteAsync(_documentId, _enableImages);
             }
             while (_rebuildRequested);
@@ -66,8 +64,8 @@ public class Watcher
 
     private void OnChanged(object? sender, FileSystemEventArgs e)
     {
-        var ext = Path.GetExtension(e.FullPath);
-        if (ext != ".tl" && ext != ".css") return;
+        var extension = Path.GetExtension(e.FullPath);
+        if (extension != ".tl" && extension != ".css") return;
 
         _debounce?.Cancel();
         _debounce = new CancellationTokenSource();
