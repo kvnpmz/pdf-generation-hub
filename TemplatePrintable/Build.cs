@@ -10,11 +10,11 @@ public class Build : IStep
         lua.State.Encoding = Encoding.UTF8;
 
         var luaPath =
-            $"package.path = package.path .. ';{Path.Combine(AppConfig.RootPath, "?.tl")}' " +
-            $".. ';{Path.Combine(AppConfig.RootPath, "?/init.tl")}'";
+            $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}' " +
+            $".. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'";
 
         lua.DoString(luaPath);
-        lua["ROOT_PATH"] = AppConfig.RootPath;
+        lua["ROOT_PATH"] = Paths.RootPath;
 
         lua.DoString("local tl = require('tl'); tl.loader();");
 
@@ -45,9 +45,10 @@ public class Build : IStep
         context.OutputName = result["outputName"]?.ToString() ?? "output";
         string formattedHtml = Format.Beautify(context.Html);
         
-        var htmlPath = Path.Combine(context.OutputDirectory, $"{context.OutputName}.html");
+        var htmlPath = Path.Combine(Paths.RootPath, context.OutputDirectory, $"{context.OutputName}.html");
+        var previewPath = Path.Combine(Paths.RootPath, "preview.html");
         File.WriteAllText(htmlPath, formattedHtml);
-        File.WriteAllText("preview.html", formattedHtml);
+        File.WriteAllText(previewPath, formattedHtml);
     }
 
     private static async Task RunTlCheckAsync(IEnumerable<string> files)
@@ -59,7 +60,7 @@ public class Build : IStep
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true,
-            WorkingDirectory = AppConfig.RootPath
+            WorkingDirectory = Paths.RootPath
         };
 
         psi.ArgumentList.Add("check");

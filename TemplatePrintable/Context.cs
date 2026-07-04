@@ -6,6 +6,8 @@ public class Context
     public string OutputName { get; set; } = string.Empty;
     public string OutputDirectory { get; set; } = string.Empty;
 
+    public required string BaseProjectName { get; set; }
+
     public bool EnableImages { get; set; }
     public bool IsEditable { get; set; }
 }

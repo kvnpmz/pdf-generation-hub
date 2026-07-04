@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 public class Weasy : IPdfRender
 {
-    private static readonly string htmlFile = Path.Combine(AppConfig.RootPath, "preview.html");
+    private static readonly string htmlFile = Path.Combine(Paths.RootPath, "preview.html");
 
     public async Task ExecuteAsync(Context context)
     {
@@ -35,7 +35,7 @@ print(f"Generated {document_id}_editable.pdf");
 
         var psi = new ProcessStartInfo
         {
-            FileName = AppConfig.PythonPath,
+            FileName = Paths.PythonPath,
             UseShellExecute = false,
             RedirectStandardError = true,
             RedirectStandardOutput = true,

@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 public class Image : IStep
 {
-    private static readonly string _assetsDir = Path.Combine(AppConfig.RootPath, "assets");
+    private static readonly string _assetsDir = Path.Combine(Paths.RootPath, "assets");
 
     public async Task ExecuteAsync(Context context)
     {

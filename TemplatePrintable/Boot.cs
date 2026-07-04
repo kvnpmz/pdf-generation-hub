@@ -3,9 +3,8 @@ using System.Threading.Tasks;
 
 public class Boot : IStep
 {
-    private const string BaseProjectName = "kidney_checklist_tabbed";
-    private static readonly string DocsDirectory = Path.Combine(AppConfig.RootPath, "documents");
-    private static readonly string TemplatesDirectory = Path.Combine(AppConfig.RootPath, "templates");
+    private static readonly string DocsDirectory = Path.Combine(Paths.RootPath, "documents");
+    private static readonly string TemplatesDirectory = Path.Combine(Paths.RootPath, "templates");
 
     public async Task ExecuteAsync(Context context)
     {
@@ -13,7 +12,8 @@ public class Boot : IStep
         // If the project exists, we skip scaffolding (Idempotency)
         if (Directory.Exists(projectPath)) return;
 
-        string baseConfigContent = await File.ReadAllTextAsync(Path.Combine(DocsDirectory, BaseProjectName, "config.tl"));
+        var baseProjectName = context.BaseProjectName;
+        string baseConfigContent = await File.ReadAllTextAsync(Path.Combine(DocsDirectory, baseProjectName, "config.tl"));
         string? templateName = Regex.Match(
             baseConfigContent,
             @"template\s*=\s*""([^""]+)"""
@@ -26,7 +26,7 @@ public class Boot : IStep
             throw new DirectoryNotFoundException($"Template does not exist: {templateSourcePath}");
         }
 
-        string baseDocumentPath = Path.Combine(DocsDirectory, BaseProjectName);
+        string baseDocumentPath = Path.Combine(DocsDirectory, baseProjectName);
         CopyDirectory(baseDocumentPath, projectPath);
 
 

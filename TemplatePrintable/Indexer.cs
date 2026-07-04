@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 public class Indexer : IStep
 {
-    private static readonly string ConnectionString = $"Data Source={Path.Combine(AppConfig.RootPath, "projects.db")}";
+    private static readonly string ConnectionString = $"Data Source={Path.Combine(Paths.RootPath, "projects.db")}";
 
     public async Task ExecuteAsync(Context context)
     {
@@ -12,7 +12,7 @@ public class Indexer : IStep
 
         await CreateTable(conn);
 
-        var existingIds = await IndexFolders(conn, Path.Combine(AppConfig.RootPath, "documents"));
+        var existingIds = await IndexFolders(conn, Path.Combine(Paths.RootPath, "documents"));
         await DeleteMissingProjects(conn, existingIds);
     }
 

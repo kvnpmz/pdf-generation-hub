@@ -5,12 +5,14 @@ public class Watcher
     private readonly Flow _flow = new();
     private bool _isBuilding, _rebuildRequested;
     private CancellationTokenSource? _debounce;
-    private readonly string _root = AppConfig.RootPath;
+    private readonly string _root = Paths.RootPath;
+    private readonly string _baseProjectName;
 
-    public Watcher(string documentId, int enableImages)
+    public Watcher(string documentId, int enableImages, string baseProjectName)
     {
         _documentId = documentId;
         _enableImages = enableImages;
+        _baseProjectName = baseProjectName;
     }
 
     public async Task Start()
@@ -48,13 +50,22 @@ public class Watcher
             {
                 _rebuildRequested = false;
                 Console.WriteLine($"[{DateTime.Now:T}] Building...");
-                await _flow.ExecuteAsync(_documentId, _enableImages);
+
+                var context = new Context
+                {
+                    DocumentId = _documentId,
+                    EnableImages = Convert.ToBoolean(_enableImages),
+                    OutputDirectory = Path.Combine("output", _documentId),
+                    BaseProjectName = _baseProjectName
+                };
+
+                await _flow.ExecuteAsync(context);
             }
             while (_rebuildRequested);
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
-            Console.WriteLine(ex);
+            Console.WriteLine(exception);
         }
         finally
         {
@@ -62,9 +73,9 @@ public class Watcher
         }
     }
 
-    private void OnChanged(object? sender, FileSystemEventArgs e)
+    private void OnChanged(object? sender, FileSystemEventArgs eventArgs)
     {
-        var extension = Path.GetExtension(e.FullPath);
+        var extension = Path.GetExtension(eventArgs.FullPath);
         if (extension != ".tl" && extension != ".css") return;
 
         _debounce?.Cancel();
