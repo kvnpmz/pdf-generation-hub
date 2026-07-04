@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 public class Boot : IStep
 {
-    private const string BaseProjectName = "diverticulitis_foodchart";
+    private const string BaseProjectName = "kidney_checklist_tabbed";
     private const string DocsDirectory = "documents";
     private const string TemplatesDirectory = "templates";
 

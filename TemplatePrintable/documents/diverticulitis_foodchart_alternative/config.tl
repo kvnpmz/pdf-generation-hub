@@ -4,7 +4,7 @@ return {
     output_name = "diverticulitis_foodchart",
     overrides = "alternative_style",
     header = "Diverticulitis Food Chart",
-    completed_date = "",
+    completed_date = "2026-07-03",
     columns = {
         { -- Column 1
             column_name = "Foods to Eat",

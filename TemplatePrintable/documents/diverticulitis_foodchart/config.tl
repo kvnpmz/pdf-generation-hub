@@ -3,7 +3,7 @@ return {
     template = "diverticulitis_foodchart",
     output_name = "diverticulitis_foodchart",
     header = "Diverticulitis Food Chart",
-    completed_date = "",
+    completed_date = "2026-07-03",
     columns = {
         { -- Column 1
             column_name = "Foods to Eat",

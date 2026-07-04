@@ -77,9 +77,9 @@ public class Image : IStep
             string fileName = $"{name}_{bg.Suffix}.png";
             string cleanFileName = fileName;
             string outPath = Path.Combine(outputDir, cleanFileName);
-            string args = $"convert \"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
+            string args = $"\"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 
-            RunCommand("", args);
+            RunCommand("convert", args);
             Console.WriteLine($"[SUCCESS] Saved: {fileName}");
         }
     }
