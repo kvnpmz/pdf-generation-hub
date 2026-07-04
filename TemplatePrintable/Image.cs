@@ -44,10 +44,11 @@ public class Image : IStep
 
         Directory.CreateDirectory(outputDir);
 
-        RunCommand("pdftoppm", $"-png -r 300 -singlefile \"{absPath}\" \"{Path.Combine(outputDir, name)}\"");
+        string arguments = $"-density 300 \"{absPath}\" -colorspace sRGB -alpha off -type truecolor -profile /usr/share/color/icc/colord/sRGB.icc \"{Path.Combine(outputDir, name)}.png\"";
+        RunCommand("convert", arguments);
 
         string pngPath = Path.Combine(outputDir, name) + ".png";
-        Console.WriteLine($"[SUCCESS] Converting PDF to PNG using prefix: {pngPath}");
+        Console.WriteLine($"[SUCCESS] Converting PDF to PNG: {name}.png");
 
         if (File.Exists(pngPath))
         {
@@ -79,7 +80,7 @@ public class Image : IStep
             string args = $"convert \"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 
             RunCommand("", args);
-            Console.WriteLine($"[SUCCESS] Saved: {outPath}");
+            Console.WriteLine($"[SUCCESS] Saved: {fileName}");
         }
     }
 
