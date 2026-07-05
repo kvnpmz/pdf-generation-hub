@@ -12,11 +12,12 @@ public class Watcher
         _ = ProcessEventQueue(cancellationToken);
         await BuildAsync();
 
-        using var watcher = new FileSystemWatcher(_root)
+        string directory = Path.GetDirectoryName(Path.GetFullPath(_root)) ?? _root;
+        using var watcher = new FileSystemWatcher(directory)
         {
             IncludeSubdirectories = true,
             NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite,
-            EnableRaisingEvents = true
+            InternalBufferSize = 65536
         };
 
         FileSystemEventHandler handler = (sender, eventData) =>
@@ -32,7 +33,11 @@ public class Watcher
         watcher.Renamed += (sender, eventData) => { if (IsTargetFile(eventData.Name)) _eventChannel.Writer.TryWrite(eventData); };
         watcher.Deleted += handler;
 
-        await Task.Delay(Timeout.Infinite, cancellationToken);
+        watcher.EnableRaisingEvents = true;
+        Console.WriteLine($"Watcher active on {directory}.");
+
+        try { await Task.Delay(Timeout.Infinite, cancellationToken); }
+        catch (OperationCanceledException) { }
     }
 
     private async Task ProcessEventQueue(CancellationToken cancellationToken)
@@ -74,6 +79,9 @@ public class Watcher
     private bool IsTargetFile(string? fileName)
     {
         if (string.IsNullOrEmpty(fileName)) return false;
+
+        if (fileName.StartsWith("4913") || fileName.EndsWith("~") || fileName.StartsWith("."))
+            return false;
 
         return fileName.EndsWith(".tl") || fileName.EndsWith(".css");
     }
