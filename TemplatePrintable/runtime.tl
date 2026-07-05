@@ -1,5 +1,5 @@
 return {
     DOCUMENTID = "baby_registrylist",
-    ENABLEIMAGES = 1,
+    ENABLEIMAGES = 0,
     BASEPROJECTNAME = "kidney_checklist_tabbed"
 }

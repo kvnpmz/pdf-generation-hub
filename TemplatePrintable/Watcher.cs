@@ -7,48 +7,40 @@ public class Watcher
     private readonly string _root = Paths.RootPath;
     private readonly Channel<FileSystemEventArgs> _eventChannel = Channel.CreateUnbounded<FileSystemEventArgs>();
 
-    public async Task Start(CancellationToken ct = default)
+    public async Task Start(CancellationToken cancellationToken = default)
     {
-        _ = Task.Run(() => ProcessEventQueue(ct), ct);
+        _ = ProcessEventQueue(cancellationToken);
         await BuildAsync();
 
-        string directory = Path.GetDirectoryName(Path.GetFullPath(_root)) ?? _root;
-        var watcher = new FileSystemWatcher(directory)
+        using var watcher = new FileSystemWatcher(_root)
         {
             IncludeSubdirectories = true,
             NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite,
-            InternalBufferSize = 65536
+            EnableRaisingEvents = true
         };
 
-        FileSystemEventHandler handler = (s, e) =>
+        FileSystemEventHandler handler = (sender, eventData) =>
         {
-            if (IsTargetFile(e.Name))
+            if (IsTargetFile(eventData.Name))
             {
-                _eventChannel.Writer.TryWrite(e);
+                _eventChannel.Writer.TryWrite(eventData);
             }
         };
 
         watcher.Changed += handler;
         watcher.Created += handler;
-        watcher.Renamed += (s, e) => { if (IsTargetFile(e.Name)) _eventChannel.Writer.TryWrite(e); };
+        watcher.Renamed += (sender, eventData) => { if (IsTargetFile(eventData.Name)) _eventChannel.Writer.TryWrite(eventData); };
         watcher.Deleted += handler;
 
-        watcher.EnableRaisingEvents = true;
-
-        Console.WriteLine($"Watcher active on {directory}. Press Ctrl+C to exit.");
-
-        try { await Task.Delay(Timeout.Infinite, ct); }
-        catch (OperationCanceledException) { }
+        await Task.Delay(Timeout.Infinite, cancellationToken);
     }
 
-    private async Task ProcessEventQueue(CancellationToken ct)
+    private async Task ProcessEventQueue(CancellationToken cancellationToken)
     {
-        await foreach (var item in _eventChannel.Reader.ReadAllAsync(ct))
+        await foreach (var item in _eventChannel.Reader.ReadAllAsync(cancellationToken))
         {
-            await Task.Delay(250, ct);
-            
+            await Task.Delay(250, cancellationToken);
             while (_eventChannel.Reader.TryRead(out _)) { }
-
             await BuildAsync();
         }
     }
@@ -58,7 +50,6 @@ public class Watcher
         try
         {
             var (documentId, enableImages, baseProjectName) = LoadRuntime();
-            
             var context = new Context
             {
                 DocumentId = documentId,
@@ -69,23 +60,20 @@ public class Watcher
 
             await _flow.ExecuteAsync(context);
         }
-        catch (NLua.Exceptions.LuaException ex)
+        catch (NLua.Exceptions.LuaException exception)
         {
-            Console.WriteLine($"LUA ERROR: {ex.Message}");
+            Console.WriteLine($"LUA ERROR: {exception.Message}");
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
-            Console.WriteLine($"GENERAL ERROR: {ex.GetType().Name}: {ex.Message}");
-            Console.WriteLine(ex.StackTrace);
+            Console.WriteLine($"GENERAL ERROR: {exception.GetType().Name}: {exception.Message}");
+            Console.WriteLine(exception.StackTrace);
         }
     }
 
     private bool IsTargetFile(string? fileName)
     {
         if (string.IsNullOrEmpty(fileName)) return false;
-
-        if (fileName.StartsWith("4913") || fileName.EndsWith("~") || fileName.StartsWith("."))
-            return false;
 
         return fileName.EndsWith(".tl") || fileName.EndsWith(".css");
     }
