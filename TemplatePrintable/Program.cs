@@ -1,2 +1,2 @@
-﻿var watcher = new Watcher("baby_registrylist", 0, "kidney_checklist_tabbed");
+﻿var watcher = new Watcher();
 await watcher.Start();
