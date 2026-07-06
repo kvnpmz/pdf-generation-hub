@@ -8,6 +8,7 @@ lua_modules/
 **/venv/
 archive/
 tools/
+/TemplatePrintable/output/*.html
 
 !*.py
 !*.cs
@@ -23,3 +24,4 @@ tools/
 
 !.gitignore
 !.gitattributes
+
