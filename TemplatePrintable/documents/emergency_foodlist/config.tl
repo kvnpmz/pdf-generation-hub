@@ -2,7 +2,7 @@ return {
     id = "emergency_foodlist",
     output_name = "emergency_foodlist",
     template = "emergency_foodlist",
-    header = "Emergency Foodlist",
+    header = "Emergency Food List",
     completed_date = "2026-07-06",
     columns = {
         { -- Column 1
