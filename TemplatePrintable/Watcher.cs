@@ -91,6 +91,8 @@ public class Watcher
         var lua = new Lua();
         var path = Path.Combine(Paths.RootPath, "runtime.tl");
 
+        lua.RegisterFunction("print", this, GetType().GetMethod(nameof(LuaPrint)));
+
         var result = lua.DoFile(path)[0] as LuaTable
             ?? throw new Exception("runtime.tl must return a table");
 
@@ -103,5 +105,10 @@ public class Watcher
         var enableImages = Convert.ToInt32(result["ENABLEIMAGES"] ?? 0);
 
         return (documentId, enableImages, baseProjectName);
+    }
+
+    public void LuaPrint(params object[] args)
+    {
+        Console.WriteLine("[LUA] " + string.Join(" ", args));
     }
 }

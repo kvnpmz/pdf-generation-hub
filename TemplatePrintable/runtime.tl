@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "baby_registrylist",
+    DOCUMENTID = "first_apartment",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "kidney_checklist_tabbed"
+    BASEPROJECTNAME = "baby_registrylist"
 }
