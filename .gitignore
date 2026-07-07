@@ -1,15 +1,16 @@
-*
+# Build output
+bin/
+obj/
 
-!*/
-
-[Bb]in/
-[Oo]bj/
+# Dependencies
 lua_modules/
-**/venv/
-[Aa]rchive/
-tools/
-/TemplatePrintable/output/*.html
+venv/
 
+# Generated files
+Archive/
+output/
+
+# Keep source files
 !*.py
 !*.cs
 !*.csproj
@@ -22,6 +23,5 @@ tools/
 !*.css
 !*.db
 
-!.gitignore
-!.gitattributes
-
+.gitignore
+.gitattributes
