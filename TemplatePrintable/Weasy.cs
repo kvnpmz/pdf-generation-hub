@@ -43,7 +43,7 @@ print(f"Generated {document_id}_editable.pdf");
         };
         psi.ArgumentList.Add(scriptFile);
         psi.ArgumentList.Add(htmlFile);
-        psi.ArgumentList.Add(context.OutputDirectory);
+        psi.ArgumentList.Add(Path.Combine(Paths.RootPath, context.OutputDirectory));
         psi.ArgumentList.Add(context.DocumentId);
 
         using var process = Process.Start(psi)!;

@@ -1,1 +1,0 @@
-convert upscaled_claus.png -units PixelsPerInch -density 300 300dpi_claus.png

@@ -12,7 +12,7 @@ public class Image : IStep
             return;
         }
 
-        string[] pdfFiles = Directory.GetFiles(context.OutputDirectory, $"*.pdf");
+        string[] pdfFiles = Directory.GetFiles(Path.Combine(Paths.RootPath, context.OutputDirectory), "*.pdf");
         
         foreach (string filePath in pdfFiles)
         {

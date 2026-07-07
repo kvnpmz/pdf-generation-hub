@@ -17,13 +17,18 @@ public class Chrome : IPdfRender
         foreach (var item in formats)
         {
             string fileName = $"{context.OutputName}{item.Suffix}.pdf";
+            string outputPath = Path.GetFullPath(
+                    Path.Combine(Paths.RootPath, context.OutputDirectory, fileName));
+
             await page.PdfAsync(new()
             {
-                Path = Path.Combine(Paths.RootPath, context.OutputDirectory, fileName),
+                Path = outputPath,
                 Format = item.Format,
                 PrintBackground = true
             });
-            Console.WriteLine($"Generated {fileName}");       
+
+            Console.WriteLine($"Generated {fileName}");
+            Console.WriteLine($"Full path: {outputPath}");
         }
     }
 }
