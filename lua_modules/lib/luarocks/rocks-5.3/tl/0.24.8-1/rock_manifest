@@ -1,0 +1,17 @@
+rock_manifest = {
+   bin = {
+      tl = "e15200fabfc14a8538dc449430928896"
+   },
+   doc = {
+      ["CHANGELOG.md"] = "7b3ee9143356560cf850ba2782b4e808",
+      ["CODE_OF_CONDUCT.md"] = "7d32c1256bfb8f43283b71d2aafd24d7",
+      LICENSE = "4a9843f83a8eb612b4de116893546c7d",
+      ["README.md"] = "e2fac1017f532e2342cf896c1afd46d8"
+   },
+   lua = {
+      ["tl.lua"] = "dd6a26e199f827239da12a42216685f6",
+      ["tl.tl"] = "71fe72bff72600b5655e7cfd8da0b0b9"
+   },
+   ["luarocks.lock"] = "000871072ec97b1e8f889993c091cd7f",
+   ["tl-0.24.8-1.rockspec"] = "a61aa92ef1930de3579e93575bb198d2"
+}

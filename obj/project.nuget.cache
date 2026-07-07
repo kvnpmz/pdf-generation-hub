@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "Mg0MpRTVbgc=",
+  "success": true,
+  "projectFilePath": "/home/kevin/z_ob/etsy/TemplatePrintable/TemplatePrintable.csproj",
+  "expectedPackageFiles": [
+    "/home/kevin/.nuget/packages/keralua/1.4.9/keralua.1.4.9.nupkg.sha512",
+    "/home/kevin/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "/home/kevin/.nuget/packages/microsoft.data.sqlite/10.0.9/microsoft.data.sqlite.10.0.9.nupkg.sha512",
+    "/home/kevin/.nuget/packages/microsoft.data.sqlite.core/10.0.9/microsoft.data.sqlite.core.10.0.9.nupkg.sha512",
+    "/home/kevin/.nuget/packages/microsoft.playwright/1.60.0/microsoft.playwright.1.60.0.nupkg.sha512",
+    "/home/kevin/.nuget/packages/nlua/1.7.9/nlua.1.7.9.nupkg.sha512",
+    "/home/kevin/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.11/sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/kevin/.nuget/packages/sqlitepclraw.core/2.1.11/sqlitepclraw.core.2.1.11.nupkg.sha512",
+    "/home/kevin/.nuget/packages/sqlitepclraw.lib.e_sqlite3/3.50.3/sqlitepclraw.lib.e_sqlite3.3.50.3.nupkg.sha512",
+    "/home/kevin/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.11/sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/kevin/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
