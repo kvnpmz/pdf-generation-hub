@@ -28,7 +28,6 @@ public class Chrome : IPdfRender
             });
 
             Console.WriteLine($"Generated {fileName}");
-            Console.WriteLine($"Full path: {outputPath}");
         }
     }
 }

@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "emergency_foodlist_teal",
-    ENABLEIMAGES = 1,
+    DOCUMENTID = "emergency_foodlist",
+    ENABLEIMAGES = 0,
     BASEPROJECTNAME = "emergency_foodlist"
 }

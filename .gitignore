@@ -6,7 +6,7 @@
 [Oo]bj/
 lua_modules/
 **/venv/
-archive/
+[Aa]rchive/
 tools/
 /TemplatePrintable/output/*.html
 

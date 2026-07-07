@@ -2,6 +2,8 @@
 {
     public async Task ExecuteAsync(Context context)
     {
+        Directory.CreateDirectory(Path.Combine(Paths.RootPath, context.OutputDirectory));
+
         var steps = new List<IStep>
         {
             new Boot(),

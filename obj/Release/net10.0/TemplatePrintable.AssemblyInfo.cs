@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TemplatePrintable")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+994c1bdf62662843e476af03b134c72a1691b696")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34b0b67fd75c0cbe9d0df72d8bc5f97ecf44aafc")]
 [assembly: System.Reflection.AssemblyProductAttribute("TemplatePrintable")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TemplatePrintable")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
