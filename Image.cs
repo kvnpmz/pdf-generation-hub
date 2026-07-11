@@ -13,7 +13,7 @@ public class Image : IStep
         }
 
         string[] pdfFiles = Directory.GetFiles(Path.Combine(Paths.RootPath, context.OutputDirectory), "*.pdf");
-        
+
         foreach (string filePath in pdfFiles)
         {
             ProcessPdfToImages(filePath);
@@ -89,14 +89,14 @@ public class Image : IStep
         try
         {
             string fullCommand = string.IsNullOrEmpty(cmd) ? args : $"{cmd} {args}";
-            
+
             var startInfo = new ProcessStartInfo("/bin/bash", $"-c \"{fullCommand}\"")
             {
                 RedirectStandardError = true,
                 UseShellExecute = false,
                 CreateNoWindow = true
             };
-            
+
             using var proc = Process.Start(startInfo);
             proc?.WaitForExit();
 

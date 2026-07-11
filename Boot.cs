@@ -51,7 +51,7 @@ public class Boot : IStep
         }
 
         await File.WriteAllTextAsync(projectConfigPath, projectConfigContent);
-        
+
         Console.WriteLine($"[SUCCESS] Project {context.DocumentId} scaffolded.");
     }
 

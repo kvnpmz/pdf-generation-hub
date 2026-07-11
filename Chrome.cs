@@ -9,9 +9,9 @@ public class Chrome : IPdfRender
         var page = await browser.NewPageAsync();
         await page.SetContentAsync(context.Html);
 
-        var formats = new[] { 
-            new { Format = PaperFormat.Letter, Suffix = ""}, 
-            new { Format = PaperFormat.A4, Suffix = "_a4" } 
+        var formats = new[] {
+            new { Format = PaperFormat.Letter, Suffix = ""},
+            new { Format = PaperFormat.A4, Suffix = "_a4" }
         };
 
         foreach (var item in formats)

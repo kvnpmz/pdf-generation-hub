@@ -9,6 +9,7 @@ venv/
 # Generated files
 Archive/
 output/
+plugins/
 
 # Keep source files
 !*.py

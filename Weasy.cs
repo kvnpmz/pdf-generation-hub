@@ -11,7 +11,7 @@ public class Weasy : IPdfRender
 
         var scriptFile = Path.Combine(tempDir, Guid.NewGuid() + ".py");
 
-        await File.WriteAllTextAsync(scriptFile, 
+        await File.WriteAllTextAsync(scriptFile,
 
 """
 import sys
