@@ -1,6 +1,9 @@
 using TemplatePrintable.Core; 
 using System.Threading.Channels;
 using System.Text;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using System.Reflection;
 using NLua;
 
 public class Watcher
@@ -15,8 +18,7 @@ public class Watcher
         _ = ProcessEventQueue(cancellationToken);
         await BuildAsync();
 
-        string directory = Path.GetDirectoryName(Path.GetFullPath(_root)) ?? _root;
-        using var watcher = new FileSystemWatcher(directory)
+        using var watcher = new FileSystemWatcher(_root)
         {
             IncludeSubdirectories = true,
             NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite,
@@ -45,7 +47,7 @@ public class Watcher
         watcher.Deleted += handler;
 
         watcher.EnableRaisingEvents = true;
-        Console.WriteLine($"Watcher active on {directory}.");
+        Console.WriteLine($"Watcher active on {_root}.");
 
         try { await Task.Delay(Timeout.Infinite, cancellationToken); }
         catch (OperationCanceledException) { }
@@ -55,12 +57,12 @@ public class Watcher
     {
         await foreach (var item in _eventChannel.Reader.ReadAllAsync(cancellationToken))
         {
-            string fileName = item.Name ?? "";
+            string fullPath = item.FullPath;
 
             await Task.Delay(250, cancellationToken);
             while (_eventChannel.Reader.TryRead(out _)) { }
 
-            await BuildAsync(fileName);
+            await BuildAsync(fullPath);
         }
     }
 
@@ -81,8 +83,8 @@ public class Watcher
         lua.State.Encoding = Encoding.UTF8;
 
         lua.DoString(
-                $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}'" +
-                $" .. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'"
+                $"package.path = package.path .. ';{Path.Combine(_root, "?.tl")}'" +
+                $" .. ';{Path.Combine(_root, "?/init.tl")}'"
                 );
 
         lua.DoString("local tl = require('tl'); tl.loader();");
@@ -98,7 +100,7 @@ public class Watcher
             var template = config["template"]?.ToString()
                 ?? throw new Exception("Missing template");
 
-            string renderCs = Path.Combine(Paths.RootPath, "templates", template, "render.cs");
+            string renderCs = Path.Combine(_root, "templates", template, "render.cs");
 
             if (File.Exists(renderCs))
             {
@@ -109,7 +111,7 @@ public class Watcher
             {
                 DocumentId = documentId,
                 EnableImages = Convert.ToBoolean(enableImages),
-                OutputDirectory = Path.Combine(Paths.RootPath, "output", documentId),
+                OutputDirectory = Path.Combine(_root, "output", documentId),
                 BaseProjectName = baseProjectName,
                 Flow = _flow
             };
@@ -142,7 +144,7 @@ public class Watcher
     private (string documentId, int enableImages, string baseProjectName) LoadRuntime()
     {
         var lua = new Lua();
-        var path = Path.Combine(Paths.RootPath, "runtime.tl");
+        var path = Path.Combine(_root, "runtime.tl");
 
         lua.RegisterFunction("print", this, GetType().GetMethod(nameof(LuaPrint)));
 
@@ -182,19 +184,36 @@ public class Watcher
 
     private void LoadPlugin(string templateName)
     {
-        string outputDir = Path.Combine("plugins", templateName);
-        string projectPath = Path.Combine("templates", templateName, $"{templateName}.csproj");
+        string sourcePath = Path.Combine(_root, "templates", templateName, "render.cs");
+        string sourceCode = File.ReadAllText(sourcePath);
 
-        DeleteDirectory(outputDir);
+        var syntaxTree = CSharpSyntaxTree.ParseText(sourceCode);
 
-        RunCommand(
-                "dotnet",
-                $"build {projectPath} -o {outputDir} --nologo --verbosity quiet");
+        var references = new List<MetadataReference>
+        {
+            MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+            MetadataReference.CreateFromFile(typeof(IRenderer).Assembly.Location),
+            MetadataReference.CreateFromFile(Assembly.Load("System.Runtime").Location),
+            MetadataReference.CreateFromFile(Assembly.Load("System.Collections").Location),
+            MetadataReference.CreateFromFile(Assembly.Load("NLua").Location)
+        };
 
-        var dllPath = Directory.GetFiles(outputDir, "grocery_list.dll").FirstOrDefault()
-            ?? throw new Exception($"No plugin DLL found in {outputDir}");
+        var compilation = CSharpCompilation.Create($"{templateName}_{Guid.NewGuid()}",
+                new[] { syntaxTree },
+                references,
+                new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-        var pluginType = _loader.LoadPlugin(dllPath);
+        using var ms = new MemoryStream();
+        var result = compilation.Emit(ms);
+
+        if (!result.Success)
+        {
+            var errors = string.Join("\n", result.Diagnostics.Where(d => d.Severity == DiagnosticSeverity.Error));
+            throw new Exception($"Compilation failed:\n{errors}");
+        }
+
+        ms.Position = 0;
+        var pluginType = _loader.LoadPluginFromStream(ms);
 
         if (pluginType != null)
         {

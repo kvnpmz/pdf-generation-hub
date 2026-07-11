@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TemplatePrintable.Core;
 using NLua;
 
@@ -26,7 +27,7 @@ public class GroceryListRender : IRenderer
                     itemsHtml.Add(Dom.Li("", item?.ToString() ?? ""));
                 }
 
-                itemsHtml.Add(Dom.Li("blank-line", "yh1wllo"));
+                itemsHtml.Add(Dom.Li("blank-line", "yh1xllo"));
                 itemsHtml.Add(Dom.Li("blank-line", "&nbsp;"));
 
                 columnContent.Add(
