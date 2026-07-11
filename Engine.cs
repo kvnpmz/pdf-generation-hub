@@ -1,3 +1,5 @@
+using TemplatePrintable.Core;
+
 public interface IPdfEngine
 {
     Task ExecuteAsync(Context context);

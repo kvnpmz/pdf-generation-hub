@@ -17,7 +17,6 @@ public class PluginLoader
 
         _context = new AssemblyLoadContext("PluginContext", isCollectible: true);
 
-        // Load assembly from stream
         var assembly = _context.LoadFromStream(stream);
 
         return assembly.GetTypes().FirstOrDefault(t => t.IsAssignableTo(typeof(IRenderer)));

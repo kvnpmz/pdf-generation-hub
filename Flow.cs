@@ -7,6 +7,11 @@ public interface IRenderer
     RenderResult Render(LuaTable config);
 }
 
+public interface IStep
+{
+    Task ExecuteAsync(Context context);
+}
+
 public class Flow
 {
     private readonly Dictionary<string, IRenderer> _renderers = new();

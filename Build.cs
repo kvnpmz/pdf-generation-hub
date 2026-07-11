@@ -1,3 +1,4 @@
+using TemplatePrintable.Core;
 using System.Diagnostics;
 using System.Text;
 using NLua;
@@ -69,9 +70,7 @@ public class Build : IStep
                 if (result == null) 
                     throw new Exception("Renderer returned null");
 
-                var htmlContent = string.Format("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"></head><body>{0}</body></html>", result.Html);
-
-                context.Html = StyleApplier.Apply(htmlContent, config);
+                context.Html = FinalizeHtml(result.Html, config);
                 context.OutputName = result.OutputName;
             }
             else
@@ -136,39 +135,6 @@ public class Build : IStep
 
         if (process.ExitCode != 0)
             throw new Exception($"tl check failed (exit {process.ExitCode})");
-    }
-
-    private static string ToPascalCase(string value)
-    {
-        if (string.IsNullOrEmpty(value))
-        {
-            return value;
-        }
-
-        var sb = new System.Text.StringBuilder(value.Length);
-        bool nextUpper = true;
-
-        foreach (char c in value)
-        {
-            if (c == '_')
-            {
-                nextUpper = true;
-            }
-            else
-            {
-                if (nextUpper)
-                {
-                    sb.Append(char.ToUpper(c));
-                    nextUpper = false;
-                }
-                else
-                {
-                    sb.Append(c);
-                }
-            }
-        }
-
-        return sb.ToString();
     }
 
     private static string FinalizeHtml(string content, LuaTable config)
