@@ -62,24 +62,22 @@ public class Build : IStep
         }
         else if (File.Exists(renderPath + ".cs"))
         {
-    if (context.Flow != null && context.Flow.TryGetRenderer(template, out var renderer))
-    {
-        var result = renderer!.Render(config);
-        
-        if (result == null) throw new Exception("Renderer returned null");
+            if (context.Flow != null && context.Flow.TryGetRenderer(template, out var renderer))
+            {
+                var result = renderer!.Render(config);
 
-        var htmlContent = DocumentGenerator.GenerateDocument(new Dictionary<string, object> {
-            { "renderTemplate", (Func<object, string>)(_ => result.Html) },
-            { "config", config }
-        });
+                if (result == null) 
+                    throw new Exception("Renderer returned null");
 
-        context.Html = StyleApplier.Apply(htmlContent, config);
-        context.OutputName = result.OutputName;
-    }
-    else
-    {
-        throw new Exception($"Could not find registered renderer for '{template}' in Flow.");
-    }
+                var htmlContent = string.Format("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"></head><body>{0}</body></html>", result.Html);
+
+                context.Html = StyleApplier.Apply(htmlContent, config);
+                context.OutputName = result.OutputName;
+            }
+            else
+            {
+                throw new Exception($"Could not find registered renderer for '{template}' in Flow.");
+            }
         }
         else
         {
