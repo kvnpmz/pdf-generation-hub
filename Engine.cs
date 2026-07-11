@@ -1,16 +1,16 @@
-public interface IPdfRender
+public interface IPdfEngine
 {
     Task ExecuteAsync(Context context);
 }
 
-public class Render : IStep
+public class Engine : IStep
 {
     public async Task ExecuteAsync(Context context)
     {
-        IPdfRender pdfRender = context.IsEditable
+        IPdfEngine pdfEngine = context.IsEditable
             ? new Weasy()
             : new Chrome();
 
-        await pdfRender.ExecuteAsync(context);
+        await pdfEngine.ExecuteAsync(context);
     }
 }

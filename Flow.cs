@@ -1,4 +1,11 @@
-﻿using TemplatePrintable.Core;
+﻿using NLua;
+
+namespace TemplatePrintable.Core;
+
+public interface IRenderer
+{
+    RenderResult Render(LuaTable config);
+}
 
 public class Flow
 {
@@ -22,7 +29,7 @@ public class Flow
         {
             new Boot(),
             new Build(),
-            new Render(),
+            new Engine(),
             new Image(),
             new Indexer()
         };

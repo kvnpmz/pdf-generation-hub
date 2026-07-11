@@ -1,3 +1,4 @@
+using TemplatePrintable.Core;
 using NLua;
 
 public class Context
@@ -9,9 +10,9 @@ public class Context
     public string OutputDirectory { get; set; } = string.Empty;
 
     public required string BaseProjectName { get; set; }
-    public LuaTable? Config { get; set; }
+    public required LuaTable Config { get; set; }
 
-    public Flow? Flow { get; set; }
+    public required Flow Flow { get; set; }
     public bool EnableImages { get; set; }
     public bool IsEditable { get; set; }
 }
