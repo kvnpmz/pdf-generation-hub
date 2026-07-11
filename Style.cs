@@ -13,7 +13,7 @@ public static class StyleApplier
     public static string Apply(string html, LuaTable config)
     {
         string baseCss = ReadFile(
-            Path.Combine(Paths.RootPath, "templates", "base", "style.css")
+            Path.Combine(Paths.RootPath, "base.css")
         ) ?? string.Empty;
 
         string style = config["style"]?.ToString() ?? "style";

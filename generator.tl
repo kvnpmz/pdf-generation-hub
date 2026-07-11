@@ -1,6 +1,5 @@
 local M = {}
 
-local baseRender = require("templates.base.render")
 local context = require("context")
 local style = require("style")
 
@@ -15,10 +14,12 @@ function M.Render(documentId: string): RenderResult
     local config = renderContext.config
     local renderTemplate = renderContext.render
 
-    local html = baseRender.GenerateDocument({
-        config = config,
-        renderTemplate = renderTemplate,
-    })
+    local html = renderTemplate(config)
+
+    html = string.format(
+        [[<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"></head><body>%s</body></html>]],
+        html
+    )
 
     html = style.Apply(html, config)
 

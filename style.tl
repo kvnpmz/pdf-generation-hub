@@ -12,7 +12,7 @@ local function read_file(path: string): string
 end
 
 function M.Apply(html: string, config: contracts.Config): string
-    local base = read_file(ROOT_PATH .. "/templates/base/style.css") or ""
+    local base = read_file(ROOT_PATH .. "base.css") or ""
     local themeFilename = (config.style or "style") .. ".css"
 
     local themePath = ROOT_PATH .. "/templates/" .. config.template .. "/" .. themeFilename
