@@ -30,7 +30,6 @@ public class Boot : IStep
         string baseDocumentPath = Path.Combine(DocsDirectory, baseProjectName);
         CopyDirectory(baseDocumentPath, projectPath);
 
-
         string projectConfigPath = (Path.Combine(projectPath, "config.tl"));
         string projectConfigContent = await File.ReadAllTextAsync(projectConfigPath);
 

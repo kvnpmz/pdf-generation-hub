@@ -15,8 +15,9 @@ public class Watcher
 
     public async Task Start(CancellationToken cancellationToken = default)
     {
-        _ = ProcessEventQueue(cancellationToken);
         await _runner.BuildAsync();
+
+        _ = ProcessEventQueue(cancellationToken);
 
         using var watcher = new FileSystemWatcher(_root)
         {

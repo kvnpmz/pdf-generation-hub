@@ -26,10 +26,10 @@ public class Flow
         var found = _renderers.TryGetValue(documentId, out renderer);
         return found;
     }
+
     public async Task ExecuteAsync(Context context)
     {
         Directory.CreateDirectory(context.OutputDirectory);
-        Console.WriteLine(context.OutputDirectory);
 
         var steps = new List<IStep>
         {
