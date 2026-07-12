@@ -29,8 +29,8 @@ HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
 
 letter_css = CSS(string='@page { size: Letter; }')
 HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
-print(f"Generated {document_id}_editable_a4.pdf");       
-print(f"Generated {document_id}_editable.pdf");       
+print(f"Generated {output_a4}");       
+print(f"Generated {output_letter}");       
 """);
 
         var psi = new ProcessStartInfo
@@ -43,7 +43,7 @@ print(f"Generated {document_id}_editable.pdf");
         };
         psi.ArgumentList.Add(scriptFile);
         psi.ArgumentList.Add(htmlFile);
-        psi.ArgumentList.Add(Path.Combine(Paths.RootPath, context.OutputDirectory));
+        psi.ArgumentList.Add(context.OutputDirectory);
         psi.ArgumentList.Add(context.DocumentId);
 
         using var process = Process.Start(psi)!;

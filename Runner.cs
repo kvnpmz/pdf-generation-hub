@@ -9,7 +9,7 @@ public class Runner
 {
     private readonly Flow _flow;
     private readonly string _root = Paths.RootPath;
-    private readonly PluginLoader _loader = new();
+    private readonly Resolver _resolver = new();
 
     public Runner(Flow flow)
     {
@@ -20,8 +20,8 @@ public class Runner
     {
         if (changedFile != null && changedFile.EndsWith("render.cs"))
         {
-            string? templateDir = Path.GetDirectoryName(changedFile);
-            string? templateName = Path.GetFileName(templateDir);
+            string? templateDirectory = Path.GetDirectoryName(changedFile);
+            string? templateName = Path.GetFileName(templateDirectory);
 
             if (!string.IsNullOrEmpty(templateName))
             {
@@ -102,17 +102,28 @@ public class Runner
                 references,
                 new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-        using var ms = new MemoryStream();
-        var result = compilation.Emit(ms);
+        using var memoryStream = new MemoryStream();
+        var result = compilation.Emit(memoryStream);
 
         if (!result.Success)
         {
-            var errors = string.Join("\n", result.Diagnostics.Where(d => d.Severity == DiagnosticSeverity.Error));
+            var errorList = new List<Diagnostic>();
+
+            foreach (var d in result.Diagnostics)
+            {
+                if (d.Severity == DiagnosticSeverity.Error)
+                {
+                    errorList.Add(d);
+                }
+            }
+
+            var errors = string.Join("\n", errorList);
+
             throw new Exception($"Compilation failed:\n{errors}");
         }
 
-        ms.Position = 0;
-        var pluginType = _loader.LoadPluginFromStream(ms);
+        memoryStream.Position = 0;
+        var pluginType = _resolver.LoadPluginFromStream(memoryStream);
 
         if (pluginType != null)
         {

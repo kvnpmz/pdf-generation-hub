@@ -17,8 +17,7 @@ public class Chrome : IPdfEngine
         foreach (var item in formats)
         {
             string fileName = $"{context.OutputName}{item.Suffix}.pdf";
-            string outputPath = Path.GetFullPath(
-                    Path.Combine(Paths.RootPath, context.OutputDirectory, fileName));
+            string outputPath = Path.GetFullPath(Path.Combine(context.OutputDirectory, fileName));
 
             await page.PdfAsync(new()
             {
@@ -27,7 +26,7 @@ public class Chrome : IPdfEngine
                 PrintBackground = true
             });
 
-            Console.WriteLine($"Generated {fileName}");
+            Console.WriteLine($"Generated {outputPath}");
         }
     }
 }

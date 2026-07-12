@@ -21,15 +21,15 @@ public class Indexer : IStep
     {
         using var cmd = conn.CreateCommand();
         cmd.CommandText = @"
-CREATE TABLE IF NOT EXISTS Projects (
-    id TEXT PRIMARY KEY,
-    folder_path TEXT,
-    completed_date TEXT,
-    overrides TEXT,
-    output_name TEXT,
-    is_editable INTEGER,
-    template TEXT
-);";
+            CREATE TABLE IF NOT EXISTS Projects (
+                    id TEXT PRIMARY KEY,
+                    folder_path TEXT,
+                    completed_date TEXT,
+                    overrides TEXT,
+                    output_name TEXT,
+                    is_editable INTEGER,
+                    template TEXT
+                    );";
         await cmd.ExecuteNonQueryAsync();
     }
 
@@ -53,11 +53,11 @@ CREATE TABLE IF NOT EXISTS Projects (
 
             using var cmd = conn.CreateCommand();
             cmd.CommandText = @"
-INSERT OR REPLACE INTO Projects 
-(id, folder_path, completed_date, overrides, output_name, is_editable, template)
-VALUES 
-($id, $path, $completed, $overrides, $output, $edit, $template);
-";
+                INSERT OR REPLACE INTO Projects 
+                (id, folder_path, completed_date, overrides, output_name, is_editable, template)
+                VALUES 
+                ($id, $path, $completed, $overrides, $output, $edit, $template);
+            ";
             cmd.Parameters.AddWithValue("$id", Path.GetFileName(directory));
             cmd.Parameters.AddWithValue("$path", directory);
             cmd.Parameters.AddWithValue("$edit", editable);
@@ -78,12 +78,21 @@ VALUES
             return;
 
         using var cmd = conn.CreateCommand();
-        var placeholders = string.Join(",", validIds.Select((_, i) => $"$id{i}"));
+        var placeholderList = new List<string>();
+        int index = 0;
+
+        foreach (var id in validIds)
+        {
+            placeholderList.Add($"$id{index}");
+            index++;
+        }
+
+        var placeholders = string.Join(",", placeholderList);
 
         cmd.CommandText = $@"
-DELETE FROM Projects 
-WHERE id NOT IN ({placeholders});
-";
+            DELETE FROM Projects 
+            WHERE id NOT IN ({placeholders});
+        ";
 
         int i = 0;
         foreach (var id in validIds)
@@ -98,7 +107,7 @@ WHERE id NOT IN ({placeholders});
     private string Extract(string lua, string key)
     {
         var match = Regex.Match(lua,
-            $@"{key}\s*=\s*['""]?(.*?)['""]?[\r\n,]");
+                $@"{key}\s*=\s*['""]?(.*?)['""]?[\r\n,]");
 
         return match.Success ? match.Groups[1].Value : "";
     }

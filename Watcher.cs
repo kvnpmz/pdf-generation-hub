@@ -4,9 +4,8 @@ using System.Threading.Channels;
 public class Watcher
 {
     private readonly Flow _flow = new();
-    private readonly Runner _runner; // Add this
+    private readonly Runner _runner;
     private readonly string _root = Paths.RootPath;
-    private readonly PluginLoader _loader = new();
     private readonly Channel<FileSystemEventArgs> _eventChannel = Channel.CreateUnbounded<FileSystemEventArgs>();
 
     public Watcher()

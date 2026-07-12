@@ -13,7 +13,7 @@ public class Image : IStep
             return;
         }
 
-        string[] pdfFiles = Directory.GetFiles(Path.Combine(Paths.RootPath, context.OutputDirectory), "*.pdf");
+        string[] pdfFiles = Directory.GetFiles(context.OutputDirectory, "*.pdf");
 
         foreach (string filePath in pdfFiles)
         {
@@ -49,7 +49,7 @@ public class Image : IStep
         RunCommand("convert", arguments);
 
         string pngPath = Path.Combine(outputDir, name) + ".png";
-        Console.WriteLine($"[SUCCESS] Converting PDF to PNG: {name}.png");
+        Console.WriteLine($"[SUCCESS] Converting PDF to PNG: {pngPath}");
 
         if (File.Exists(pngPath))
         {

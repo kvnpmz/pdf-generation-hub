@@ -2,7 +2,7 @@ using TemplatePrintable.Core;
 using System.Reflection;
 using System.Runtime.Loader;
 
-public class PluginLoader
+public class Resolver
 {
     private AssemblyLoadContext? _context;
 
@@ -19,6 +19,14 @@ public class PluginLoader
 
         var assembly = _context.LoadFromStream(stream);
 
-        return assembly.GetTypes().FirstOrDefault(t => t.IsAssignableTo(typeof(IRenderer)));
+        foreach (var type in assembly.GetTypes())
+        {
+            if (type.IsAssignableTo(typeof(IRenderer)))
+            {
+                return type;
+            }
+        }
+
+        return null;
     }
 }

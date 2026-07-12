@@ -85,7 +85,7 @@ public class Build : IStep
 
         string formattedHtml = Format.Beautify(context.Html);
 
-        var htmlPath = Path.Combine(Paths.RootPath, context.OutputDirectory, $"{context.OutputName}.html");
+        var htmlPath = Path.Combine(context.OutputDirectory, $"{context.OutputName}.html");
         var previewPath = Path.Combine(Paths.RootPath, "preview.html");
         File.WriteAllText(htmlPath, formattedHtml);
         File.WriteAllText(previewPath, formattedHtml);

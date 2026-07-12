@@ -28,7 +28,8 @@ public class Flow
     }
     public async Task ExecuteAsync(Context context)
     {
-        Directory.CreateDirectory(Path.Combine(Paths.RootPath, context.OutputDirectory));
+        Directory.CreateDirectory(context.OutputDirectory);
+        Console.WriteLine(context.OutputDirectory);
 
         var steps = new List<IStep>
         {
