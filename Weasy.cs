@@ -20,10 +20,10 @@ from weasyprint import HTML, CSS
 
 html_path = Path(sys.argv[1])
 output_directory = Path(sys.argv[2])
-document_id = sys.argv[3]
+output_name = sys.argv[3]
 
-output_a4 = output_directory / f"{document_id}_editable_a4.pdf"
-output_letter = output_directory / f"{document_id}_editable.pdf"
+output_a4 = output_directory / f"{output_name}_editable_a4.pdf"
+output_letter = output_directory / f"{output_name}_editable.pdf"
 
 HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
 
@@ -44,7 +44,7 @@ print(f"Generated {output_letter}");
         psi.ArgumentList.Add(scriptFile);
         psi.ArgumentList.Add(htmlFile);
         psi.ArgumentList.Add(context.OutputDirectory);
-        psi.ArgumentList.Add(context.DocumentId);
+        psi.ArgumentList.Add(context.OutputName);
 
         using var process = Process.Start(psi)!;
 

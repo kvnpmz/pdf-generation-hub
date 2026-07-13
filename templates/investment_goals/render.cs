@@ -8,14 +8,14 @@ public class TemplateRender : IRenderer
     public RenderResult Render(LuaTable config)
     {
         var html = new List<string>();
-        var grid = new List<string>();
+        var main = new List<string>();
 
-        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "")));
-        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Investments Purchased")));
-        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Price")));
-        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Quantity")));
-        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Holding Short Term or Long Term")));
-        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Expected ROI")));
+        main.Add(Dom.Div("cell label", Dom.Tag("H4", "", "")));
+        main.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Investments Purchased")));
+        main.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Price")));
+        main.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Quantity")));
+        main.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Holding Short Term or Long Term")));
+        main.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Expected ROI")));
 
         var months = new[]
         {
@@ -26,11 +26,11 @@ public class TemplateRender : IRenderer
 
         foreach (var month in months)
         {
-            grid.Add(Dom.Div("cell label", Dom.Tag("h5", "", month)));
+            main.Add(Dom.Div("cell label", Dom.Tag("h5", "", month)));
 
             for (int i = 0; i < 5; i++)
             {
-                grid.Add(CreateSplitCell());
+                main.Add(CreateSplitCell());
             }
         }
 
@@ -49,7 +49,7 @@ public class TemplateRender : IRenderer
                     )
                 );
 
-        html.Add(Dom.Div("grid", string.Concat(grid)));
+        html.Add(Dom.MainTag("", string.Concat(main)));
 
         return new RenderResult
         {

@@ -33,7 +33,7 @@ body {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 10.5pt;
-    color: #DA799A;
+    color: #799ADA;
 }
 
 header {
@@ -54,15 +54,17 @@ header > div {
     color: var(--text-color);
 }
 
-.grid {
+main {
     display: grid;
     grid-template-columns: 1fr 1fr 0.6fr 0.7fr 1fr 0.7fr;
     grid-template-rows: 45pt repeat(12, auto);
     border: 0.75pt solid;
+    overflow: hidden;
 }
 
-.cell  {
+.cell {
     border: 0.75pt solid;
+    overflow: hidden;
 }
 
 .split {
@@ -136,7 +138,10 @@ textarea {
     width: calc(100% - 4pt);
     height: calc(100% - 2pt);
     margin-left: 2pt;
-    font-size: 13pt;
+    font-size: 5pt;
+}
+body {
+    color: #DA799A;
 }</style>
         </head>
         <body>
@@ -152,7 +157,7 @@ textarea {
                 <div class="line"></div>
             </div>
         </header>
-        <div class="grid">
+        <main>
             <div class="cell label">
                 <H4></H4>
             </div>
@@ -867,6 +872,6 @@ textarea {
                     <textarea></textarea>
                 </div>
             </div>
-        </div>
+        </main>
     </body>
 </html>
