@@ -1,4 +1,3 @@
-using TemplatePrintable.Core;
 using System.Diagnostics;
 using System.Text;
 using NLua;

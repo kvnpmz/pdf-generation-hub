@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using TemplatePrintable.Core;
 using NLua;
 
-namespace TemplateRender;
+namespace InvestmentGoals;
 
 public class TemplateRender : IRenderer
 {
@@ -11,12 +10,12 @@ public class TemplateRender : IRenderer
         var html = new List<string>();
         var grid = new List<string>();
 
-        grid.Add(Dom.Div("cell", Dom.H3("", "")));
-        grid.Add(Dom.Div("cell", Dom.H3("", "Investments Purchased")));
-        grid.Add(Dom.Div("cell", Dom.H3("", "Price")));
-        grid.Add(Dom.Div("cell", Dom.H3("", "Quantity")));
-        grid.Add(Dom.Div("cell", Dom.H3("", "Holding Short Term or Long Term")));
-        grid.Add(Dom.Div("cell", Dom.H3("", "Expected ROI")));
+        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "")));
+        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Investments Purchased")));
+        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Price")));
+        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Quantity")));
+        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Holding Short Term or Long Term")));
+        grid.Add(Dom.Div("cell label", Dom.Tag("H4", "", "Expected ROI")));
 
         var months = new[]
         {
@@ -27,7 +26,7 @@ public class TemplateRender : IRenderer
 
         foreach (var month in months)
         {
-            grid.Add(Dom.Div("cell", Dom.Tag("h4", "", month)));
+            grid.Add(Dom.Div("cell label", Dom.Tag("h5", "", month)));
 
             for (int i = 0; i < 5; i++)
             {
@@ -35,9 +34,23 @@ public class TemplateRender : IRenderer
             }
         }
 
-        html.Add(Dom.H1("", config["header"]?.ToString() ?? ""));
+        string header = config["header"]?.ToString() ?? "";
+        string[] words = header.Split(
+            new[] { ' ', '\t', '\n', '\r' },
+            System.StringSplitOptions.RemoveEmptyEntries
+        );
+
+        html.Add(Dom.H1("", $"{words[0]} {words[1]}"));
+        html.Add(Dom.H2("", $"{words[2]} {words[3]}"));
+
+        html.Add(Dom.Header("",
+                    Dom.Div("", Dom.H3("", "Name"), Dom.Div("line", "")),
+                    Dom.Div("", Dom.H3("", "Year"), Dom.Div("line", ""))
+                    )
+                );
 
         html.Add(Dom.Div("grid", string.Concat(grid)));
+
         return new RenderResult
         {
             Html = string.Concat(html),

@@ -1,17 +1,11 @@
-# Build output
 bin/
 obj/
 
-# Dependencies
 lua_modules/
 venv/
 
-# Generated files
-Archive/
 output/
-plugins/
 
-# Keep source files
 !*.py
 !*.cs
 !*.csproj
@@ -26,4 +20,3 @@ plugins/
 
 .gitignore
 .gitattributes
-.git-rewrite/

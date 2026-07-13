@@ -1,4 +1,3 @@
-using TemplatePrintable.Core;
 using Microsoft.Data.Sqlite;
 using System.Text.RegularExpressions;
 

@@ -1,4 +1,3 @@
-using TemplatePrintable.Core; 
 using System.Threading.Channels;
 
 public class Watcher
@@ -28,9 +27,6 @@ public class Watcher
 
         FileSystemEventHandler handler = (sender, eventData) =>
         {
-            if (eventData.FullPath.Contains($"{Path.DirectorySeparatorChar}plugins{Path.DirectorySeparatorChar}"))
-                return;
-
             if (IsTargetFile(eventData.Name))
                 _eventChannel.Writer.TryWrite(eventData);
         };
@@ -39,9 +35,6 @@ public class Watcher
         watcher.Created += handler;
         watcher.Renamed += (sender, eventData) =>
         {
-            if (eventData.FullPath.Contains($"{Path.DirectorySeparatorChar}plugins{Path.DirectorySeparatorChar}"))
-                return;
-
             if (IsTargetFile(eventData.Name))
                 _eventChannel.Writer.TryWrite(eventData);
         };

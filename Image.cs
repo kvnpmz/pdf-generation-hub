@@ -1,4 +1,3 @@
-using TemplatePrintable.Core;
 using System.Diagnostics;
 
 public class Image : IStep

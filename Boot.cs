@@ -1,4 +1,3 @@
-using TemplatePrintable.Core;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 

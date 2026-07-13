@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using TemplatePrintable.Core;
 using NLua;
 
-namespace GroceryListTemplate;
+namespace GroceryList;
 
-public class GroceryListRender : IRenderer
+public class TemplateRender : IRenderer
 {
     public RenderResult Render(LuaTable config)
     {

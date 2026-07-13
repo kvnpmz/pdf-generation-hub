@@ -8,8 +8,6 @@
         <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
         <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
         <AddModulesToCompilation>false</AddModulesToCompilation>
-
-        <AssemblyName>investment_template</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

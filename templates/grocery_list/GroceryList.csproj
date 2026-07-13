@@ -8,8 +8,6 @@
         <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
         <GenerateRuntimeConfigurationFiles>false</GenerateRuntimeConfigurationFiles>
         <AddModulesToCompilation>false</AddModulesToCompilation>
-
-        <AssemblyName>grocery_list</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

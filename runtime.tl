@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "investment_template",
+    DOCUMENTID = "investment_goals",
     ENABLEIMAGES = 0,
     BASEPROJECTNAME = "blood_sugarlog"
 }
