@@ -23,855 +23,216 @@ body {
     font-family: Inter;
     font-size: 6pt;
 }</style>
-            <style>:root {
-    --text-color: #121212;
-}
-
-body {
+            <style>body {
     display: grid;
-    grid-template-rows: 33pt 32pt auto 1fr;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 10.5pt;
-    color: #799ADA;
+    grid-template-rows: 45pt 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 13.5pt;
 }
 
-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 175pt;
-    margin-bottom: 10pt;
+body > :first-child {
+    grid-column: 1 / -1;
 }
 
-header > div {
+.column { 
     display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    gap: 10pt;
 }
 
-.line {
-    border-bottom: 1.3pt solid;
-    width: 100%;
-    margin-left: 5pt;
-    color: var(--text-color);
+.column:nth-of-type(1) {
+    line-height: 1.25;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.6fr 0.7fr 1fr 0.7fr;
-    grid-template-rows: 45pt repeat(12, auto);
-    border: 0.75pt solid;
-    overflow: hidden;
+.column:nth-of-type(2) {
+    line-height: 1.25;
 }
 
-.cell {
-    border: 0.75pt solid;
-    overflow: hidden;
-}
-
-.split {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-}
-
-.label {
-    display: flex;
-    align-items: center;
-}
-
-.label:has(h4) {
-    justify-content: center;
-    padding: 4pt;
-}
-
-.label:has(h5) {
-    padding-left: 10pt;
+.column:nth-of-type(3) {
+    line-height: 1.29;
 }
 
 h1 {
+	font-family: 'Source Serif 4';
+    color: #106CD0;
     font-size: 30pt;
     font-weight: 900;
-    letter-spacing: 3pt;
     text-align: center;
+    letter-spacing: 3pt;
 }
 
 h2 {
-    font-family: "Source Serif 4";
-    font-size: 20pt;
-    font-weight: inherit;
-    letter-spacing: 2pt;
-    text-align: center;
-    color: var(--text-color);
-}
-
-h3 {
-    font-weight: inherit;
-    font-size: 12pt;
-    letter-spacing: 1.5pt;
-    color: var(--text-color);
-}
-
-h4 {
-    font-weight: inherit;
+    text-transform: uppercase;
     font-size: inherit;
-    color: var(--text-color);
 }
 
-h5 {
-    font-weight: inherit;
-    font-size: 12pt;
-    color: var(--text-color);
+ul {
+    list-style: none;
+    padding-top: 2pt;
 }
 
-.split-container:nth-child(1) {
-    border-bottom: 1pt solid;
+li {
+    position: relative;
+    padding: 0pt 3pt 0pt 20pt;
+    text-transform: capitalize;
 }
 
-.split-container:nth-child(2) {
-    border-bottom: 1pt solid;
-    width: 100%;
-}
-
-textarea {
-    border: none;
-    outline: none;
-    resize: none;
-    background-color: transparent;
-    width: calc(100% - 4pt);
-    height: calc(100% - 2pt);
-    margin-left: 2pt;
-    font-size: 5pt;
-}
-body {
-    color: #DA799A;
+li::before {
+    content: "□";
+    position: absolute;
+    font-size: 16pt;
+    left: 0;
+    top: -1.5pt;
 }</style>
         </head>
         <body>
-        <h1>Monthly Investment</h1>
-        <h2>Goals Template</h2>
-        <header>
-            <div>
-                <h3>Name</h3>
-                <div class="line"></div>
-            </div>
-            <div>
-                <h3>Year</h3>
-                <div class="line"></div>
-            </div>
-        </header>
-        <main>
-            <div class="cell label">
-                <H4></H4>
-            </div>
-            <div class="cell label">
-                <H4>Investments Purchased</H4>
-            </div>
-            <div class="cell label">
-                <H4>Price</H4>
-            </div>
-            <div class="cell label">
-                <H4>Quantity</H4>
-            </div>
-            <div class="cell label">
-                <H4>Holding Short Term or Long Term</H4>
-            </div>
-            <div class="cell label">
-                <H4>Expected ROI</H4>
-            </div>
-            <div class="cell label">
-                <h5>January</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>February</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>March</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>April</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>May</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>June</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>July</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>August</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>September</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>October</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>November</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell label">
-                <h5>December</h5>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-            <div class="cell split">
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-                <div class="split-container">
-                    <textarea></textarea>
-                </div>
-            </div>
-        </main>
+        <h1>College Dorm Checklist</h1>
+        <div class="column">
+            <section>
+                <h2>Bedroom</h2>
+                <ul>
+                    <li>Bed Frame</li>
+                    <li>Mattress</li>
+                    <li>Sheets</li>
+                    <li>Pillows</li>
+                    <li>Blanket</li>
+                    <li>Mattress Protector</li>
+                    <li>Clothes Hangers</li>
+                    <li>Laundry Basket</li>
+                    <li>Under-bed Storage Boxes</li>
+                    <li>Desk Chair Cushion</li>
+                    <li>Small Rug</li>
+                    <li>Curtains or Blinds</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Kitchen</h2>
+                <ul>
+                    <li>Mini Fridge</li>
+                    <li>Microwave</li>
+                    <li>Toaster</li>
+                    <li>Kettle</li>
+                    <li>Coffee Machine</li>
+                    <li>Blender</li>
+                    <li>Plates</li>
+                    <li>Bowls</li>
+                    <li>Cups</li>
+                    <li>Mugs</li>
+                    <li>Cutlery</li>
+                    <li>Cutting Board</li>
+                    <li>Knife Set</li>
+                    <li>Spatula</li>
+                    <li>Tongs</li>
+                    <li>Measuring Cups</li>
+                    <li>Measuring Spoons</li>
+                    <li>Food Storage Containers</li>
+                    <li>Plastic Wrap</li>
+                    <li>Sandwich Bags</li>
+                    <li>Dish Soap</li>
+                    <li>Sponge / Dish Brush</li>
+                    <li>Paper Towels</li>
+                </ul>
+            </section>
+        </div>
+        <div class="column">
+            <section>
+                <h2>Study</h2>
+                <ul>
+                    <li>Desk</li>
+                    <li>Desk Chair</li>
+                    <li>Desk Lamp</li>
+                    <li>Laptop</li>
+                    <li>Monitor</li>
+                    <li>Keyboard</li>
+                    <li>Mouse</li>
+                    <li>Headphones</li>
+                    <li>Notepad</li>
+                    <li>Pens</li>
+                    <li>Pencils</li>
+                    <li>Markers</li>
+                    <li>Highlighters</li>
+                    <li>Sticky Notes</li>
+                    <li>Tape</li>
+                    <li>Desk Organizer</li>
+                    <li>Drawer Organizer</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Bathroom</h2>
+                <ul>
+                    <li>Towels</li>
+                    <li>Washcloths</li>
+                    <li>Shower Curtain</li>
+                    <li>Bath Mat</li>
+                    <li>Soap</li>
+                    <li>Body Wash</li>
+                    <li>Shampoo</li>
+                    <li>Conditioner</li>
+                    <li>Toothbrush / Toothpaste</li>
+                    <li>Toothbrush Holder</li>
+                    <li>Razor</li>
+                    <li>Shaving Cream</li>
+                    <li>Hairbrush</li>
+                    <li>Comb</li>
+                    <li>Feminine Hygiene Products</li>
+                    <li>Trash Bin</li>
+                    <li>Cleaning Wipes</li>
+                    <li>Disinfectant</li>
+                </ul>
+            </section>
+        </div>
+        <div class="column">
+            <section>
+                <h2>Cleaning Supplies</h2>
+                <ul>
+                    <li>Broom</li>
+                    <li>Dustpan</li>
+                    <li>Mop</li>
+                    <li>Bucket</li>
+                    <li>Vacuum Cleaner</li>
+                    <li>All-purpose Cleaner</li>
+                    <li>Glass Cleaner</li>
+                    <li>Microfiber Cloths</li>
+                    <li>Laundry Detergent</li>
+                    <li>Fabric Softener</li>
+                    <li>Hooks / Wall Hangers</li>
+                    <li>Storage Bins</li>
+                    <li>Shelving Units</li>
+                    <li>Closet Organizers</li>
+                    <li>Shoe Rack</li>
+                    <li>Drawer Organizers</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Electronics</h2>
+                <ul>
+                    <li>Phone Charger</li>
+                    <li>Power Strip</li>
+                    <li>Extension Cord</li>
+                    <li>Alarm Clock</li>
+                    <li>Desk Fan</li>
+                    <li>Small Heater</li>
+                    <li>Bluetooth Speaker</li>
+                    <li>Lamp</li>
+                    <li>TV</li>
+                    <li>Streaming Device</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Decor</h2>
+                <ul>
+                    <li>Wall Art</li>
+                    <li>Posters</li>
+                    <li>Photo Frames</li>
+                    <li>Throw Pillows</li>
+                    <li>Blankets</li>
+                    <li>Area Rug</li>
+                    <li>Indoor Plant</li>
+                    <li>Mirror</li>
+                </ul>
+            </section>
+        </div>
     </body>
 </html>

@@ -1,0 +1,63 @@
+body {
+    display: grid;
+    grid-template-rows: 45pt 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 13.5pt;
+}
+
+body > :first-child {
+    grid-column: 1 / -1;
+}
+
+.column { 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    gap: 10pt;
+}
+
+.column:nth-of-type(1) {
+    line-height: 1.25;
+}
+
+.column:nth-of-type(2) {
+    line-height: 1.25;
+}
+
+.column:nth-of-type(3) {
+    line-height: 1.29;
+}
+
+h1 {
+	font-family: 'Source Serif 4';
+    color: #106CD0;
+    font-size: 30pt;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 3pt;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: inherit;
+}
+
+ul {
+    list-style: none;
+    padding-top: 2pt;
+}
+
+li {
+    position: relative;
+    padding: 0pt 3pt 0pt 20pt;
+    text-transform: capitalize;
+}
+
+li::before {
+    content: "□";
+    position: absolute;
+    font-size: 16pt;
+    left: 0;
+    top: -1.5pt;
+}

@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "investment_goals_pink",
+    DOCUMENTID = "dorm_list",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "investment_goals"
+    BASEPROJECTNAME = "dorm_list_pink"
 }
