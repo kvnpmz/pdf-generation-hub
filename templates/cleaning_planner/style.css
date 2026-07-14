@@ -1,0 +1,214 @@
+body {
+    display: grid;
+    grid-template-rows: 40pt repeat(4, auto);
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas:
+        "header header header header header header header header header header"
+        "everyday everyday everyday day-calendar day-calendar day-calendar sunday sunday monday monday"
+        "tuesday tuesday wednesday wednesday thursday thursday friday friday saturday saturday"
+        "monthly monthly monthly monthly monthly month-calendar month-calendar month-calendar month-calendar month-calendar"
+        "annually annually annually annually annually annually annually annually annually annually";
+    font-size: 9pt;
+/*    outline: 1pt solid red;
+*/
+    row-gap: 10pt;
+}
+
+header {
+    grid-area: header;
+}
+
+.everyday {
+    grid-area: everyday;
+    --h2-color: #85DC5B;
+}
+
+.day-calendar {
+    grid-area: day-calendar;
+    --h2-color: #AFE691;
+}
+
+.sunday {
+    grid-area: sunday;
+    --h2-color: #FFA601;
+}
+
+.monday {
+    grid-area: monday;
+    --h2-color: #33D3D2;
+}
+
+.tuesday {
+    grid-area: tuesday;
+    --h2-color: #D3BDDF;
+}
+
+.wednesday {
+    grid-area: wednesday;
+    --h2-color: #FAE75E;
+}
+
+.thursday {
+    grid-area: thursday;
+    --h2-color: #86DD5A;
+}
+
+.friday {
+    grid-area: friday;
+    --h2-color: #5E9BD9;
+}
+
+.saturday {
+    grid-area: saturday;
+    --h2-color: #F18C6D;
+}
+
+.monthly {
+    grid-area: monthly;
+    --h2-color: #FFA600;
+}
+
+.month-calendar {
+    grid-area: month-calendar;
+    --h2-color: #FFC568;
+}
+
+.annually {
+    grid-area: annually;
+    column-count: 2;
+    --h2-color: #77C8CA;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1pt;
+}
+
+.calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: 20pt repeat(7, auto);
+    flex: 1;
+}
+
+.month-calendar .calendar-container {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.day-label {
+    text-align: center;
+    font-weight: bold;
+    line-height: 20pt;
+    font-size: 12pt;
+}
+
+.day-cell {
+    position: relative;
+}
+
+.day-cell::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: -5pt;
+    font-size: 25pt;
+    color: var(--h2-color);
+}
+
+h1 {
+    font-family: "Source Serif 4";
+    color: #106cd0;
+    font-size: 30pt;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 3pt;
+    border-bottom: 2pt solid;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: inherit;
+    text-align: center;
+    line-height: 20pt;
+    letter-spacing: 2pt;
+    background-color: var(--h2-color);
+}
+
+ul {
+    list-style: none;
+    padding-top: 2pt;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+li {
+    position: relative;
+    padding-left: 12pt;
+    display: flex;
+    align-items: center;
+    border-bottom: 1pt solid;
+    flex: 1;
+}
+
+li::before {
+    content: "○";
+    position: absolute;
+    font-size: 12pt;
+    left: 0;
+    top: 1.5pt;
+}
+
+.everyday li,
+.monthly li {
+    padding-left: 0;
+}
+
+.everyday li::before,
+.monthly li::before {
+    content: none;
+}
+
+.annually-list > li::before {
+    content: "■";
+    top: -3.5pt;
+    left: auto;
+    right: 0;
+    font-size: 25pt;
+    color: #a8e8e9;
+}
+
+.annually-list > li {
+    padding-left: 0;
+    border-bottom: none;
+}
+
+.annually-list > li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 35pt;
+    border-bottom: 1pt solid;
+    width: calc(100% - 50pt);
+}
+
+.month-label {
+    margin-right: 3pt;
+    font-weight: 600;
+    width: 15pt;
+    text-align: center;
+    font-size: 12pt;
+}
+
+.annually-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    gap: 1pt;
+}
+
+.annually-list {
+    flex: 1;
+}

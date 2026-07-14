@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "dorm_list",
+    DOCUMENTID = "cleaning_planner",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "dorm_list_pink"
+    BASEPROJECTNAME = "cleaning_planner_pink"
 }

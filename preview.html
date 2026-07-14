@@ -25,214 +25,547 @@ body {
 }</style>
             <style>body {
     display: grid;
-    grid-template-rows: 45pt 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    font-size: 13.5pt;
+    grid-template-rows: 40pt repeat(4, auto);
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas:
+        "header header header header header header header header header header"
+        "everyday everyday everyday day-calendar day-calendar day-calendar sunday sunday monday monday"
+        "tuesday tuesday wednesday wednesday thursday thursday friday friday saturday saturday"
+        "monthly monthly monthly monthly monthly month-calendar month-calendar month-calendar month-calendar month-calendar"
+        "annually annually annually annually annually annually annually annually annually annually";
+    font-size: 9pt;
+/*    outline: 1pt solid red;
+*/
+    row-gap: 10pt;
 }
 
-body > :first-child {
-    grid-column: 1 / -1;
+header {
+    grid-area: header;
 }
 
-.column { 
+.everyday {
+    grid-area: everyday;
+    --h2-color: #85DC5B;
+}
+
+.day-calendar {
+    grid-area: day-calendar;
+    --h2-color: #AFE691;
+}
+
+.sunday {
+    grid-area: sunday;
+    --h2-color: #FFA601;
+}
+
+.monday {
+    grid-area: monday;
+    --h2-color: #33D3D2;
+}
+
+.tuesday {
+    grid-area: tuesday;
+    --h2-color: #D3BDDF;
+}
+
+.wednesday {
+    grid-area: wednesday;
+    --h2-color: #FAE75E;
+}
+
+.thursday {
+    grid-area: thursday;
+    --h2-color: #86DD5A;
+}
+
+.friday {
+    grid-area: friday;
+    --h2-color: #5E9BD9;
+}
+
+.saturday {
+    grid-area: saturday;
+    --h2-color: #F18C6D;
+}
+
+.monthly {
+    grid-area: monthly;
+    --h2-color: #FFA600;
+}
+
+.month-calendar {
+    grid-area: month-calendar;
+    --h2-color: #FFC568;
+}
+
+.annually {
+    grid-area: annually;
+    column-count: 2;
+    --h2-color: #77C8CA;
+}
+
+section {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: 1pt;
+}
+
+.calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: 20pt repeat(7, auto);
+    flex: 1;
+}
+
+.month-calendar .calendar-container {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.day-label {
+    text-align: center;
+    font-weight: bold;
+    line-height: 20pt;
+    font-size: 12pt;
+}
+
+.day-cell {
     position: relative;
-    gap: 10pt;
 }
 
-.column:nth-of-type(1) {
-    line-height: 1.25;
-}
-
-.column:nth-of-type(2) {
-    line-height: 1.25;
-}
-
-.column:nth-of-type(3) {
-    line-height: 1.29;
+.day-cell::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: -5pt;
+    font-size: 25pt;
+    color: var(--h2-color);
 }
 
 h1 {
-	font-family: 'Source Serif 4';
-    color: #106CD0;
+    font-family: "Source Serif 4";
+    color: #106cd0;
     font-size: 30pt;
     font-weight: 900;
     text-align: center;
     letter-spacing: 3pt;
+    border-bottom: 2pt solid;
 }
 
 h2 {
     text-transform: uppercase;
     font-size: inherit;
+    text-align: center;
+    line-height: 20pt;
+    letter-spacing: 2pt;
+    background-color: var(--h2-color);
 }
 
 ul {
     list-style: none;
     padding-top: 2pt;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 li {
     position: relative;
-    padding: 0pt 3pt 0pt 20pt;
-    text-transform: capitalize;
+    padding-left: 12pt;
+    display: flex;
+    align-items: center;
+    border-bottom: 1pt solid;
+    flex: 1;
 }
 
 li::before {
-    content: "□";
+    content: "○";
     position: absolute;
-    font-size: 16pt;
+    font-size: 12pt;
     left: 0;
-    top: -1.5pt;
+    top: 1.5pt;
+}
+
+.everyday li,
+.monthly li {
+    padding-left: 0;
+}
+
+.everyday li::before,
+.monthly li::before {
+    content: none;
+}
+
+.annually-list > li::before {
+    content: "■";
+    top: -3.5pt;
+    left: auto;
+    right: 0;
+    font-size: 25pt;
+    color: #a8e8e9;
+}
+
+.annually-list > li {
+    padding-left: 0;
+    border-bottom: none;
+}
+
+.annually-list > li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 35pt;
+    border-bottom: 1pt solid;
+    width: calc(100% - 50pt);
+}
+
+.month-label {
+    margin-right: 3pt;
+    font-weight: 600;
+    width: 15pt;
+    text-align: center;
+    font-size: 12pt;
+}
+
+.annually-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    gap: 1pt;
+}
+
+.annually-list {
+    flex: 1;
 }</style>
         </head>
         <body>
-        <h1>College Dorm Checklist</h1>
-        <div class="column">
-            <section>
-                <h2>Bedroom</h2>
-                <ul>
-                    <li>Bed Frame</li>
-                    <li>Mattress</li>
-                    <li>Sheets</li>
-                    <li>Pillows</li>
-                    <li>Blanket</li>
-                    <li>Mattress Protector</li>
-                    <li>Clothes Hangers</li>
-                    <li>Laundry Basket</li>
-                    <li>Under-bed Storage Boxes</li>
-                    <li>Desk Chair Cushion</li>
-                    <li>Small Rug</li>
-                    <li>Curtains or Blinds</li>
+        <header>
+            <h1>Cleaning Planner</h1>
+        </header>
+        <section class="month-calendar">
+            <div class="calendar-container">
+                <div class="day-label">J</div>
+                <div class="day-label">F</div>
+                <div class="day-label">M</div>
+                <div class="day-label">A</div>
+                <div class="day-label">M</div>
+                <div class="day-label">J</div>
+                <div class="day-label">J</div>
+                <div class="day-label">A</div>
+                <div class="day-label">S</div>
+                <div class="day-label">O</div>
+                <div class="day-label">N</div>
+                <div class="day-label">D</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+            </div>
+        </section>
+        <section class="friday">
+            <h2>Friday</h2>
+            <ul>
+                <li>Make grocery list</li>
+                <li>Clean fridge</li>
+                <li>Dust living room</li>
+                <li>Vacuum living room</li>
+                <li>Clear hallway</li>
+                <li>Vacuum entry</li>
+                <li>Mop living room</li>
+            </ul>
+        </section>
+        <section class="sunday">
+            <h2>Sunday</h2>
+            <ul>
+                <li>Wash bedsheets</li>
+                <li>Wash towels</li>
+                <li>Do laundry</li>
+                <li>Dust bedroom</li>
+                <li>Declutter bedrom</li>
+                <li>Vacuum bedroom</li>
+                <li>Mop bedroom</li>
+            </ul>
+        </section>
+        <section class="tuesday">
+            <h2>Tuesday</h2>
+            <ul>
+                <li>Dust kitchen</li>
+                <li>Wipe appliances</li>
+                <li>Clean microwave</li>
+                <li>Clean stove</li>
+                <li>Clean kitchen sink</li>
+                <li>Clean cupboard</li>
+                <li>Vacuum kitchen</li>
+            </ul>
+        </section>
+        <section class="thursday">
+            <h2>Thursday</h2>
+            <ul>
+                <li>Tidy pantry</li>
+                <li>Clean countertops</li>
+                <li>Dust furniture</li>
+                <li>Declutter living</li>
+                <li>Declutter closet</li>
+                <li>Declutter bathroom</li>
+                <li>Vacuum couches</li>
+            </ul>
+        </section>
+        <section class="annually">
+            <h2>Annually</h2>
+            <div class="annually-container">
+                <ul class="annually-list">
+                    <li>
+                        <div class="month-label">J</div>
+                        <div class="item-text">Clear out storage</div>
+                    </li>
+                    <li>
+                        <div class="month-label">F</div>
+                        <div class="item-text">Reassess belongings</div>
+                    </li>
+                    <li>
+                        <div class="month-label">M</div>
+                        <div class="item-text">Replace bulbs</div>
+                    </li>
+                    <li>
+                        <div class="month-label">A</div>
+                        <div class="item-text">Test smoke alarms</div>
+                    </li>
+                    <li>
+                        <div class="month-label">M</div>
+                        <div class="item-text">Deep clean behind furniture</div>
+                    </li>
+                    <li>
+                        <div class="month-label">J</div>
+                        <div class="item-text">Review and organize documents</div>
+                    </li>
                 </ul>
-            </section>
-            <section>
-                <h2>Kitchen</h2>
-                <ul>
-                    <li>Mini Fridge</li>
-                    <li>Microwave</li>
-                    <li>Toaster</li>
-                    <li>Kettle</li>
-                    <li>Coffee Machine</li>
-                    <li>Blender</li>
-                    <li>Plates</li>
-                    <li>Bowls</li>
-                    <li>Cups</li>
-                    <li>Mugs</li>
-                    <li>Cutlery</li>
-                    <li>Cutting Board</li>
-                    <li>Knife Set</li>
-                    <li>Spatula</li>
-                    <li>Tongs</li>
-                    <li>Measuring Cups</li>
-                    <li>Measuring Spoons</li>
-                    <li>Food Storage Containers</li>
-                    <li>Plastic Wrap</li>
-                    <li>Sandwich Bags</li>
-                    <li>Dish Soap</li>
-                    <li>Sponge / Dish Brush</li>
-                    <li>Paper Towels</li>
+                <ul class="annually-list">
+                    <li>
+                        <div class="month-label">J</div>
+                        <div class="item-text">Scrub walls</div>
+                    </li>
+                    <li>
+                        <div class="month-label">A</div>
+                        <div class="item-text">Clean out freezer</div>
+                    </li>
+                    <li>
+                        <div class="month-label">S</div>
+                        <div class="item-text">Clean gutters</div>
+                    </li>
+                    <li>
+                        <div class="month-label">O</div>
+                        <div class="item-text">Wash curtains</div>
+                    </li>
+                    <li>
+                        <div class="month-label">N</div>
+                        <div class="item-text">Clean fireplace</div>
+                    </li>
+                    <li>
+                        <div class="month-label">D</div>
+                        <div class="item-text">Clean light fixtures</div>
+                    </li>
                 </ul>
-            </section>
-        </div>
-        <div class="column">
-            <section>
-                <h2>Study</h2>
-                <ul>
-                    <li>Desk</li>
-                    <li>Desk Chair</li>
-                    <li>Desk Lamp</li>
-                    <li>Laptop</li>
-                    <li>Monitor</li>
-                    <li>Keyboard</li>
-                    <li>Mouse</li>
-                    <li>Headphones</li>
-                    <li>Notepad</li>
-                    <li>Pens</li>
-                    <li>Pencils</li>
-                    <li>Markers</li>
-                    <li>Highlighters</li>
-                    <li>Sticky Notes</li>
-                    <li>Tape</li>
-                    <li>Desk Organizer</li>
-                    <li>Drawer Organizer</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Bathroom</h2>
-                <ul>
-                    <li>Towels</li>
-                    <li>Washcloths</li>
-                    <li>Shower Curtain</li>
-                    <li>Bath Mat</li>
-                    <li>Soap</li>
-                    <li>Body Wash</li>
-                    <li>Shampoo</li>
-                    <li>Conditioner</li>
-                    <li>Toothbrush / Toothpaste</li>
-                    <li>Toothbrush Holder</li>
-                    <li>Razor</li>
-                    <li>Shaving Cream</li>
-                    <li>Hairbrush</li>
-                    <li>Comb</li>
-                    <li>Feminine Hygiene Products</li>
-                    <li>Trash Bin</li>
-                    <li>Cleaning Wipes</li>
-                    <li>Disinfectant</li>
-                </ul>
-            </section>
-        </div>
-        <div class="column">
-            <section>
-                <h2>Cleaning Supplies</h2>
-                <ul>
-                    <li>Broom</li>
-                    <li>Dustpan</li>
-                    <li>Mop</li>
-                    <li>Bucket</li>
-                    <li>Vacuum Cleaner</li>
-                    <li>All-purpose Cleaner</li>
-                    <li>Glass Cleaner</li>
-                    <li>Microfiber Cloths</li>
-                    <li>Laundry Detergent</li>
-                    <li>Fabric Softener</li>
-                    <li>Hooks / Wall Hangers</li>
-                    <li>Storage Bins</li>
-                    <li>Shelving Units</li>
-                    <li>Closet Organizers</li>
-                    <li>Shoe Rack</li>
-                    <li>Drawer Organizers</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Electronics</h2>
-                <ul>
-                    <li>Phone Charger</li>
-                    <li>Power Strip</li>
-                    <li>Extension Cord</li>
-                    <li>Alarm Clock</li>
-                    <li>Desk Fan</li>
-                    <li>Small Heater</li>
-                    <li>Bluetooth Speaker</li>
-                    <li>Lamp</li>
-                    <li>TV</li>
-                    <li>Streaming Device</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Decor</h2>
-                <ul>
-                    <li>Wall Art</li>
-                    <li>Posters</li>
-                    <li>Photo Frames</li>
-                    <li>Throw Pillows</li>
-                    <li>Blankets</li>
-                    <li>Area Rug</li>
-                    <li>Indoor Plant</li>
-                    <li>Mirror</li>
-                </ul>
-            </section>
-        </div>
+            </div>
+        </section>
+        <section class="monthly">
+            <h2>Monthly</h2>
+            <ul>
+                <li>Deep clean fridge</li>
+                <li>Clean out pantry</li>
+                <li>Replace air filters</li>
+                <li>Clean mattress</li>
+                <li>Clean light switches</li>
+                <li>Clean doors and knobs</li>
+                <li>Clean ceiling fans, vents, and AC</li>
+            </ul>
+        </section>
+        <section class="saturday">
+            <h2>Saturday</h2>
+            <ul>
+                <li>Grocery shop</li>
+                <li>Clean yard</li>
+                <li>Declutter car</li>
+                <li>Vacuum car</li>
+                <li>Wash dishes</li>
+                <li>Clean dishwasher</li>
+                <li>General declutter</li>
+            </ul>
+        </section>
+        <section class="everyday">
+            <h2>Everyday</h2>
+            <ul>
+                <li>Make bed</li>
+                <li>Wash dishes</li>
+                <li>Do laundry</li>
+                <li>Empty trash</li>
+                <li>Declutter high-traffic area</li>
+                <li>Clear bathroom surfaces</li>
+                <li>Clear kitchen counters</li>
+            </ul>
+        </section>
+        <section class="wednesday">
+            <h2>Wednesday</h2>
+            <ul>
+                <li>Take out trash</li>
+                <li>Clean desk</li>
+                <li>Dust home office</li>
+                <li>Clean computer</li>
+                <li>Tidy home office</li>
+                <li>Clean electronics</li>
+                <li>Review digital clutter</li>
+            </ul>
+        </section>
+        <section class="monday">
+            <h2>Monday</h2>
+            <ul>
+                <li>Clean tub</li>
+                <li>Clean bathroom sink</li>
+                <li>Clean mirror</li>
+                <li>Clean Toilet</li>
+                <li>Sweep bathroom</li>
+                <li>Mop bathroom</li>
+                <li>Water plants</li>
+            </ul>
+        </section>
+        <section class="day-calendar">
+            <div class="calendar-container">
+                <div class="day-label">S</div>
+                <div class="day-label">M</div>
+                <div class="day-label">T</div>
+                <div class="day-label">W</div>
+                <div class="day-label">T</div>
+                <div class="day-label">F</div>
+                <div class="day-label">S</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+                <div class="day-cell">&nbsp</div>
+            </div>
+        </section>
     </body>
 </html>
