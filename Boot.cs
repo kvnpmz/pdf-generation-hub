@@ -12,46 +12,55 @@ public class Boot : IStep
         // If the project exists, we skip scaffolding (Idempotency)
         if (Directory.Exists(projectPath)) return;
 
-        var baseProjectName = context.BaseProjectName;
-        string baseConfigContent = await File.ReadAllTextAsync(Path.Combine(DocsDirectory, baseProjectName, "config.tl"));
-        string? templateName = Regex.Match(
-            baseConfigContent,
-            @"template\s*=\s*""([^""]+)"""
-        ).Groups[1].Value;
+        Watcher.BootState.SuppressEvents = true;
 
-        string templateSourcePath = Path.Combine(TemplatesDirectory, templateName);
-
-        if (!Directory.Exists(templateSourcePath))
+        try
         {
-            throw new DirectoryNotFoundException($"Template does not exist: {templateSourcePath}");
+            var baseProjectName = context.BaseProjectName;
+            string baseConfigContent = await File.ReadAllTextAsync(Path.Combine(DocsDirectory, baseProjectName, "config.tl"));
+            string? templateName = Regex.Match(
+                    baseConfigContent,
+                    @"template\s*=\s*""([^""]+)"""
+                    ).Groups[1].Value;
+
+            string templateSourcePath = Path.Combine(TemplatesDirectory, templateName);
+
+            if (!Directory.Exists(templateSourcePath))
+            {
+                throw new DirectoryNotFoundException($"Template does not exist: {templateSourcePath}");
+            }
+
+            string baseDocumentPath = Path.Combine(DocsDirectory, baseProjectName);
+            CopyDirectory(baseDocumentPath, projectPath);
+
+            string projectConfigPath = (Path.Combine(projectPath, "config.tl"));
+            string projectConfigContent = await File.ReadAllTextAsync(projectConfigPath);
+
+            bool baseHasId = Regex.IsMatch(baseConfigContent, @"id\s*=\s*""[^""]*""");
+            var ReturnPattern = @"return\s*\{\s*";
+            var IdPattern = @"id\s*=\s*"".*?""";
+
+            if (!baseHasId)
+            {
+                projectConfigContent = Regex.Replace(
+                        projectConfigContent,
+                        ReturnPattern,
+                        match => match.Value + $"id = \"{context.DocumentId}\",{Environment.NewLine}    "
+                        );
+            }
+            else
+            {
+                projectConfigContent = Regex.Replace(projectConfigContent, IdPattern, $"id = \"{context.DocumentId}\"");
+            }
+
+            await File.WriteAllTextAsync(projectConfigPath, projectConfigContent);
+
+            Console.WriteLine($"[SUCCESS] Project {context.DocumentId} scaffolded.");
         }
-
-        string baseDocumentPath = Path.Combine(DocsDirectory, baseProjectName);
-        CopyDirectory(baseDocumentPath, projectPath);
-
-        string projectConfigPath = (Path.Combine(projectPath, "config.tl"));
-        string projectConfigContent = await File.ReadAllTextAsync(projectConfigPath);
-
-        bool baseHasId = Regex.IsMatch(baseConfigContent, @"id\s*=\s*""[^""]*""");
-        var ReturnPattern = @"return\s*\{\s*";
-        var IdPattern = @"id\s*=\s*"".*?""";
-
-        if (!baseHasId)
+        finally
         {
-            projectConfigContent = Regex.Replace(
-                projectConfigContent,
-                ReturnPattern,
-                match => match.Value + $"id = \"{context.DocumentId}\",{Environment.NewLine}    "
-            );
+            Watcher.BootState.SuppressEvents = false;
         }
-        else
-        {
-            projectConfigContent = Regex.Replace(projectConfigContent, IdPattern, $"id = \"{context.DocumentId}\"");
-        }
-
-        await File.WriteAllTextAsync(projectConfigPath, projectConfigContent);
-
-        Console.WriteLine($"[SUCCESS] Project {context.DocumentId} scaffolded.");
     }
 
     private void CopyDirectory(string source, string destination)

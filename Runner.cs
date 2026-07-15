@@ -42,6 +42,14 @@ public class Runner
         {
             var (documentId, enableImages, baseProjectName) = LoadRuntime();
 
+            var bootstrapContext = new Context
+            {
+                DocumentId = documentId,
+                BaseProjectName = baseProjectName,
+            };
+
+            await new Boot().ExecuteAsync(bootstrapContext);
+
             var config = (LuaTable)lua.DoString(
                     $"return require('documents.{documentId}.config')"
                     )[0];
@@ -62,10 +70,9 @@ public class Runner
                 EnableImages = Convert.ToBoolean(enableImages),
                 OutputDirectory = Path.Combine(_root, "output", documentId),
                 BaseProjectName = baseProjectName,
-                Flow = _flow
+                Flow = _flow,
+                Config = config
             };
-
-            context.Config = config;
 
             await _flow.ExecuteAsync(context);
         }

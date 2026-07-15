@@ -31,7 +31,6 @@ public class Flow
 
         var steps = new List<IStep>
         {
-            new Boot(),
             new Build(),
             new Engine(),
             new Image(),

@@ -7,6 +7,11 @@ public class Watcher
     private readonly string _root = Paths.RootPath;
     private readonly Channel<FileSystemEventArgs> _eventChannel = Channel.CreateUnbounded<FileSystemEventArgs>();
 
+    public static class BootState
+    {
+        public static bool SuppressEvents { get; set; }
+    }
+
     public Watcher()
     {
         _runner = new Runner(_flow); 
@@ -27,6 +32,9 @@ public class Watcher
 
         FileSystemEventHandler handler = (sender, eventData) =>
         {
+            if (BootState.SuppressEvents)
+                return;
+
             if (IsTargetFile(eventData.Name))
                 _eventChannel.Writer.TryWrite(eventData);
         };
@@ -35,6 +43,9 @@ public class Watcher
         watcher.Created += handler;
         watcher.Renamed += (sender, eventData) =>
         {
+            if (BootState.SuppressEvents)
+                return;
+
             if (IsTargetFile(eventData.Name))
                 _eventChannel.Writer.TryWrite(eventData);
         };

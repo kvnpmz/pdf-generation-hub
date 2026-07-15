@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "cleaning_planner",
-    ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "cleaning_planner_pink"
+    DOCUMENTID = "folicacid_foodlist_green",
+    ENABLEIMAGES = 0,
+    BASEPROJECTNAME = "folicacid_foodlist"
 }
