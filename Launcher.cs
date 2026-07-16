@@ -31,10 +31,8 @@ public class Launcher
         using var lua = new Lua();
         lua.State.Encoding = Encoding.UTF8;
 
-        lua.DoString(
-                $"package.path = package.path .. ';{Path.Combine(_root, "?.tl")}'" +
-                $" .. ';{Path.Combine(_root, "?/init.tl")}'"
-                );
+        lua.DoString($"package.path = package.path .. ';{Path.Combine(_root, "?.tl")}'" +
+                $" .. ';{Path.Combine(_root, "?/init.tl")}'");
 
         lua.DoString("local tl = require('tl'); tl.loader();");
 
@@ -50,19 +48,19 @@ public class Launcher
 
             await new Boot().ExecuteAsync(bootstrapContext);
 
-            var config = (LuaTable)lua.DoString(
-                    $"return require('documents.{documentId}.config')"
-                    )[0];
+            var config = (LuaTable)lua.DoString($"return require('documents.{documentId}.config')")[0];
+            config = new Inherit().Apply(documentId, config, lua);
 
-            var template = config["template"]?.ToString()
-                ?? throw new Exception("Missing template");
+            if (config["template"] == null) {
+                Console.WriteLine($"DEBUG: Template is null for document {documentId}");
+            }
+
+            var template = config["template"]?.ToString() ?? throw new Exception("Missing template");
 
             string renderCs = Path.Combine(_root, "templates", template, "render.cs");
 
             if (File.Exists(renderCs))
-            {
                 LoadPlugin(template);
-            }
 
             var context = new Context
             {

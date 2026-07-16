@@ -8,27 +8,48 @@ public class RenderResult
     public string OutputName { get; set; } = "output";
 }
 
+public interface IRenderProvider
+{
+    bool CanRender(string template);
+
+    Task<RenderResult> RenderAsync(
+            Context context,
+            LuaTable config);
+}
+
 public class Build : IStep
 {
+    private readonly List<IRenderProvider> _providers;
+
+    public Build()
+    {
+        _providers = new()
+        {
+            new TealRenderProvider(),
+            new PluginRenderProvider()
+        };
+    }
+
     public async Task ExecuteAsync(Context context)
     {
-        using var lua = new Lua();
-        lua.State.Encoding = Encoding.UTF8;
+        var config = context.Config;
 
-        var luaPath =
-            $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}' " +
-            $".. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'";
+        if (config == null)
+        {
+            using var lua = new Lua();
+            lua.State.Encoding = Encoding.UTF8;
 
-        lua.DoString(luaPath);
-        lua["ROOT_PATH"] = Paths.RootPath;
+            var luaPath = $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}' " +
+                $".. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'";
 
-        lua.DoString("local tl = require('tl'); tl.loader();");
+            lua.DoString(luaPath);
+            lua["ROOT_PATH"] = Paths.RootPath;
+            lua.DoString("local tl = require('tl'); tl.loader();");
 
-        var config = (LuaTable)lua.DoString(
-                $"return require('documents.{context.DocumentId}.config')"
-                )[0];
-
-        context.Config = config;
+            var loadedConfig = (LuaTable)lua.DoString($"return require('documents.{context.DocumentId}.config')")[0];
+            config = new Inherit().Apply(context.DocumentId, loadedConfig, lua);
+            context.Config = config;
+        }
 
         var template = config["template"]?.ToString()
             ?? throw new Exception("Missing template");
@@ -42,45 +63,32 @@ public class Build : IStep
                 "render"
                 );
 
-        if (File.Exists(renderPath + ".tl"))
+        IRenderProvider provider = null;
+
+        foreach (var item in _providers)
         {
-            var files = new[]
+            if (item.CanRender(template))
             {
-                "init.tl",
-                Path.Combine("documents", context.DocumentId, "config.tl"),
-                Path.Combine("templates", template, "render.tl")
-            };
-
-            await RunTlCheckAsync(files);
-
-            var exports = (LuaTable)lua.DoString("return require('init')")[0];
-            var render = (LuaFunction)exports["Render"];
-
-            var result = (LuaTable)render.Call(context.DocumentId)[0];
-            context.Html = result["html"]?.ToString() ?? string.Empty;
-            context.OutputName = result["outputName"]?.ToString() ?? "output";
-        }
-        else if (File.Exists(renderPath + ".cs"))
-        {
-            if (context.Flow != null && context.Flow.TryGetRenderer(template, out var renderer))
-            {
-                var result = renderer!.Render(config);
-
-                if (result == null) 
-                    throw new Exception("Renderer returned null");
-
-                context.Html = FinalizeHtml(result.Html, config);
-                context.OutputName = result.OutputName;
-            }
-            else
-            {
-                throw new Exception($"Could not find registered renderer for '{template}' in Flow.");
+                provider = item;
+                break;
             }
         }
-        else
+
+        if (provider == null)
         {
-            throw new Exception($"No render.tl or render.cs found for template '{template}'");
+            throw new Exception(
+                    $"No renderer found for '{template}'");
         }
+
+        var result = await provider.RenderAsync(
+                context,
+                config);
+
+        context.Html = FinalizeHtml(
+                result.Html,
+                config);
+
+        context.OutputName = result.OutputName;
 
         string formattedHtml = Format.Beautify(context.Html);
 
@@ -88,52 +96,6 @@ public class Build : IStep
         var previewPath = Path.Combine(Paths.RootPath, "preview.html");
         File.WriteAllText(htmlPath, formattedHtml);
         File.WriteAllText(previewPath, formattedHtml);
-    }
-
-    private static async Task RunTlCheckAsync(IEnumerable<string> files)
-    {
-        var psi = new ProcessStartInfo
-        {
-            FileName = "tl",
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true,
-            WorkingDirectory = Paths.RootPath
-        };
-
-        psi.ArgumentList.Add("check");
-
-        foreach (var file in files)
-            psi.ArgumentList.Add(file);
-
-        using var process = new Process
-        {
-            StartInfo = psi,
-            EnableRaisingEvents = true
-        };
-
-        process.OutputDataReceived += (_, e) =>
-        {
-            if (!string.IsNullOrEmpty(e.Data))
-                Console.WriteLine(e.Data);
-        };
-
-        process.ErrorDataReceived += (_, e) =>
-        {
-            if (!string.IsNullOrEmpty(e.Data))
-                Console.Error.WriteLine(e.Data);
-        };
-
-        process.Start();
-
-        process.BeginOutputReadLine();
-        process.BeginErrorReadLine();
-
-        await process.WaitForExitAsync();
-
-        if (process.ExitCode != 0)
-            throw new Exception($"tl check failed (exit {process.ExitCode})");
     }
 
     private static string FinalizeHtml(string content, LuaTable config)
