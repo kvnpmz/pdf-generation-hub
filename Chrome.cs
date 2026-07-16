@@ -1,6 +1,6 @@
 using Microsoft.Playwright;
 
-public class Chrome : IPdfEngine
+public class Chrome : IPdfExport
 {
     public async Task ExecuteAsync(Context context)
     {

@@ -3,7 +3,7 @@ using System.Threading.Channels;
 public class Watcher
 {
     private readonly Flow _flow = new();
-    private readonly Runner _runner;
+    private readonly Launcher _launcher;
     private readonly string _root = Paths.RootPath;
     private readonly Channel<FileSystemEventArgs> _eventChannel = Channel.CreateUnbounded<FileSystemEventArgs>();
 
@@ -14,12 +14,12 @@ public class Watcher
 
     public Watcher()
     {
-        _runner = new Runner(_flow); 
+        _launcher = new Launcher(_flow); 
     }
 
     public async Task Start(CancellationToken cancellationToken = default)
     {
-        await _runner.BuildAsync();
+        await _launcher.BuildAsync();
 
         _ = ProcessEventQueue(cancellationToken);
 
@@ -67,7 +67,7 @@ public class Watcher
             await Task.Delay(250, cancellationToken);
             while (_eventChannel.Reader.TryRead(out _)) { }
 
-            await _runner.BuildAsync(fullPath);
+            await _launcher.BuildAsync(fullPath);
         }
     }
 
@@ -79,20 +79,5 @@ public class Watcher
             return false;
 
         return fileName.EndsWith(".tl") || fileName.EndsWith(".cs") || fileName.EndsWith(".css");
-    }
-
-    private void RunCommand(string command, string args)
-    {
-        var startInfo = new System.Diagnostics.ProcessStartInfo
-        {
-            FileName = command,
-            Arguments = args,
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
-
-        using var process = System.Diagnostics.Process.Start(startInfo);
-        process?.WaitForExit();
     }
 }

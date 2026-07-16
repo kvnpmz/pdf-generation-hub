@@ -4,13 +4,13 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Reflection;
 
-public class Runner
+public class Launcher
 {
     private readonly Flow _flow;
     private readonly string _root = Paths.RootPath;
     private readonly Resolver _resolver = new();
 
-    public Runner(Flow flow)
+    public Launcher(Flow flow)
     {
         _flow = flow;
     }
@@ -145,7 +145,7 @@ public class Runner
 
     private (string documentId, int enableImages, string baseProjectName) LoadRuntime()
     {
-        var lua = new Lua();
+        using var lua = new Lua();
         var path = Path.Combine(_root, "runtime.tl");
 
         lua.RegisterFunction("print", this, GetType().GetMethod(nameof(LuaPrint)));

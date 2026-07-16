@@ -1,5 +1,5 @@
 return {
-    id = "folicacid_foodlist",
+    id = "folicacid_foodlist_green",
     output_name = "folicacid_foodlist",
     template = "folicacid_foodlist",
     header = "Folic Acid Rich Food List",

@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-public class Weasy : IPdfEngine
+public class Weasy : IPdfExport
 {
     private static readonly string htmlFile = Path.Combine(Paths.RootPath, "preview.html");
 
