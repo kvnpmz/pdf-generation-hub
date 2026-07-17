@@ -1,7 +1,7 @@
 using System.Text;
 using NLua;
 
-public class Inherit
+public class Extender
 {
     private readonly string _root = Paths.RootPath;
 
@@ -16,7 +16,7 @@ public class Inherit
         if (result == null || result.Length == 0)
         {
             Console.WriteLine(
-                $"[Inherit] ERROR: Could not find or load base config for '{extends}'"
+                $"[Extender] ERROR: Could not find or load base config for '{extends}'"
             );
             return config;
         }
@@ -26,7 +26,7 @@ public class Inherit
         if (baseConfig == null)
         {
             Console.WriteLine(
-                $"[Inherit] ERROR: Loaded base config for '{extends}' but it was null."
+                $"[Extender] ERROR: Loaded base config for '{extends}' but it was null."
             );
             return config;
         }
