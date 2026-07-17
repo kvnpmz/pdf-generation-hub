@@ -14,12 +14,12 @@ public class Flow
 {
     private readonly Dictionary<string, IRenderer> _renderers = new();
 
-    public void RegisterRenderer(string templateName, IRenderer renderer) 
+    public void RegisterRenderer(string templateName, IRenderer renderer)
     {
         _renderers[templateName] = renderer;
     }
 
-    public bool TryGetRenderer(string templateName, out IRenderer? renderer) 
+    public bool TryGetRenderer(string templateName, out IRenderer? renderer)
     {
         var found = _renderers.TryGetValue(templateName, out renderer);
         return found;

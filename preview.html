@@ -24,218 +24,562 @@ body {
     font-size: 6pt;
 }</style>
             <style>body {
-    display: grid;
-    grid-template-rows: 45pt 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    font-size: 13.5pt;
-}
-
-body > :first-child {
-    grid-column: 1 / -1;
-}
-
-.column { 
     display: flex;
     flex-direction: column;
+    font-size: 10.0pt;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2pt;
     flex: 1;
-    position: relative;
-    gap: 10pt;
 }
 
-.column:nth-of-type(1) {
-    line-height: 1.25;
+.column {
+    padding-top: 5pt;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.column:nth-of-type(2) {
-    line-height: 1.25;
-}
-
-.column:nth-of-type(3) {
-    line-height: 1.29;
+section {
+    padding: 2pt;
 }
 
 h1 {
-	font-family: 'Source Serif 4';
-    color: #106CD0;
-    font-size: 30pt;
-    font-weight: 900;
+    grid-column: 1 / -1;
     text-align: center;
-    letter-spacing: 3pt;
+    font-size: 30pt;
+    color: #59989F;
+    font-family: "Source Serif 4";
+    font-weight: 900;
 }
 
 h2 {
-    text-transform: uppercase;
-    font-size: inherit;
+    font-size: 14pt;
+    padding: 0 5pt;
+    color: var(--theme-color);
+    font-family: "Source Serif 4";
+}
+
+h3 { 
+    color: var(--theme-color); 
+    font-size: 13pt;
 }
 
 ul {
     list-style: none;
-    padding-top: 2pt;
 }
 
 li {
     position: relative;
-    padding: 0pt 3pt 0pt 20pt;
-    text-transform: capitalize;
+    padding-left: 5pt;
 }
 
 li::before {
-    content: "□";
+    content: "●";
+    font-size: 5.5pt;
+    left: -2pt;
+    top: 2.5pt;
     position: absolute;
-    font-size: 16pt;
-    left: 0;
-    top: -1.5pt;
 }
-h1 {
-    color: #D10F6E;
-}</style>
+
+.green { --theme-color: #7B994C; }
+.amber { --theme-color: #C98A1D; }
+.red { --theme-color: #B5524A; }
+.column {
+    position: relative; 
+}
+
+.column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 16pt;
+    bottom: 8pt;
+    right: 3pt;
+    width: 1.5pt;
+    background-color: #929292;
+}
+
+h1 { color: #4A7D82; }
+.green { --theme-color: #91AD65; }
+.amber { --theme-color: #D6A34D; }
+.red { --theme-color: #C4766F; }</style>
         </head>
         <body>
-        <h1>College Dorm Checklist</h1>
-        <div class="column">
-            <section>
-                <h2>Bedroom</h2>
-                <ul>
-                    <li>Bed Frame</li>
-                    <li>Mattress</li>
-                    <li>Sheets</li>
-                    <li>Pillows</li>
-                    <li>Blanket</li>
-                    <li>Mattress Protector</li>
-                    <li>Clothes Hangers</li>
-                    <li>Laundry Basket</li>
-                    <li>Under-bed Storage Boxes</li>
-                    <li>Desk Chair Cushion</li>
-                    <li>Small Rug</li>
-                    <li>Curtains or Blinds</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Kitchen</h2>
-                <ul>
-                    <li>Mini Fridge</li>
-                    <li>Microwave</li>
-                    <li>Toaster</li>
-                    <li>Kettle</li>
-                    <li>Coffee Machine</li>
-                    <li>Blender</li>
-                    <li>Plates</li>
-                    <li>Bowls</li>
-                    <li>Cups</li>
-                    <li>Mugs</li>
-                    <li>Cutlery</li>
-                    <li>Cutting Board</li>
-                    <li>Knife Set</li>
-                    <li>Spatula</li>
-                    <li>Tongs</li>
-                    <li>Measuring Cups</li>
-                    <li>Measuring Spoons</li>
-                    <li>Food Storage Containers</li>
-                    <li>Plastic Wrap</li>
-                    <li>Sandwich Bags</li>
-                    <li>Dish Soap</li>
-                    <li>Sponge / Dish Brush</li>
-                    <li>Paper Towels</li>
-                </ul>
-            </section>
-        </div>
-        <div class="column">
-            <section>
-                <h2>Study</h2>
-                <ul>
-                    <li>Desk</li>
-                    <li>Desk Chair</li>
-                    <li>Desk Lamp</li>
-                    <li>Laptop</li>
-                    <li>Monitor</li>
-                    <li>Keyboard</li>
-                    <li>Mouse</li>
-                    <li>Headphones</li>
-                    <li>Notepad</li>
-                    <li>Pens</li>
-                    <li>Pencils</li>
-                    <li>Markers</li>
-                    <li>Highlighters</li>
-                    <li>Sticky Notes</li>
-                    <li>Tape</li>
-                    <li>Desk Organizer</li>
-                    <li>Drawer Organizer</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Bathroom</h2>
-                <ul>
-                    <li>Towels</li>
-                    <li>Washcloths</li>
-                    <li>Shower Curtain</li>
-                    <li>Bath Mat</li>
-                    <li>Soap</li>
-                    <li>Body Wash</li>
-                    <li>Shampoo</li>
-                    <li>Conditioner</li>
-                    <li>Toothbrush / Toothpaste</li>
-                    <li>Toothbrush Holder</li>
-                    <li>Razor</li>
-                    <li>Shaving Cream</li>
-                    <li>Hairbrush</li>
-                    <li>Comb</li>
-                    <li>Feminine Hygiene Products</li>
-                    <li>Trash Bin</li>
-                    <li>Cleaning Wipes</li>
-                    <li>Disinfectant</li>
-                </ul>
-            </section>
-        </div>
-        <div class="column">
-            <section>
-                <h2>Cleaning Supplies</h2>
-                <ul>
-                    <li>Broom</li>
-                    <li>Dustpan</li>
-                    <li>Mop</li>
-                    <li>Bucket</li>
-                    <li>Vacuum Cleaner</li>
-                    <li>All-purpose Cleaner</li>
-                    <li>Glass Cleaner</li>
-                    <li>Microfiber Cloths</li>
-                    <li>Laundry Detergent</li>
-                    <li>Fabric Softener</li>
-                    <li>Hooks / Wall Hangers</li>
-                    <li>Storage Bins</li>
-                    <li>Shelving Units</li>
-                    <li>Closet Organizers</li>
-                    <li>Shoe Rack</li>
-                    <li>Drawer Organizers</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Electronics</h2>
-                <ul>
-                    <li>Phone Charger</li>
-                    <li>Power Strip</li>
-                    <li>Extension Cord</li>
-                    <li>Alarm Clock</li>
-                    <li>Desk Fan</li>
-                    <li>Small Heater</li>
-                    <li>Bluetooth Speaker</li>
-                    <li>Lamp</li>
-                    <li>TV</li>
-                    <li>Streaming Device</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Decor</h2>
-                <ul>
-                    <li>Wall Art</li>
-                    <li>Posters</li>
-                    <li>Photo Frames</li>
-                    <li>Throw Pillows</li>
-                    <li>Blankets</li>
-                    <li>Area Rug</li>
-                    <li>Indoor Plant</li>
-                    <li>Mirror</li>
-                </ul>
-            </section>
-        </div>
+        <!DOCTYPE html>
+            <html lang="en">
+                <head>
+                <meta charset="utf-8">
+                    <style></style>
+                    <style>body {
+    display: flex;
+    flex-direction: column;
+    font-size: 10.0pt;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2pt;
+    flex: 1;
+}
+
+.column {
+    padding-top: 5pt;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section {
+    padding: 2pt;
+}
+
+h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 30pt;
+    color: #59989F;
+    font-family: "Source Serif 4";
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 14pt;
+    padding: 0 5pt;
+    color: var(--theme-color);
+    font-family: "Source Serif 4";
+}
+
+h3 { 
+    color: var(--theme-color); 
+    font-size: 13pt;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    position: relative;
+    padding-left: 5pt;
+}
+
+li::before {
+    content: "●";
+    font-size: 5.5pt;
+    left: -2pt;
+    top: 2.5pt;
+    position: absolute;
+}
+
+.green { --theme-color: #7B994C; }
+.amber { --theme-color: #C98A1D; }
+.red { --theme-color: #B5524A; }
+.column {
+    position: relative; 
+}
+
+.column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 16pt;
+    bottom: 8pt;
+    right: 3pt;
+    width: 1.5pt;
+    background-color: #929292;
+}
+
+h1 { color: #4A7D82; }
+.green { --theme-color: #91AD65; }
+.amber { --theme-color: #D6A34D; }
+.red { --theme-color: #C4766F; }</style>
+                </head>
+                <body>
+                <header>
+                    <h1>Low Carb Food List</h1>
+                    <h2 class="green">Green: Enjoy Freely.</h2>
+                    <h2 class="amber">Amber: Eat Some.</h2>
+                    <h2 class="red">Red: Eat Little.</h2>
+                </header>
+                <main>
+                    <div class="column green">
+                        <section>
+                            <h3>Meat</h3>
+                            <ul>
+                                <li>Beef</li>
+                                <li>Lamb</li>
+                                <li>Pork</li>
+                                <li>Veal</li>
+                                <li>Venison</li>
+                                <li>Goat</li>
+                                <li>Mince</li>
+                                <li>Steak</li>
+                                <li>Ribs</li>
+                                <li>Roast</li>
+                                <li>Sausages</li>
+                                <li>Offal</li>
+                                <li>Bacon</li>
+                                <li>Billtong</li>
+                                <li>Cured Meats</li>
+                                <li>Ham</li>
+                                <li>Jerky</li>
+                                <li>Pastrami</li>
+                                <li>Salami</li>
+                                <li>Smoked Meats</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Seafood</h3>
+                            <ul>
+                                <li>Anchovies</li>
+                                <li>Clams</li>
+                                <li>Cod</li>
+                                <li>Crab</li>
+                                <li>Lobster</li>
+                                <li>Halibut</li>
+                                <li>Mackerel</li>
+                                <li>Mussels</li>
+                                <li>Oysters</li>
+                                <li>Salmon</li>
+                                <li>Sardines</li>
+                                <li>Shrimp</li>
+                                <li>Squid</li>
+                                <li>Trout</li>
+                                <li>Tuna</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Poulty & Eggs</h3>
+                            <ul>
+                                <li>Eggs</li>
+                                <li>Chicken</li>
+                                <li>Duck</li>
+                                <li>Goose</li>
+                                <li>Quail</li>
+                                <li>Turkey</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Flour</h3>
+                            <ul>
+                                <li>Almond flour</li>
+                                <li>Coconut flour</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="column green">
+                        <section>
+                            <h3>Vegetables</h3>
+                            <ul>
+                                <li>Arugula & Endive</li>
+                                <li>Asparagus</li>
+                                <li>Bell pepper</li>
+                                <li>Bok choy</li>
+                                <li>Broccoli</li>
+                                <li>Cabbage</li>
+                                <li>Capsicum</li>
+                                <li>Cauliflower</li>
+                                <li>Celery</li>
+                                <li>Chard</li>
+                                <li>Cucumber</li>
+                                <li>Eggplant</li>
+                                <li>Lettuce</li>
+                                <li>Mushrooms</li>
+                                <li>Radish</li>
+                                <li>Spinach</li>
+                                <li>Silverbeet</li>
+                                <li>Swiss chard</li>
+                                <li>Tomato</li>
+                                <li>Zucchini</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Fruit</h3>
+                            <ul>
+                                <li>Avocado</li>
+                                <li>Strawberries</li>
+                                <li>Raspberries</li>
+                                <li>Blackberries</li>
+                                <li>Lemon & Lime</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Dairy</h3>
+                            <ul>
+                                <li>Butter</li>
+                                <li>Cheese</li>
+                                <li>Cream</li>
+                                <li>Greek Yoghurt</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Dairy Alternatives</h3>
+                            <ul>
+                                <li>Almond Milk</li>
+                                <li>Coconut Cream</li>
+                                <li>Coconut Milk</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Pantry</h3>
+                            <ul>
+                                <li>Apple cider vinegar</li>
+                                <li>Red wine vinegar</li>
+                                <li>Canned fish (in water or olive oil</li>
+                                <li>Olives & Pickles</li>
+                                <li>Mayonnaise</li>
+                                <li>Mustard</li>
+                                <li>Coconut aminos</li>
+                                <li>Herbs and spices</li>
+                                <li>Hot sauce</li>
+                                <li>Tofu</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="column green">
+                        <section>
+                            <h3>Fats & Oils</h3>
+                            <ul>
+                                <li>Avocado oil</li>
+                                <li>Beef tallow</li>
+                                <li>Butter</li>
+                                <li>Cocoa butter</li>
+                                <li>Coconut oil</li>
+                                <li>Flax seed oil</li>
+                                <li>Ghee</li>
+                                <li>Hemp seed oil</li>
+                                <li>Lard (pig fat)</li>
+                                <li>Macadamia oil</li>
+                                <li>MCT oil</li>
+                                <li>Olive oil (EVOO)</li>
+                                <li>Walnut oil</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Nuts</h3>
+                            <ul>
+                                <li>Brazil</li>
+                                <li>Macadamia</li>
+                                <li>Pecans</li>
+                                <li>Walnuts</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Seeds</h3>
+                            <ul>
+                                <li>Chia</li>
+                                <li>Flax</li>
+                                <li>Hemp</li>
+                                <li>Psyllium</li>
+                                <li>Pumpkin</li>
+                                <li>Sunflower</li>
+                                <li>Sesame</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Fermented Foods</h3>
+                            <ul>
+                                <li>Kimchi</li>
+                                <li>Kombucha</li>
+                                <li>Sauerkraut</li>
+                                <li>Pickled Veg</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Sweeteners</h3>
+                            <ul>
+                                <li>Stevia</li>
+                                <li>Monkfruit</li>
+                                <li>Allulose</li>
+                                <li>Erythritol</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Beverages</h3>
+                            <ul>
+                                <li>Water</li>
+                                <li>Black Coffee</li>
+                                <li>Black Tea</li>
+                                <li>Herbal Tea</li>
+                                <li>Bone Broth</li>
+                                <li>Unsweetened Almond &</li>
+                                <li>Coconut Milk</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="column">
+                        <section class="amber">
+                            <h3>Vegetables</h3>
+                            <ul>
+                                <li>Brussels sprouts</li>
+                                <li>Red/yellow bell peppers</li>
+                                <li>Onion</li>
+                                <li>Fennel (bulb)</li>
+                                <li>Garlic</li>
+                                <li>Green peas</li>
+                                <li>Carrots</li>
+                            </ul>
+                        </section>
+                        <section class="amber">
+                            <h3>Fruit</h3>
+                            <ul>
+                                <li>Blueberries</li>
+                                <li>Kiwi</li>
+                                <li>Peach</li>
+                                <li>Melon</li>
+                                <li>Grapefruit</li>
+                                <li>Plum</li>
+                                <li>Coconut</li>
+                            </ul>
+                        </section>
+                        <section class="amber">
+                            <h3>Milk</h3>
+                            <ul>
+                                <li>Full Fat Milk</li>
+                                <li>Soy Milk</li>
+                            </ul>
+                        </section>
+                        <section class="amber">
+                            <h3>Nuts</h3>
+                            <ul>
+                                <li>Almonds</li>
+                                <li>Cashews</li>
+                                <li>Chestnuts</li>
+                                <li>Hazelnuts</li>
+                                <li>Peanuts</li>
+                                <li>Pistachios</li>
+                            </ul>
+                        </section>
+                        <section class="amber">
+                            <h3>Sauces</h3>
+                            <ul>
+                                <li>Tomato Sauce</li>
+                                <li>BBQ Sauce</li>
+                                <li>Chutney</li>
+                                <li>Relishes</li>
+                                <li>Anything with low sugar</li>
+                            </ul>
+                        </section>
+                        <section class="red">
+                            <h3>Vegetables</h3>
+                            <ul>
+                                <li>Beans</li>
+                                <li>Corn</li>
+                                <li>Sweet potato</li>
+                                <li>Potato, yam</li>
+                                <li>Parsnip</li>
+                                <li>Beets</li>
+                            </ul>
+                        </section>
+                        <section class="red">
+                            <h3>Fruits</h3>
+                            <ul>
+                                <li>Banana</li>
+                                <li>Grapes</li>
+                                <li>Apple</li>
+                                <li>Pear</li>
+                                <li>Mango</li>
+                                <li>Pineapple</li>
+                                <li>Dried fruit</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="column red">
+                        <section>
+                            <h3>Grains</h3>
+                            <ul>
+                                <li>Bread</li>
+                                <li>Cakes</li>
+                                <li>Cereal</li>
+                                <li>Couscous</li>
+                                <li>Crumpets</li>
+                                <li>Energy Bars</li>
+                                <li>Flour</li>
+                                <li>Noodles</li>
+                                <li>Muffins</li>
+                                <li>Muesli & Bars</li>
+                                <li>Oats</li>
+                                <li>Pasta</li>
+                                <li>Pastries & Pies</li>
+                                <li>Pizza</li>
+                                <li>Quinoa</li>
+                                <li>Rice & Rice Cakes</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Legumes</h3>
+                            <ul>
+                                <li>Chickpeas</li>
+                                <li>Kidney Beans</li>
+                                <li>Lentils</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Beverages</h3>
+                            <ul>
+                                <li>Soft Drinks</li>
+                                <li>Fruit juices</li>
+                                <li>Cordials</li>
+                                <li>Sports Drinks</li>
+                                <li>Energy Drinks</li>
+                                <li>Flavoured Milk</li>
+                                <li>Rice Milk</li>
+                                <li>Dessert Wines</li>
+                                <li>Liquers</li>
+                                <li>Sugary Mixers</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Sugar</h3>
+                            <ul>
+                                <li>Confectionary</li>
+                                <li>Chocolate</li>
+                                <li>Cakes</li>
+                                <li>Biscuits</li>
+                                <li>Ice Cream</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Meats</h3>
+                            <ul>
+                                <li>Highly processed</li>
+                                <li>Hot Dogs</li>
+                                <li>Nuggets</li>
+                                <li>Spam</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Vegetable Oils</h3>
+                            <ul>
+                                <li>Canola Oil</li>
+                                <li>Sunflower Oil</li>
+                                <li>Safflower Oil</li>
+                                <li>Cottonseed Oil</li>
+                                <li>Rapeseed Oil</li>
+                            </ul>
+                        </section>
+                    </div>
+                </main>
+            </body>
+        </html>
     </body>
 </html>

@@ -51,7 +51,8 @@ public class Launcher
             var config = (LuaTable)lua.DoString($"return require('documents.{documentId}.config')")[0];
             config = new Inherit().Apply(documentId, config, lua);
 
-            if (config["template"] == null) {
+            if (config["template"] == null)
+            {
                 Console.WriteLine($"DEBUG: Template is null for document {documentId}");
             }
 

@@ -32,36 +32,13 @@ public class Build : IStep
 
     public async Task ExecuteAsync(Context context)
     {
-        var config = context.Config;
+        var config = context.Config ?? throw new Exception("Context.Config is null");
 
-        if (config == null)
-        {
-            using var lua = new Lua();
-            lua.State.Encoding = Encoding.UTF8;
-
-            var luaPath = $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}' " +
-                $".. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'";
-
-            lua.DoString(luaPath);
-            lua["ROOT_PATH"] = Paths.RootPath;
-            lua.DoString("local tl = require('tl'); tl.loader();");
-
-            var loadedConfig = (LuaTable)lua.DoString($"return require('documents.{context.DocumentId}.config')")[0];
-            config = new Inherit().Apply(context.DocumentId, loadedConfig, lua);
-            context.Config = config;
-        }
-
-        var template = config["template"]?.ToString()
-            ?? throw new Exception("Missing template");
+        var template = config["template"]?.ToString() ?? throw new Exception("Missing template");
 
         context.IsEditable = config["is_editable"] is bool b && b;
 
-        var renderPath = Path.Combine(
-                Paths.RootPath,
-                "templates",
-                template,
-                "render"
-                );
+        var renderPath = Path.Combine(Paths.RootPath, "templates", template, "render");
 
         IRenderProvider? provider = null;
 
@@ -79,14 +56,8 @@ public class Build : IStep
             throw new Exception(
                     $"No renderer found for '{template}'");
         }
-
-        var result = await provider.RenderAsync(
-                context,
-                config);
-
-        context.Html = FinalizeHtml(
-                result.Html,
-                config);
+        var result = await provider.RenderAsync(context, config);
+        context.Html = FinalizeHtml(result.Html, config);
 
         context.OutputName = result.OutputName;
 

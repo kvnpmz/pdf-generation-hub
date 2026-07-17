@@ -8,13 +8,27 @@ public class Inherit
     public LuaTable Apply(string documentId, LuaTable config, Lua lua)
     {
         var extends = config["extends"]?.ToString();
-
         if (string.IsNullOrEmpty(extends))
             return config;
 
-        var baseConfig = (LuaTable)lua.DoString($"return require('documents.{extends}.config')")[0];
+        var result = lua.DoString($"return require('documents.{extends}.config')");
 
-        return Merge(baseConfig, config);
+        if (result == null || result.Length == 0)
+        {
+            Console.WriteLine($"[Inherit] ERROR: Could not find or load base config for '{extends}'");
+            return config;
+        }
+
+        var baseConfig = (LuaTable)result[0];
+
+        if (baseConfig == null)
+        {
+            Console.WriteLine($"[Inherit] ERROR: Loaded base config for '{extends}' but it was null.");
+            return config;
+        }
+
+        var merged = Merge(baseConfig, config, lua);
+        return merged;
     }
 
 
@@ -32,28 +46,29 @@ public class Inherit
         return (LuaTable)lua.DoString($"return require('documents.{documentId}.config')")[0];
     }
 
-
-    private LuaTable Merge(LuaTable baseConfig, LuaTable overrideConfig)
+    private LuaTable Merge(LuaTable baseConfig, LuaTable overrideConfig, Lua lua)
     {
-        string[] keysToInherit = 
-        {
-            "output_name",
-            "template",
-            "header",
-            "columns",
-            "sections",
-            "items",
-            "layout"
-        };
+        lua.DoString(@"
+        function merge_tables(base, override)
+            local result = {}
 
-        foreach (var key in keysToInherit)
-        {
-            if (overrideConfig[key] == null && baseConfig[key] != null)
-            {
-                overrideConfig[key] = baseConfig[key];
-            }
-        }
+            for k,v in pairs(base) do
+                result[k] = v
+            end
 
-        return overrideConfig;
+            for k,v in pairs(override) do
+                result[k] = v
+            end
+
+            return result
+        end
+    ");
+
+        lua["base"] = baseConfig;
+        lua["override"] = overrideConfig;
+
+        var result = lua.DoString("return merge_tables(base, override)");
+
+        return (LuaTable)result[0];
     }
 }

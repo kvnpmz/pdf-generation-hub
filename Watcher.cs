@@ -14,7 +14,7 @@ public class Watcher
 
     public Watcher()
     {
-        _launcher = new Launcher(_flow); 
+        _launcher = new Launcher(_flow);
     }
 
     public async Task Start(CancellationToken cancellationToken = default)

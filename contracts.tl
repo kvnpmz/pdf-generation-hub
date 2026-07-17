@@ -18,10 +18,16 @@ local record RenderContext
     render: function(any): string
 end
 
+local record RenderResult
+    html: string
+    outputName: string
+end
+
 local record M
     type Config = Config
     type TemplateRender = TemplateRender
     type RenderContext = RenderContext
+    type RenderResult = RenderResult
 end
 
 return M

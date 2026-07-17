@@ -1,18 +1,17 @@
 local M = {}
 
+local contracts = require("contracts")
 local context = require("context")
 local style = require("style")
 
-local record RenderResult
-    html: string
-    outputName: string
-end
+function M.Render(config: contracts.Config): contracts.RenderResult
+    local renderContext = context.Execute(config)
 
-function M.Render(documentId: string): RenderResult
-    local renderContext = context.Execute(documentId)
-
-    local config = renderContext.config
     local renderTemplate = renderContext.render
+
+    if renderTemplate == nil then
+        error("renderTemplate is nil")
+    end
 
     local html = renderTemplate(config)
 

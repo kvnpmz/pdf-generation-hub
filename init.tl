@@ -1,5 +1,10 @@
 local generator = require("generator")
-return {
-    Render = generator.Render
-}
+local contracts = require("contracts")
 
+local M = {}
+
+function M.Render(config: contracts.Config): contracts.RenderResult
+    return generator.Render(config)
+end
+
+return M

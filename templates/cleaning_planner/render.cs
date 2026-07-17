@@ -4,7 +4,7 @@ using NLua;
 namespace CleaningPlanner;
 
 public class TemplateRender : IRenderer
-{ 
+{
     private static readonly string[] MonthLetters = { "J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D" };
     public RenderResult Render(LuaTable config)
     {
@@ -30,7 +30,7 @@ public class TemplateRender : IRenderer
                 int index = 0;
                 foreach (var item in items.Values)
                 {
-                    allItems.Add(Dom.Li("", 
+                    allItems.Add(Dom.Li("",
                                 Dom.Div("month-label", MonthLetters[index]),
                                 Dom.Div("item-text", item?.ToString() ?? "")
                                 )
@@ -50,10 +50,10 @@ public class TemplateRender : IRenderer
                         col2.Add(allItems[i]);
                 }
 
-                html.Add(Dom.Section(areaName, 
+                html.Add(Dom.Section(areaName,
                             Dom.H2("", section["title"]?.ToString() ?? ""),
-                            Dom.Div("annually-container", 
-                                Dom.Ul("annually-list", col1.ToArray()) + 
+                            Dom.Div("annually-container",
+                                Dom.Ul("annually-list", col1.ToArray()) +
                                 Dom.Ul("annually-list", col2.ToArray())
                                 )
                             ));
@@ -71,7 +71,7 @@ public class TemplateRender : IRenderer
                     }
                 }
 
-                html.Add(Dom.Section( areaName,
+                html.Add(Dom.Section(areaName,
                             Dom.H2("", section["title"]?.ToString() ?? ""),
                             Dom.Ul("", itemsHtml.ToArray())
                             ));
