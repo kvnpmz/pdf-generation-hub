@@ -63,7 +63,7 @@ public class Build : IStep
                 "render"
                 );
 
-        IRenderProvider provider = null;
+        IRenderProvider? provider = null;
 
         foreach (var item in _providers)
         {

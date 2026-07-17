@@ -1,1 +1,0 @@
-Style overrides only, create new folder, new id, new config, but just in config, return override only if its just a style override... no need for all "columns" data. thats it.

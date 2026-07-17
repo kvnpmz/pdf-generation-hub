@@ -23,20 +23,15 @@ body {
     font-family: Inter;
     font-size: 6pt;
 }</style>
-            <style>:root {
-    --color-primary: #185D41;
-    --color-secondary: #68A866;
-    --color-accent: #B6DAB8;
-    --color-heading: #356F48;
+            <style>body {
+    display: grid;
+    grid-template-rows: 45pt 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 13.5pt;
 }
 
-body {
-    display: grid;
-    grid-template-rows: 38pt 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    font-size: 11.0pt;
-    row-gap: 5pt;
-    column-gap: 10pt;
+body > :first-child {
+    grid-column: 1 / -1;
 }
 
 .column { 
@@ -48,54 +43,29 @@ body {
 }
 
 .column:nth-of-type(1) {
-    line-height: 1.41;
+    line-height: 1.25;
 }
 
 .column:nth-of-type(2) {
-    line-height: 1.34;
+    line-height: 1.25;
 }
 
 .column:nth-of-type(3) {
-    line-height: 1.50;
-}
-
-header {
-    grid-column: 1 / -1;
-    display: inline-flex;
-    justify-content: center;
-    border-bottom: 2pt solid var(--color-primary);
+    line-height: 1.29;
 }
 
 h1 {
-    font-family: 'Source Serif 4';
-    color: var(--color-primary);
+	font-family: 'Source Serif 4';
+    color: #106CD0;
     font-size: 30pt;
     font-weight: 900;
+    text-align: center;
     letter-spacing: 3pt;
 }
 
-.gray {
-    color: var(--color-secondary);
-    font-weight: 600;
-    padding-left: 8pt;
-}
-
 h2 {
-    font-size: 12pt;
-    padding: 2pt 0;
     text-transform: uppercase;
-    background-color: var(--color-accent);
-    color: var(--color-heading);
-    text-align: center;
-}
-
-h3 {
-    font-size: 10.5pt;
-    padding: 2pt 0;
-    color: var(--color-secondary);
-    text-transform: uppercase;
-    border-bottom: 1pt solid;
-    text-align: center;
+    font-size: inherit;
 }
 
 ul {
@@ -105,239 +75,167 @@ ul {
 
 li {
     position: relative;
-    padding: 0pt 3pt 0pt 13pt;
+    padding: 0pt 3pt 0pt 20pt;
+    text-transform: capitalize;
 }
 
 li::before {
     content: "□";
-    color: var(--color-secondary);
     position: absolute;
-    font-size: 12pt;
+    font-size: 16pt;
     left: 0;
-    top: -1.0pt;
+    top: -1.5pt;
 }
-:root {
-    --color-primary: #185D8A;
-    --color-secondary: #63A0CB;
-    --color-accent: #B8D8F2;
-    --color-heading: #356FA8;
+h1 {
+    color: #D10F6E;
 }</style>
         </head>
         <body>
-        <header>
-            <h1>Folic Acid Rich</h1>
-            <h1 class="gray">Food List</h1>
-        </header>
+        <h1>College Dorm Checklist</h1>
         <div class="column">
-            <div class="category">
-                <h2>Vegetables</h2>
-                <section>
-                    <h3>Leafy Greens</h3>
-                    <ul>
-                        <li>Spinach</li>
-                        <li>Kale</li>
-                        <li>Swiss chard</li>
-                        <li>Collard greens</li>
-                        <li>Romaine lettuce</li>
-                        <li>Arugula</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Cruciferous Vegetables</h3>
-                    <ul>
-                        <li>Broccoli</li>
-                        <li>Brussels sprouts</li>
-                        <li>Cauliflower</li>
-                        <li>Cabbage</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Other Vegetables</h3>
-                    <ul>
-                        <li>Asparagus</li>
-                        <li>Beets</li>
-                        <li>Okra</li>
-                        <li>Artichokes</li>
-                        <li>Peas</li>
-                        <li>Turnip greens</li>
-                        <li>Parsnips</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="category">
-                <h2>Nuts & Seeds</h2>
-                <section>
-                    <h3>Nuts</h3>
-                    <ul>
-                        <li>Peanuts</li>
-                        <li>Almonds</li>
-                        <li>Walnuts</li>
-                        <li>Hazelnuts</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Seeds</h3>
-                    <ul>
-                        <li>Sunflower seeds</li>
-                        <li>Flaxseeds</li>
-                        <li>Chia seeds</li>
-                        <li>Pumpkin seeds</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="category">
-                <h2>Miscellaneous</h2>
-                <section>
-                    <h3>Other Folic Acid Sources</h3>
-                    <ul>
-                        <li>Nutritional yeast (fortified)</li>
-                        <li>Brewer's yeast</li>
-                        <li>Marmite or Vegemite (yeast extract spreads)</li>
-                        <li>Tomato juice</li>
-                    </ul>
-                </section>
-            </div>
+            <section>
+                <h2>Bedroom</h2>
+                <ul>
+                    <li>Bed Frame</li>
+                    <li>Mattress</li>
+                    <li>Sheets</li>
+                    <li>Pillows</li>
+                    <li>Blanket</li>
+                    <li>Mattress Protector</li>
+                    <li>Clothes Hangers</li>
+                    <li>Laundry Basket</li>
+                    <li>Under-bed Storage Boxes</li>
+                    <li>Desk Chair Cushion</li>
+                    <li>Small Rug</li>
+                    <li>Curtains or Blinds</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Kitchen</h2>
+                <ul>
+                    <li>Mini Fridge</li>
+                    <li>Microwave</li>
+                    <li>Toaster</li>
+                    <li>Kettle</li>
+                    <li>Coffee Machine</li>
+                    <li>Blender</li>
+                    <li>Plates</li>
+                    <li>Bowls</li>
+                    <li>Cups</li>
+                    <li>Mugs</li>
+                    <li>Cutlery</li>
+                    <li>Cutting Board</li>
+                    <li>Knife Set</li>
+                    <li>Spatula</li>
+                    <li>Tongs</li>
+                    <li>Measuring Cups</li>
+                    <li>Measuring Spoons</li>
+                    <li>Food Storage Containers</li>
+                    <li>Plastic Wrap</li>
+                    <li>Sandwich Bags</li>
+                    <li>Dish Soap</li>
+                    <li>Sponge / Dish Brush</li>
+                    <li>Paper Towels</li>
+                </ul>
+            </section>
         </div>
         <div class="column">
-            <div class="category">
-                <h2>Fruits</h2>
-                <section>
-                    <h3>Citrus Fruits</h3>
-                    <ul>
-                        <li>Oranges</li>
-                        <li>Grapefruits</li>
-                        <li>Lemons</li>
-                        <li>Limes</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Berries & Other Fruits</h3>
-                    <ul>
-                        <li>Strawberries</li>
-                        <li>Raspberries</li>
-                        <li>Blueberries</li>
-                        <li>Blackberries</li>
-                        <li>Papaya</li>
-                        <li>Avocado</li>
-                        <li>Bananas</li>
-                        <li>Pineapple</li>
-                        <li>Mangos</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="category">
-                <h2>Dairy & Alternatives</h2>
-                <section>
-                    <h3>Dairy</h3>
-                    <ul>
-                        <li>Milk</li>
-                        <li>Yogurt</li>
-                        <li>Cheese (such as Swiss cheese)</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Plant-Based Alternatives</h3>
-                    <ul>
-                        <li>Almond milk (fortified with folic acid)</li>
-                        <li>Soy milk (fortified with folic acid)</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="category">
-                <h2>Grains & Cereals</h2>
-                <section>
-                    <h3>Whole Grains</h3>
-                    <ul>
-                        <li>Quinoa</li>
-                        <li>Brown rice</li>
-                        <li>Whole wheat bread</li>
-                        <li>Barley</li>
-                        <li>Bulgur</li>
-                        <li>Oats (rolled oats, steel-cut oats)</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Fortified Grains & Cereals</h3>
-                    <ul>
-                        <li>Fortified breakfast cereals</li>
-                        <li>Fortified pasta</li>
-                        <li>Fortified rice</li>
-                        <li>Fortified flour</li>
-                    </ul>
-                </section>
-            </div>
+            <section>
+                <h2>Study</h2>
+                <ul>
+                    <li>Desk</li>
+                    <li>Desk Chair</li>
+                    <li>Desk Lamp</li>
+                    <li>Laptop</li>
+                    <li>Monitor</li>
+                    <li>Keyboard</li>
+                    <li>Mouse</li>
+                    <li>Headphones</li>
+                    <li>Notepad</li>
+                    <li>Pens</li>
+                    <li>Pencils</li>
+                    <li>Markers</li>
+                    <li>Highlighters</li>
+                    <li>Sticky Notes</li>
+                    <li>Tape</li>
+                    <li>Desk Organizer</li>
+                    <li>Drawer Organizer</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Bathroom</h2>
+                <ul>
+                    <li>Towels</li>
+                    <li>Washcloths</li>
+                    <li>Shower Curtain</li>
+                    <li>Bath Mat</li>
+                    <li>Soap</li>
+                    <li>Body Wash</li>
+                    <li>Shampoo</li>
+                    <li>Conditioner</li>
+                    <li>Toothbrush / Toothpaste</li>
+                    <li>Toothbrush Holder</li>
+                    <li>Razor</li>
+                    <li>Shaving Cream</li>
+                    <li>Hairbrush</li>
+                    <li>Comb</li>
+                    <li>Feminine Hygiene Products</li>
+                    <li>Trash Bin</li>
+                    <li>Cleaning Wipes</li>
+                    <li>Disinfectant</li>
+                </ul>
+            </section>
         </div>
         <div class="column">
-            <div class="category">
-                <h2>Breads & Snacks</h2>
-                <section>
-                    <h3>Fortified Breads</h3>
-                    <ul>
-                        <li>Whole wheat bread (fortified)</li>
-                        <li>Multigrain bread (fortified)</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Healthy Snacks</h3>
-                    <ul>
-                        <li>Fortified granola bars</li>
-                        <li>Hummus with whole grain crackers</li>
-                        <li>Fortified crackers</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="category">
-                <h2>Protein Sources</h2>
-                <section>
-                    <h3>Meats</h3>
-                    <ul>
-                        <li>Liver (especially chicken liver)</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Fish</h3>
-                    <ul>
-                        <li>Salmon</li>
-                        <li>Tuna</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Eggs</h3>
-                    <ul>
-                        <li>Whole eggs</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="category">
-                <h2>Legumes & Beans</h2>
-                <section>
-                    <h3>Beans</h3>
-                    <ul>
-                        <li>Black beans</li>
-                        <li>Kidney beans</li>
-                        <li>Pinto beans</li>
-                        <li>Lima beans</li>
-                        <li>Navy beans</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Lentils & Peas</h3>
-                    <ul>
-                        <li>Lentils</li>
-                        <li>Green peas</li>
-                        <li>Split peas</li>
-                        <li>Chickpeas (garbanzo beans)</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Soy Products</h3>
-                    <ul>
-                        <li>Edamame</li>
-                        <li>Tofu</li>
-                        <li>Tempeh</li>
-                    </ul>
-                </section>
-            </div>
+            <section>
+                <h2>Cleaning Supplies</h2>
+                <ul>
+                    <li>Broom</li>
+                    <li>Dustpan</li>
+                    <li>Mop</li>
+                    <li>Bucket</li>
+                    <li>Vacuum Cleaner</li>
+                    <li>All-purpose Cleaner</li>
+                    <li>Glass Cleaner</li>
+                    <li>Microfiber Cloths</li>
+                    <li>Laundry Detergent</li>
+                    <li>Fabric Softener</li>
+                    <li>Hooks / Wall Hangers</li>
+                    <li>Storage Bins</li>
+                    <li>Shelving Units</li>
+                    <li>Closet Organizers</li>
+                    <li>Shoe Rack</li>
+                    <li>Drawer Organizers</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Electronics</h2>
+                <ul>
+                    <li>Phone Charger</li>
+                    <li>Power Strip</li>
+                    <li>Extension Cord</li>
+                    <li>Alarm Clock</li>
+                    <li>Desk Fan</li>
+                    <li>Small Heater</li>
+                    <li>Bluetooth Speaker</li>
+                    <li>Lamp</li>
+                    <li>TV</li>
+                    <li>Streaming Device</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Decor</h2>
+                <ul>
+                    <li>Wall Art</li>
+                    <li>Posters</li>
+                    <li>Photo Frames</li>
+                    <li>Throw Pillows</li>
+                    <li>Blankets</li>
+                    <li>Area Rug</li>
+                    <li>Indoor Plant</li>
+                    <li>Mirror</li>
+                </ul>
+            </section>
         </div>
     </body>
 </html>

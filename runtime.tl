@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "folicacid_foodlist_blue",
+    DOCUMENTID = "dorm_list_pink",
     ENABLEIMAGES = 0,
     BASEPROJECTNAME = "folicacid_foodlist_blue"
 }

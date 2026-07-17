@@ -35,7 +35,16 @@ public class Inherit
 
     private LuaTable Merge(LuaTable baseConfig, LuaTable overrideConfig)
     {
-        string[] keysToInherit = { "output_name", "template", "header", "columns" };
+        string[] keysToInherit = 
+        {
+            "output_name",
+            "template",
+            "header",
+            "columns",
+            "sections",
+            "items",
+            "layout"
+        };
 
         foreach (var key in keysToInherit)
         {
