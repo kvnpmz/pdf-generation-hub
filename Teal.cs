@@ -117,8 +117,7 @@ public class TealRenderProvider : IRenderProvider
 
             if (value is LuaTable child)
             {
-                lua.DoString("__tmp = {}");
-                var childTable = (LuaTable)lua["__tmp"];
+                var childTable = (LuaTable)lua.DoString("return {}")[0];
 
                 CopyTableToLua(lua, child, childTable);
 
