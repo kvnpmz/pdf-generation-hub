@@ -29,13 +29,7 @@ public class Flow
     {
         Directory.CreateDirectory(context.OutputDirectory);
 
-        var steps = new List<IStep>
-        {
-            new Build(),
-            new Export(),
-            new Image(),
-            new Indexer()
-        };
+        var steps = new List<IStep> { new Build(), new Export(), new Image(), new Indexer() };
 
         foreach (var step in steps)
         {

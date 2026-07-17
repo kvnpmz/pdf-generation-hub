@@ -13,7 +13,13 @@ public class FolicAcidFoodList : IRenderer
             System.StringSplitOptions.RemoveEmptyEntries
         );
 
-        htmlParts.Add(Dom.Header("", Dom.H1("", $"{words[0]} {words[1]} {words[2]}"), Dom.H1("gray", $"{words[3]} {words[4]}")));
+        htmlParts.Add(
+            Dom.Header(
+                "",
+                Dom.H1("", $"{words[0]} {words[1]} {words[2]}"),
+                Dom.H1("gray", $"{words[3]} {words[4]}")
+            )
+        );
 
         var columnsHtml = new List<string>();
 
@@ -29,9 +35,7 @@ public class FolicAcidFoodList : IRenderer
 
                 var title = category["title"]?.ToString() ?? "";
 
-                categoryContent.Add(
-                    Dom.H2("", title)
-                );
+                categoryContent.Add(Dom.H2("", title));
 
                 var sections = (LuaTable)category["sections"];
 
@@ -45,34 +49,18 @@ public class FolicAcidFoodList : IRenderer
 
                     foreach (var item in items.Values)
                     {
-                        itemHtml.Add(
-                            Dom.Li("", item?.ToString() ?? "")
-                        );
+                        itemHtml.Add(Dom.Li("", item?.ToString() ?? ""));
                     }
 
                     categoryContent.Add(
-                        Dom.Section(
-                            "",
-                            Dom.H3("", subtitle),
-                            Dom.Ul("", itemHtml.ToArray())
-                        )
+                        Dom.Section("", Dom.H3("", subtitle), Dom.Ul("", itemHtml.ToArray()))
                     );
                 }
 
-                columnContent.Add(
-                    Dom.Div(
-                        "category",
-                        categoryContent.ToArray()
-                    )
-                );
+                columnContent.Add(Dom.Div("category", categoryContent.ToArray()));
             }
 
-            columnsHtml.Add(
-                Dom.Div(
-                    "column",
-                    columnContent.ToArray()
-                )
-            );
+            columnsHtml.Add(Dom.Div("column", columnContent.ToArray()));
         }
 
         htmlParts.Add(string.Concat(columnsHtml));
@@ -80,10 +68,7 @@ public class FolicAcidFoodList : IRenderer
         return new RenderResult
         {
             Html = string.Concat(htmlParts),
-            OutputName =
-                config["output_name"]?.ToString()
-                ?? config["id"]?.ToString()
-                ?? "output"
+            OutputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output",
         };
     }
 }

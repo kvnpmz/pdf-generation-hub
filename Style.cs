@@ -12,21 +12,14 @@ public static class StyleApplier
 
     public static string Apply(string html, LuaTable config)
     {
-        string baseCss = ReadFile(
-            Path.Combine(Paths.RootPath, "base.css")
-        ) ?? string.Empty;
+        string baseCss = ReadFile(Path.Combine(Paths.RootPath, "base.css")) ?? string.Empty;
 
         string style = config["style"]?.ToString() ?? "style";
         string template = config["template"]?.ToString() ?? "default";
 
         string themeFilename = $"{style}.css";
 
-        string themePath = Path.Combine(
-            Paths.RootPath,
-            "templates",
-            template,
-            themeFilename
-        );
+        string themePath = Path.Combine(Paths.RootPath, "templates", template, themeFilename);
 
         string theme = string.Empty;
 
@@ -62,9 +55,7 @@ public static class StyleApplier
 
         if (index >= 0)
         {
-            return html[..index] +
-                   styleBlock +
-                   html[(index + closingHead.Length)..];
+            return html[..index] + styleBlock + html[(index + closingHead.Length)..];
         }
 
         return html;

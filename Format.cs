@@ -42,10 +42,7 @@ public static class Format
 
                         string closing = matches[j].Value;
 
-                        outList.Add(
-                            new string(' ', indent * 4) +
-                            tag + content.Trim() + closing
-                        );
+                        outList.Add(new string(' ', indent * 4) + tag + content.Trim() + closing);
 
                         i = j;
                         continue;
@@ -55,18 +52,21 @@ public static class Format
                     {
                         outList.Add(new string(' ', indent * 4) + tag);
 
-                        if (!isSelfClosing && tag.ToLower() != "<html>" && tag.ToLower() != "<body>" && tag.ToLower() != "<head>")
+                        if (
+                            !isSelfClosing
+                            && tag.ToLower() != "<html>"
+                            && tag.ToLower() != "<body>"
+                            && tag.ToLower() != "<head>"
+                        )
                             indent++;
                     }
                 }
-
                 else
                 {
                     indent = Math.Max(indent - 1, 0);
                     outList.Add(new string(' ', indent * 4) + tag);
                 }
             }
-
             else if (match.Groups[2].Success)
             {
                 string text = match.Groups[2].Value.Trim();

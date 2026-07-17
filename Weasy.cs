@@ -11,9 +11,9 @@ public class Weasy : IPdfExport
 
         var scriptFile = Path.Combine(tempDir, Guid.NewGuid() + ".py");
 
-        await File.WriteAllTextAsync(scriptFile,
-
-"""
+        await File.WriteAllTextAsync(
+            scriptFile,
+            """
 import sys
 from pathlib import Path
 from weasyprint import HTML, CSS
@@ -31,7 +31,8 @@ letter_css = CSS(string='@page { size: Letter; }')
 HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
 print(f"Generated {output_a4}");       
 print(f"Generated {output_letter}");       
-""");
+"""
+        );
 
         var psi = new ProcessStartInfo
         {
@@ -39,7 +40,7 @@ print(f"Generated {output_letter}");
             UseShellExecute = false,
             RedirectStandardError = true,
             RedirectStandardOutput = true,
-            CreateNoWindow = true
+            CreateNoWindow = true,
         };
         psi.ArgumentList.Add(scriptFile);
         psi.ArgumentList.Add(htmlFile);
@@ -59,6 +60,5 @@ print(f"Generated {output_letter}");
 
         if (process.ExitCode != 0)
             throw new Exception(stderr);
-
     }
 }

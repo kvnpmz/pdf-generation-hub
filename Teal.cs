@@ -13,21 +13,18 @@ public class TealRenderProvider : IRenderProvider
     {
         try
         {
-            using var lua = new Lua();
-            lua.State.Encoding = Encoding.UTF8;
-            var luaPath = $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}' " +
-                $".. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'";
-
-            lua.DoString(luaPath);
+            using var host = new LuaHost();
+            var lua = host.Lua;
             lua["ROOT_PATH"] = Paths.RootPath;
-            lua.DoString("local tl = require('tl'); tl.loader();");
 
-            await RunTlCheckAsync(new[]
-                    {
+            await RunTlCheckAsync(
+                new[]
+                {
                     "init.tl",
                     Path.Combine("documents", context.DocumentId, "config.tl"),
-                    Path.Combine("templates", config["template"]?.ToString() ?? "", "render.tl")
-                    });
+                    Path.Combine("templates", config["template"]?.ToString() ?? "", "render.tl"),
+                }
+            );
 
             lua["__documentId"] = context.DocumentId;
             lua.DoString("config = {}");
@@ -36,7 +33,8 @@ public class TealRenderProvider : IRenderProvider
             CopyTableToLua(lua, config, luaConfig);
             lua["__config"] = luaConfig;
 
-            var values = lua.DoString(@"
+            var values = lua.DoString(
+                @"
                     local init = require('init')
                     local ok, result = pcall(init.Render, __config)
 
@@ -45,16 +43,19 @@ public class TealRenderProvider : IRenderProvider
                     end
 
                     return result
-                    ");
+                    "
+            );
 
-            if (values == null || values.Length == 0) throw new Exception("Lua returned nothing");
+            if (values == null || values.Length == 0)
+                throw new Exception("Lua returned nothing");
 
-            var resultTable = values[0] as LuaTable ?? throw new Exception("Lua returned non-table");
+            var resultTable =
+                values[0] as LuaTable ?? throw new Exception("Lua returned non-table");
 
             return new RenderResult
             {
                 Html = resultTable["html"]?.ToString() ?? "",
-                OutputName = resultTable["outputName"]?.ToString() ?? "output"
+                OutputName = resultTable["outputName"]?.ToString() ?? "output",
             };
         }
         catch (Exception ex)
@@ -74,18 +75,14 @@ public class TealRenderProvider : IRenderProvider
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true,
-            WorkingDirectory = Paths.RootPath
+            WorkingDirectory = Paths.RootPath,
         };
         psi.ArgumentList.Add("check");
 
         foreach (var file in files)
             psi.ArgumentList.Add(file);
 
-        using var process = new Process
-        {
-            StartInfo = psi,
-            EnableRaisingEvents = true
-        };
+        using var process = new Process { StartInfo = psi, EnableRaisingEvents = true };
 
         process.OutputDataReceived += (_, e) =>
         {

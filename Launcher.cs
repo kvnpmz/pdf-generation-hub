@@ -1,8 +1,8 @@
-using NLua;
+using System.Reflection;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using System.Reflection;
+using NLua;
 
 public class Launcher
 {
@@ -28,13 +28,8 @@ public class Launcher
             }
         }
 
-        using var lua = new Lua();
-        lua.State.Encoding = Encoding.UTF8;
-
-        lua.DoString($"package.path = package.path .. ';{Path.Combine(_root, "?.tl")}'" +
-                $" .. ';{Path.Combine(_root, "?/init.tl")}'");
-
-        lua.DoString("local tl = require('tl'); tl.loader();");
+        using var host = new LuaHost();
+        var lua = host.Lua;
 
         try
         {
@@ -48,7 +43,9 @@ public class Launcher
 
             await new Boot().ExecuteAsync(bootstrapContext);
 
-            var config = (LuaTable)lua.DoString($"return require('documents.{documentId}.config')")[0];
+            var config = (LuaTable)
+                lua.DoString($"return require('documents.{documentId}.config')")[0];
+
             config = new Inherit().Apply(documentId, config, lua);
 
             if (config["template"] == null)
@@ -56,7 +53,8 @@ public class Launcher
                 Console.WriteLine($"DEBUG: Template is null for document {documentId}");
             }
 
-            var template = config["template"]?.ToString() ?? throw new Exception("Missing template");
+            var template =
+                config["template"]?.ToString() ?? throw new Exception("Missing template");
 
             string renderCs = Path.Combine(_root, "templates", template, "render.cs");
 
@@ -70,7 +68,7 @@ public class Launcher
                 OutputDirectory = Path.Combine(_root, "output", documentId),
                 BaseProjectName = baseProjectName,
                 Flow = _flow,
-                Config = config
+                Config = config,
             };
 
             await _flow.ExecuteAsync(context);
@@ -99,13 +97,15 @@ public class Launcher
             MetadataReference.CreateFromFile(typeof(IRenderer).Assembly.Location),
             MetadataReference.CreateFromFile(Assembly.Load("System.Runtime").Location),
             MetadataReference.CreateFromFile(Assembly.Load("System.Collections").Location),
-            MetadataReference.CreateFromFile(Assembly.Load("NLua").Location)
+            MetadataReference.CreateFromFile(Assembly.Load("NLua").Location),
         };
 
-        var compilation = CSharpCompilation.Create($"{templateName}_{Guid.NewGuid()}",
-                new[] { syntaxTree },
-                references,
-                new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+        var compilation = CSharpCompilation.Create(
+            $"{templateName}_{Guid.NewGuid()}",
+            new[] { syntaxTree },
+            references,
+            new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
+        );
 
         using var memoryStream = new MemoryStream();
         var result = compilation.Emit(memoryStream);
@@ -149,14 +149,15 @@ public class Launcher
 
         lua.RegisterFunction("print", this, GetType().GetMethod(nameof(LuaPrint)));
 
-        var result = lua.DoFile(path)[0] as LuaTable
+        var result =
+            lua.DoFile(path)[0] as LuaTable
             ?? throw new Exception("runtime.tl must return a table");
 
-        var documentId = result["DOCUMENTID"]?.ToString()
-            ?? throw new Exception("Missing DOCUMENTID");
+        var documentId =
+            result["DOCUMENTID"]?.ToString() ?? throw new Exception("Missing DOCUMENTID");
 
-        var baseProjectName = result["BASEPROJECTNAME"]?.ToString()
-            ?? throw new Exception("Missing BASEPROJECTNAME");
+        var baseProjectName =
+            result["BASEPROJECTNAME"]?.ToString() ?? throw new Exception("Missing BASEPROJECTNAME");
 
         var enableImages = Convert.ToInt32(result["ENABLEIMAGES"] ?? 0);
 

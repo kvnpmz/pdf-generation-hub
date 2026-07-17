@@ -32,7 +32,8 @@ public class Image : IStep
         string? dir = Path.GetDirectoryName(absPath);
         string name = Path.GetFileNameWithoutExtension(absPath);
 
-        if (dir == null) return;
+        if (dir == null)
+            return;
 
         string outputDir = Path.Combine(dir, "images");
 
@@ -44,7 +45,8 @@ public class Image : IStep
 
         Directory.CreateDirectory(outputDir);
 
-        string arguments = $"-density 300 \"{absPath}\" -colorspace sRGB -alpha off -type truecolor -profile /usr/share/color/icc/colord/sRGB.icc \"{Path.Combine(outputDir, name)}.png\"";
+        string arguments =
+            $"-density 300 \"{absPath}\" -colorspace sRGB -alpha off -type truecolor -profile /usr/share/color/icc/colord/sRGB.icc \"{Path.Combine(outputDir, name)}.png\"";
         RunCommand("convert", arguments);
 
         string pngPath = Path.Combine(outputDir, name) + ".png";
@@ -67,9 +69,22 @@ public class Image : IStep
             return;
         }
 
-        var bgs = new[] {
-            new { Path = _assetsDir + "/ipad.png", Suffix = "ipad", Scale = "16.8%", Pos = "+69+112" },
-            new { Path = _assetsDir + "/zoom.png", Suffix = "zoom", Scale = "20.0%", Pos = "+146+58" }
+        var bgs = new[]
+        {
+            new
+            {
+                Path = _assetsDir + "/ipad.png",
+                Suffix = "ipad",
+                Scale = "16.8%",
+                Pos = "+69+112",
+            },
+            new
+            {
+                Path = _assetsDir + "/zoom.png",
+                Suffix = "zoom",
+                Scale = "20.0%",
+                Pos = "+146+58",
+            },
         };
 
         foreach (var bg in bgs)
@@ -77,7 +92,8 @@ public class Image : IStep
             string fileName = $"{name}_{bg.Suffix}.png";
             string cleanFileName = fileName;
             string outPath = Path.Combine(outputDir, cleanFileName);
-            string args = $"\"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
+            string args =
+                $"\"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 
             RunCommand("convert", args);
             Console.WriteLine($"[SUCCESS] Saved: {fileName}");
@@ -94,7 +110,7 @@ public class Image : IStep
             {
                 RedirectStandardError = true,
                 UseShellExecute = false,
-                CreateNoWindow = true
+                CreateNoWindow = true,
             };
 
             using var proc = Process.Start(startInfo);
@@ -103,7 +119,9 @@ public class Image : IStep
             if (proc != null && proc.ExitCode != 0)
             {
                 string error = proc.StandardError.ReadToEnd();
-                Console.WriteLine($"[ERROR] Command '{cmd}' failed with code {proc.ExitCode}: {error}");
+                Console.WriteLine(
+                    $"[ERROR] Command '{cmd}' failed with code {proc.ExitCode}: {error}"
+                );
             }
         }
         catch (Exception ex)

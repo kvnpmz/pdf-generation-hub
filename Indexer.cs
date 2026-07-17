@@ -1,9 +1,10 @@
-using Microsoft.Data.Sqlite;
 using System.Text.RegularExpressions;
+using Microsoft.Data.Sqlite;
 
 public class Indexer : IStep
 {
-    private static readonly string ConnectionString = $"Data Source={Path.Combine(Paths.RootPath, "projects.db")}";
+    private static readonly string ConnectionString =
+        $"Data Source={Path.Combine(Paths.RootPath, "projects.db")}";
 
     public async Task ExecuteAsync(Context context)
     {
@@ -19,7 +20,8 @@ public class Indexer : IStep
     private async Task CreateTable(SqliteConnection conn)
     {
         using var cmd = conn.CreateCommand();
-        cmd.CommandText = @"
+        cmd.CommandText =
+            @"
             CREATE TABLE IF NOT EXISTS Projects (
                     id TEXT PRIMARY KEY,
                     folder_path TEXT,
@@ -42,7 +44,8 @@ public class Indexer : IStep
             existingIds.Add(id);
 
             var configPath = Path.Combine(directory, "config.tl");
-            if (!File.Exists(configPath)) continue;
+            if (!File.Exists(configPath))
+                continue;
 
             var lua = File.ReadAllText(configPath);
 
@@ -51,7 +54,8 @@ public class Indexer : IStep
             var completed = Extract(lua, "completed_date");
 
             using var cmd = conn.CreateCommand();
-            cmd.CommandText = @"
+            cmd.CommandText =
+                @"
                 INSERT OR REPLACE INTO Projects 
                 (id, folder_path, completed_date, overrides, output_name, is_editable, template)
                 VALUES 
@@ -61,7 +65,10 @@ public class Indexer : IStep
             cmd.Parameters.AddWithValue("$path", directory);
             cmd.Parameters.AddWithValue("$edit", editable);
             cmd.Parameters.AddWithValue("$template", template);
-            cmd.Parameters.AddWithValue("$completed", string.IsNullOrWhiteSpace(completed) ? DBNull.Value : completed);
+            cmd.Parameters.AddWithValue(
+                "$completed",
+                string.IsNullOrWhiteSpace(completed) ? DBNull.Value : completed
+            );
             cmd.Parameters.AddWithValue("$overrides", Extract(lua, "overrides"));
             cmd.Parameters.AddWithValue("$output", Extract(lua, "output_name"));
 
@@ -88,7 +95,8 @@ public class Indexer : IStep
 
         var placeholders = string.Join(",", placeholderList);
 
-        cmd.CommandText = $@"
+        cmd.CommandText =
+            $@"
             DELETE FROM Projects 
             WHERE id NOT IN ({placeholders});
         ";
@@ -105,8 +113,7 @@ public class Indexer : IStep
 
     private string Extract(string lua, string key)
     {
-        var match = Regex.Match(lua,
-                $@"{key}\s*=\s*['""]?(.*?)['""]?[\r\n,]");
+        var match = Regex.Match(lua, $@"{key}\s*=\s*['""]?(.*?)['""]?[\r\n,]");
 
         return match.Success ? match.Groups[1].Value : "";
     }

@@ -5,7 +5,8 @@ public class Watcher
     private readonly Flow _flow = new();
     private readonly Launcher _launcher;
     private readonly string _root = Paths.RootPath;
-    private readonly Channel<FileSystemEventArgs> _eventChannel = Channel.CreateUnbounded<FileSystemEventArgs>();
+    private readonly Channel<FileSystemEventArgs> _eventChannel =
+        Channel.CreateUnbounded<FileSystemEventArgs>();
 
     public static class BootState
     {
@@ -27,7 +28,7 @@ public class Watcher
         {
             IncludeSubdirectories = true,
             NotifyFilter = NotifyFilters.FileName | NotifyFilters.LastWrite,
-            InternalBufferSize = 65536
+            InternalBufferSize = 65536,
         };
 
         FileSystemEventHandler handler = (sender, eventData) =>
@@ -54,7 +55,10 @@ public class Watcher
         watcher.EnableRaisingEvents = true;
         Console.WriteLine($"Watcher active on {_root}.");
 
-        try { await Task.Delay(Timeout.Infinite, cancellationToken); }
+        try
+        {
+            await Task.Delay(Timeout.Infinite, cancellationToken);
+        }
         catch (OperationCanceledException) { }
     }
 
@@ -73,7 +77,8 @@ public class Watcher
 
     private bool IsTargetFile(string? fileName)
     {
-        if (string.IsNullOrEmpty(fileName)) return false;
+        if (string.IsNullOrEmpty(fileName))
+            return false;
 
         if (fileName.StartsWith("4913") || fileName.EndsWith("~") || fileName.StartsWith("."))
             return false;

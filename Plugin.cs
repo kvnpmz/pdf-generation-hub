@@ -19,4 +19,3 @@ public class PluginRenderProvider : IRenderProvider
         return Task.FromResult(renderer!.Render(config));
     }
 }
-

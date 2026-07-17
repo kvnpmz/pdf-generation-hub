@@ -27,16 +27,15 @@ public class TemplateRender : IRenderer
                 }
 
                 columnContent.Add(
-                        Dom.Section("",
-                            Dom.H2("", section["title"]?.ToString() ?? ""),
-                            Dom.Ul("", itemsHtml.ToArray())
-                            )
-                        );
+                    Dom.Section(
+                        "",
+                        Dom.H2("", section["title"]?.ToString() ?? ""),
+                        Dom.Ul("", itemsHtml.ToArray())
+                    )
+                );
             }
 
-            columnsHtml.Add(
-                    Dom.Div("column", columnContent.ToArray())
-                    );
+            columnsHtml.Add(Dom.Div("column", columnContent.ToArray()));
         }
 
         columnsHtml.Insert(0, headerHtml);
@@ -44,7 +43,7 @@ public class TemplateRender : IRenderer
         return new RenderResult
         {
             Html = string.Concat(columnsHtml),
-            OutputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output"
+            OutputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output",
         };
     }
 }

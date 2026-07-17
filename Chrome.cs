@@ -9,9 +9,10 @@ public class Chrome : IPdfExport
         var page = await browser.NewPageAsync();
         await page.SetContentAsync(context.Html);
 
-        var formats = new[] {
-            new { Format = PaperFormat.Letter, Suffix = ""},
-            new { Format = PaperFormat.A4, Suffix = "_a4" }
+        var formats = new[]
+        {
+            new { Format = PaperFormat.Letter, Suffix = "" },
+            new { Format = PaperFormat.A4, Suffix = "_a4" },
         };
 
         foreach (var item in formats)
@@ -19,12 +20,14 @@ public class Chrome : IPdfExport
             string fileName = $"{context.OutputName}{item.Suffix}.pdf";
             string outputPath = Path.GetFullPath(Path.Combine(context.OutputDirectory, fileName));
 
-            await page.PdfAsync(new()
-            {
-                Path = outputPath,
-                Format = item.Format,
-                PrintBackground = true
-            });
+            await page.PdfAsync(
+                new()
+                {
+                    Path = outputPath,
+                    Format = item.Format,
+                    PrintBackground = true,
+                }
+            );
 
             Console.WriteLine($"Generated {outputPath}");
         }

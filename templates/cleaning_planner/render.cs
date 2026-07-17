@@ -5,7 +5,22 @@ namespace CleaningPlanner;
 
 public class TemplateRender : IRenderer
 {
-    private static readonly string[] MonthLetters = { "J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D" };
+    private static readonly string[] MonthLetters =
+    {
+        "J",
+        "F",
+        "M",
+        "A",
+        "M",
+        "J",
+        "J",
+        "A",
+        "S",
+        "O",
+        "N",
+        "D",
+    };
+
     public RenderResult Render(LuaTable config)
     {
         var html = new List<string>();
@@ -20,7 +35,9 @@ public class TemplateRender : IRenderer
 
             if (areaName.Contains("calendar"))
             {
-                html.Add(Dom.Section(areaName, GenerateCalendar(areaName.Contains("month") ? 12 : 7)));
+                html.Add(
+                    Dom.Section(areaName, GenerateCalendar(areaName.Contains("month") ? 12 : 7))
+                );
             }
             else if (areaName == "annually")
             {
@@ -30,11 +47,13 @@ public class TemplateRender : IRenderer
                 int index = 0;
                 foreach (var item in items.Values)
                 {
-                    allItems.Add(Dom.Li("",
-                                Dom.Div("month-label", MonthLetters[index]),
-                                Dom.Div("item-text", item?.ToString() ?? "")
-                                )
-                            );
+                    allItems.Add(
+                        Dom.Li(
+                            "",
+                            Dom.Div("month-label", MonthLetters[index]),
+                            Dom.Div("item-text", item?.ToString() ?? "")
+                        )
+                    );
                     index++;
                 }
 
@@ -50,13 +69,17 @@ public class TemplateRender : IRenderer
                         col2.Add(allItems[i]);
                 }
 
-                html.Add(Dom.Section(areaName,
-                            Dom.H2("", section["title"]?.ToString() ?? ""),
-                            Dom.Div("annually-container",
-                                Dom.Ul("annually-list", col1.ToArray()) +
-                                Dom.Ul("annually-list", col2.ToArray())
-                                )
-                            ));
+                html.Add(
+                    Dom.Section(
+                        areaName,
+                        Dom.H2("", section["title"]?.ToString() ?? ""),
+                        Dom.Div(
+                            "annually-container",
+                            Dom.Ul("annually-list", col1.ToArray())
+                                + Dom.Ul("annually-list", col2.ToArray())
+                        )
+                    )
+                );
             }
             else
             {
@@ -65,25 +88,24 @@ public class TemplateRender : IRenderer
                 {
                     foreach (var item in items.Values)
                     {
-                        itemsHtml.Add(
-                                Dom.Li("", item?.ToString() ?? "")
-                                );
+                        itemsHtml.Add(Dom.Li("", item?.ToString() ?? ""));
                     }
                 }
 
-                html.Add(Dom.Section(areaName,
-                            Dom.H2("", section["title"]?.ToString() ?? ""),
-                            Dom.Ul("", itemsHtml.ToArray())
-                            ));
+                html.Add(
+                    Dom.Section(
+                        areaName,
+                        Dom.H2("", section["title"]?.ToString() ?? ""),
+                        Dom.Ul("", itemsHtml.ToArray())
+                    )
+                );
             }
         }
 
         return new RenderResult
         {
             Html = string.Concat(html),
-            OutputName = config["output_name"]?.ToString()
-                ?? config["id"]?.ToString()
-                ?? "output"
+            OutputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output",
         };
     }
 

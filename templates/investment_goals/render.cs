@@ -19,9 +19,18 @@ public class TemplateRender : IRenderer
 
         var months = new[]
         {
-            "January", "February", "March", "April",
-            "May", "June", "July", "August",
-            "September", "October", "November", "December"
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
         };
 
         foreach (var month in months)
@@ -43,28 +52,30 @@ public class TemplateRender : IRenderer
         html.Add(Dom.H1("", $"{words[0]} {words[1]}"));
         html.Add(Dom.H2("", $"{words[2]} {words[3]}"));
 
-        html.Add(Dom.Header("",
-                    Dom.Div("", Dom.H3("", "Name"), Dom.Div("line", "")),
-                    Dom.Div("", Dom.H3("", "Year"), Dom.Div("line", ""))
-                    )
-                );
+        html.Add(
+            Dom.Header(
+                "",
+                Dom.Div("", Dom.H3("", "Name"), Dom.Div("line", "")),
+                Dom.Div("", Dom.H3("", "Year"), Dom.Div("line", ""))
+            )
+        );
 
         html.Add(Dom.MainTag("", string.Concat(main)));
 
         return new RenderResult
         {
             Html = string.Concat(html),
-            OutputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output"
+            OutputName = config["output_name"]?.ToString() ?? config["id"]?.ToString() ?? "output",
         };
     }
 
     private static string CreateSplitCell()
     {
         return Dom.Div(
-                "cell split",
-                Dom.Div("split-container", Dom.Tag("textarea", "", "")),
-                Dom.Div("split-container", Dom.Tag("textarea", "", "")),
-                Dom.Div("split-container", Dom.Tag("textarea", "", ""))
-                );
+            "cell split",
+            Dom.Div("split-container", Dom.Tag("textarea", "", "")),
+            Dom.Div("split-container", Dom.Tag("textarea", "", "")),
+            Dom.Div("split-container", Dom.Tag("textarea", "", ""))
+        );
     }
 }

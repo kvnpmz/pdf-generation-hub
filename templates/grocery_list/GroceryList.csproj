@@ -11,16 +11,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Remove="templates\**" />
-        <EmbeddedResource Remove="templates\**" />
-        <None Remove="templates\**" />
-
-        <Compile Remove="obj\**" />
-        <EmbeddedResource Remove="obj\**" />
-        <None Remove="obj\**" />
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="../../TemplatePrintable.csproj" />
         <PackageReference Include="NLua" Version="1.7.9" />
     </ItemGroup>

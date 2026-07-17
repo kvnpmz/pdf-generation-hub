@@ -6,12 +6,7 @@ local style = require("style")
 
 function M.Render(config: contracts.Config): contracts.RenderResult
     local renderContext = context.Execute(config)
-
     local renderTemplate = renderContext.render
-
-    if renderTemplate == nil then
-        error("renderTemplate is nil")
-    end
 
     local html = renderTemplate(config)
 

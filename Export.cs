@@ -7,9 +7,7 @@ public class Export : IStep
 {
     public async Task ExecuteAsync(Context context)
     {
-        IPdfExport pdfExport = context.IsEditable
-            ? new Weasy()
-            : new Chrome();
+        IPdfExport pdfExport = context.IsEditable ? new Weasy() : new Chrome();
 
         await pdfExport.ExecuteAsync(context);
     }

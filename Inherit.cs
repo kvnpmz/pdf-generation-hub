@@ -1,5 +1,5 @@
-using NLua;
 using System.Text;
+using NLua;
 
 public class Inherit
 {
@@ -15,7 +15,9 @@ public class Inherit
 
         if (result == null || result.Length == 0)
         {
-            Console.WriteLine($"[Inherit] ERROR: Could not find or load base config for '{extends}'");
+            Console.WriteLine(
+                $"[Inherit] ERROR: Could not find or load base config for '{extends}'"
+            );
             return config;
         }
 
@@ -23,7 +25,9 @@ public class Inherit
 
         if (baseConfig == null)
         {
-            Console.WriteLine($"[Inherit] ERROR: Loaded base config for '{extends}' but it was null.");
+            Console.WriteLine(
+                $"[Inherit] ERROR: Loaded base config for '{extends}' but it was null."
+            );
             return config;
         }
 
@@ -31,24 +35,10 @@ public class Inherit
         return merged;
     }
 
-
-    private LuaTable LoadConfig(string documentId)
-    {
-        using var lua = new Lua();
-        lua.State.Encoding = Encoding.UTF8;
-
-        lua.DoString($"package.path = package.path .. ';{Path.Combine(_root, "?.tl")}'" +
-                $" .. ';{Path.Combine(_root, "?/init.tl")}'"
-                );
-
-        lua.DoString("local tl = require('tl'); tl.loader();");
-
-        return (LuaTable)lua.DoString($"return require('documents.{documentId}.config')")[0];
-    }
-
     private LuaTable Merge(LuaTable baseConfig, LuaTable overrideConfig, Lua lua)
     {
-        lua.DoString(@"
+        lua.DoString(
+            @"
         function merge_tables(base, override)
             local result = {}
 
@@ -62,7 +52,8 @@ public class Inherit
 
             return result
         end
-    ");
+    "
+        );
 
         lua["base"] = baseConfig;
         lua["override"] = overrideConfig;
