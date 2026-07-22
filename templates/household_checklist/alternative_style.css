@@ -1,0 +1,18 @@
+.column {
+    position: relative; 
+}
+
+.column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 16pt;
+    bottom: 8pt;
+    right: 3pt;
+    width: 1.5pt;
+    background-color: #929292;
+}
+
+h1 { color: #4A7D82; }
+.green { --theme-color: #91AD65; }
+.amber { --theme-color: #D6A34D; }
+.red { --theme-color: #C4766F; }
