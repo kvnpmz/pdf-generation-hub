@@ -1,0 +1,135 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10pt;
+}
+
+.title {
+    font-family: "Source Serif 4";
+    letter-spacing: 2pt;
+    font-weight: bold;
+    font-size: 24pt;
+    text-transform: uppercase;
+}
+
+.week-label {
+    text-align: center;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    width: 90pt;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.week-line {
+    margin-top: 16pt;
+    border-bottom: 1pt solid #000;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: 1fr;
+    border-bottom: 1pt solid #000;
+}
+
+.time-header {
+    text-align: center;
+    border-bottom: 1pt solid #000;
+}
+
+.day-header {
+    text-align: center;
+    font-size: 9pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #fff;
+    border-bottom: 1pt solid #000;
+}
+
+
+.time-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c8e5ec;
+    font-size: 7pt;
+    font-weight: bold;
+    border-left: 1pt solid #000;
+    border-right: 1pt solid #000;
+}
+
+.time-slot-grey-border {
+    border-bottom: 1pt solid #ccc;
+}
+
+.time-slot-black-border {
+    border-bottom: 1pt solid #000;
+}
+
+.time-slot-last {
+    border-bottom: none;
+}
+
+.border-thick {
+    border-bottom: 1.5pt solid #e0e0e0;
+    border-right: 1.5pt solid #e0e0e0e0;
+}
+
+.border-thin {
+    border-bottom: 0.5pt solid #ccc;
+    border-right: 1.5pt solid #e0e0e0;
+}
+
+.schedule-col-last {
+    border-right: 1pt solid #000;
+}
+
+.schedule-row-last {
+    border-bottom: none;
+}
+
+.monday {
+    background-color: #fff4f4;
+}
+
+.tuesday {
+    background-color: #fff9f2;
+}
+
+.wednesday {
+    background-color: #fdfdf2;
+}
+
+.thursday {
+    background-color: #f2fdf2;
+}
+
+.friday {
+    background-color: #f2f9fd;
+}
+
+.saturday {
+    background-color: #f7f2fd;
+}
+
+.sunday {
+    background-color: #ffffff;
+}
+
+.schedule-input {
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: transparent;
+    width: calc(100% - 4pt);
+    height: calc(100% - 2pt);
+    margin-left: 2pt;
+    font-size: 6pt;
+}

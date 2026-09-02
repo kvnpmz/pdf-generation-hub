@@ -7,39 +7,39 @@ return {
     columns = {
         { -- Column 1
             {
-                title = "Dishwashing", items = { "Hand wash soap", "Dish detergent", "Dish sponges", "Dishwashing gloves", "Dishwasher pods/tablets", "Dishwasher cleaner", "Pots and pans brush", "Brillo/scour pads" }
+                title = "Dishwashing", items = { "Hand soap", "Dish soap", "Dish sponges", "Dish gloves", "Dishwasher pods or tablets", "Dish drying rack", "Dish brush", "Dish towels" }
             },
             {
-                title = "Cleaning", items = { "Multipurpose cleaner", "Antibacterial spray", "Glass cleaner", "Oven cleaner", "White vinegar", "Microfiber cleaning cloths", "Paper towels" }
+                title = "Cleaning", items = { "All-purpose cleaner", "Disinfectant cleaner", "Glass cleaner", "Scrub brush", "White vinegar", "Microfiber cleaning cloths", "Paper towels" }
             },
             {
-                title = "Dusting & polishing", items = { "Microfiber duster cloths", "Microfiber window cloths", "Microfiber polishing cloths", "Feather duster", "Wood polish spray", "Dusting spray", "Silver polish" }
+                title = "Organization", items = { "Closet hangers", "Storage baskets", "Drawer organizers", "Command hooks", "Shoe rack", "Laundry hamper", "Reusable shopping bags" }
             },
             {
-                title = "Laundry", items = { "Laundry detergent", "Fabric softener", "Laundry bleach", "Stain remover", "Lint roller" }
+                title = "Laundry", items = { "Laundry detergent", "Fabric softener", "Bleach", "Stain remover", "Dryer sheets" }
             },
             {
-                title = "Floors", items = { "Wooden floor cleaner", "General floor cleaner", "Cloth floor mop", "Broom and pan", "Vacuum" }
+                title = "Floors", items = { "General floor cleaner", "Wood floor cleaner", "Broom and dustpan", "Floor mop", "Vacuum" }
             },
         },
         { -- Column 2
             {
-                title = "Windows", items = { "Cleaning cloth", "Polishing cloth", "Glass cleaner" }
+                title = "Windows", items = { "Cleaning cloths", "Polishing cloths", "Glass cleaner" }
             },
             {
-                title = "Trash", items = { "Trash bags - large", "Trash bags - small", "Food recycling bags" }
+                title = "Trash", items = { "Large trash bags", "Small trash bags", "Compost bags" }
             },
             {
-                title = "Bathroom", items = { "Cleaning gloves", "Toilet brush", "Toilet paper", "Antibacterial spray cleaner", "Shower cleaner", "Toilet bleach", "Limescale remover", "Drain cleaner", "Bathroom bin bags" }
+                title = "Bathroom", items = { "Cleaning gloves", "Toilet brush", "Toilet paper", "Disinfecting spray cleaner", "Shower cleaner", "Toilet bowl cleaner", "Plunger", "Drain cleaner", "Bathroom trash bags" }
             },
             {
                 title = "Hygiene", items = { "Liquid hand soap", "Hand towels", "Hand sanitizer", "Tissues", "Disinfectant wipes" }
             },
             {
-                title = "Kitchen", items = { "Saran wrap/plastic wrap", "Tin foil", "Press & seal paper", "Parchment paper", "Freezer bags" }
+                title = "Kitchen", items = { "Plastic wrap (saran wrap)", "Aluminum foil", "Food storage containers", "Kitchen trash can", "Freezer bags" }
             },
             {
-                title = "Sundries", items = { "Duct tape", "AA batteries", "AAA batteries", "Lightbulbs", "Screwdriver set" }
+                title = "Supplies", items = { "Flashlight", "AA batteries", "AAA batteries", "Light bulbs", "Screwdriver set" }
             }
         }
     }

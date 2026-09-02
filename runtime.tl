@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "household_checklist",
-    ENABLEIMAGES = 0,
-    BASEPROJECTNAME = "lowcarb_foodlist"
+    DOCUMENTID = "halfhour_weeklyschedule",
+    ENABLEIMAGES = 1,
+    BASEPROJECTNAME = "weekly_plan"
 }

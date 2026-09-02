@@ -11,9 +11,7 @@ public class Weasy : IPdfExport
 
         var scriptFile = Path.Combine(tempDir, Guid.NewGuid() + ".py");
 
-        await File.WriteAllTextAsync(
-            scriptFile,
-            """
+        await File.WriteAllTextAsync(scriptFile, """
 import sys
 from pathlib import Path
 from weasyprint import HTML, CSS
@@ -23,14 +21,14 @@ output_directory = Path(sys.argv[2])
 output_name = sys.argv[3]
 
 output_a4 = output_directory / f"{output_name}_editable_a4.pdf"
-output_letter = output_directory / f"{output_name}_editable.pdf"
-
-HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
+# HTML(filename=html_path).write_pdf(output_a4, pdf_forms=True)
 
 letter_css = CSS(string='@page { size: Letter; }')
+output_letter = output_directory / f"{output_name}_editable.pdf"
 HTML(filename=html_path).write_pdf(output_letter, pdf_forms=True, stylesheets=[letter_css])
-print(f"Generated {output_a4}");       
-print(f"Generated {output_letter}");       
+
+# print(f"Generated {output_a4}");       
+print(f"Generated {output_letter}")
 """
         );
 
@@ -49,10 +47,20 @@ print(f"Generated {output_letter}");
 
         using var process = Process.Start(psi)!;
 
-        string stdout = await process.StandardOutput.ReadToEndAsync();
+        string stdout = (await process.StandardOutput.ReadToEndAsync()).Trim();
         string stderr = await process.StandardError.ReadToEndAsync();
 
-        Console.WriteLine(stdout);
+        var rootName = Path.GetFileName(Paths.RootPath);
+        var index = stdout.IndexOf(rootName, StringComparison.OrdinalIgnoreCase);
+
+        if (index >= 0)
+        {
+            Console.WriteLine($"Generated {stdout[index..]}");
+        }
+        else
+        {
+            Console.WriteLine(stdout);
+        }
 
         await process.WaitForExitAsync();
 

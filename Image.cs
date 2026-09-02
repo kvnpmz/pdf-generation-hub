@@ -22,11 +22,13 @@ public class Image : IStep
 
     public void ProcessPdfToImages(string pdfPath)
     {
+        /*
         if (pdfPath.Contains("editable", StringComparison.OrdinalIgnoreCase))
         {
             Console.WriteLine("[INFO] Pdf is editable. Skipping.");
             return;
         }
+        */
 
         string absPath = Path.GetFullPath(pdfPath);
         string? dir = Path.GetDirectoryName(absPath);
@@ -46,8 +48,8 @@ public class Image : IStep
         Directory.CreateDirectory(outputDir);
 
         string arguments =
-            $"-density 300 \"{absPath}\" -colorspace sRGB -alpha off -type truecolor -profile /usr/share/color/icc/colord/sRGB.icc \"{Path.Combine(outputDir, name)}.png\"";
-        RunCommand("convert", arguments);
+            $"-density 300 \"{absPath}\" -colorspace sRGB -background white -alpha remove -type truecolor -profile /usr/share/ghostscript/10.06.0/iccprofiles/srgb.icc \"{Path.Combine(outputDir, name)}.png\"";
+        RunCommand("magick", arguments);
 
         string pngPath = Path.Combine(outputDir, name) + ".png";
         Console.WriteLine($"[SUCCESS] Converting PDF to PNG: {pngPath}");
