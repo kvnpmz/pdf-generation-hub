@@ -1,0 +1,65 @@
+:root {
+    --blue: #6FAED9;
+    --light-blue: #CFE7F5;
+    --sky-blue: #F4FAFF;
+}
+
+body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: #231F1D;
+    font-size: 11pt;
+}
+
+header {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-bottom: 5pt;
+
+}
+
+h1 {
+    color: var(--blue);
+    text-align: center;
+    font-size: 30pt;
+    font-weight: 900;
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr; 
+    flex: 1;
+    gap: 8pt;
+}
+
+.food-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5pt;
+    border: 1pt solid var(--blue);
+    border-radius: 6pt;
+    background-color: var(--sky-blue);
+}
+
+.food-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer {
+    font-family: Source-Serif4;
+    position: absolute;
+    font-size: 8.5pt;
+    bottom: 18pt;
+    left: 50.4pt;
+    right: 50.4pt;
+    font-style: italic;
+}
+

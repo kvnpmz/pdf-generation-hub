@@ -15,7 +15,6 @@
 html {
     height: 100%;
     padding: 36pt 50.4pt;
-    color: #121212;
 }
 
 body {
@@ -23,951 +22,277 @@ body {
     font-family: Inter;
     font-size: 6pt;
 }</style>
-            <style>header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10pt;
-}
-
-.title {
-    font-family: "Source Serif 4";
-    letter-spacing: 2pt;
-    font-weight: bold;
-    font-size: 24pt;
-    text-transform: uppercase;
-}
-
-.week-label {
-    text-align: center;
-    letter-spacing: 1.2pt;
-    text-transform: uppercase;
-    width: 90pt;
-    font-size: 16pt;
-    font-weight: bold;
-}
-
-.week-line {
-    margin-top: 16pt;
-    border-bottom: 1pt solid #000;
+            <style>:root {
+    --blue: #6FAED9;
+    --light-blue: #CFE7F5;
+    --sky-blue: #F4FAFF;
 }
 
 body {
     display: flex;
-    flex-direction: column;
-}
-
-.schedule {
     flex: 1;
+    flex-direction: column;
+    color: #231F1D;
+    font-size: 11pt;
+}
+
+header {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: 1fr;
-    border-bottom: 1pt solid #000;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-bottom: 5pt;
+
 }
 
-.time-header {
+h1 {
+    color: var(--blue);
     text-align: center;
-    border-bottom: 1pt solid #000;
-}
-
-.day-header {
-    text-align: center;
-    font-size: 9pt;
-    font-weight: bold;
+    font-size: 30pt;
+    font-weight: 900;
+    letter-spacing: 1.5pt;
     text-transform: uppercase;
-    background-color: #fff;
-    border-bottom: 1pt solid #000;
 }
 
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr; 
+    flex: 1;
+    gap: 8pt;
+}
 
-.time-slot {
+.food-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #c8e5ec;
-    font-size: 7pt;
-    font-weight: bold;
-    border-left: 1pt solid #000;
-    border-right: 1pt solid #000;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5pt;
+    border: 1pt solid var(--blue);
+    border-radius: 6pt;
+    background-color: var(--sky-blue);
 }
 
-.time-slot-grey-border {
-    border-bottom: 1pt solid #ccc;
+.food-stats {
+    display: flex;
+    justify-content: space-between;
 }
 
-.time-slot-black-border {
-    border-bottom: 1pt solid #000;
-}
-
-.time-slot-last {
-    border-bottom: none;
-}
-
-.border-thick {
-    border-bottom: 1.5pt solid #e0e0e0;
-    border-right: 1.5pt solid #e0e0e0e0;
-}
-
-.border-thin {
-    border-bottom: 0.5pt solid #ccc;
-    border-right: 1.5pt solid #e0e0e0;
-}
-
-.schedule-col-last {
-    border-right: 1pt solid #000;
-}
-
-.schedule-row-last {
-    border-bottom: none;
-}
-
-.monday {
-    background-color: #fff4f4;
-}
-
-.tuesday {
-    background-color: #fff9f2;
-}
-
-.wednesday {
-    background-color: #fdfdf2;
-}
-
-.thursday {
-    background-color: #f2fdf2;
-}
-
-.friday {
-    background-color: #f2f9fd;
-}
-
-.saturday {
-    background-color: #f7f2fd;
-}
-
-.sunday {
-    background-color: #ffffff;
-}
-
-.schedule-input {
-    border: none;
-    outline: none;
-    resize: none;
-    background-color: transparent;
-    width: calc(100% - 4pt);
-    height: calc(100% - 2pt);
-    margin-left: 2pt;
-    font-size: 6pt;
+.footer {
+    font-family: Source-Serif4;
+    position: absolute;
+    font-size: 8.5pt;
+    bottom: 18pt;
+    left: 50.4pt;
+    right: 50.4pt;
+    font-style: italic;
 }</style>
         </head>
         <body>
-        <header>
-            <h1 class="title">Half Hour Weekly Schedule</h1>
-            <div class="week-label">
-                Week Of:
-                <div class="week-line"></div>
-            </div>
-        </header>
-        <main class="schedule">
-            <div class="time-header"></div>
-            <div class="day-header">Monday</div>
-            <div class="day-header">Tuesday</div>
-            <div class="day-header">Wednesday</div>
-            <div class="day-header">Thursday</div>
-            <div class="day-header">Friday</div>
-            <div class="day-header">Saturday</div>
-            <div class="day-header">Sunday</div>
-            <div class="time-slot time-slot-grey-border ">6:00 AM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">6:30 AM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">7:00 AM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">7:30 AM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">8:00 AM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">8:30 AM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">9:00 AM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">9:30 AM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">10:00 AM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">10:30 AM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">11:00 AM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">11:30 AM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">12:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">12:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">1:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">1:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">2:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">2:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">3:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">3:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">4:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">4:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">5:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">5:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">6:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">6:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">7:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">7:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">8:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">8:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">9:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">9:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">10:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-black-border ">10:30 PM</div>
-            <div class="schedule-cell monday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-grey-border ">11:00 PM</div>
-            <div class="schedule-cell monday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thin  ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thin schedule-col-last ">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="time-slot time-slot-last schedule-row-last">11:30 PM</div>
-            <div class="schedule-cell monday border-thick  schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell tuesday border-thick  schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell wednesday border-thick  schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell thursday border-thick  schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell friday border-thick  schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell saturday border-thick  schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-            <div class="schedule-cell sunday border-thick schedule-col-last schedule-row-last">
-                <textarea class="schedule-input"></textarea>
-            </div>
-        </main>
+        <!DOCTYPE html>
+            <html lang="en">
+                <head>
+                <meta charset="utf-8">
+                    <style></style>
+                    <style>:root {
+    --blue: #6FAED9;
+    --light-blue: #CFE7F5;
+    --sky-blue: #F4FAFF;
+}
+
+body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: #231F1D;
+    font-size: 11pt;
+}
+
+header {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-bottom: 5pt;
+
+}
+
+h1 {
+    color: var(--blue);
+    text-align: center;
+    font-size: 30pt;
+    font-weight: 900;
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr; 
+    flex: 1;
+    gap: 8pt;
+}
+
+.food-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5pt;
+    border: 1pt solid var(--blue);
+    border-radius: 6pt;
+    background-color: var(--sky-blue);
+}
+
+.food-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer {
+    font-family: Source-Serif4;
+    position: absolute;
+    font-size: 8.5pt;
+    bottom: 18pt;
+    left: 50.4pt;
+    right: 50.4pt;
+    font-style: italic;
+}</style>
+                </head>
+                <body>
+                <header>
+                    <h1>High Protein</h1>
+                    <h1>Food Guide</h1>
+                </header>
+                <main>
+                    <div class="food-card">
+                        <h3>Chicken Breast (cooked, skinless)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 165</div>
+                            <div class="stat-item">Protein: 31 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Turkey Breast (cooked, skinless)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 160</div>
+                            <div class="stat-item">Protein: 29 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Lean Beef (cooked, 95% lean)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 250</div>
+                            <div class="stat-item">Protein: 26 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Pork Tenderloin (cooked)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 143</div>
+                            <div class="stat-item">Protein: 25 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Salmon (cooked, wild-caught)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 206</div>
+                            <div class="stat-item">Protein: 22 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Tuna (canned in water, drained)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 116</div>
+                            <div class="stat-item">Protein: 26 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Shrimp (cooked)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 85</div>
+                            <div class="stat-item">Protein: 20 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Eggs (hard-boiled)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 155</div>
+                            <div class="stat-item">Protein: 13 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Greek Yogurt (plain, non-fat)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 59</div>
+                            <div class="stat-item">Protein: 10 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Cottage Cheese (low-fat)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 72</div>
+                            <div class="stat-item">Protein: 10 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Tofu (firm)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 144</div>
+                            <div class="stat-item">Protein: 15 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Seitan (wheat gluten)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 120</div>
+                            <div class="stat-item">Protein: 25 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Almonds</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 579</div>
+                            <div class="stat-item">Protein: 21 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Peanuts</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 567</div>
+                            <div class="stat-item">Protein: 25 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Pumpkin Seeds</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 446</div>
+                            <div class="stat-item">Protein: 19 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Chia Seeds</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 486</div>
+                            <div class="stat-item">Protein: 16 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Greek Yogurt (plant-based, unsweetened)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 55</div>
+                            <div class="stat-item">Protein: 5 Grams</div>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <h3>Tempeh (cooked)</h3>
+                        <div class="food-stats">
+                            <div class="stat-item">Calories: 192</div>
+                            <div class="stat-item">Protein: 20 Grams</div>
+                        </div>
+                    </div>
+                </main>
+                <div class="footer">* Please note that these values are approximate and can vary depending on factors such as the specific brand, cooking methods, and preparation.</div>
+            </body>
+        </html>
     </body>
 </html>
