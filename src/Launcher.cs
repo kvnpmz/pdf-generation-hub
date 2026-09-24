@@ -145,7 +145,7 @@ public class Launcher
     private (string documentId, int enableImages, string baseProjectName) LoadRuntime()
     {
         using var lua = new Lua();
-        var path = Path.Combine(_root, "runtime.tl");
+        var path = Path.Combine(_root, "teal", "runtime.tl");
 
         lua.RegisterFunction("print", this, GetType().GetMethod(nameof(LuaPrint)));
 

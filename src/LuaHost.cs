@@ -18,8 +18,8 @@ public class LuaHost : IDisposable
     private void ConfigurePackagePath()
     {
         Lua.DoString(
-            $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "?.tl")}'"
-                + $" .. ';{Path.Combine(Paths.RootPath, "?/init.tl")}'"
+            $"package.path = package.path .. ';{Path.Combine(Paths.RootPath, "teal", "?.tl")}'"
+                + $" .. ';{Path.Combine(Paths.RootPath, "teal", "?/init.tl")}'"
         );
     }
 

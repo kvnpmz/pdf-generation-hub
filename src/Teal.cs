@@ -20,7 +20,7 @@ public class TealRenderProvider : IRenderProvider
             await RunTlCheckAsync(
                 new[]
                 {
-                    "init.tl",
+                    Path.Combine("teal", "init.tl"),
                     Path.Combine("documents", context.DocumentId, "config.tl"),
                     Path.Combine("templates", config["template"]?.ToString() ?? "", "render.tl"),
                 }
