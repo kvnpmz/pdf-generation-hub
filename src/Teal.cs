@@ -78,6 +78,8 @@ public class TealRenderProvider : IRenderProvider
             WorkingDirectory = Paths.RootPath,
         };
         psi.ArgumentList.Add("check");
+        psi.ArgumentList.Add("-I");
+        psi.ArgumentList.Add("teal");
 
         foreach (var file in files)
             psi.ArgumentList.Add(file);

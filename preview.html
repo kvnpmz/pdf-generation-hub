@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <meta charset="utf-8">
+            <style>*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@page {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+    padding: 36pt 50.4pt;
+}
+
+body {
+    height: inherit;
+    font-family: Inter;
+    font-size: 6pt;
+}</style>
+            <style>body {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1pt;
+    font-size: 12.5pt;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5pt;
+    padding-top: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+    padding: 3pt;
+}
+
+h1 {
+    color: #202020;
+    letter-spacing: 3pt;
+    font-size: 30pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 20pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 3pt;
+    color: var(--h2-color);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 4pt;
+}
+
+li {
+    position: relative;
+    flex: 1;
+    padding-left: 13pt;
+    font-weight: bold;
+}
+
+li::before {
+    content: "●";
+    position: absolute;
+    font-size: 6pt;
+    left: 3pt;
+    top: 4pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+    --h2-color: #2A7F2A;
+}
+
+.middle {
+    background-color: #FFFDE7;
+    --h2-color: #795901;
+}
+
+.right {
+    background-color: #FFEBEE;
+    --h2-color: #B22222;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1pt;
+    font-size: 8.0pt;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5pt;
+    padding-top: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+    padding: 3pt;
+}
+
+h1 {
+    color: #202020;
+    letter-spacing: 3pt;
+    font-size: 30pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 20pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 3pt;
+    color: var(--h2-color);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 4pt;
+}
+
+li {
+    position: relative;
+    flex: 1;
+    padding-left: 11pt;
+    font-weight: bold;
+}
+
+li::before {
+    content: "●";
+    position: absolute;
+    font-size: 5pt;
+    left: 3pt;
+    top: 2pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+    --h2-color: #2A7F2A;
+}
+
+.middle {
+    background-color: #FFFDE7;
+    --h2-color: #795901;
+}
+
+.right {
+    background-color: #FFEBEE;
+    --h2-color: #B22222;
+}</style>
+        </head>
+        <body>
+        <!DOCTYPE html>
+            <html lang="en">
+                <head>
+                <meta charset="utf-8">
+                    <style></style>
+                    <style>body {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1pt;
+    font-size: 12.5pt;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5pt;
+    padding-top: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+    padding: 3pt;
+}
+
+h1 {
+    color: #202020;
+    letter-spacing: 3pt;
+    font-size: 30pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 20pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 3pt;
+    color: var(--h2-color);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 4pt;
+}
+
+li {
+    position: relative;
+    flex: 1;
+    padding-left: 13pt;
+    font-weight: bold;
+}
+
+li::before {
+    content: "●";
+    position: absolute;
+    font-size: 6pt;
+    left: 3pt;
+    top: 4pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+    --h2-color: #2A7F2A;
+}
+
+.middle {
+    background-color: #FFFDE7;
+    --h2-color: #795901;
+}
+
+.right {
+    background-color: #FFEBEE;
+    --h2-color: #B22222;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1pt;
+    font-size: 8.0pt;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5pt;
+    padding-top: 5pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+    padding: 3pt;
+}
+
+h1 {
+    color: #202020;
+    letter-spacing: 3pt;
+    font-size: 30pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 20pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 3pt;
+    color: var(--h2-color);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 4pt;
+}
+
+li {
+    position: relative;
+    flex: 1;
+    padding-left: 11pt;
+    font-weight: bold;
+}
+
+li::before {
+    content: "●";
+    position: absolute;
+    font-size: 5pt;
+    left: 3pt;
+    top: 2pt;
+}
+
+.left {
+    background-color: #E8F5E9;
+    --h2-color: #2A7F2A;
+}
+
+.middle {
+    background-color: #FFFDE7;
+    --h2-color: #795901;
+}
+
+.right {
+    background-color: #FFEBEE;
+    --h2-color: #B22222;
+}</style>
+                </head>
+                <body>
+                <h1>Fatty Liver Food List</h1>
+                <main>
+                    <div class="column left">
+                        <h2>Eat Freely</h2>
+                        <ul>
+                            <li>Vegetables (Daily - Wide Variety)</li>
+                            <li>Spinach, Broccoli</li>
+                            <li>Kale, Carrots</li>
+                            <li>Beetroot, Cabbage</li>
+                            <li>Cauliflower</li>
+                            <li>Brussels sprouts</li>
+                            <li>Zucchini</li>
+                            <li>Bell peppers, Asparagus</li>
+                            <li>Garlic</li>
+                            <li>Onions, Cucumber</li>
+                            <li>Leafy greens (all types)</li>
+                            <li>Fruits</li>
+                            <li>Apples</li>
+                            <li>Berries (blueberries, strawberries, raspberries)</li>
+                            <li>Oranges, Grapefruit</li>
+                            <li>Lemon & lime, Pomegranate</li>
+                            <li>Papaya & Kiwi</li>
+                            <li>Pears</li>
+                            <li>Watermelon (small portions)</li>
+                            <li>Whole Grains (High Fiber Choices)</li>
+                            <li>Oats, Brown rice</li>
+                            <li>Quinoa</li>
+                            <li>Whole wheat</li>
+                            <li>Barley, Millet</li>
+                            <li>Buckwheat</li>
+                            <li>Whole grain bread (no added sugar)</li>
+                            <li>Lean Protein (Supports Repair)</li>
+                            <li>Chicken breast & Turkey</li>
+                            <li>Fish (salmon, sardines, mackerel)</li>
+                            <li>Eggs (boiled)</li>
+                            <li>Lentils, Chickpeas</li>
+                            <li>Beans (black beans, kidney beans)</li>
+                            <li>Tofu, Low-fat yogurt</li>
+                            <li>Cottage cheese (low-fat)</li>
+                            <li>Healthy Fats (Reduce Inflammation)</li>
+                            <li>Avocado</li>
+                            <li>Olive oil (extra virgin)</li>
+                            <li>Nuts (almonds, walnuts, pistachios)</li>
+                            <li>Seeds (chia, flax, sunflower, pumpkin)</li>
+                            <li>Fatty fish (omega-3 rich)</li>
+                            <li>Drinks (Low sugar)</li>
+                            <li>Green tea, Black coffee (no sugar)</li>
+                            <li>Lemon water</li>
+                            <li>Herbal teas (ginger, turmeric, chamomile)</li>
+                            <li>Coconut water (unsweetened)</li>
+                            <li>Plenty of water (8-10 glasses daily)</li>
+                        </ul>
+                    </div>
+                    <div class="column middle">
+                        <h2>Limit</h2>
+                        <ul>
+                            <li>Refined Carbohydrates (Low Fiber)</li>
+                            <li>White bread</li>
+                            <li>White rice</li>
+                            <li>Pasta (regular)</li>
+                            <li>Noodles</li>
+                            <li>Breakfast cereals (refined)</li>
+                            <li>Crackers</li>
+                            <li>Pancakes & waffles</li>
+                            <li>High-Fat Dairy (Use Sparingly)</li>
+                            <li>Butter</li>
+                            <li>Cheese (especially processed)</li>
+                            <li>Cream</li>
+                            <li>Full-fat milk</li>
+                            <li>Flavored yogurt (high sugar)</li>
+                            <li>Natural Sugars (Small Amounts Only)</li>
+                            <li>Honey, Maple syrup</li>
+                            <li>Fruit juices (even fresh)</li>
+                            <li>Smoothies with added sugar</li>
+                            <li>Dried fruits (raisins, dates - very small portions)</li>
+                            <li>Red Meat (Limit Weekly)</li>
+                            <li>Beef, Lamb</li>
+                            <li>Goat meat, Pork</li>
+                            <li>High Sodium Foods</li>
+                            <li>Packaged soups</li>
+                            <li>Sauces (soy sauce, ketchup)</li>
+                            <li>Pickles</li>
+                            <li>Instant noodles</li>
+                            <li>Salted snacks</li>
+                            <li>Caffeinated / Add-On Drinks</li>
+                            <li>Coffee with sugar/cream</li>
+                            <li>Flavored lattes</li>
+                            <li>Energy drinks</li>
+                            <li>Sweetened tea</li>
+                            <li>Processed "Healthy" Foods (Hidden Risks)</li>
+                            <li>Granola bars</li>
+                            <li>Protein bars (added sugar)</li>
+                            <li>Low-fat packaged foods (often high sugar)</li>
+                        </ul>
+                    </div>
+                    <div class="column right">
+                        <h2>Avoid</h2>
+                        <ul>
+                            <li>Fried & Fast Foods</li>
+                            <li>French fries, Fried chicken</li>
+                            <li>Burgers</li>
+                            <li>Pizza (greasy, processed cheese)</li>
+                            <li>Fried snacks (samosa, pakora, tempura)</li>
+                            <li>Onion rings, Fried street food</li>
+                            <li>Sugar & Sweetened Foods</li>
+                            <li>Soft drinks / soda</li>
+                            <li>Packaged fruit juices</li>
+                            <li>Candy, toffees</li>
+                            <li>Cakes, pastries, donuts</li>
+                            <li>Ice cream, Milk chocolate</li>
+                            <li>Syrups (corn syrup, glucose syrup)</li>
+                            <li>Alcohol</li>
+                            <li>Beer, Wine, Whiskey</li>
+                            <li>Vodka, Rum</li>
+                            <li>Cocktails</li>
+                            <li>Processed Meats</li>
+                            <li>Sausages, Bacon</li>
+                            <li>Salami, Hot dogs</li>
+                            <li>Pepperoni, Deli meats</li>
+                            <li>Ultra-Processed Foods</li>
+                            <li>Instant noodles</li>
+                            <li>Frozen ready meals</li>
+                            <li>Packaged soups</li>
+                            <li>Frozen fried items</li>
+                            <li>Boxed meal kits</li>
+                            <li>High Sodium Foods</li>
+                            <li>Chips & salted snacks</li>
+                            <li>Instant soups</li>
+                            <li>Pickles</li>
+                            <li>Sauces (soy sauce, ketchup)</li>
+                            <li>Canned processed foods</li>
+                            <li>Unhealthy Fats & Oils</li>
+                            <li>Palm oil</li>
+                            <li>Refined vegetable oils (overused)</li>
+                            <li>Reused frying oil</li>
+                            <li>Excess butter</li>
+                            <li>Refined Carbohydrates</li>
+                            <li>White rice (large amounts)</li>
+                            <li>Pasta (refined flour)</li>
+                            <li>Bakery items</li>
+                            <li>Sugary & Artificial Drinks</li>
+                            <li>Sweetened coffee</li>
+                            <li>Flavored lattes</li>
+                            <li>Bubble tea</li>
+                            <li>Packaged iced tea</li>
+                            <li>Artificial fruit drinks</li>
+                        </ul>
+                    </div>
+                </main>
+            </body>
+        </html>
+    </body>
+</html>
