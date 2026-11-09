@@ -5,13 +5,12 @@ Use 'scripts/repo-intel.lua' to navigate without reading whole source files:
 
 - Analyze 'sales.csv' to identify best-selling categories and formulate new product/listing suggestions.
 - I will specify whether to implement a new listing in Teal ('.tl') or C# ('.cs') with the corresponding DOM builder ('dom.tl' or Dom.cs).
-- The 'tpr' watcher automatically compiles and renders PDFs upon save. It blocks forever, so never use it for a one-shot check: run 'scripts/render-check.sh' instead (single render + page-fit report in ~3 s, exit 1 on overflow).
-- 'scripts/render-check.sh --style-append "li.item{line-height:1.16}"' probes a CSS tweak for one render and restores style.css automatically; '--images' also waits for the export PNGs; '--json' prints machine-readable results.
+- 'tpr' is watch mode for a human at the terminal - it re-renders on every save and never exits, so never run it as an agent: for any one-shot check use 'scripts/render-check.sh' (one render + page-fit report in ~3 s, exit 1 when it does not fit; '--images' waits for the 300dpi PNGs, '--style-append "li.item{line-height:1.16}"' probes a CSS tweak and restores style.css, '--json' for machine-readable output).
 
 - Before writing a new listing or component, always inspect 1 or 2 existing templates in 'templates/' or documents/ to match structural conventions, naming styles, and DSL usage.
 - Mirror the idioms used in the surrounding codebase (how records, data binding, and DOM elements are structured) so the generated code.
 - After completing a new PDF listing, run the workflow defined in 'listing_prompt.txt' to generate the Etsy title, tags, and description.
 
-- 'runtime.tl' is the entry point for the 'tpr' program.
+- 'teal/runtime.tl' selects which document renders (DOCUMENTID/ENABLEIMAGES/BASEPROJECTNAME); both the human 'tpr' watch loop and the agent 'scripts/render-check.sh' read it.
 - Use unique 2–4 word slug IDs for folder names, but customer-facing output filenames may collide or be shared across folders.
 - Images should be enabled for final run.
