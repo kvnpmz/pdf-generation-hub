@@ -4,6 +4,10 @@ public class Image : IStep
 {
     private static readonly string _assetsDir = Path.Combine(Paths.RootPath, "assets");
 
+    // Ghostscript's bundled sRGB profile ships with the runtime's data files;
+    // keep this in sync with the installed ghostscript version (see libgs.so.10.xx).
+    private const string IccProfilePath = "/usr/share/ghostscript/10.08.0/iccprofiles/srgb.icc";
+
     public async Task ExecuteAsync(Context context)
     {
         if (!context.EnableImages)
@@ -47,21 +51,20 @@ public class Image : IStep
 
         Directory.CreateDirectory(outputDir);
 
-        string arguments =
-            $"-density 300 \"{absPath}\" -colorspace sRGB -background white -alpha remove -type truecolor -profile /usr/share/ghostscript/10.06.0/iccprofiles/srgb.icc \"{Path.Combine(outputDir, name)}.png\"";
-        RunCommand("magick", arguments);
-
         string pngPath = Path.Combine(outputDir, name) + ".png";
-        Console.WriteLine($"[SUCCESS] Converting PDF to PNG: {pngPath}");
 
-        if (File.Exists(pngPath))
+        string arguments =
+            $"-density 300 \"{absPath}\" -colorspace sRGB -background white -alpha remove -type truecolor -profile \"{IccProfilePath}\" \"{pngPath}\"";
+
+        if (!RunCommand("magick", arguments) || !File.Exists(pngPath))
         {
-            CompositeImages(pngPath, outputDir, name);
+            // Never composite or report success from a stale PNG: abort this file instead.
+            Console.WriteLine($"[ERROR] PDF to PNG conversion failed for {absPath}. Skipping images.");
+            return;
         }
-        else
-        {
-            Console.WriteLine($"[ERROR] PNG conversion failed. File {pngPath} does not exist.");
-        }
+
+        Console.WriteLine($"[SUCCESS] Converting PDF to PNG: {pngPath}");
+        CompositeImages(pngPath, outputDir, name);
     }
 
     private void CompositeImages(string pngPath, string outputDir, string name)
@@ -97,12 +100,14 @@ public class Image : IStep
             string args =
                 $"\"{bg.Path}\" \\( \"{pngPath}\" -resize {bg.Scale} -geometry {bg.Pos} \\) -composite \"{outPath}\"";
 
-            RunCommand("convert", args);
-            Console.WriteLine($"[SUCCESS] Saved: {fileName}");
+            if (RunCommand("convert", args))
+                Console.WriteLine($"[SUCCESS] Saved: {fileName}");
+            else
+                Console.WriteLine($"[ERROR] Failed to create composite: {fileName}");
         }
     }
 
-    private void RunCommand(string cmd, string args)
+    private bool RunCommand(string cmd, string args)
     {
         try
         {
@@ -116,19 +121,31 @@ public class Image : IStep
             };
 
             using var proc = Process.Start(startInfo);
-            proc?.WaitForExit();
 
-            if (proc != null && proc.ExitCode != 0)
+            if (proc == null)
             {
-                string error = proc.StandardError.ReadToEnd();
-                Console.WriteLine(
-                    $"[ERROR] Command '{cmd}' failed with code {proc.ExitCode}: {error}"
-                );
+                Console.WriteLine($"[ERROR] Could not start '{cmd}'.");
+                return false;
             }
+
+            // Drain stderr before waiting to avoid deadlocking on a full pipe buffer.
+            string error = proc.StandardError.ReadToEnd();
+            proc.WaitForExit();
+
+            if (proc.ExitCode != 0)
+            {
+                Console.WriteLine(
+                    $"[ERROR] Command '{cmd}' failed with code {proc.ExitCode}: {error.Trim()}"
+                );
+                return false;
+            }
+
+            return true;
         }
         catch (Exception ex)
         {
             Console.WriteLine($"[ERROR] Exception running {cmd}: {ex.Message}");
+            return false;
         }
     }
 }
