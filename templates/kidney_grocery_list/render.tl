@@ -13,18 +13,13 @@ end
 
 local record Config
     header: string
-    badge: string
     aisles: {Aisle}
 end
 
 local M = {}
 
 local function build_header(config: Config): string
-    return dom.header(
-        "grocery-head",
-        dom.tag("span", "eyebrow", config.badge),
-        dom.h1("", config.header)
-    )
+    return dom.header("grocery-head", dom.h1("", config.header))
 end
 
 local function legend_pill(level: string, label: string): string
@@ -48,7 +43,7 @@ local function build_legend(): string
     )
 end
 
-local function build_aisle(index: number, aisle: Aisle): string
+local function build_aisle(aisle: Aisle): string
     local rows: {string} = {}
 
     for _, item in ipairs(aisle.items) do
@@ -64,11 +59,7 @@ local function build_aisle(index: number, aisle: Aisle): string
 
     return dom.section(
         "aisle",
-        dom.div(
-            "aisle-head",
-            dom.tag("span", "aisle-number", string.format("%02d", index)),
-            dom.h2("", aisle.name)
-        ),
+        dom.div("aisle-head", dom.h2("", aisle.name)),
         dom.ul("item-list", table.unpack(rows))
     )
 end
@@ -76,8 +67,8 @@ end
 local function build_aisles(config: Config): string
     local cards: {string} = {}
 
-    for index, aisle in ipairs(config.aisles) do
-        table.insert(cards, build_aisle(index, aisle))
+    for _, aisle in ipairs(config.aisles) do
+        table.insert(cards, build_aisle(aisle))
     end
 
     return dom.main("aisle-grid", table.unpack(cards))

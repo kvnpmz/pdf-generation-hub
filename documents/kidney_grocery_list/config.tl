@@ -3,7 +3,6 @@ return {
     output_name = "kidney_friendly_grocery_list",
     template = "kidney_grocery_list",
     header = "Kidney-Friendly Grocery List",
-    badge = "Aisle by aisle · renal shopping guide",
     completed_date = "2026-11-09",
     aisles = {
         {
