@@ -1,6 +1,5 @@
 return {
-    DOCUMENTID = "fatty_liver_food_list",
-    ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "fattyliver_foodlist"
+    DOCUMENTID = "kidney_grocery_list",
+    ENABLEIMAGES = 0,
+    BASEPROJECTNAME = "kidney_grocery_list"
 }
-
