@@ -8,7 +8,7 @@ return {
     header = "7-Day Renal Meal Plan",
     subtitle = "Low potassium, low sodium and low phosphorus menus with a matching shopping list",
     plan_card_title = "My week",
-    plan_card_fields = { "Week of", "People", "Fluid goal" },
+    plan_card_fields = { "Week of", "Fluid goal" },
 
     targets = {
         { label = "Potassium", value = "2,000–3,000 mg" },

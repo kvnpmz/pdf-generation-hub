@@ -22,7 +22,7 @@ body {
 .grocery-head {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 14pt;
     border-bottom: 2pt solid var(--ink);
     padding-bottom: 5pt;
@@ -63,11 +63,12 @@ h1 {
     flex: none;
     display: flex;
     flex-direction: column;
-    gap: 3.4pt;
+    justify-content: space-between;
+    gap: 5pt;
     background: var(--panel);
     border: 0.8pt solid var(--line);
     border-radius: 6pt;
-    padding: 4.5pt 6pt;
+    padding: 5pt 6pt;
 }
 
 .plan-card-title {
