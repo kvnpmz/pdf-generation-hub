@@ -3,22 +3,18 @@ local contracts = require("contracts")
 
 local record Item
     name: string
-    note: string
     level: string
 end
 
 local record Aisle
     name: string
-    tag: string
     items: {Item}
 end
 
 local record Config
     header: string
     badge: string
-    subtitle: string
     aisles: {Aisle}
-    footer: string
 end
 
 local M = {}
@@ -26,9 +22,8 @@ local M = {}
 local function build_header(config: Config): string
     return dom.header(
         "grocery-head",
-        dom.tag("span", "eyebrow", config.badge .. " · renal shopping guide"),
-        dom.h1("", config.header),
-        dom.tag("p", "grocery-subtitle", config.subtitle)
+        dom.tag("span", "eyebrow", config.badge),
+        dom.h1("", config.header)
     )
 end
 
@@ -44,14 +39,12 @@ end
 local function build_legend(): string
     return dom.section(
         "legend",
-        dom.tag("span", "legend-title", "How to shop"),
         dom.div(
             "legend-pills",
             legend_pill("go", "Enjoy freely"),
-            legend_pill("care", "Half portion"),
+            legend_pill("care", "Small portion"),
             legend_pill("no", "Skip or swap")
-        ),
-        dom.tag("span", "legend-key", "POTASSIUM · PHOSPHORUS · SODIUM CHECKED")
+        )
     )
 end
 
@@ -59,18 +52,12 @@ local function build_aisle(index: number, aisle: Aisle): string
     local rows: {string} = {}
 
     for _, item in ipairs(aisle.items) do
-        local note = ""
-        if item.note ~= "" then
-            note = dom.tag("span", "item-note", item.note)
-        end
-
         table.insert(
             rows,
             dom.li(
                 "item " .. item.level,
                 dom.tag("span", "check", ""),
-                dom.tag("span", "item-name", item.name),
-                note
+                dom.tag("span", "item-name", item.name)
             )
         )
     end
@@ -80,8 +67,7 @@ local function build_aisle(index: number, aisle: Aisle): string
         dom.div(
             "aisle-head",
             dom.tag("span", "aisle-number", string.format("%02d", index)),
-            dom.h2("", aisle.name),
-            dom.tag("span", "aisle-tag", aisle.tag)
+            dom.h2("", aisle.name)
         ),
         dom.ul("item-list", table.unpack(rows))
     )
@@ -98,15 +84,7 @@ local function build_aisles(config: Config): string
 end
 
 function M.render(config: Config): string
-    return build_header(config)
-        .. build_legend()
-        .. build_aisles(config)
-        .. dom.tag(
-            "p",
-            "grocery-tip",
-            dom.tag("span", "tip-label", "TIP"),
-            config.footer
-        )
+    return build_header(config) .. build_legend() .. build_aisles(config)
 end
 
 return M as contracts.TemplateRender

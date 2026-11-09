@@ -2,7 +2,6 @@
     --ink: #17211d;
     --muted: #6c7b73;
     --green: #1a7a4c;
-    --green-soft: #e9f5ee;
     --amber: #96680a;
     --amber-soft: #fdf3de;
     --red: #a63a30;
@@ -47,50 +46,28 @@ h1 {
     text-transform: uppercase;
 }
 
-.grocery-subtitle {
-    margin-top: 3.5pt;
-    color: var(--muted);
-    font-size: 7.1pt;
-    letter-spacing: 0.15pt;
-}
-
 /* ---------- legend ---------- */
 
 .legend {
     display: flex;
-    align-items: center;
-    gap: 8pt;
-    margin-top: 5pt;
-    padding: 3.2pt 6pt;
-    background: var(--panel);
-    border: 0.7pt solid var(--line);
-    border-radius: 4pt;
-}
-
-.legend-title {
-    color: var(--ink);
-    font-size: 5.6pt;
-    font-weight: 800;
-    letter-spacing: 1.5pt;
-    text-transform: uppercase;
-    white-space: nowrap;
+    justify-content: center;
+    margin-top: 5.5pt;
 }
 
 .legend-pills {
     display: flex;
-    gap: 9pt;
-    flex: 1;
+    gap: 22pt;
 }
 
 .legend-pill {
     display: flex;
     align-items: center;
-    gap: 2.6pt;
+    gap: 3pt;
 }
 
 .legend-dot {
-    width: 5pt;
-    height: 5pt;
+    width: 5.4pt;
+    height: 5.4pt;
     border-radius: 50%;
     display: block;
 }
@@ -108,18 +85,10 @@ h1 {
 }
 
 .legend-label {
-    color: #35433c;
-    font-size: 6.1pt;
-    font-weight: 600;
-    letter-spacing: 0.2pt;
-}
-
-.legend-key {
-    color: #86938b;
-    font-size: 5.2pt;
+    color: #2c3a33;
+    font-size: 6.6pt;
     font-weight: 700;
-    letter-spacing: 0.85pt;
-    white-space: nowrap;
+    letter-spacing: 0.25pt;
 }
 
 /* ---------- aisle grid ---------- */
@@ -146,7 +115,7 @@ main.aisle-grid {
     display: flex;
     align-items: baseline;
     gap: 4pt;
-    padding-bottom: 2.6pt;
+    padding-bottom: 3pt;
     border-bottom: 0.9pt solid var(--ink);
 }
 
@@ -160,20 +129,10 @@ main.aisle-grid {
 h2 {
     flex: 1;
     color: #131b17;
-    font-size: 8.4pt;
+    font-size: 9pt;
     font-weight: 900;
-    letter-spacing: 0.25pt;
+    letter-spacing: 0.3pt;
     line-height: 1.05;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-.aisle-tag {
-    margin-left: 2pt;
-    color: #8b978f;
-    font-size: 4.9pt;
-    font-weight: 700;
-    letter-spacing: 0.9pt;
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -183,18 +142,18 @@ ul.item-list {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-top: 1.5pt;
+    padding-top: 2pt;
 }
 
 li.item {
     display: flex;
     align-items: center;
-    gap: 3pt;
+    gap: 3.6pt;
     flex: 1;
-    min-height: 9pt;
-    padding: 0.8pt 0;
+    min-height: 10pt;
+    padding: 1pt 0;
     border-bottom: 0.4pt dotted #e2e9e4;
-    font-size: 7.5pt;
+    font-size: 8.8pt;
     line-height: 1.05;
 }
 
@@ -203,8 +162,8 @@ li.item:last-child {
 }
 
 .check {
-    width: 5.4pt;
-    height: 5.4pt;
+    width: 6pt;
+    height: 6pt;
     flex: none;
     display: block;
     border: 0.7pt solid #b3c2b8;
@@ -242,42 +201,4 @@ li.item:last-child {
 
 .item.no .item-name {
     color: #8d4a42;
-}
-
-.item-note {
-    flex: none;
-    color: #8b978f;
-    font-size: 5.6pt;
-    font-weight: 600;
-    letter-spacing: 0.1pt;
-    white-space: nowrap;
-}
-
-.item.no .item-note {
-    color: var(--red);
-    letter-spacing: 0.4pt;
-    text-transform: uppercase;
-    font-size: 5pt;
-}
-
-/* ---------- footer ---------- */
-
-.grocery-tip {
-    display: flex;
-    align-items: baseline;
-    gap: 4pt;
-    margin-top: 4pt;
-    padding-top: 3pt;
-    border-top: 0.7pt solid var(--line);
-    color: #737f78;
-    font-size: 5.5pt;
-    line-height: 1.3;
-    letter-spacing: 0.1pt;
-}
-
-.tip-label {
-    color: var(--green);
-    font-size: 5.4pt;
-    font-weight: 900;
-    letter-spacing: 1.4pt;
 }
