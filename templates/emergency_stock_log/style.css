@@ -1,11 +1,11 @@
 :root {
     --ink: #171a1c;
-    --deep: #33251c;
-    --deep-soft: #4a382c;
+    --deep: #1e3348;
+    --deep-soft: #2f4a63;
     --rust: #b4451f;
     --sand: #f3ecdd;
     --sand-deep: #e7ddc8;
-    --olive: #6b5545;
+    --olive: #51708a;
     --line: #d3cab7;
     --muted: #6f6a5f;
 }
@@ -168,9 +168,10 @@ section {
 }
 
 .stock-table thead th.group-col {
-    background: var(--rust);
+    background: var(--deep-soft);
     text-align: center;
     letter-spacing: 1.6pt;
+    border-left: 0.6pt solid #3d5c78;
 }
 
 .stock-table thead th.qty-col {
@@ -186,7 +187,7 @@ section {
 .rotation-table thead th.buy-col {
     background: var(--olive);
     text-align: center;
-    border-left: 0.6pt solid #7d6655;
+    border-left: 0.6pt solid #5f7d96;
 }
 
 .stock-table tbody td,
