@@ -1,7 +1,7 @@
 - Commit changes after completing each self-contained task or file implementation.
 - Do not modify files or configurations outside the requested task scope.
-- For layout work, verify with `scripts/render-check.sh`: one render plus a page-fit report (~3 s) and exit code 1 when it does not fit; add `--images` when the final 300dpi PNG matters. `tpr` is a blocking watch loop for a human at the terminal - it never exits, so never use it for an agent's one-shot check.
-- Always use rg for reading or searching files over grep.
+- For layout work, verify with `scripts/render-check.sh`: one render plus a page-fit report (~3 s) and exit code 1 when it does not fit; add `--images` when the final 300dpi PNG matters.
+- Always use rg for reading or searching files instead of grep.
 
 Use the local deterministic index before grep or reading whole files:
 - Session start: `lua scripts/repo-intel.lua overview` (architecture summary, <500 tokens).

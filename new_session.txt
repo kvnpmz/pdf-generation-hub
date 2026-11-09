@@ -2,4 +2,4 @@ Analyze sales.csv and cross-check documents/ and templates/for what already exis
 
 Once I choose, implement it in (C# render.cs with the Dom helper) or Teal render.tl with dom helper, mirroring the conventions of the template it derives from as templates/<slug>/ plus a style.css and a documents/<slug>/config.tl holding the data, header, and output_name.
 
-Point teal/runtime.tl at the new document, check the layout with scripts/render-check.sh (add --images once it fits), and confirm the rendered PNG has no clipped rows or unused bottom third. Do not run tpr - that is a blocking watch loop for a human at the terminal, render-check.sh is the one-shot check for you. Then generate the Etsy title/tags/description per listing_prompt.txt, and commit only the new files plus runtime.tl, leaving unrelated dirty files untouched.
+Point teal/runtime.tl at the new document, check the layout with scripts/render-check.sh (add --images once it fits), and confirm the rendered PNG has no clipped rows or unused bottom third. Then generate the Etsy title/tags/description per listing_prompt.txt, and commit only the new files plus runtime.tl, leaving unrelated dirty files untouched.

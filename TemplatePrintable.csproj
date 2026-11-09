@@ -5,6 +5,8 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <!-- Keep vendored tooling/test fixtures out of the compile glob -->
+        <DefaultItemExcludes>$(DefaultItemExcludes);lua_modules/**;venv/**;.repo-intel/**;.tmp-rocks*/**</DefaultItemExcludes>
     </PropertyGroup>
 
     <ItemGroup>

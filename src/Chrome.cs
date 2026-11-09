@@ -2,12 +2,49 @@ using Microsoft.Playwright;
 
 public class Chrome : IPdfExport
 {
+    private const string SystemChromiumPath = "/usr/bin/chromium";
+
+    // Prefer Playwright's dedicated headless shell: it needs ~75 OS tasks instead of
+    // ~130 for a full Chromium, which matters in containers with a low pids cgroup cap.
+    // Override with CHROME_EXECUTABLE when a specific binary is required.
+    private static string ResolveExecutable()
+    {
+        var overridePath = Environment.GetEnvironmentVariable("CHROME_EXECUTABLE");
+        if (!string.IsNullOrWhiteSpace(overridePath) && File.Exists(overridePath))
+            return overridePath;
+
+        var browsersPath =
+            Environment.GetEnvironmentVariable("PLAYWRIGHT_BROWSERS_PATH")
+            ?? Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                ".cache",
+                "ms-playwright"
+            );
+
+        if (Directory.Exists(browsersPath))
+        {
+            foreach (
+                string dir in Directory
+                    .GetDirectories(browsersPath, "chromium_headless_shell-*")
+                    .OrderByDescending(d => d, StringComparer.OrdinalIgnoreCase)
+            )
+            {
+                string shell = Path.Combine(dir, "chrome-headless-shell-linux64", "chrome-headless-shell");
+                if (File.Exists(shell))
+                    return shell;
+            }
+        }
+
+        return SystemChromiumPath;
+    }
+
     public async Task ExecuteAsync(Context context)
     {
         var launchOptions = new BrowserTypeLaunchOptions
         {
-            ExecutablePath = "/usr/bin/chromium",
-            Headless = true
+            ExecutablePath = ResolveExecutable(),
+            Headless = true,
+            Args = new[] { "--disable-dev-shm-usage" }
         };
 
         using var playwright = await Playwright.CreateAsync();
