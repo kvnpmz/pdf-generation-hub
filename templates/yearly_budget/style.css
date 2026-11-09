@@ -100,10 +100,14 @@ tr:last-child td:last-child {
     display: inline-block;
 }
 
+.bullet-month {
+    font-size: 13pt;
+}
+
 .bullet-month::before {
-    font-size: 12pt;
+    font-size: 13pt;
     margin-left: 1pt;
-    margin-right: 2pt;
+    margin-right: 10pt;
     color: var(--blue);
 }
 
