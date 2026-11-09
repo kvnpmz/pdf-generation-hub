@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "kidney_grocery_list",
+    DOCUMENTID = "yearly_budget",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "kidney_grocery_list"
+    BASEPROJECTNAME = "yearly_budget"
 }
