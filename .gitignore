@@ -1,6 +1,9 @@
 bin/
 obj/
 
+# repo-intel local index/cache
+.repo-intel/
+
 lua_modules/
 venv/
 
@@ -20,3 +23,7 @@ output/
 
 .gitignore
 .gitattributes
+
+# machine-local search index and temp rocks trees
+.semantic-search/
+.tmp-rocks*/

@@ -1,0 +1,161 @@
+:root {
+    --ink: #1c1f21;
+    --eat: #2a7f2a;
+    --eat-bg: #e8f5e9;
+    --limit: #795901;
+    --limit-bg: #fffde7;
+    --avoid: #b22222;
+    --avoid-bg: #ffebee;
+    --line: #cfd3d6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: var(--ink);
+    font-size: 10pt;
+}
+
+/* ---------- header ---------- */
+
+.stage-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    width: 100%;
+    color: #202020;
+    letter-spacing: 1.8pt;
+    font-size: 24pt;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1.5pt solid;
+    padding-bottom: 4pt;
+}
+
+.stage-badge {
+    position: absolute;
+    right: 0;
+    top: 2pt;
+    background: #eef4ee;
+    border: 0.8pt solid #c9dccb;
+    color: var(--eat);
+    font-size: 6.2pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    padding: 2.2pt 5pt 1.8pt 5pt;
+}
+
+/* ---------- daily targets ---------- */
+
+.targets {
+    margin-top: 6pt;
+}
+
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #f4f6f3;
+    border: 0.9pt solid #d7ddd8;
+    border-radius: 4pt;
+}
+
+.target {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1pt;
+    padding: 4pt 3pt 4.5pt 3pt;
+    border-right: 0.8pt solid #dde2dd;
+}
+
+.target:last-child {
+    border-right: none;
+}
+
+.target-label {
+    color: #78847b;
+    font-size: 6.2pt;
+    font-weight: 700;
+    letter-spacing: 1.8pt;
+    text-transform: uppercase;
+}
+
+.target-value {
+    color: #23282a;
+    font-size: 9.2pt;
+    font-weight: 800;
+    letter-spacing: 0.2pt;
+}
+
+.target-note {
+    margin-top: 2.5pt;
+    font-size: 6.8pt;
+    letter-spacing: 0.4pt;
+    color: #6b7074;
+    text-align: center;
+}
+
+/* ---------- columns ---------- */
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 5pt;
+    padding-top: 6pt;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1.5pt solid;
+    border-radius: 10pt;
+    padding: 3pt;
+}
+
+.left { background-color: var(--eat-bg); color: var(--eat); }
+.middle { background-color: var(--limit-bg); color: var(--limit); }
+.right { background-color: var(--avoid-bg); color: var(--avoid); }
+
+h2 {
+    font-weight: bold;
+    font-size: 17pt;
+    border-bottom: 1.5pt solid;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 2pt;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 3pt;
+}
+
+li {
+    color: #121212;
+    position: relative;
+    flex: 1;
+    padding-left: 11pt;
+    font-weight: bold;
+    font-size: 9.6pt;
+    letter-spacing: -0.1pt;
+}
+
+li::before {
+    content: "●";
+    position: absolute;
+    font-size: 5.4pt;
+    left: 2.5pt;
+    top: 3.6pt;
+}

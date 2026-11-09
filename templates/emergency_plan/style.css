@@ -1,0 +1,402 @@
+:root {
+    --ink: #171a1c;
+    --rust: #b4451f;
+    --sand: #f3ecdd;
+    --sand-deep: #e7ddc8;
+    --olive: #3f4a36;
+    --line: #d3cab7;
+    --muted: #6f6a5f;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 8.9pt;
+    line-height: 1.38;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+    display: grid;
+    grid-template-columns: 1fr 148pt;
+    column-gap: 14pt;
+    align-items: end;
+    padding-bottom: 6pt;
+    border-bottom: 2.4pt solid var(--ink);
+}
+
+.masthead-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5pt;
+    background: var(--sand);
+    border: 0.9pt solid var(--ink);
+    padding: 5pt 7pt 6pt 7pt;
+}
+
+.plan-card-title {
+    font-size: 6.4pt;
+    font-weight: 800;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: var(--rust);
+    border-bottom: 0.8pt solid var(--line);
+    padding-bottom: 2.5pt;
+    margin-bottom: 1pt;
+}
+
+.plan-field {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.field-label {
+    flex: none;
+    font-size: 6.4pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.field-line {
+    flex: 1;
+    border-bottom: 0.7pt solid #9a9382;
+    height: 6pt;
+}
+
+.kicker {
+    align-self: flex-start;
+    background: var(--rust);
+    color: #fff;
+    font-size: 6.2pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    padding: 2pt 6pt 1.6pt 6pt;
+}
+
+h1.line-two {
+    margin-top: 0;
+}
+
+h1 {
+    margin-top: 6pt;
+    font-size: 25pt;
+    font-weight: 800;
+    letter-spacing: -0.4pt;
+    line-height: 1.02;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin-top: 3pt;
+    font-size: 8.4pt;
+    color: var(--muted);
+}
+
+/* ---------- shared section chrome ---------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10pt;
+    padding-top: 10pt;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    border-bottom: 1pt solid var(--ink);
+    padding-bottom: 2pt;
+    margin-bottom: 7pt;
+}
+
+.section-num {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    color: var(--rust);
+}
+
+.section-head h2 {
+    font-size: 12.6pt;
+    font-weight: 800;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+.section-aside {
+    margin-left: auto;
+    font-size: 6.8pt;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ---------- 01 quantities ---------- */
+
+.qty-body {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 12pt;
+}
+
+.qty-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.qty-table thead th.group-col {
+    background: var(--rust);
+    text-align: center;
+    font-size: 7pt;
+    letter-spacing: 1.6pt;
+}
+
+.qty-table thead th.sub-col {
+    background: var(--ink);
+    text-align: center;
+    font-size: 6.2pt;
+    letter-spacing: 0.6pt;
+    color: #d8d3c6;
+}
+
+.qty-table thead th.sub-col.alt {
+    background: #2c3033;
+}
+
+.qty-table thead th.corner {
+    vertical-align: bottom;
+}
+
+.qty-table thead th {
+    background: var(--ink);
+    color: #fff;
+    font-size: 6.6pt;
+    font-weight: 700;
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 3pt 5pt;
+}
+
+.qty-table thead th.muted-col {
+    background: #2c3033;
+}
+
+.qty-table tbody td {
+    padding: 3.4pt 5pt;
+    border-bottom: 0.6pt solid var(--line);
+}
+
+.qty-table tbody tr:nth-child(even) td {
+    background: #faf7f0;
+}
+
+.label-col {
+    font-weight: 700;
+}
+
+.strong-col {
+    font-weight: 700;
+}
+
+.muted-col {
+    color: var(--muted);
+}
+
+.qty-notes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4pt;
+}
+
+.qty-notes li {
+    position: relative;
+    padding-left: 10pt;
+    font-size: 8.1pt;
+    line-height: 1.35;
+    color: #3a3a35;
+}
+
+.qty-notes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3pt;
+    width: 4pt;
+    height: 4pt;
+    background: var(--rust);
+}
+
+/* ---------- 02 menu grid ---------- */
+
+.menu-grid {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.menu-grid thead th {
+    background: var(--olive);
+    color: #fff;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 3pt 5pt;
+}
+
+.menu-grid thead th.meal-col {
+    background: var(--ink);
+    width: 16%;
+}
+
+.menu-grid tbody th {
+    background: var(--sand);
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 5pt 5pt;
+    border-bottom: 0.6pt solid var(--line);
+    vertical-align: top;
+}
+
+.menu-grid tbody td {
+    padding: 5pt 5.5pt;
+    border-bottom: 0.6pt solid var(--line);
+    border-left: 0.6pt solid var(--line);
+    font-size: 8.25pt;
+    vertical-align: top;
+}
+
+.menu-grid tbody tr:nth-child(even) td {
+    background: #fbf9f4;
+}
+
+/* ---------- 03 shopping ---------- */
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12pt;
+}
+
+.shop-col h3 {
+    font-size: 7.4pt;
+    font-weight: 800;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    color: var(--rust);
+    border-bottom: 0.8pt solid var(--line);
+    padding-bottom: 2pt;
+    margin-bottom: 3pt;
+}
+
+.check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1pt;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 10.5pt;
+    font-size: 8.05pt;
+    line-height: 1.28;
+}
+
+.check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.6pt;
+    width: 6pt;
+    height: 6pt;
+    border: 0.8pt solid #8b8474;
+    border-radius: 1pt;
+}
+
+/* ---------- 04 prep strip ---------- */
+
+section { break-inside: avoid; }
+
+.prep-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4pt;
+}
+
+.prep-step {
+    display: grid;
+    grid-template-columns: 11pt 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 2pt;
+    align-items: start;
+    background: var(--sand);
+    border-left: 2pt solid var(--rust);
+    padding: 5pt 5pt 5pt 5pt;
+}
+
+.prep-index {
+    grid-row: 1 / span 2;
+    font-size: 7pt;
+    font-weight: 800;
+    color: var(--rust);
+    letter-spacing: 0.5pt;
+}
+
+.prep-label {
+    font-size: 6.6pt;
+    font-weight: 800;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+}
+
+.prep-text {
+    text-align: left;
+    font-size: 7.35pt;
+    line-height: 1.25;
+    color: #3a3a35;
+}
+
+/* ---------- footer ---------- */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10pt;
+    margin-top: 7pt;
+    padding-top: 3.5pt;
+    border-top: 1.6pt solid var(--ink);
+    font-size: 6.2pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.footer-mark {
+    font-weight: 800;
+    letter-spacing: 1.6pt;
+    color: var(--rust);
+    white-space: nowrap;
+}

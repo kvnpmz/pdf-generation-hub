@@ -22,167 +22,194 @@ body {
     font-family: Inter;
     font-size: 6pt;
 }</style>
-            <style>body {
-    display: flex;
-    flex-direction: column;
-    letter-spacing: 1pt;
-    font-size: 12.5pt;
+            <style>:root {
+    --ink: #17211d;
+    --muted: #6c7b73;
+    --green: #1a7a4c;
+    --amber: #96680a;
+    --amber-soft: #fdf3de;
+    --red: #a63a30;
+    --red-soft: #fbecea;
+    --line: #d9e2db;
+    --panel: #f6faf7;
+    --paper: #fdfefd;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    gap: 5pt;
-    padding-top: 5pt;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    border: 1.5pt solid;
-    border-radius: 10pt;
-    padding: 3pt;
-}
-
-h1 {
-    color: #202020;
-    letter-spacing: 3pt;
-    font-size: 30pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 900;
-}
-
-h2 {
-    font-weight: bold;
-    font-size: 20pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
-    padding-bottom: 3pt;
-    color: var(--h2-color);
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding-top: 4pt;
-}
-
-li {
-    position: relative;
-    flex: 1;
-    padding-left: 13pt;
-    font-weight: bold;
-}
-
-li::before {
-    content: "●";
-    position: absolute;
-    font-size: 6pt;
-    left: 3pt;
-    top: 4pt;
-}
-
-.left {
-    background-color: #E8F5E9;
-    --h2-color: #2A7F2A;
-}
-
-.middle {
-    background-color: #FFFDE7;
-    --h2-color: #795901;
-}
-
-.right {
-    background-color: #FFEBEE;
-    --h2-color: #B22222;
-}
 body {
     display: flex;
     flex-direction: column;
-    letter-spacing: 1pt;
-    font-size: 8.0pt;
+    height: inherit;
+    color: var(--ink);
+    font-size: 8pt;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    gap: 5pt;
-    padding-top: 5pt;
+/* ---------- header ---------- */
+
+.grocery-head {
+    border-bottom: 2pt solid var(--ink);
+    padding-bottom: 4.5pt;
+    text-align: center;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    border: 1.5pt solid;
-    border-radius: 10pt;
-    padding: 3pt;
-}
 
 h1 {
-    color: #202020;
-    letter-spacing: 3pt;
-    font-size: 30pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
+    color: #111815;
+    font-size: 25pt;
     font-weight: 900;
+    letter-spacing: 0.2pt;
+    line-height: 1;
+    text-transform: uppercase;
 }
+
+/* ---------- legend ---------- */
+
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 5.5pt;
+}
+
+.legend-pills {
+    display: flex;
+    gap: 22pt;
+}
+
+.legend-pill {
+    display: flex;
+    align-items: center;
+    gap: 3pt;
+}
+
+.legend-dot {
+    width: 5.4pt;
+    height: 5.4pt;
+    border-radius: 50%;
+    display: block;
+}
+
+.legend-dot.go {
+    background: var(--green);
+}
+
+.legend-dot.care {
+    background: var(--amber);
+}
+
+.legend-dot.no {
+    background: var(--red);
+}
+
+.legend-label {
+    color: #2c3a33;
+    font-size: 6.6pt;
+    font-weight: 700;
+    letter-spacing: 0.25pt;
+}
+
+/* ---------- aisle grid ---------- */
+
+main.aisle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 6pt;
+    flex: 1;
+    padding-top: 6pt;
+}
+
+.aisle {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    border: 0.7pt solid var(--line);
+    border-radius: 7pt;
+    padding: 5pt 5.5pt 4pt 5.5pt;
+}
+
+.aisle-head {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+    padding-bottom: 3pt;
+    border-bottom: 0.9pt solid var(--ink);
+}
+
 
 h2 {
-    font-weight: bold;
-    font-size: 20pt;
-    border-bottom: 1.5pt solid;
+    flex: 1;
+    color: #131b17;
+    font-size: 9pt;
+    font-weight: 900;
+    letter-spacing: 0.3pt;
+    line-height: 1.05;
     text-transform: uppercase;
-    text-align: center;
-    padding-bottom: 3pt;
-    color: var(--h2-color);
+    white-space: nowrap;
 }
 
-ul {
+ul.item-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-top: 4pt;
+    padding-top: 2pt;
 }
 
-li {
-    position: relative;
+li.item {
+    display: flex;
+    align-items: center;
+    gap: 3.6pt;
     flex: 1;
-    padding-left: 11pt;
-    font-weight: bold;
+    min-height: 10pt;
+    padding: 1pt 0;
+    border-bottom: 0.4pt dotted #e2e9e4;
+    font-size: 8.8pt;
+    line-height: 1.05;
 }
 
-li::before {
-    content: "●";
-    position: absolute;
-    font-size: 5pt;
-    left: 3pt;
-    top: 2pt;
+li.item:last-child {
+    border-bottom: none;
 }
 
-.left {
-    background-color: #E8F5E9;
-    --h2-color: #2A7F2A;
+.check {
+    width: 6pt;
+    height: 6pt;
+    flex: none;
+    display: block;
+    border: 0.7pt solid #b3c2b8;
+    border-radius: 1.2pt;
+    background: #ffffff;
 }
 
-.middle {
-    background-color: #FFFDE7;
-    --h2-color: #795901;
+.item.go .check {
+    border-color: var(--green);
 }
 
-.right {
-    background-color: #FFEBEE;
-    --h2-color: #B22222;
+.item.care .check {
+    border-color: var(--amber);
+    background: var(--amber-soft);
+}
+
+.item.no .check {
+    border-color: var(--red);
+    background: var(--red-soft);
+}
+
+.item-name {
+    flex: 1;
+    color: #1d2723;
+    font-weight: 600;
+    letter-spacing: -0.05pt;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item.care .item-name {
+    color: #6a5413;
+}
+
+.item.no .item-name {
+    color: #8d4a42;
 }</style>
         </head>
         <body>
@@ -191,318 +218,608 @@ li::before {
                 <head>
                 <meta charset="utf-8">
                     <style></style>
-                    <style>body {
-    display: flex;
-    flex-direction: column;
-    letter-spacing: 1pt;
-    font-size: 12.5pt;
+                    <style>:root {
+    --ink: #17211d;
+    --muted: #6c7b73;
+    --green: #1a7a4c;
+    --amber: #96680a;
+    --amber-soft: #fdf3de;
+    --red: #a63a30;
+    --red-soft: #fbecea;
+    --line: #d9e2db;
+    --panel: #f6faf7;
+    --paper: #fdfefd;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    gap: 5pt;
-    padding-top: 5pt;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    border: 1.5pt solid;
-    border-radius: 10pt;
-    padding: 3pt;
-}
-
-h1 {
-    color: #202020;
-    letter-spacing: 3pt;
-    font-size: 30pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 900;
-}
-
-h2 {
-    font-weight: bold;
-    font-size: 20pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
-    padding-bottom: 3pt;
-    color: var(--h2-color);
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding-top: 4pt;
-}
-
-li {
-    position: relative;
-    flex: 1;
-    padding-left: 13pt;
-    font-weight: bold;
-}
-
-li::before {
-    content: "●";
-    position: absolute;
-    font-size: 6pt;
-    left: 3pt;
-    top: 4pt;
-}
-
-.left {
-    background-color: #E8F5E9;
-    --h2-color: #2A7F2A;
-}
-
-.middle {
-    background-color: #FFFDE7;
-    --h2-color: #795901;
-}
-
-.right {
-    background-color: #FFEBEE;
-    --h2-color: #B22222;
-}
 body {
     display: flex;
     flex-direction: column;
-    letter-spacing: 1pt;
-    font-size: 8.0pt;
+    height: inherit;
+    color: var(--ink);
+    font-size: 8pt;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    gap: 5pt;
-    padding-top: 5pt;
+/* ---------- header ---------- */
+
+.grocery-head {
+    border-bottom: 2pt solid var(--ink);
+    padding-bottom: 4.5pt;
+    text-align: center;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    border: 1.5pt solid;
-    border-radius: 10pt;
-    padding: 3pt;
-}
 
 h1 {
-    color: #202020;
-    letter-spacing: 3pt;
-    font-size: 30pt;
-    border-bottom: 1.5pt solid;
-    text-transform: uppercase;
-    text-align: center;
+    color: #111815;
+    font-size: 25pt;
     font-weight: 900;
+    letter-spacing: 0.2pt;
+    line-height: 1;
+    text-transform: uppercase;
 }
+
+/* ---------- legend ---------- */
+
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 5.5pt;
+}
+
+.legend-pills {
+    display: flex;
+    gap: 22pt;
+}
+
+.legend-pill {
+    display: flex;
+    align-items: center;
+    gap: 3pt;
+}
+
+.legend-dot {
+    width: 5.4pt;
+    height: 5.4pt;
+    border-radius: 50%;
+    display: block;
+}
+
+.legend-dot.go {
+    background: var(--green);
+}
+
+.legend-dot.care {
+    background: var(--amber);
+}
+
+.legend-dot.no {
+    background: var(--red);
+}
+
+.legend-label {
+    color: #2c3a33;
+    font-size: 6.6pt;
+    font-weight: 700;
+    letter-spacing: 0.25pt;
+}
+
+/* ---------- aisle grid ---------- */
+
+main.aisle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 6pt;
+    flex: 1;
+    padding-top: 6pt;
+}
+
+.aisle {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    border: 0.7pt solid var(--line);
+    border-radius: 7pt;
+    padding: 5pt 5.5pt 4pt 5.5pt;
+}
+
+.aisle-head {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+    padding-bottom: 3pt;
+    border-bottom: 0.9pt solid var(--ink);
+}
+
 
 h2 {
-    font-weight: bold;
-    font-size: 20pt;
-    border-bottom: 1.5pt solid;
+    flex: 1;
+    color: #131b17;
+    font-size: 9pt;
+    font-weight: 900;
+    letter-spacing: 0.3pt;
+    line-height: 1.05;
     text-transform: uppercase;
-    text-align: center;
-    padding-bottom: 3pt;
-    color: var(--h2-color);
+    white-space: nowrap;
 }
 
-ul {
+ul.item-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-top: 4pt;
+    padding-top: 2pt;
 }
 
-li {
-    position: relative;
+li.item {
+    display: flex;
+    align-items: center;
+    gap: 3.6pt;
     flex: 1;
-    padding-left: 11pt;
-    font-weight: bold;
+    min-height: 10pt;
+    padding: 1pt 0;
+    border-bottom: 0.4pt dotted #e2e9e4;
+    font-size: 8.8pt;
+    line-height: 1.05;
 }
 
-li::before {
-    content: "●";
-    position: absolute;
-    font-size: 5pt;
-    left: 3pt;
-    top: 2pt;
+li.item:last-child {
+    border-bottom: none;
 }
 
-.left {
-    background-color: #E8F5E9;
-    --h2-color: #2A7F2A;
+.check {
+    width: 6pt;
+    height: 6pt;
+    flex: none;
+    display: block;
+    border: 0.7pt solid #b3c2b8;
+    border-radius: 1.2pt;
+    background: #ffffff;
 }
 
-.middle {
-    background-color: #FFFDE7;
-    --h2-color: #795901;
+.item.go .check {
+    border-color: var(--green);
 }
 
-.right {
-    background-color: #FFEBEE;
-    --h2-color: #B22222;
+.item.care .check {
+    border-color: var(--amber);
+    background: var(--amber-soft);
+}
+
+.item.no .check {
+    border-color: var(--red);
+    background: var(--red-soft);
+}
+
+.item-name {
+    flex: 1;
+    color: #1d2723;
+    font-weight: 600;
+    letter-spacing: -0.05pt;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item.care .item-name {
+    color: #6a5413;
+}
+
+.item.no .item-name {
+    color: #8d4a42;
 }</style>
                 </head>
                 <body>
-                <h1>Fatty Liver Food List</h1>
-                <main>
-                    <div class="column left">
-                        <h2>Eat Freely</h2>
-                        <ul>
-                            <li>Vegetables (Daily - Wide Variety)</li>
-                            <li>Spinach, Broccoli</li>
-                            <li>Kale, Carrots</li>
-                            <li>Beetroot, Cabbage</li>
-                            <li>Cauliflower</li>
-                            <li>Brussels sprouts</li>
-                            <li>Zucchini</li>
-                            <li>Bell peppers, Asparagus</li>
-                            <li>Garlic</li>
-                            <li>Onions, Cucumber</li>
-                            <li>Leafy greens (all types)</li>
-                            <li>Fruits</li>
-                            <li>Apples</li>
-                            <li>Berries (blueberries, strawberries, raspberries)</li>
-                            <li>Oranges, Grapefruit</li>
-                            <li>Lemon & lime, Pomegranate</li>
-                            <li>Papaya & Kiwi</li>
-                            <li>Pears</li>
-                            <li>Watermelon (small portions)</li>
-                            <li>Whole Grains (High Fiber Choices)</li>
-                            <li>Oats, Brown rice</li>
-                            <li>Quinoa</li>
-                            <li>Whole wheat</li>
-                            <li>Barley, Millet</li>
-                            <li>Buckwheat</li>
-                            <li>Whole grain bread (no added sugar)</li>
-                            <li>Lean Protein (Supports Repair)</li>
-                            <li>Chicken breast & Turkey</li>
-                            <li>Fish (salmon, sardines, mackerel)</li>
-                            <li>Eggs (boiled)</li>
-                            <li>Lentils, Chickpeas</li>
-                            <li>Beans (black beans, kidney beans)</li>
-                            <li>Tofu, Low-fat yogurt</li>
-                            <li>Cottage cheese (low-fat)</li>
-                            <li>Healthy Fats (Reduce Inflammation)</li>
-                            <li>Avocado</li>
-                            <li>Olive oil (extra virgin)</li>
-                            <li>Nuts (almonds, walnuts, pistachios)</li>
-                            <li>Seeds (chia, flax, sunflower, pumpkin)</li>
-                            <li>Fatty fish (omega-3 rich)</li>
-                            <li>Drinks (Low sugar)</li>
-                            <li>Green tea, Black coffee (no sugar)</li>
-                            <li>Lemon water</li>
-                            <li>Herbal teas (ginger, turmeric, chamomile)</li>
-                            <li>Coconut water (unsweetened)</li>
-                            <li>Plenty of water (8-10 glasses daily)</li>
-                        </ul>
+                <header class="grocery-head">
+                    <h1>Kidney-Friendly Grocery List</h1>
+                </header>
+                <section class="legend">
+                    <div class="legend-pills">
+                        <span class="legend-pill">
+                            <span class="legend-dot go"></span>
+                            <span class="legend-label">Enjoy freely</span>
+                        </span>
+                        <span class="legend-pill">
+                            <span class="legend-dot care"></span>
+                            <span class="legend-label">Small portion</span>
+                        </span>
+                        <span class="legend-pill">
+                            <span class="legend-dot no"></span>
+                            <span class="legend-label">Skip or swap</span>
+                        </span>
                     </div>
-                    <div class="column middle">
-                        <h2>Limit</h2>
-                        <ul>
-                            <li>Refined Carbohydrates (Low Fiber)</li>
-                            <li>White bread</li>
-                            <li>White rice</li>
-                            <li>Pasta (regular)</li>
-                            <li>Noodles</li>
-                            <li>Breakfast cereals (refined)</li>
-                            <li>Crackers</li>
-                            <li>Pancakes & waffles</li>
-                            <li>High-Fat Dairy (Use Sparingly)</li>
-                            <li>Butter</li>
-                            <li>Cheese (especially processed)</li>
-                            <li>Cream</li>
-                            <li>Full-fat milk</li>
-                            <li>Flavored yogurt (high sugar)</li>
-                            <li>Natural Sugars (Small Amounts Only)</li>
-                            <li>Honey, Maple syrup</li>
-                            <li>Fruit juices (even fresh)</li>
-                            <li>Smoothies with added sugar</li>
-                            <li>Dried fruits (raisins, dates - very small portions)</li>
-                            <li>Red Meat (Limit Weekly)</li>
-                            <li>Beef, Lamb</li>
-                            <li>Goat meat, Pork</li>
-                            <li>High Sodium Foods</li>
-                            <li>Packaged soups</li>
-                            <li>Sauces (soy sauce, ketchup)</li>
-                            <li>Pickles</li>
-                            <li>Instant noodles</li>
-                            <li>Salted snacks</li>
-                            <li>Caffeinated / Add-On Drinks</li>
-                            <li>Coffee with sugar/cream</li>
-                            <li>Flavored lattes</li>
-                            <li>Energy drinks</li>
-                            <li>Sweetened tea</li>
-                            <li>Processed "Healthy" Foods (Hidden Risks)</li>
-                            <li>Granola bars</li>
-                            <li>Protein bars (added sugar)</li>
-                            <li>Low-fat packaged foods (often high sugar)</li>
+                </section>
+                <main class="aisle-grid">
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Vegetables</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Red bell peppers</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Cauliflower & cabbage</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Green beans & celery</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Cucumber & radishes</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Arugula & lettuce</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Eggplant & zucchini</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">White onion & garlic</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Yellow squash & jicama</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Boiled & leached potatoes</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Spinach & Swiss chard</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Baked potato with skin</span>
+                            </li>
                         </ul>
-                    </div>
-                    <div class="column right">
-                        <h2>Avoid</h2>
-                        <ul>
-                            <li>Fried & Fast Foods</li>
-                            <li>French fries, Fried chicken</li>
-                            <li>Burgers</li>
-                            <li>Pizza (greasy, processed cheese)</li>
-                            <li>Fried snacks (samosa, pakora, tempura)</li>
-                            <li>Onion rings, Fried street food</li>
-                            <li>Sugar & Sweetened Foods</li>
-                            <li>Soft drinks / soda</li>
-                            <li>Packaged fruit juices</li>
-                            <li>Candy, toffees</li>
-                            <li>Cakes, pastries, donuts</li>
-                            <li>Ice cream, Milk chocolate</li>
-                            <li>Syrups (corn syrup, glucose syrup)</li>
-                            <li>Alcohol</li>
-                            <li>Beer, Wine, Whiskey</li>
-                            <li>Vodka, Rum</li>
-                            <li>Cocktails</li>
-                            <li>Processed Meats</li>
-                            <li>Sausages, Bacon</li>
-                            <li>Salami, Hot dogs</li>
-                            <li>Pepperoni, Deli meats</li>
-                            <li>Ultra-Processed Foods</li>
-                            <li>Instant noodles</li>
-                            <li>Frozen ready meals</li>
-                            <li>Packaged soups</li>
-                            <li>Frozen fried items</li>
-                            <li>Boxed meal kits</li>
-                            <li>High Sodium Foods</li>
-                            <li>Chips & salted snacks</li>
-                            <li>Instant soups</li>
-                            <li>Pickles</li>
-                            <li>Sauces (soy sauce, ketchup)</li>
-                            <li>Canned processed foods</li>
-                            <li>Unhealthy Fats & Oils</li>
-                            <li>Palm oil</li>
-                            <li>Refined vegetable oils (overused)</li>
-                            <li>Reused frying oil</li>
-                            <li>Excess butter</li>
-                            <li>Refined Carbohydrates</li>
-                            <li>White rice (large amounts)</li>
-                            <li>Pasta (refined flour)</li>
-                            <li>Bakery items</li>
-                            <li>Sugary & Artificial Drinks</li>
-                            <li>Sweetened coffee</li>
-                            <li>Flavored lattes</li>
-                            <li>Bubble tea</li>
-                            <li>Packaged iced tea</li>
-                            <li>Artificial fruit drinks</li>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Fruits</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Blueberries</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Strawberries</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Cranberries & grapes</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Raspberries & plums</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Pineapple & cherries</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Apple & pear slices</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Watermelon slices</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Fresh lemon juice</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Bananas & oranges</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Dried apricots & figs</span>
+                            </li>
                         </ul>
-                    </div>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Meat, Fish & Eggs</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Skinless chicken</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Fresh white fish</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Egg white omelets</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Lean ground turkey</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Canned tuna & salmon</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Shellfish & shrimp</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Lean red meat cuts</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Bacon & cured ham</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Hot dogs & sausages</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Dairy & Alternatives</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Rice milk</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Almond milk</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Coconut milk beverage</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Cream cheese spread</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Unsalted butter</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Whole milk & yogurt</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Cheddar & Swiss cheese</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Buttermilk & kefir</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Grains & Bakery</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">White rice & couscous</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Plain white bread</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Unsalted rice cakes</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Angel hair pasta</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Plain rice noodles</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Corn & flour tortillas</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Unsalted crackers</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Whole wheat bread</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Bran cereal & muesli</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Pantry & Canned</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Low-sodium broth</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Unsalted macadamias</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Honey & fruit jams</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Canned beans, rinsed</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Canned corn & peas</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Canned soups & stews</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Pickles & sauerkraut</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Instant ramen noodles</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Spices, Oils & Sauces</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Extra virgin olive oil</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Canola oil</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Fresh ginger root</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Turmeric & cinnamon</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Fresh basil & dill</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Garlic & onion powder</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Soy sauce & teriyaki</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Ketchup & BBQ sauce</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Seasoning salt blends</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Bouillon cubes</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Drinks</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Water</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Green tea</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Herbal & rooibos tea</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Black coffee</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Dark cola drinks</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Energy & sports drinks</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Orange & prune juice</span>
+                            </li>
+                            <li class="item care">
+                                <span class="check"></span>
+                                <span class="item-name">Beer, wine & spirits</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="aisle">
+                        <div class="aisle-head">
+                            <h2>Frozen & Snacks</h2>
+                        </div>
+                        <ul class="item-list">
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Unsalted popcorn</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Frozen berries</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Frozen plain vegetables</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Sherbet</span>
+                            </li>
+                            <li class="item go">
+                                <span class="check"></span>
+                                <span class="item-name">Hard candies</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Frozen breaded fish</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Frozen prepared meals</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Microwave popcorn</span>
+                            </li>
+                            <li class="item no">
+                                <span class="check"></span>
+                                <span class="item-name">Salted chips & pretzels</span>
+                            </li>
+                        </ul>
+                    </section>
                 </main>
             </body>
         </html>

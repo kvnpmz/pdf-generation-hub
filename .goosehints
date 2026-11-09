@@ -1,0 +1,16 @@
+Use 'scripts/repo-intel.lua' to navigate without reading whole source files:
+- Run 'lua scripts/repo-intel.lua overview' before inspecting code.
+- Use 'lua scripts/repo-intel.lua symbol <Name>' or 'deps <Name>' to inspect signatures and types.
+- Run 'lua scripts/repo-intel.lua update' after saving any file.
+
+- Analyze 'sales.csv' to identify best-selling categories and formulate new product/listing suggestions.
+- I will specify whether to implement a new listing in Teal ('.tl') or C# ('.cs') with the corresponding DOM builder ('dom.tl' or Dom.cs).
+- The 'tpr' watcher automatically compiles and renders PDFs upon save. Ensure code is syntactically clean before writing to disk to keep the hot-reload loop smooth.
+
+- Before writing a new listing or component, always inspect 1 or 2 existing templates in 'templates/' or documents/ to match structural conventions, naming styles, and DSL usage.
+- Mirror the idioms used in the surrounding codebase (how records, data binding, and DOM elements are structured) so the generated code.
+- After completing a new PDF listing, run the workflow defined in 'listing_prompt.txt' to generate the Etsy title, tags, and description.
+
+- 'runtime.tl' is the entry point for the 'tpr' program.
+- Use unique 2–4 word slug IDs for folder names, but customer-facing output filenames may collide or be shared across folders.
+- Images should be enabled for final run.
