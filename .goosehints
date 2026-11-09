@@ -1,7 +1,7 @@
 Project workflow (tooling commands live in AGENTS.md):
 - Before proposing a listing: `scripts/opportunity-report.sh`. I pick Teal or C# per session; don't choose for me.
 - `tpr` is a blocking human watch loop - never run it; use `scripts/render-check.sh` (`-h` lists flags).
-- Before writing a listing, read at most 2 sibling templates and extract only the rules you need (e.g. `sed -n '/^h1 {/,/^}/p' file.css`) - never whole stylesheets.
+- Style fidelity matters: before writing a listing, read the 2 closest sibling templates (same data shape: list / table / log) and copy their palette, type scale, spacing and section structure. Read their render file in full; for a long style.css read the ranges you will reuse (e.g. `sed -n '/^h1 {/,/^}/p'`). Skip unrelated stylesheets.
 - Never read `preview.html`, `output/**/*.html`, or the 300dpi PNG; use render-check numbers, and `read_image` crops when a visual check is genuinely needed.
 - Mirror surrounding idioms (records, data binding, DOM structure) so generated code matches.
 - After a new PDF listing, follow `listing_prompt.txt`.
