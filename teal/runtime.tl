@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "emergency_stock_log",
+    DOCUMENTID = "renal_meal_plan",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "emergency_stock_log"
+    BASEPROJECTNAME = "renal_meal_plan"
 }
