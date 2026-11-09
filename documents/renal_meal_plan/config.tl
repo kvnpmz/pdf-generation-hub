@@ -27,7 +27,7 @@ return {
         { name = "Thu", breakfast = "Rice cakes, cream cheese, pear", lunch = "Egg salad, white bread, peppers", dinner = "Pork loin, couscous, summer squash", k = "2,450", na = "1,390", phos = "800", fluid = "32" },
         { name = "Fri", breakfast = "Pancakes, maple syrup, apple slices", lunch = "Chicken soup, white roll, green beans", dinner = "White fish, rice, steamed cabbage", k = "2,810", na = "1,610", phos = "890", fluid = "36" },
         { name = "Sat", breakfast = "Cornflakes, rice milk, half banana", lunch = "Grilled cheese, cucumber salad", dinner = "Turkey burger, white bun, lettuce", k = "2,520", na = "1,450", phos = "820", fluid = "32" },
-        { name = "Sun", breakfast = "Oatmeal, dried cranberries, almond milk", lunch = "Veggie wrap, hummus, grapes", dinner = "Roast chicken, mashed potato, wax beans", k = "2,640", na = "1,510", phos = "850", fluid = "40" }
+        { name = "Sun", breakfast = "Oatmeal, fresh cranberries, rice milk", lunch = "Veggie wrap, hummus, grapes", dinner = "Roast chicken, leached mashed potato, wax beans", k = "2,640", na = "1,510", phos = "850", fluid = "40" }
     },
 
     shopping_title = "Shopping list",
@@ -72,8 +72,7 @@ return {
         {
             name = "Dairy & alternatives",
             items = {
-                { name = "Rice milk", qty = "1 carton" },
-                { name = "Almond milk", qty = "1 carton" },
+                { name = "Rice milk", qty = "2 cartons" },
                 { name = "Cream cheese", qty = "1 tub" },
                 { name = "Unsalted butter", qty = "1" },
                 { name = "Cheddar", qty = "4 oz" }
@@ -94,6 +93,7 @@ return {
             name = "Frozen & extras",
             items = {
                 { name = "Frozen blueberries", qty = "1 bag" },
+                { name = "Cranberries, frozen", qty = "1 bag" },
                 { name = "Frozen green beans", qty = "1 bag" },
                 { name = "White rolls", qty = "4" },
                 { name = "Turkey burgers", qty = "2" },
