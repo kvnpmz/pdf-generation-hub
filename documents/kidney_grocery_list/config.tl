@@ -16,8 +16,9 @@ return {
                 { name = "Eggplant & zucchini", level = "go" },
                 { name = "White onion & garlic", level = "go" },
                 { name = "Yellow squash & jicama", level = "go" },
-                { name = "Spinach & Swiss chard", level = "care" },
-                { name = "Baked & sweet potato", level = "care" }
+                { name = "Boiled & leached potatoes", level = "care" },
+                { name = "Spinach & Swiss chard", level = "no" },
+                { name = "Baked potato with skin", level = "no" }
             }
         },
         {
@@ -32,7 +33,7 @@ return {
                 { name = "Watermelon slices", level = "go" },
                 { name = "Fresh lemon juice", level = "go" },
                 { name = "Bananas & oranges", level = "care" },
-                { name = "Dried apricots & figs", level = "care" }
+                { name = "Dried apricots & figs", level = "no" }
             }
         },
         {
