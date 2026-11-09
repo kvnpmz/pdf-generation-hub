@@ -1,5 +1,6 @@
 - Commit changes after completing each self-contained task or file implementation.
 - Do not modify files or configurations outside the requested task scope.
+- For layout work, verify with `scripts/render-check.sh`: one render plus a page-fit report (~3 s) and exit code 1 when it does not fit. `tpr` is a blocking watcher - do not use it for one-shot checks.
 - Always try `search_code` before reading files or grepping; only fall back to `rg` for exact strings and read files only after a search points to them.
 
 Use the local deterministic index before grep or reading whole files:

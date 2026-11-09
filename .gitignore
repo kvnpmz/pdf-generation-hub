@@ -27,3 +27,7 @@ output/
 # machine-local search index and temp rocks trees
 .semantic-search/
 .tmp-rocks*/
+
+# render-check probe state
+.render-check/
+*.db-journal
