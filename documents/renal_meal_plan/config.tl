@@ -5,8 +5,7 @@ return {
     completed_date = "2026-11-09",
 
     kicker = "Renal nutrition",
-    header_line1 = "Renal Week",
-    header_line2 = "7-Day Meal Plan",
+    header = "7-Day Renal Meal Plan",
     subtitle = "Low potassium, low sodium and low phosphorus menus with a matching shopping list",
     plan_card_title = "My week",
     plan_card_fields = { "Week of", "People", "Fluid goal" },

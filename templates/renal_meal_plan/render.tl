@@ -33,8 +33,7 @@ local record Rule
 end
 
 local record Config
-    header_line1: string
-    header_line2: string
+    header: string
     kicker: string
     subtitle: string
     plan_card_title: string
@@ -75,7 +74,7 @@ local function build_header(config: Config): string
     local main = dom.div(
         "head-main",
         dom.tag("span", "kicker", config.kicker),
-        dom.h1("", config.header_line1, dom.tag("span", "head-line", config.header_line2)),
+        dom.h1("", config.header),
         dom.tag("span", "subtitle", config.subtitle)
     )
 
