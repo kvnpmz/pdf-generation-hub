@@ -151,7 +151,7 @@ public class EmergencyStockLog : IRenderer
 
         return Dom.Section(
             "stock-section",
-            SectionHead("01", Read(config, "stock_title"), Read(config, "stock_aside")),
+            SectionHead(Read(config, "stock_title"), Read(config, "stock_aside")),
             Dom.Table(
                 "stock-table",
                 Dom.Thead(
@@ -206,7 +206,7 @@ public class EmergencyStockLog : IRenderer
 
         return Dom.Section(
             "rotation-section",
-            SectionHead("02", Read(config, "rotation_title"), Read(config, "rotation_aside")),
+            SectionHead(Read(config, "rotation_title"), Read(config, "rotation_aside")),
             Dom.Table(
                 "rotation-table",
                 Dom.Thead("", Dom.Tr("", headCells.ToArray())),
@@ -239,16 +239,15 @@ public class EmergencyStockLog : IRenderer
 
         return Dom.Section(
             "routine-section",
-            SectionHead("03", Read(config, "routine_title"), Read(config, "routine_aside")),
+            SectionHead(Read(config, "routine_title"), Read(config, "routine_aside")),
             Dom.Div("routine-grid", steps.ToArray())
         );
     }
 
-    private static string SectionHead(string number, string title, string aside)
+    private static string SectionHead(string title, string aside)
     {
         return Dom.Div(
             "section-head",
-            Dom.Tag("span", "section-num", number),
             Dom.H2("", title),
             string.IsNullOrEmpty(aside) ? "" : Dom.Tag("span", "section-aside", aside)
         );
