@@ -4,7 +4,7 @@
 #
 # Why: picking the next listing used to mean several ad-hoc queries against
 # sales.csv plus a manual cross-check of documents/. This prints the same
-# answer deterministically, capped at a fixed number of lines.
+# numbers deterministically, capped at a fixed number of lines.
 #
 # Usage:
 #   scripts/opportunity-report.sh                  # 30-day window, top 12 families
@@ -18,9 +18,8 @@
 #   UNITS/REV  lifetime units and revenue for that family
 #   TITLES     distinct sales titles in the family
 #   DOCS       documents/<slug> folders for that family
-#   REV/DOC    revenue per existing document (low + many docs = saturated)
+#   REV/DOC    revenue per existing document
 #   WINDOW     units sold in the --days window
-#   FLAG       momentum | thin | saturated | no doc
 #
 # Exit code: 0 always (report, not a check).
 
@@ -179,16 +178,6 @@ def main() -> int:
     for family, entry in families.items():
         entry["docs"] = docs.get(family, 0)
         entry["rev_per_doc"] = entry["revenue"] / entry["docs"] if entry["docs"] else 0.0
-        flags = []
-        if entry["docs"] == 0:
-            flags.append("no doc")
-        elif entry["docs"] <= 3 and entry["revenue"] >= 100:
-            flags.append("thin")
-        elif entry["docs"] >= 6:
-            flags.append("saturated")
-        if entry["window_units"] >= 5 and entry["window_units"] >= 0.5 * entry["units"]:
-            flags.append("momentum")
-        entry["flags"] = flags
 
     ordered = sorted(families.items(), key=lambda item: (-item[1]["revenue"], item[0]))
     ordered = [(name, entry) for name, entry in ordered if entry["revenue"] >= min_rev]
@@ -207,7 +196,6 @@ def main() -> int:
                     "docs": entry["docs"],
                     "revenue_per_doc": round(entry["rev_per_doc"], 2),
                     "window_units": entry["window_units"],
-                    "flags": entry["flags"],
                 }
                 for name, entry in ordered[:top]
             ],
@@ -233,22 +221,13 @@ def main() -> int:
           f"window: last {days} days  {window_units} units")
     print()
 
-    header = f"{'FAMILY':24s} {'UNITS':>6s} {'REV':>9s} {'TITLES':>7s} {'DOCS':>5s} {'REV/DOC':>8s} {'WINDOW':>7s}  FLAG"
+    header = f"{'FAMILY':24s} {'UNITS':>6s} {'REV':>9s} {'TITLES':>7s} {'DOCS':>5s} {'REV/DOC':>8s} {'WINDOW':>7s}"
     print(header)
     print("-" * len(header))
     for name, entry in ordered[:top]:
         print(
             f"{name:24s} {entry['units']:6d} {entry['revenue']:9.2f} {len(entry['titles']):7d} "
-            f"{entry['docs']:5d} {entry['rev_per_doc']:8.1f} {entry['window_units']:7d}  "
-            f"{', '.join(entry['flags'])}"
-        )
-
-    gaps = [(name, entry) for name, entry in ordered if entry["docs"] == 0]
-    if gaps:
-        print()
-        print(
-            "NO DOC  "
-            + ", ".join(f"{name} ({entry['units']}u ${entry['revenue']:.0f})" for name, entry in gaps)
+            f"{entry['docs']:5d} {entry['rev_per_doc']:8.1f} {entry['window_units']:7d}"
         )
 
     print()
