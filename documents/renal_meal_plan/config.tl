@@ -20,7 +20,7 @@ return {
 
     menu_title = "The week at a glance",
     menu_note = "Portions: 1 cup = 240 ml · protein 3 oz cooked",
-    day_note = "Daily totals are estimates for the portions shown — confirm your potassium, phosphorus and fluid limits with your renal dietitian",
+    day_note = "Estimates for the portions shown — confirm your mineral and fluid limits with your renal dietitian",
     days = {
         { name = "Mon", breakfast = "Oatmeal, blueberries, rice milk", lunch = "Chicken salad on white bread", dinner = "Cod, white rice, green beans", k = "2,650", na = "1,480", phos = "840", fluid = "40" },
         { name = "Tue", breakfast = "Egg white omelet, white toast", lunch = "Turkey wrap, lettuce, cranberries", dinner = "Shrimp, rice noodles, zucchini", k = "2,380", na = "1,320", phos = "780", fluid = "36" },
