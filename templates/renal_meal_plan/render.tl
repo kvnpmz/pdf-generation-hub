@@ -6,10 +6,7 @@ local record Day
     breakfast: string
     lunch: string
     dinner: string
-    k: string
-    na: string
-    phos: string
-    fluid: string
+    watch: string
 end
 
 local record Target
@@ -110,10 +107,7 @@ local function build_menu(config: Config): string
                 dom.td("", day.breakfast),
                 dom.td("", day.lunch),
                 dom.td("", day.dinner),
-                dom.td("num", day.k),
-                dom.td("num", day.na),
-                dom.td("num", day.phos),
-                dom.td("num", day.fluid)
+                dom.td("watch", day.watch)
             )
         )
     end
@@ -128,10 +122,7 @@ local function build_menu(config: Config): string
                 dom.th("col-meal", "Breakfast"),
                 dom.th("col-meal", "Lunch"),
                 dom.th("col-meal", "Dinner"),
-                dom.th("col-num", "K mg"),
-                dom.th("col-num", "Na mg"),
-                dom.th("col-num", "Phos mg"),
-                dom.th("col-num", "Fluid oz")
+                dom.th("col-watch", "Watch this")
             )
         ),
         dom.tbody("", table.unpack(rows))

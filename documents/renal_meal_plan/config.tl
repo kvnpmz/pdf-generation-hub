@@ -4,30 +4,30 @@ return {
     template = "renal_meal_plan",
     completed_date = "2026-11-09",
 
-    kicker = "Renal nutrition",
+    kicker = "Non-dialysis CKD · sample week",
     header = "7-Day Renal Meal Plan",
-    subtitle = "Low potassium, low sodium and low phosphorus menus with a matching shopping list",
+    subtitle = "A sample week of lower-potassium, lower-sodium meals for CKD stage 3–4",
     plan_card_title = "My week",
-    plan_card_fields = { "Week of", "Fluid goal" },
+    plan_card_fields = { "Week of", "Fluid target" },
 
     targets = {
         { label = "Potassium", value = "2,000–3,000 mg" },
-        { label = "Sodium", value = "under 2,000 mg" },
+        { label = "Sodium", value = "under 2,300 mg" },
         { label = "Phosphorus", value = "800–1,000 mg" },
-        { label = "Fluid", value = "32–40 oz" }
+        { label = "Fluid", value = "as advised" }
     },
 
     menu_title = "The week at a glance",
-    menu_note = "Portions: 1 cup = 240 ml · protein 3 oz cooked",
-    day_note = "Estimates for the portions shown — confirm your mineral and fluid limits with your renal dietitian",
+    menu_note = "2 oz cooked protein per main meal · 1 cup = 240 ml",
+    day_note = "Portions are for one adult — confirm your protein, mineral and fluid targets with your renal dietitian",
     days = {
-        { name = "Mon", breakfast = "Oatmeal, blueberries, rice milk", lunch = "Chicken salad on white bread", dinner = "Cod, white rice, green beans", k = "2,650", na = "1,480", phos = "840", fluid = "40" },
-        { name = "Tue", breakfast = "Egg white omelet, white toast", lunch = "Turkey wrap, lettuce, cranberries", dinner = "Shrimp, rice noodles, zucchini", k = "2,380", na = "1,320", phos = "780", fluid = "36" },
-        { name = "Wed", breakfast = "Cream of wheat, strawberries", lunch = "Tuna sandwich, cucumber sticks", dinner = "Chicken, leached potato, cabbage", k = "2,720", na = "1,560", phos = "860", fluid = "40" },
-        { name = "Thu", breakfast = "Rice cakes, cream cheese, pear", lunch = "Egg salad, white bread, peppers", dinner = "Pork loin, couscous, summer squash", k = "2,450", na = "1,390", phos = "800", fluid = "32" },
-        { name = "Fri", breakfast = "Pancakes, maple syrup, apple slices", lunch = "Chicken soup, white roll, green beans", dinner = "White fish, rice, steamed cabbage", k = "2,810", na = "1,610", phos = "890", fluid = "36" },
-        { name = "Sat", breakfast = "Cornflakes, rice milk, half banana", lunch = "Grilled cheese, cucumber salad", dinner = "Turkey burger, white bun, lettuce", k = "2,520", na = "1,450", phos = "820", fluid = "32" },
-        { name = "Sun", breakfast = "Oatmeal, fresh cranberries, rice milk", lunch = "Veggie wrap, hummus, grapes", dinner = "Roast chicken, leached mashed potato, wax beans", k = "2,640", na = "1,510", phos = "850", fluid = "40" }
+        { name = "Mon", breakfast = "Oatmeal, blueberries, rice milk", lunch = "Chicken salad on white bread", dinner = "Cod, white rice, green beans", watch = "Berries: 1/2 cup max" },
+        { name = "Tue", breakfast = "Egg white omelet, white toast", lunch = "Turkey wrap, lettuce, cranberries", dinner = "Shrimp, rice noodles, zucchini", watch = "Cranberries: 2 tbsp max" },
+        { name = "Wed", breakfast = "Cream of wheat, strawberries", lunch = "Tuna sandwich, cucumber sticks", dinner = "Chicken, leached potato, cabbage", watch = "Leach the potato first" },
+        { name = "Thu", breakfast = "Rice cakes, cream cheese, pear", lunch = "Egg salad, white bread, peppers", dinner = "Pork loin, couscous, summer squash", watch = "Cream cheese: 1 tbsp" },
+        { name = "Fri", breakfast = "Pancakes, maple syrup, apple slices", lunch = "Chicken soup, white roll, green beans", dinner = "White fish, rice, steamed cabbage", watch = "Syrup: 1 tbsp · low-salt soup" },
+        { name = "Sat", breakfast = "Cornflakes, rice milk, half banana", lunch = "Grilled cheese, cucumber salad", dinner = "Turkey burger, white bun, lettuce", watch = "Half banana only" },
+        { name = "Sun", breakfast = "Oatmeal, fresh cranberries, rice milk", lunch = "Veggie wrap, hummus, grapes", dinner = "Roast chicken, leached mash, wax beans", watch = "Hummus: 2 tbsp max" }
     },
 
     shopping_title = "Shopping list",
@@ -61,12 +61,12 @@ return {
             name = "Protein",
             items = {
                 { name = "Cod fillets", qty = "2" },
-                { name = "Chicken breast", qty = "2 lb" },
-                { name = "Turkey mince", qty = "1 lb" },
-                { name = "Shrimp", qty = "1/2 lb" },
-                { name = "Eggs", qty = "6" },
+                { name = "Chicken breast", qty = "1 lb" },
+                { name = "Turkey mince", qty = "1/2 lb" },
+                { name = "Shrimp", qty = "1/4 lb" },
+                { name = "Eggs", qty = "4" },
                 { name = "Egg whites", qty = "1 carton" },
-                { name = "Tuna", qty = "2 cans" }
+                { name = "Tuna", qty = "1 can" }
             }
         },
         {
@@ -75,7 +75,7 @@ return {
                 { name = "Rice milk", qty = "2 cartons" },
                 { name = "Cream cheese", qty = "1 tub" },
                 { name = "Unsalted butter", qty = "1" },
-                { name = "Cheddar", qty = "4 oz" }
+                { name = "Cheddar", qty = "2 oz" }
             }
         },
         {
@@ -104,9 +104,9 @@ return {
     },
 
     rules = {
-        { label = "Protein", text = "Palm-size, 3 oz cooked, twice a day" },
+        { label = "Protein", text = "2 oz cooked protein at lunch and dinner" },
         { label = "Starch", text = "1/2 cup rice, pasta or leached potato" },
         { label = "Vegetables", text = "1/2 cup low-potassium pick, twice a day" },
-        { label = "Fluids", text = "Measure drinks, ice and soup in one jug" }
+        { label = "Fluids", text = "Follow the target your renal team sets" }
     }
 }

@@ -190,18 +190,14 @@ th.col-day {
     width: 38pt;
 }
 
-th.col-num {
-    width: 41pt;
-    text-align: center;
-    white-space: nowrap;
-    padding-left: 2pt;
-    padding-right: 2pt;
+th.col-watch {
+    width: 104pt;
 }
 
 td {
     padding: 4.8pt 4pt;
     border-top: 0.4pt dotted #dfe7e1;
-    font-size: 8.8pt;
+    font-size: 9.1pt;
     line-height: 1.16;
     vertical-align: middle;
 }
@@ -218,10 +214,10 @@ td.day {
     color: var(--green);
 }
 
-td.num {
-    text-align: center;
-    font-size: 8pt;
-    color: #3d4a44;
+td.watch {
+    font-size: 8.3pt;
+    line-height: 1.2;
+    color: #55655d;
 }
 
 tbody tr:nth-child(even) td {
