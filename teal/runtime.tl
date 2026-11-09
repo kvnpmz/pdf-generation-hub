@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "renal_meal_plan",
+    DOCUMENTID = "dialysis_food_fluid",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "renal_meal_plan"
+    BASEPROJECTNAME = "dialysis_food_fluid"
 }
