@@ -36,7 +36,7 @@ h1 {
     align-items: flex-end;
     justify-content: space-between;
     gap: 14pt;
-    padding: 4pt 2pt 0;
+    padding: 7pt 2pt 0;
     color: var(--muted);
     font-size: 6.3pt;
     font-weight: 600;
@@ -182,7 +182,6 @@ footer.totals {
     align-items: flex-end;
     gap: 26pt;
     padding: 4pt 2pt 0;
-    border-top: 0.9pt solid var(--line);
     color: var(--muted);
     font-size: 6.3pt;
     font-weight: 600;

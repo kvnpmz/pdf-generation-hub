@@ -1,8 +1,8 @@
 return {
-    id = "grocery_master_list",
-    output_name = "grocery_master_list",
-    template = "grocery_master_list",
-    header = "Master Grocery List",
+    id = "grocery_shopping_list",
+    output_name = "grocery_shopping_list",
+    template = "grocery_shopping_list",
+    header = "Grocery Shopping List",
     store_label = "Store",
     date_label = "Date",
     legend_tick = "tick as you shop",
