@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "dialysis_food_fluid",
+    DOCUMENTID = "carryon_packing",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "dialysis_food_fluid"
+    BASEPROJECTNAME = "carryon_packing"
 }
