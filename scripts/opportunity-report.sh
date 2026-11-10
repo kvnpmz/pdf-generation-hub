@@ -10,6 +10,7 @@
 #   scripts/opportunity-report.sh                  # 30-day window, top 12 families
 #   scripts/opportunity-report.sh --days 14
 #   scripts/opportunity-report.sh --top 8 --titles 5
+#   scripts/opportunity-report.sh --titles         # default 10 titles
 #   scripts/opportunity-report.sh --min-rev 50     # hide low-revenue families
 #   scripts/opportunity-report.sh --json           # machine-readable
 #
@@ -57,19 +58,38 @@ def main() -> int:
     min_rev = 0.0
     as_json = False
 
+    def number(flag: str, raw: str, cast):
+        try:
+            return cast(raw)
+        except (TypeError, ValueError):
+            shown = raw if raw else "nothing"
+            print(
+                f"opportunity-report: {flag} needs a number, got {shown}",
+                file=sys.stderr,
+            )
+            sys.exit(2)
+
     i = 0
     while i < len(args):
         arg = args[i]
         if arg in ("-h", "--help"):
             usage()
         elif arg == "--days":
-            days = int(args[i + 1]); i += 2
+            days = number("--days", args[i + 1] if i + 1 < len(args) else "", int)
+            i += 2
         elif arg == "--top":
-            top = int(args[i + 1]); i += 2
+            top = number("--top", args[i + 1] if i + 1 < len(args) else "", int)
+            i += 2
         elif arg == "--titles":
-            title_limit = int(args[i + 1]); i += 2
+            # Bare --titles keeps the default count; --titles N sets it.
+            if i + 1 < len(args) and re.fullmatch(r"\d+", args[i + 1]):
+                title_limit = int(args[i + 1])
+                i += 2
+            else:
+                i += 1
         elif arg == "--min-rev":
-            min_rev = float(args[i + 1]); i += 2
+            min_rev = number("--min-rev", args[i + 1] if i + 1 < len(args) else "", float)
+            i += 2
         elif arg == "--json":
             as_json = True; i += 1
         else:
