@@ -89,6 +89,14 @@ return {
         "Snacks and dishes"
     },
 
-    footer_note = "Measure in feet and inches · plan before you pack",
-    footer_center = "1 square = 1 foot"
+    recheck_title = "Re-check at move-in",
+    recheck_aside = "Compare the plan to the room",
+    recheck_items = {
+        "Room width",
+        "Door swing",
+        "Outlets",
+        "Bed height",
+        "Closet depth"
+    },
+    recheck_note = "Adjust the grid before you unpack."
 }

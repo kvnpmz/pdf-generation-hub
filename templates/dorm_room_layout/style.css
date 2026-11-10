@@ -1,14 +1,14 @@
 :root {
-    --blue: #106cd0;
-    --navy: #123a5f;
-    --soft: #eef5fc;
-    --line: #c9d9ea;
-    --grid: #dbe7f3;
-    --grid-major: #a9c4de;
-    --ink: #1b2634;
-    --muted: #647a90;
-    --check: #7f9ab3;
-    --field: #9db4ca;
+    --blue: #c2547f;
+    --navy: #8f2354;
+    --soft: #fdf0f5;
+    --line: #f0cddd;
+    --grid: #efcddc;
+    --grid-major: #d99ab6;
+    --ink: #2a1e24;
+    --muted: #9a7383;
+    --check: #b07d93;
+    --field: #d3a0b6;
 }
 
 body {
@@ -191,15 +191,15 @@ section {
 
 .plan-body {
     display: grid;
-    grid-template-columns: 344pt 1fr;
+    grid-template-columns: 326pt 1fr;
     gap: 10pt;
     align-items: start;
 }
 
 .grid-shell {
     display: grid;
-    grid-template-columns: 14pt 330pt;
-    grid-template-rows: 10pt 385pt;
+    grid-template-columns: 14pt 312pt;
+    grid-template-rows: 10pt 364pt;
 }
 
 .ruler-corner {
@@ -212,7 +212,7 @@ section {
 
 .ruler-x {
     display: grid;
-    grid-template-columns: repeat(12, 27.5pt);
+    grid-template-columns: repeat(12, 26pt);
     font-size: 5.97pt;
     color: var(--muted);
 }
@@ -224,7 +224,7 @@ section {
 
 .ruler-y {
     display: grid;
-    grid-template-rows: repeat(14, 27.5pt);
+    grid-template-rows: repeat(14, 26pt);
     font-size: 5.97pt;
     color: var(--muted);
 }
@@ -237,15 +237,34 @@ section {
 }
 
 .room-grid {
-    width: 330pt;
-    height: 385pt;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    width: 312pt;
+    height: 364pt;
     border: 1.2pt solid var(--navy);
-    background-color: #fff;
-    background-image: linear-gradient(to right, var(--grid-major) 0.9pt, transparent 0.9pt),
-        linear-gradient(to bottom, var(--grid-major) 0.9pt, transparent 0.9pt),
-        linear-gradient(to right, var(--grid) 0.5pt, transparent 0.5pt),
-        linear-gradient(to bottom, var(--grid) 0.5pt, transparent 0.5pt);
-    background-size: 110pt 100%, 100% 137.5pt, 27.5pt 100%, 100% 27.5pt;
+    background: #fff;
+}
+
+.room-grid .cell {
+    border-right: 0.75pt solid var(--grid);
+    border-bottom: 0.75pt solid var(--grid);
+}
+
+.room-grid .cell:nth-child(12n) {
+    border-right: none;
+}
+
+.room-grid .cell:nth-child(n + 157) {
+    border-bottom: none;
+}
+
+.room-grid .cell.major-x {
+    border-right: 1.15pt solid var(--grid-major);
+}
+
+.room-grid .cell.major-y {
+    border-bottom: 1.15pt solid var(--grid-major);
 }
 
 .plan-side {
@@ -289,7 +308,7 @@ section {
 }
 
 .footprint-table tbody tr:nth-child(even) td {
-    background: #f7fbff;
+    background: #fdf7fa;
 }
 
 .footprint-table .piece {
@@ -320,20 +339,18 @@ section {
 
 .check-item {
     position: relative;
-    padding-left: 8.5pt;
+    padding-left: 10pt;
     line-height: 1.3;
 }
 
 .check-item::before {
-    content: "";
+    content: "□";
     position: absolute;
     left: 0;
-    top: 2pt;
-    width: 4.8pt;
-    height: 4.8pt;
-    border: 0.7pt solid var(--check);
-    border-radius: 1pt;
-    background: #fff;
+    top: -1.1pt;
+    font-size: 9.4pt;
+    line-height: 1;
+    color: var(--check);
 }
 
 .feature-list {
@@ -370,7 +387,7 @@ section {
 }
 
 .clearance-text {
-    color: #3b4855;
+    color: #4a3a42;
 }
 
 .wall-notes {
@@ -403,13 +420,12 @@ section {
 .fit-item {
     font-size: 7.21pt;
     line-height: 1.25;
-    padding-left: 9.5pt;
+    padding-left: 10.5pt;
 }
 
 .fit-item::before {
-    top: 2.2pt;
-    width: 5.2pt;
-    height: 5.2pt;
+    top: -1.1pt;
+    font-size: 9.4pt;
 }
 
 .fit-note {
@@ -455,7 +471,7 @@ section {
 }
 
 .split-table tbody tr:nth-child(even) td {
-    background: #f7fbff;
+    background: #fdf7fa;
 }
 
 .split-table td.mark {
@@ -463,41 +479,35 @@ section {
 }
 
 .split-table td.mark::after {
-    content: "";
-    display: inline-block;
-    width: 6pt;
-    height: 6pt;
-    border: 0.8pt solid var(--check);
-    border-radius: 1pt;
-    background: #fff;
+    content: "□";
+    display: inline;
+    font-size: 9.4pt;
+    line-height: 1;
+    color: var(--check);
 }
 
-/* ---------- footer ---------- */
+/* ---------- re-check band ---------- */
 
-.page-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.recheck-band {
+    display: grid;
+    grid-template-columns: 1fr auto;
     gap: 10pt;
-    margin-top: 7pt;
-    padding-top: 3.5pt;
-    border-top: 1.6pt solid var(--navy);
-    font-size: 6.18pt;
-    letter-spacing: 0.5pt;
-    text-transform: uppercase;
+    align-items: center;
+    background: var(--soft);
+    border: 0.8pt solid var(--line);
+    border-radius: 3pt;
+    padding: 4pt 8pt;
+}
+
+.recheck-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2pt 8pt;
+    font-size: 7.2pt;
+}
+
+.recheck-note {
+    font-size: 6.6pt;
     color: var(--muted);
-}
-
-.footer-center {
-    font-weight: 700;
-    letter-spacing: 1.2pt;
-    color: var(--navy);
-    white-space: nowrap;
-}
-
-.footer-mark {
-    font-weight: 800;
-    letter-spacing: 1.6pt;
-    color: var(--blue);
     white-space: nowrap;
 }

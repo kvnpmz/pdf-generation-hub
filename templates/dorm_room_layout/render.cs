@@ -16,14 +16,8 @@ public class DormRoomLayout : IRenderer
                 "",
                 BuildMeasure(config),
                 BuildPlan(config),
-                BuildBottom(config)
-            ),
-            Dom.Tag(
-                "footer",
-                "page-footer",
-                Dom.Tag("span", "footer-text", Read(config, "footer_note")),
-                Dom.Tag("span", "footer-center", Read(config, "footer_center")),
-                Dom.Tag("span", "footer-mark", "Room plan")
+                BuildBottom(config),
+                BuildRecheck(config)
             ),
         };
 
@@ -130,12 +124,30 @@ public class DormRoomLayout : IRenderer
             yLabels.Add(Dom.Tag("span", "", i.ToString()));
         }
 
+        var cells = new List<string>();
+
+        for (int row = 0; row < GridRows; row++)
+        {
+            for (int column = 0; column < GridColumns; column++)
+            {
+                string cellClass = "cell";
+
+                if (column == 3 || column == 7)
+                    cellClass += " major-x";
+
+                if (row == 4 || row == 9)
+                    cellClass += " major-y";
+
+                cells.Add(Dom.Tag("span", cellClass, ""));
+            }
+        }
+
         return Dom.Div(
             "grid-shell",
             Dom.Tag("span", "ruler-corner", "ft"),
             Dom.Div("ruler-x", xLabels.ToArray()),
             Dom.Div("ruler-y", yLabels.ToArray()),
-            Dom.Tag("div", "room-grid", "")
+            Dom.Div("room-grid", cells.ToArray())
         );
     }
 
@@ -254,6 +266,26 @@ public class DormRoomLayout : IRenderer
                 "split-section",
                 SectionHead(Read(config, "split_title"), Read(config, "split_aside")),
                 BuildSplit(config)
+            )
+        );
+    }
+
+    private static string BuildRecheck(LuaTable config)
+    {
+        var items = new List<string>();
+
+        foreach (object item in Values(config, "recheck_items"))
+        {
+            items.Add(Dom.Tag("span", "check-item", item?.ToString() ?? ""));
+        }
+
+        return Dom.Section(
+            "recheck-section",
+            SectionHead(Read(config, "recheck_title"), Read(config, "recheck_aside")),
+            Dom.Div(
+                "recheck-band",
+                Dom.Div("recheck-list", items.ToArray()),
+                Dom.Tag("span", "recheck-note", Read(config, "recheck_note"))
             )
         );
     }
