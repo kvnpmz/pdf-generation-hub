@@ -1,6 +1,6 @@
 - Commit changes after completing each self-contained task or file implementation.
 - Do not modify files or configurations outside the requested task scope.
-- Before proposing a new listing: `scripts/opportunity-report.sh` (sales + document coverage in ~25 lines; `--days`, `--top`, `--min-rev`, `--json`).
+- Before proposing a new listing: `scripts/opportunity-report.sh` (sales by family; `--days`, `--top`, `--titles`, `--min-rev`, `--json`), then `scripts/coverage-report.sh` (docs + templates by family; `--docs`, `--family`, `--search`, `--json`). Family keywords live in `scripts/families.py` for both.
 - For layout work, verify with `scripts/render-check.sh`: one render plus a page-fit report (~3 s) and exit code 1 when it does not fit; add `--images` when the final 300dpi PNG matters (`-h` lists all flags).
 - Always use rg for reading or searching files instead of grep.
 
