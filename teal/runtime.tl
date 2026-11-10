@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "budget_vs_actual_green",
+    DOCUMENTID = "lowpotassium_swap_chart",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "budget_vs_actual_green"
+    BASEPROJECTNAME = "lowpotassium_swap_chart"
 }

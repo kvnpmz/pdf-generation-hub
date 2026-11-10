@@ -1,0 +1,252 @@
+:root {
+    --ink: #17211d;
+    --muted: #6c7b73;
+    --green: #1a7a4c;
+    --line: #d9e2db;
+    --panel: #f6faf7;
+    --paper: #fdfefd;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 8.8pt;
+}
+
+/* ---------- header ---------- */
+
+.swap-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 14pt;
+    border-bottom: 2pt solid var(--ink);
+    padding-bottom: 5pt;
+}
+
+.head-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.kicker {
+    display: block;
+    font-size: 7.2pt;
+    font-weight: 800;
+    letter-spacing: 2.2pt;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+h1 {
+    font-family: 'Source Serif 4';
+    font-size: 23pt;
+    font-weight: 700;
+    letter-spacing: 0.2pt;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.h1-sub {
+    display: block;
+    font-size: 14pt;
+    font-weight: 700;
+    letter-spacing: 1.8pt;
+    color: var(--green);
+    margin-top: 2pt;
+}
+
+.subtitle {
+    display: block;
+    font-size: 8pt;
+    color: var(--muted);
+    margin-top: 4pt;
+}
+
+.plan-card {
+    width: 120pt;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5pt;
+    background: var(--panel);
+    border: 0.8pt solid var(--line);
+    border-radius: 6pt;
+    padding: 5pt 6pt;
+}
+
+.plan-card-title {
+    font-size: 7.2pt;
+    font-weight: 800;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.plan-field {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.field-label {
+    font-size: 7.1pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+}
+
+.field-line {
+    flex: 1;
+    border-bottom: 0.6pt solid #b9c6bd;
+}
+
+/* ---------- layout ---------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 5pt;
+    min-height: 0;
+}
+
+.groups {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 3pt;
+    min-height: 0;
+}
+
+/* ---------- chart ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    font-size: 7.1pt;
+    font-weight: 800;
+    letter-spacing: 0.7pt;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 4pt 2pt;
+    border-bottom: 0.9pt solid var(--ink);
+}
+
+th:nth-child(1) {
+    width: 44%;
+}
+
+th:nth-child(2) {
+    width: 15%;
+}
+
+th:nth-child(3) {
+    width: 15%;
+}
+
+th:nth-child(4) {
+    width: 26%;
+}
+
+td {
+    padding: 4.1pt 4pt;
+    border-bottom: 0.4pt dotted #dfe7e1;
+    line-height: 1.12;
+    vertical-align: middle;
+}
+
+td:nth-child(1) {
+    width: 44%;
+}
+
+td:nth-child(2) {
+    width: 15%;
+}
+
+td:nth-child(3) {
+    width: 15%;
+}
+
+td:nth-child(4) {
+    width: 26%;
+}
+
+td.food {
+    font-size: 9.1pt;
+    font-weight: 700;
+}
+
+td.serving {
+    font-size: 8.1pt;
+    color: var(--muted);
+}
+
+td.potassium {
+    font-size: 9.2pt;
+    font-weight: 800;
+    color: #a63a30;
+    white-space: nowrap;
+}
+
+td.swap {
+    font-size: 8.5pt;
+    color: #245c3d;
+}
+
+.group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 8pt;
+    padding: 3.4pt 4pt 1.6pt;
+}
+
+.group-name {
+    font-size: 8pt;
+    font-weight: 900;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.group-note {
+    font-size: 7.3pt;
+    color: var(--muted);
+}
+
+/* ---------- rules ---------- */
+
+.rules-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6pt;
+    border-top: 1.2pt solid var(--ink);
+    padding-top: 4pt;
+    margin-top: 4pt;
+}
+
+.rule-label {
+    display: block;
+    font-size: 7pt;
+    font-weight: 800;
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.rule-text {
+    display: block;
+    font-size: 8pt;
+    line-height: 1.2;
+    color: #2c3a33;
+    margin-top: 0.5pt;
+}
