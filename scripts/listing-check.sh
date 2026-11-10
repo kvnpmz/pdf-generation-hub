@@ -10,7 +10,6 @@
 # Usage:
 #   scripts/listing-check.sh documents/carryon_packing
 #   scripts/listing-check.sh documents/carryon_packing/listing.txt
-#   scripts/listing-check.sh --all          # every listing.txt in documents/
 #
 # Rules (from listing_prompt.txt):
 #   TITLE        exactly 30 words, pipe separators
@@ -108,13 +107,10 @@ def main() -> int:
     args = sys.argv[2:]
 
     if not args or args[0] in ("-h", "--help"):
-        print("usage: listing-check.sh documents/<slug>[.txt] | --all")
+        print("usage: listing-check.sh documents/<slug>[.txt]")
         return 0
 
-    if args[0] == "--all":
-        paths = sorted((app / "documents").glob("*/listing.txt"))
-    else:
-        paths = [resolve(app, args[0])]
+    paths = [resolve(app, args[0])]
 
     failed = 0
     for path in paths:
