@@ -41,9 +41,9 @@ return {
 
     clearance_title = "Clearance rules",
     clearances = {
-        { size = "36 in", text = "clear at the foot of the bed" },
-        { size = "30 in", text = "between pieces you walk between" },
-        { size = "24 in", text = "in front of the closet" }
+        { size = "36 in", text = "Clear at the foot of the bed" },
+        { size = "30 in", text = "Between pieces you walk between" },
+        { size = "24 in", text = "In front of the closet" }
     },
 
     buy_title = "Buy only what fits",

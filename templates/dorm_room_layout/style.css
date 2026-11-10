@@ -362,7 +362,7 @@ section {
 
 .clearance-row {
     display: grid;
-    grid-template-columns: 26pt 1fr;
+    grid-template-columns: 26pt 5pt 1fr;
     gap: 4pt;
     align-items: baseline;
     font-size: 7.48pt;
@@ -376,6 +376,11 @@ section {
     font-size: 7.48pt;
     letter-spacing: 0.2pt;
     text-align: left;
+}
+
+.clearance-dash {
+    color: var(--muted);
+    text-align: center;
 }
 
 .clearance-text {

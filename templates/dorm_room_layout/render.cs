@@ -233,6 +233,7 @@ public class DormRoomLayout : IRenderer
                 Dom.Div(
                     "clearance-row",
                     Dom.Tag("span", "clearance-badge", rule["size"]?.ToString() ?? ""),
+                    Dom.Tag("span", "clearance-dash", "–"),
                     Dom.Tag("span", "clearance-text", rule["text"]?.ToString() ?? "")
                 )
             );
