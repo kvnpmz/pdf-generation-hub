@@ -54,11 +54,8 @@ public class DormRoomLayout : IRenderer
         return Dom.Tag(
             "header",
             "masthead",
-            Dom.Div(
-                "head-main",
-                Dom.H1("", Read(config, "header")),
-                Dom.Tag("p", "subtitle", Read(config, "subtitle"))
-            ),
+            Dom.H1("", Read(config, "header")),
+            Dom.Tag("p", "subtitle", Read(config, "subtitle")),
             Dom.Div("plan-card", card.ToArray())
         );
     }
