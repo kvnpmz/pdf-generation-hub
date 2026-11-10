@@ -3,7 +3,6 @@ return {
     output_name = "gout_food_list",
     template = "gout_food_list",
     header = "Gout Food Guide",
-    badge = "Purine Smart",
     subtitle = "What to eat freely, what to limit, and what to skip — with purines per 100 g",
     completed_date = "2026-11-10",
 
@@ -136,5 +135,5 @@ return {
         target = "/ 500 mg"
     },
 
-    note = "Purine values are approximate averages per 100 g and vary by cut, curing, and cooking method. Alcohol, sugary drinks, and dehydration can raise urate even when purines are low. This guide is educational only — always follow the urate target and medicines set by your doctor or rheumatologist."
+    note = "Purine values are approximate averages per 100 g and vary by cut, curing, and cooking method. Alcohol, sugary drinks, and dehydration can raise urate even when purines are low."
 }

@@ -30,7 +30,6 @@ end
 
 local record Config
     header: string
-    badge: string
     subtitle: string
     targets: {Target}
     columns: {Column}
@@ -44,8 +43,7 @@ local M = {}
 local function build_header(config: Config): string
     return dom.header(
         "guide-head",
-        dom.h1("", config.header),
-        dom.tag("span", "guide-badge", config.badge)
+        dom.h1("", config.header)
     ) .. dom.tag("p", "guide-subtitle", config.subtitle)
 end
 

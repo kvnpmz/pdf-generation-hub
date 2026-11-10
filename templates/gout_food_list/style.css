@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     color: var(--ink);
-    font-size: 10pt;
+    font-size: 10.5pt;
 }
 
 /* ---------- header ---------- */
@@ -31,7 +31,7 @@ h1 {
     width: 100%;
     color: #16191b;
     letter-spacing: 1.6pt;
-    font-size: 23pt;
+    font-size: 24.5pt;
     font-weight: 900;
     line-height: 1.05;
     text-transform: uppercase;
@@ -40,24 +40,9 @@ h1 {
     padding-bottom: 3.5pt;
 }
 
-.guide-badge {
-    position: absolute;
-    right: 0;
-    top: 1pt;
-    background: var(--eat-soft);
-    border: 0.8pt solid #c4dbc9;
-    color: var(--eat);
-    font-size: 5.9pt;
-    font-weight: 700;
-    letter-spacing: 1.5pt;
-    text-transform: uppercase;
-    padding: 2.2pt 5pt 1.8pt 5pt;
-    border-radius: 2pt;
-}
-
 .guide-subtitle {
     margin-top: 3.5pt;
-    font-size: 7.4pt;
+    font-size: 8.8pt;
     letter-spacing: 0.35pt;
     color: var(--muted);
     text-align: center;
@@ -92,7 +77,7 @@ h1 {
 
 .target-label {
     color: #7a857c;
-    font-size: 5.9pt;
+    font-size: 7pt;
     font-weight: 700;
     letter-spacing: 1.5pt;
     text-transform: uppercase;
@@ -100,7 +85,7 @@ h1 {
 
 .target-value {
     color: #212728;
-    font-size: 8.8pt;
+    font-size: 10.4pt;
     font-weight: 800;
     letter-spacing: 0.15pt;
 }
@@ -144,7 +129,7 @@ main {
 
 h2 {
     font-weight: 900;
-    font-size: 13.5pt;
+    font-size: 15.4pt;
     letter-spacing: 0.6pt;
     border-bottom: 1.2pt solid;
     text-transform: uppercase;
@@ -155,7 +140,7 @@ h2 {
 .column-caption {
     display: block;
     text-align: center;
-    font-size: 5.9pt;
+    font-size: 7pt;
     font-weight: 700;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
@@ -180,7 +165,7 @@ li.food {
     color: #15191a;
     border-bottom: 0.45pt dotted var(--rule);
     padding: 0.6pt 0 0.6pt 0;
-    font-size: 7.6pt;
+    font-size: 9.6pt;
     line-height: 1.05;
 }
 
@@ -197,7 +182,7 @@ li.food:last-child {
 }
 
 .food-mg {
-    font-size: 6.2pt;
+    font-size: 8pt;
     font-weight: 700;
     letter-spacing: 0.15pt;
     color: var(--muted);
@@ -219,7 +204,7 @@ li.food:last-child {
 }
 
 .swaps-label {
-    font-size: 5.9pt;
+    font-size: 7pt;
     font-weight: 800;
     letter-spacing: 1.6pt;
     text-transform: uppercase;
@@ -239,7 +224,7 @@ li.food:last-child {
     align-items: baseline;
     justify-content: center;
     gap: 2.4pt;
-    font-size: 6.5pt;
+    font-size: 7.9pt;
 }
 
 .swap-from {
@@ -249,7 +234,7 @@ li.food:last-child {
 
 .swap-arrow {
     color: var(--muted);
-    font-size: 6.5pt;
+    font-size: 7.4pt;
 }
 
 .swap-to {
@@ -261,8 +246,8 @@ li.food:last-child {
 
 .guide-note {
     margin-top: 3pt;
-    font-size: 5.5pt;
-    line-height: 1.35;
+    font-size: 7pt;
+    line-height: 1.4;
     letter-spacing: 0.15pt;
     color: #7b8287;
     text-align: center;
@@ -282,7 +267,7 @@ li.food:last-child {
 }
 
 .tally-label {
-    font-size: 5.9pt;
+    font-size: 7pt;
     font-weight: 800;
     letter-spacing: 1.6pt;
     text-transform: uppercase;
@@ -301,12 +286,12 @@ li.food:last-child {
     display: flex;
     align-items: baseline;
     gap: 2.4pt;
-    font-size: 6.5pt;
+    font-size: 7.9pt;
 }
 
 .tally-name {
     color: #3c4448;
-    font-size: 5.9pt;
+    font-size: 7pt;
     font-weight: 700;
     letter-spacing: 0.3pt;
     white-space: nowrap;
@@ -320,7 +305,7 @@ li.food:last-child {
 
 .tally-target {
     color: var(--muted);
-    font-size: 5.6pt;
+    font-size: 6.6pt;
     font-weight: 700;
     letter-spacing: 0.15pt;
     white-space: nowrap;
