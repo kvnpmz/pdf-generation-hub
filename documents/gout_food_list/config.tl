@@ -16,16 +16,13 @@ return {
     columns = {
         {
             title = "Eat Freely",
-            caption = "under 100 mg per 100 g",
+            caption = "plant purines safe",
             items = {
                 { name = "Eggs", mg = "0 mg" },
                 { name = "Milk", mg = "0 mg" },
                 { name = "Greek yogurt", mg = "1 mg" },
                 { name = "Cottage cheese", mg = "6 mg" },
-                { name = "Cheddar cheese", mg = "6 mg" },
-                { name = "Apples", mg = "1 mg" },
-                { name = "Oranges", mg = "2 mg" },
-                { name = "Bananas", mg = "3 mg" },
+                { name = "Low-fat cheddar", mg = "6 mg" },
                 { name = "Grapes", mg = "4 mg" },
                 { name = "Cherries", mg = "2 mg" },
                 { name = "Strawberries", mg = "2 mg" },
@@ -52,6 +49,9 @@ return {
                 { name = "Tofu", mg = "68 mg" },
                 { name = "Chickpeas", mg = "56 mg" },
                 { name = "Black beans", mg = "75 mg" },
+                { name = "Lentils", mg = "127 mg" },
+                { name = "Kidney beans", mg = "128 mg" },
+                { name = "Soybeans", mg = "190 mg" },
                 { name = "Almonds", mg = "31 mg" },
                 { name = "Walnuts", mg = "25 mg" },
                 { name = "Peanut butter", mg = "79 mg" },
@@ -62,7 +62,7 @@ return {
         },
         {
             title = "Limit",
-            caption = "100–200 mg per 100 g",
+            caption = "small portions",
             items = {
                 { name = "Chicken breast", mg = "150 mg" },
                 { name = "Chicken thigh", mg = "180 mg" },
@@ -85,16 +85,16 @@ return {
                 { name = "Scallops", mg = "136 mg" },
                 { name = "Squid", mg = "135 mg" },
                 { name = "Crab", mg = "100 mg" },
-                { name = "Lentils", mg = "127 mg" },
-                { name = "Kidney beans", mg = "128 mg" },
-                { name = "Soybeans", mg = "190 mg" },
                 { name = "Sausage", mg = "160 mg" },
-                { name = "Caviar", mg = "144 mg" }
+                { name = "Caviar", mg = "144 mg" },
+                { name = "Apples & juice", mg = "fructose" },
+                { name = "Oranges & juice", mg = "fructose" },
+                { name = "Bananas", mg = "fructose" }
             }
         },
         {
             title = "Avoid",
-            caption = "over 200 mg per 100 g",
+            caption = "skip these",
             items = {
                 { name = "Beef liver", mg = "300 mg" },
                 { name = "Chicken liver", mg = "243 mg" },
@@ -117,7 +117,9 @@ return {
                 { name = "Meat extract", mg = "500 mg" },
                 { name = "Yeast extract", mg = "500 mg" },
                 { name = "Bouillon cube", mg = "250 mg" },
-                { name = "Gravy granules", mg = "300 mg" }
+                { name = "Gravy granules", mg = "300 mg" },
+                { name = "Beer & spirits", mg = "alcohol" },
+                { name = "Sugary drinks", mg = "fructose" }
             }
         }
     },
@@ -125,7 +127,7 @@ return {
     swaps = {
         { from = "Sardines", to = "Cod" },
         { from = "Liver", to = "Eggs" },
-        { from = "Mussels", to = "Shrimp" },
+        { from = "Mussels", to = "Tofu" },
         { from = "Beer", to = "Sparkling water" }
     },
 
@@ -135,5 +137,5 @@ return {
         target = "/ 500 mg"
     },
 
-    note = "Purine values are approximate averages per 100 g and vary by cut, curing, and cooking method. Alcohol, sugary drinks, and dehydration can raise urate even when purines are low."
+    note = "Purine values are approximate averages per 100 g and vary by cut, curing, and cooking method. Alcohol, sugary drinks, and dehydration can raise urate even when purines are low. Plant purines in beans, lentils and soybeans are not linked to gout flares."
 }
