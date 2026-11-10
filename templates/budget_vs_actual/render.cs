@@ -207,32 +207,21 @@ public class TemplateRender : IRenderer
         var rows = new List<string>();
         int number = 0;
 
-        foreach (object takeawayEntry in Values(config, "takeaways"))
+        foreach (string label in Strings(config, "takeaways"))
         {
-            if (takeawayEntry is not LuaTable takeaway)
-                continue;
-
             number++;
-
-            var fields = new List<string>();
-
-            foreach (string caption in Strings(takeaway, "fields"))
-            {
-                fields.Add(
-                    Dom.Div(
-                        "takeaway-field",
-                        Dom.Tag("span", "field-caption", Escape(caption)),
-                        Dom.Tag("span", "field-line", "")
-                    )
-                );
-            }
 
             rows.Add(
                 Dom.Div(
                     "takeaway-row",
                     Dom.Tag("span", "takeaway-num", number.ToString()),
-                    Dom.Tag("span", "takeaway-label", Escape(takeaway["label"]?.ToString() ?? "")),
-                    Dom.Div("takeaway-fields", fields.ToArray())
+                    Dom.Tag("span", "takeaway-label", Escape(label)),
+                    Dom.Tag("span", "field-line", ""),
+                    Dom.Div(
+                        "field-amount",
+                        Dom.Tag("span", "dollar", "$"),
+                        Dom.Tag("span", "field-line", "")
+                    )
                 )
             );
         }
@@ -243,6 +232,13 @@ public class TemplateRender : IRenderer
                 "takeaways-head",
                 Dom.H2("", Read(config, "takeaways_title")),
                 Dom.Tag("span", "takeaways-aside", Escape(Read(config, "takeaways_note")))
+            ),
+            Dom.Div(
+                "takeaway-columns",
+                Dom.Tag("span", "", ""),
+                Dom.Tag("span", "", ""),
+                Dom.Tag("span", "column-label", "notes"),
+                Dom.Tag("span", "column-label column-amount", "amount")
             ),
             Dom.Div("takeaway-rows", rows.ToArray()),
             Dom.Tag("p", "takeaways-hint", Escape(Read(config, "takeaways_hint")))

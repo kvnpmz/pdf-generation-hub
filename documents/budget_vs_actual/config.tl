@@ -9,7 +9,7 @@ return {
     table_title = "Line-by-line review",
     subtotal_label = "subtotal",
     total_label = "Month total",
-    formula_note = "Difference = budget − actual   ·   % used = actual ÷ budget   ·   a positive difference means you came in under budget",
+    formula_note = "Difference = budget − actual   ·   % used = actual ÷ budget   ·   plus = under budget   ·   minus = over",
     columns = { "Category", "Budget", "Actual", "Difference", "% Used", "Roll over" },
     groups = {
         {
@@ -51,11 +51,7 @@ return {
         }
     },
     takeaways_title = "Month-end takeaways",
-    takeaways_note = "use the biggest gaps above",
-    takeaways_hint = "These three lines become next month's starting point.",
-    takeaways = {
-        { label = "Biggest overspend", fields = { "category", "over by" } },
-        { label = "Next month's fix", fields = { "what", "how much" } },
-        { label = "Leftover to roll over", fields = { "move to", "amount" } }
-    }
+    takeaways_note = "copy the three biggest differences from the table",
+    takeaways_hint = "Start next month's budget by changing only these three numbers.",
+    takeaways = { "Biggest overspend", "Next month's fix", "Leftover to roll over" }
 }

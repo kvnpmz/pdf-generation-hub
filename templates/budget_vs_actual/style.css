@@ -119,7 +119,7 @@ th.col-roll {
 }
 
 td {
-    height: 19.1pt;
+    height: 18.9pt;
 }
 
 .item-row.shade {
@@ -127,7 +127,7 @@ td {
 }
 
 .group-row td {
-    height: 15.5pt;
+    height: 15.3pt;
     padding-left: 7pt;
     background-color: var(--light-blue);
     color: var(--deep-blue);
@@ -147,7 +147,7 @@ td {
 }
 
 .subtotal-row td {
-    height: 17.5pt;
+    height: 17.3pt;
     background-color: var(--panel-blue);
     font-size: 8.2pt;
     font-weight: 700;
@@ -159,7 +159,7 @@ td {
 }
 
 .total-row td {
-    height: 20.5pt;
+    height: 20.3pt;
     background-color: var(--light-blue);
     font-weight: 700;
     letter-spacing: 0.5pt;
@@ -244,10 +244,26 @@ section.takeaways {
     letter-spacing: 0.2pt;
 }
 
+.takeaway-columns {
+    display: grid;
+    grid-template-columns: 12pt 118pt 1fr 100pt;
+    column-gap: 6pt;
+    align-items: baseline;
+    margin-top: 1pt;
+}
+
+.column-label {
+    font-size: 8pt;
+    color: #3E5563;
+    letter-spacing: 0.3pt;
+}
+
 .takeaway-row {
     display: grid;
-    grid-template-columns: 12pt 112pt 1fr;
+    grid-template-columns: 12pt 118pt 1fr 100pt;
+    column-gap: 6pt;
     align-items: baseline;
+    padding: 1.5pt 0;
 }
 
 .takeaway-num {
@@ -263,28 +279,22 @@ section.takeaways {
     letter-spacing: 0.3pt;
 }
 
-.takeaway-fields {
-    display: flex;
-    gap: 18pt;
+.field-line {
+    display: block;
+    border-bottom: 1pt solid #6FAED9;
+    height: 11pt;
 }
 
-.takeaway-field {
+.field-amount {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: baseline;
-    flex: 1;
+    column-gap: 3pt;
 }
 
-.field-caption {
+.dollar {
     font-size: 8pt;
     color: #3E5563;
-    letter-spacing: 0.2pt;
-}
-
-.field-line {
-    border-bottom: 1pt solid #6FAED9;
-    margin-left: 5pt;
-    height: 11pt;
 }
 
 .takeaways-hint {
