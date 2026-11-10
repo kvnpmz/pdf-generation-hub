@@ -87,7 +87,7 @@ return {
         "Area rug",
         "TV / speaker",
         "Cleaning supplies",
-        "Snacks and dishes",
+        "Dishes and silverware",
         "Paper goods"
     }
 }
