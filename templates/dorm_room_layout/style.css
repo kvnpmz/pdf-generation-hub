@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     height: 100%;
     color: var(--ink);
-    font-size: 9.16pt;
+    font-size: 9.34pt;
     line-height: 1.3;
 }
 
@@ -24,7 +24,7 @@ body {
 
 .masthead {
     display: grid;
-    grid-template-columns: 1fr 150pt;
+    grid-template-columns: 1fr 122pt;
     column-gap: 14pt;
     align-items: center;
     padding-bottom: 4pt;
@@ -36,24 +36,13 @@ body {
     flex-direction: column;
 }
 
-.kicker {
-    align-self: flex-start;
-    background: var(--blue);
-    color: #fff;
-    font-size: 6.99pt;
-    font-weight: 700;
-    letter-spacing: 2.1pt;
-    text-transform: uppercase;
-    padding: 2pt 6pt 1.6pt 6pt;
-}
-
 h1 {
-    margin-top: 3pt;
+    margin-top: 1pt;
     font-family: "Source Serif 4", Georgia, serif;
     color: var(--blue);
-    font-size: 22.89pt;
+    font-size: 23.35pt;
     font-weight: 800;
-    letter-spacing: 1.6pt;
+    letter-spacing: 1pt;
     line-height: 1.04;
     text-align: center;
     text-transform: uppercase;
@@ -65,7 +54,7 @@ h1.line-two {
 
 .subtitle {
     margin-top: 2pt;
-    font-size: 8.25pt;
+    font-size: 8.42pt;
     letter-spacing: 0.9pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -83,7 +72,7 @@ h1.line-two {
 }
 
 .plan-card-title {
-    font-size: 6.99pt;
+    font-size: 7.13pt;
     font-weight: 800;
     letter-spacing: 2pt;
     text-transform: uppercase;
@@ -101,7 +90,7 @@ h1.line-two {
 
 .field-label {
     flex: none;
-    font-size: 6.99pt;
+    font-size: 7.13pt;
     font-weight: 700;
     letter-spacing: 0.7pt;
     text-transform: uppercase;
@@ -138,7 +127,7 @@ section {
 }
 
 .section-head h2 {
-    font-size: 12.14pt;
+    font-size: 12.38pt;
     font-weight: 800;
     letter-spacing: 0.7pt;
     text-transform: uppercase;
@@ -147,7 +136,7 @@ section {
 
 .section-aside {
     margin-left: auto;
-    font-size: 7.21pt;
+    font-size: 7.35pt;
     letter-spacing: 1pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -172,7 +161,7 @@ section {
 }
 
 .measure-label {
-    font-size: 7.21pt;
+    font-size: 7.35pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
@@ -207,7 +196,7 @@ section {
 }
 
 .ruler-corner {
-    font-size: 6.42pt;
+    font-size: 6.55pt;
     color: var(--muted);
     text-align: right;
     padding-right: 2pt;
@@ -217,7 +206,7 @@ section {
 .ruler-x {
     display: grid;
     grid-template-columns: repeat(12, 26pt);
-    font-size: 6.64pt;
+    font-size: 6.77pt;
     color: var(--muted);
 }
 
@@ -229,7 +218,7 @@ section {
 .ruler-y {
     display: grid;
     grid-template-rows: repeat(14, 26pt);
-    font-size: 6.64pt;
+    font-size: 6.77pt;
     color: var(--muted);
 }
 
@@ -278,7 +267,7 @@ section {
 }
 
 .side-title {
-    font-size: 7.33pt;
+    font-size: 7.48pt;
     font-weight: 800;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
@@ -292,13 +281,13 @@ section {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    font-size: 7.11pt;
+    font-size: 7.25pt;
 }
 
 .footprint-table thead th {
     background: var(--navy);
     color: #fff;
-    font-size: 6.18pt;
+    font-size: 6.3pt;
     font-weight: 700;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
@@ -336,7 +325,7 @@ section {
 }
 
 .side-note {
-    font-size: 7.11pt;
+    font-size: 7.25pt;
     line-height: 1.28;
     color: var(--muted);
 }
@@ -352,7 +341,7 @@ section {
     position: absolute;
     left: 0;
     top: -1.1pt;
-    font-size: 10.45pt;
+    font-size: 10.66pt;
     line-height: 1;
     color: var(--check);
 }
@@ -361,7 +350,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1pt 4pt;
-    font-size: 7.44pt;
+    font-size: 7.59pt;
 }
 
 .clearance-list {
@@ -375,7 +364,7 @@ section {
     grid-template-columns: 26pt 1fr;
     gap: 4pt;
     align-items: baseline;
-    font-size: 7.33pt;
+    font-size: 7.48pt;
     line-height: 1.2;
 }
 
@@ -385,7 +374,7 @@ section {
     border-radius: 2pt;
     color: var(--blue);
     font-weight: 800;
-    font-size: 6.64pt;
+    font-size: 6.77pt;
     text-align: center;
     padding: 1pt 0;
 }
@@ -419,23 +408,23 @@ section {
 .fit-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4.5pt 9pt;
+    gap: 5pt 9pt;
 }
 
 .fit-item {
-    font-size: 8.02pt;
+    font-size: 8.18pt;
     line-height: 1.2;
     padding-left: 10.5pt;
 }
 
 .fit-item::before {
     top: -1.1pt;
-    font-size: 10.45pt;
+    font-size: 10.66pt;
 }
 
 .fit-note {
     margin-top: 3.5pt;
-    font-size: 7.33pt;
+    font-size: 7.48pt;
     line-height: 1.25;
     color: var(--muted);
 }
@@ -444,13 +433,13 @@ section {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    font-size: 7.78pt;
+    font-size: 7.94pt;
 }
 
 .split-table thead th {
     background: var(--navy);
     color: #fff;
-    font-size: 6.64pt;
+    font-size: 6.77pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
@@ -471,7 +460,7 @@ section {
 }
 
 .split-table tbody td {
-    padding: 2.4pt 4pt;
+    padding: 3pt 4pt;
     border-bottom: 0.5pt solid var(--line);
 }
 
@@ -486,7 +475,7 @@ section {
 .split-table td.mark::after {
     content: "□";
     display: inline;
-    font-size: 10.45pt;
+    font-size: 10.66pt;
     line-height: 1;
     color: var(--check);
 }
