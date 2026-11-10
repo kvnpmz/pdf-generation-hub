@@ -1,8 +1,8 @@
-Project workflow:
-- Before proposing a listing: `scripts/opportunity-report.sh`. I pick Teal or C# per session; don't choose for me.
-- `tpr` is a blocking human watch loop - never run it; use `scripts/render-check.sh` (`-h` lists flags).
-- Style fidelity matters: before writing a listing, read the 2 closest sibling templates (same data shape: list / table / log) and copy their palette, type scale, spacing and section structure. Read their render file in full; for a long style.css read the ranges you will reuse (e.g. `sed -n '/^h1 {/,/^}/p'`). Skip unrelated stylesheets.
-- Never read `preview.html`, `output/**/*.html`, or the 300dpi PNG; use render-check numbers, and `read_image` crops when a visual check is genuinely needed.
-- Mirror surrounding idioms (records, data binding, DOM structure) so generated code matches.
-- After a new PDF listing, follow `listing_prompt.txt`.
-- `teal/runtime.tl` selects the document; use unique 2-4 word slug folders so no existing folders in documents/ get overwritten; enable images for the final run.
+- Session Choice: User picks Teal or C# per session; do not choose for me.
+- Forbidden Commands: Never run `tpr` (blocking human watch loop). Use `scripts/render-check.sh` (`-h` for flags).
+- Style Fidelity: Before writing a listing, read 2 closest sibling templates (similar data shape: list/table/log) to understand, internalize, and copy palette, type scale, spacing, and structure.
+- Output Restrictions: Never read `preview.html`, `output/**/*.html`, or 300dpi PNGs. Use render-check numbers and `read_image` crops only when visual verification is mandatory.
+- Idiomatic Code: Mirror surrounding records, data binding, and DOM structure.
+- Post-Listing: Follow `listing_prompt.txt`, then verify with `scripts/listing-check.sh documents/<slug>`; never hand-count title words, tags, or sentences.
+- Type & Spacing Fit: `scripts/scale-type.sh --doc <slug> --fit` (add `--prop height` for rows); do not hand-calculate CSS heights.
+- Document Generation: `teal/runtime.tl` selects documents. Use unique 2-4 word slug folders in `documents/` to avoid overwrites. Enable images only for the final run.

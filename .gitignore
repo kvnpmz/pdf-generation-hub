@@ -2,6 +2,7 @@ bin/
 obj/
 lua_modules/
 venv/
+__pycache__/
 
 !*.py
 !*.cs

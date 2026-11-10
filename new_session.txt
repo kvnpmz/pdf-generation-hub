@@ -1,5 +1,5 @@
-Present the 2-3 strongest proven sellers worth making a variant of, real changes in content or use case such as a new view worksheet logic, with a recommendation, and don't write any files until I pick one.
-
-Implement it in C# render.cs with Dom.cs or Teal render.tl with dom.tl, and wait until I pick which language. Mirror the conventions of the template it derives from (palette, spacing, table/section structure) as templates/<slug>/ plus a style.css and a documents/<slug>/config.tl holding the data, header, and output_name.
-
-Point teal/runtime.tl at the new document, confirm pages/fill/margins with scripts/render-check.sh. Then generate the Etsy title/description/tags according to listing_prompt.txt, and commit only the new files.
+1. Present 2-3 strongest proven sellers worth varying (real content or use-case changes, such as alternative layout logic or structural worksheet views) with a recommendation. Do not write files until user picks one.
+2. Implement chosen variant in C# (`render.cs` + `Dom.cs`) or Teal (`render.tl` + `dom.tl`). Wait for user language pick. Mirror template conventions (palette, spacing, table/structure) under `templates/<slug>/` + `style.css` + `documents/<slug>/config.tl` (holding data, header, output_name).
+3. Point `teal/runtime.tl` at new doc; verify pages/fill/margins via `scripts/render-check.sh`.
+4. Generate Etsy listing metadata per `listing_prompt.txt`.
+5. Commit only new files.

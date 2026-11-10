@@ -1,16 +1,20 @@
-- Commit changes after completing each self-contained task or file implementation.
-- Do not modify files or configurations outside the requested task scope.
-- Before proposing a new listing: `scripts/opportunity-report.sh` (sales by family; `--days`, `--top`, `--titles`, `--min-rev`, `--json`), then `scripts/coverage-report.sh` (docs + templates by family; `--docs`, `--family`, `--search`, `--json`). Family keywords live in `scripts/families.py` for both.
-- For layout work, verify with `scripts/render-check.sh`: one render plus a page-fit report (~3 s) and exit code 1 when it does not fit; add `--images` when the final 300dpi PNG matters (`-h` lists all flags).
-- For whitespace and text-size diagnostics on any rendered page, run `scripts/page-report.sh` (`--doc`, `--pdf`, `--png`, `--json`, `--min-gap`, `--min-font`, `--strict`).
-- Always use rg for reading or searching files instead of grep.
+- Git & Scope: Commit after each self-contained task. Do not modify files outside the requested scope.
+- Search: Always use `rg` instead of `grep`.
 
-Use the local deterministic index before grep or reading whole files:
-- Session start: `lua scripts/repo-intel.lua overview` (architecture summary, <500 tokens).
-- Symbol lookup: `lua scripts/repo-intel.lua symbol <Name>` (signature, docs, location, line range).
-- Dependency lookup: `lua scripts/repo-intel.lua deps <Name-or-Module>` (incoming/outgoing).
-- Budgeted map: `lua scripts/repo-intel.lua map --budget 1024`.
-- After edits: `lua scripts/repo-intel.lua update` (hash-incremental; only changed files are re-parsed).
+### Scripts & Workflows
+- New Listing Prep: 
+  1. `scripts/opportunity-report.sh` (sales by family; flags: `--days`, `--top`, `--titles [N]`, `--min-rev`, `--json`).
+  2. `scripts/coverage-report.sh` (docs + templates by family; flags: `--docs`, `--family`, `--search`, `--json`). 
+  (Family keywords live in `scripts/families.py`).
+- Type & Spacing Fit: `scripts/scale-type.sh --doc <slug> --fit` (binary-searches the largest scale that passes render-check; `--prop height` scales row/spacing heights instead of font sizes; `--scale 1.1` one-shot, `--dry-run` preview; auto-restores stylesheet on overflow). Use it instead of hand-calculating CSS heights.
+- Listing Copy: Draft `documents/<slug>/listing.txt`, then run `scripts/listing-check.sh documents/<slug>` and fix what it reports; never count title words, tags, or sentences by hand. `ship-check.sh` runs this check too.
+- Ship Check: `scripts/ship-check.sh <slug>` (runs doc-audit, render-check, page-report, and listing-check in one block; `--images` for final export, `--json` for machine parse).
 
-Cache lives in `.repo-intel/` and is gitignored. `--no-refresh` uses the cache as-is.
-If grammars or the index are missing, run `lua scripts/repo-intel.lua setup`.
+### Repo Intel Index (`lua scripts/repo-intel.lua <cmd>`)
+Use the local index before `rg` or reading whole files:
+- `overview`: Architecture summary (<500 tokens).
+- `symbol <Name>`: Signature, docs, location, line range.
+- `deps <Name-or-Module>`: Incoming/outgoing dependencies.
+- `map --budget 1024`: Context-budgeted map.
+- `update`: Hash-incremental update (`.repo-intel/`, gitignored, `--no-refresh` to use as-is).
+- `setup`: Run if grammars/index are missing.
