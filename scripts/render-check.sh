@@ -93,13 +93,21 @@ OUT_NAME="$(sed -n 's/^[[:space:]]*output_name[[:space:]]*=[[:space:]]*"\([^"]*\
 OUT_NAME="${OUT_NAME:-$DOC}"
 
 OUT_DIR="output/$DOC"
-PDF="$OUT_DIR/$OUT_NAME.pdf"
-PNG="$OUT_DIR/images/$OUT_NAME.png"
+# Editable documents are exported with an _editable suffix; measure the file
+# the renderer actually writes instead of waiting on a stale plain export.
+IS_EDITABLE="$(sed -n 's/^[[:space:]]*is_editable[[:space:]]*=[[:space:]]*true.*/1/p' "$CONFIG" | head -1)"
+SUFFIX=""
+[[ "$IS_EDITABLE" == "1" ]] && SUFFIX="_editable"
+PDF="$OUT_DIR/$OUT_NAME$SUFFIX.pdf"
+PNG="$OUT_DIR/images/$OUT_NAME$SUFFIX.png"
 
 TMP="$(mktemp -d "${TMPDIR:-/tmp}/render-check.XXXXXX")"
 PID=""
 CSS_PATH=""
 CSS_BAK=""
+RUNTIME="$APP/teal/runtime.tl"
+RUNTIME_BAK="$TMP/runtime.tl.orig"
+RUNTIME_TOUCHED=0
 
 # --style-append temporarily edits a tracked stylesheet, so keep the pristine
 # copy in a gitignored state dir: if a run is killed without restoring, the
@@ -127,8 +135,16 @@ restore_css() {
     fi
 }
 
+restore_runtime() {
+    if [[ "$RUNTIME_TOUCHED" -eq 1 && -f "$RUNTIME_BAK" ]]; then
+        cp -p "$RUNTIME_BAK" "$RUNTIME"
+        RUNTIME_TOUCHED=0
+    fi
+}
+
 cleanup() {
     restore_css
+    restore_runtime
     if [[ -n "$PID" ]]; then
         kill -TERM -- "-$PID" 2>/dev/null
         sleep 0.1
@@ -195,6 +211,22 @@ if ((DO_RENDER)); then
         printf '\n/* render-check probe (temporary) */\n%s\n' "$STYLE_APPEND" >>"$CSS_PATH"
     fi
 
+    # The renderer takes its document from teal/runtime.tl, not from --doc.
+    # Switch the runtime to the requested document and restore it afterwards,
+    # so --doc works for any document instead of only the current one.
+    if [[ "$(runtime_field DOCUMENTID)" != "$DOC" ]]; then
+        cp -p "$RUNTIME" "$RUNTIME_BAK"
+        RUNTIME_TOUCHED=1
+        ENABLE_IMAGES=1
+        cat >"$RUNTIME" <<EOF
+return {
+    DOCUMENTID = "$DOC",
+    ENABLEIMAGES = 1,
+    BASEPROJECTNAME = "$DOC"
+}
+EOF
+    fi
+
     stamp="$TMP/stamp"
     touch "$stamp"
     target="$PDF"
@@ -234,6 +266,7 @@ if ((DO_RENDER)); then
     PID=""
 
     restore_css
+    restore_runtime
 
     render_ms=$(( ($(date +%s%N) - render_start) / 1000000 ))
 
