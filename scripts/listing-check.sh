@@ -17,6 +17,7 @@
 #   DESCRIPTION  exactly one sentence, not starting with "This",
 #                and without the word "clean"
 #   Tags longer than Etsy's 20-character cap are reported as warnings.
+#   Tag word coverage (unique/total) is printed; repeated words warn.
 #
 # Exit code: 0 = all checked listings pass, 1 = at least one failed.
 
@@ -77,6 +78,13 @@ def check(path: Path) -> list[str]:
         if len(tag) > 20:
             warnings.append(f"tag {tag!r} is {len(tag)} chars (Etsy cap is 20)")
 
+    tag_words = [word for tag in tags for word in tag.split()]
+    unique_words = len(set(tag_words))
+    print(f"  INFO   tags cover {unique_words}/{len(tag_words)} unique words")
+    repeated = sorted({word for word in tag_words if tag_words.count(word) > 1})
+    if repeated:
+        warnings.append(f"tag words repeat: {', '.join(repeated)}")
+
     description = data.get("DESCRIPTION", "")
     endings = re.findall(r"[.!?](?=\s|$)", description)
     if len(endings) != 1 or not description.rstrip().endswith((".", "!", "?")):
@@ -118,7 +126,7 @@ def main() -> int:
             print(f"{path}: not found")
             failed += 1
             continue
-        print(f"{path.relative_to(app)}")
+        print(path.relative_to(app) if path.is_relative_to(app) else path)
         errors = check(path)
         if errors:
             failed += 1
