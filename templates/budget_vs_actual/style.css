@@ -242,8 +242,9 @@ section.takeaways {
 
 .takeaway-row {
     display: grid;
-    grid-template-columns: 12pt 128pt auto 1fr auto 58pt;
+    grid-template-columns: 12pt 128pt auto 150pt 62pt;
     column-gap: 8pt;
+    justify-content: space-between;
     align-items: baseline;
     padding-top: 1.5pt;
 }
