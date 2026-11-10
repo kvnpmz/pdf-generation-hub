@@ -5,8 +5,9 @@ return {
     completed_date = "2026-11-10",
 
     kicker = "College move-in · room planning",
-    header = "Dorm Room Layout Planner",
-    subtitle = "Measure the room, place the furniture, then buy only what fits",
+    header_line1 = "Dorm Room",
+    header_line2 = "Layout Planner",
+    subtitle = "Measure the room, arrange the furniture, buy what fits",
     plan_card_title = "My room",
     plan_card_fields = { "Building / room", "Move-in date" },
 

@@ -57,11 +57,21 @@ public class DormRoomLayout : IRenderer
             Dom.Div(
                 "head-main",
                 Dom.Tag("span", "kicker", Read(config, "kicker")),
-                Dom.H1("", Read(config, "header")),
+                BuildTitle(config),
                 Dom.Tag("p", "subtitle", Read(config, "subtitle"))
             ),
             Dom.Div("plan-card", card.ToArray())
         );
+    }
+
+    private static string BuildTitle(LuaTable config)
+    {
+        string lineTwo = Read(config, "header_line2");
+
+        if (string.IsNullOrEmpty(lineTwo))
+            return Dom.H1("", Read(config, "header"));
+
+        return Dom.H1("", Read(config, "header_line1")) + Dom.H1("line-two", lineTwo);
     }
 
     private static string BuildMeasure(LuaTable config)

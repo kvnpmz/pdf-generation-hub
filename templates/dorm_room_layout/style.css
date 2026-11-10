@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     height: 100%;
     color: var(--ink);
-    font-size: 8.24pt;
+    font-size: 9.16pt;
     line-height: 1.3;
 }
 
@@ -27,7 +27,7 @@ body {
     grid-template-columns: 1fr 150pt;
     column-gap: 14pt;
     align-items: center;
-    padding-bottom: 6pt;
+    padding-bottom: 4pt;
     border-bottom: 2.2pt solid var(--navy);
 }
 
@@ -40,7 +40,7 @@ body {
     align-self: flex-start;
     background: var(--blue);
     color: #fff;
-    font-size: 6.28pt;
+    font-size: 6.99pt;
     font-weight: 700;
     letter-spacing: 2.1pt;
     text-transform: uppercase;
@@ -48,10 +48,10 @@ body {
 }
 
 h1 {
-    margin-top: 5pt;
+    margin-top: 3pt;
     font-family: "Source Serif 4", Georgia, serif;
     color: var(--blue);
-    font-size: 20.6pt;
+    font-size: 22.89pt;
     font-weight: 800;
     letter-spacing: 1.6pt;
     line-height: 1.04;
@@ -59,9 +59,13 @@ h1 {
     text-transform: uppercase;
 }
 
+h1.line-two {
+    margin-top: 0;
+}
+
 .subtitle {
-    margin-top: 3pt;
-    font-size: 7.42pt;
+    margin-top: 2pt;
+    font-size: 8.25pt;
     letter-spacing: 0.9pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -79,7 +83,7 @@ h1 {
 }
 
 .plan-card-title {
-    font-size: 6.28pt;
+    font-size: 6.99pt;
     font-weight: 800;
     letter-spacing: 2pt;
     text-transform: uppercase;
@@ -97,7 +101,7 @@ h1 {
 
 .field-label {
     flex: none;
-    font-size: 6.28pt;
+    font-size: 6.99pt;
     font-weight: 700;
     letter-spacing: 0.7pt;
     text-transform: uppercase;
@@ -116,8 +120,8 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 9pt;
-    padding-top: 8pt;
+    gap: 6pt;
+    padding-top: 6pt;
 }
 
 section {
@@ -129,12 +133,12 @@ section {
     align-items: baseline;
     gap: 6pt;
     border-bottom: 1pt solid var(--navy);
-    padding-bottom: 2pt;
-    margin-bottom: 5pt;
+    padding-bottom: 1.5pt;
+    margin-bottom: 3.5pt;
 }
 
 .section-head h2 {
-    font-size: 10.92pt;
+    font-size: 12.14pt;
     font-weight: 800;
     letter-spacing: 0.7pt;
     text-transform: uppercase;
@@ -143,7 +147,7 @@ section {
 
 .section-aside {
     margin-left: auto;
-    font-size: 6.49pt;
+    font-size: 7.21pt;
     letter-spacing: 1pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -158,7 +162,7 @@ section {
     background: var(--soft);
     border: 0.8pt solid var(--line);
     border-radius: 3pt;
-    padding: 6pt 8pt 5pt 8pt;
+    padding: 4pt 8pt 3pt 8pt;
 }
 
 .measure-field {
@@ -168,7 +172,7 @@ section {
 }
 
 .measure-label {
-    font-size: 6.49pt;
+    font-size: 7.21pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
@@ -183,7 +187,7 @@ section {
 
 .measure-line {
     display: block;
-    height: 14pt;
+    height: 12pt;
     border-bottom: 0.8pt solid var(--field);
 }
 
@@ -191,19 +195,19 @@ section {
 
 .plan-body {
     display: grid;
-    grid-template-columns: 344pt 1fr;
+    grid-template-columns: 326pt 1fr;
     gap: 10pt;
-    align-items: start;
+    align-items: stretch;
 }
 
 .grid-shell {
     display: grid;
-    grid-template-columns: 14pt 330pt;
-    grid-template-rows: 10pt 385pt;
+    grid-template-columns: 14pt 312pt;
+    grid-template-rows: 10pt 364pt;
 }
 
 .ruler-corner {
-    font-size: 5.77pt;
+    font-size: 6.42pt;
     color: var(--muted);
     text-align: right;
     padding-right: 2pt;
@@ -212,8 +216,8 @@ section {
 
 .ruler-x {
     display: grid;
-    grid-template-columns: repeat(12, 27.5pt);
-    font-size: 5.97pt;
+    grid-template-columns: repeat(12, 26pt);
+    font-size: 6.64pt;
     color: var(--muted);
 }
 
@@ -224,8 +228,8 @@ section {
 
 .ruler-y {
     display: grid;
-    grid-template-rows: repeat(14, 27.5pt);
-    font-size: 5.97pt;
+    grid-template-rows: repeat(14, 26pt);
+    font-size: 6.64pt;
     color: var(--muted);
 }
 
@@ -240,8 +244,8 @@ section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(14, 1fr);
-    width: 330pt;
-    height: 385pt;
+    width: 312pt;
+    height: 364pt;
     border: 1.2pt solid var(--navy);
     background: #fff;
 }
@@ -270,40 +274,40 @@ section {
 .plan-side {
     display: flex;
     flex-direction: column;
-    gap: 3pt;
+    gap: 2pt;
 }
 
 .side-title {
-    font-size: 6.59pt;
+    font-size: 7.33pt;
     font-weight: 800;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
     color: var(--navy);
     border-bottom: 0.7pt solid var(--line);
-    padding-bottom: 1.5pt;
-    margin-top: 1pt;
+    padding-bottom: 1pt;
+    margin-top: 0.5pt;
 }
 
 .footprint-table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    font-size: 6.39pt;
+    font-size: 7.11pt;
 }
 
 .footprint-table thead th {
     background: var(--navy);
     color: #fff;
-    font-size: 5.56pt;
+    font-size: 6.18pt;
     font-weight: 700;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
     text-align: left;
-    padding: 2pt 2.5pt;
+    padding: 1.8pt 2.5pt;
 }
 
 .footprint-table tbody td {
-    padding: 2pt 2.5pt;
+    padding: 1.6pt 2.5pt;
     border-bottom: 0.5pt solid var(--line);
 }
 
@@ -332,7 +336,7 @@ section {
 }
 
 .side-note {
-    font-size: 6.39pt;
+    font-size: 7.11pt;
     line-height: 1.28;
     color: var(--muted);
 }
@@ -340,7 +344,7 @@ section {
 .check-item {
     position: relative;
     padding-left: 10pt;
-    line-height: 1.3;
+    line-height: 1.18;
 }
 
 .check-item::before {
@@ -348,7 +352,7 @@ section {
     position: absolute;
     left: 0;
     top: -1.1pt;
-    font-size: 9.4pt;
+    font-size: 10.45pt;
     line-height: 1;
     color: var(--check);
 }
@@ -356,14 +360,14 @@ section {
 .feature-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5pt 4pt;
-    font-size: 6.7pt;
+    gap: 1pt 4pt;
+    font-size: 7.44pt;
 }
 
 .clearance-list {
     display: flex;
     flex-direction: column;
-    gap: 2.5pt;
+    gap: 1.5pt;
 }
 
 .clearance-row {
@@ -371,7 +375,7 @@ section {
     grid-template-columns: 26pt 1fr;
     gap: 4pt;
     align-items: baseline;
-    font-size: 6.59pt;
+    font-size: 7.33pt;
     line-height: 1.2;
 }
 
@@ -381,7 +385,7 @@ section {
     border-radius: 2pt;
     color: var(--blue);
     font-weight: 800;
-    font-size: 5.97pt;
+    font-size: 6.64pt;
     text-align: center;
     padding: 1pt 0;
 }
@@ -394,6 +398,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 18pt;
+    margin-top: auto;
     padding-top: 13pt;
 }
 
@@ -414,23 +419,23 @@ section {
 .fit-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6.5pt 9pt;
+    gap: 4.5pt 9pt;
 }
 
 .fit-item {
-    font-size: 7.21pt;
-    line-height: 1.35;
+    font-size: 8.02pt;
+    line-height: 1.2;
     padding-left: 10.5pt;
 }
 
 .fit-item::before {
     top: -1.1pt;
-    font-size: 9.4pt;
+    font-size: 10.45pt;
 }
 
 .fit-note {
-    margin-top: 6pt;
-    font-size: 6.59pt;
+    margin-top: 3.5pt;
+    font-size: 7.33pt;
     line-height: 1.25;
     color: var(--muted);
 }
@@ -439,18 +444,18 @@ section {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    font-size: 7pt;
+    font-size: 7.78pt;
 }
 
 .split-table thead th {
     background: var(--navy);
     color: #fff;
-    font-size: 5.97pt;
+    font-size: 6.64pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
     text-align: left;
-    padding: 2.2pt 4pt;
+    padding: 2pt 4pt;
 }
 
 .split-table thead th.mark {
@@ -466,7 +471,7 @@ section {
 }
 
 .split-table tbody td {
-    padding: 3.4pt 4pt;
+    padding: 2.4pt 4pt;
     border-bottom: 0.5pt solid var(--line);
 }
 
@@ -481,7 +486,7 @@ section {
 .split-table td.mark::after {
     content: "□";
     display: inline;
-    font-size: 9.4pt;
+    font-size: 10.45pt;
     line-height: 1;
     color: var(--check);
 }
