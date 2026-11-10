@@ -237,7 +237,7 @@ public class TemplateRender : IRenderer
                 "takeaway-columns",
                 Dom.Tag("span", "", ""),
                 Dom.Tag("span", "", ""),
-                Dom.Tag("span", "column-label", "notes"),
+                Dom.Tag("span", "column-label", "category"),
                 Dom.Tag("span", "column-label column-amount", "amount")
             ),
             Dom.Div("takeaway-rows", rows.ToArray()),

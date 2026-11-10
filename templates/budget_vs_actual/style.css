@@ -246,8 +246,9 @@ section.takeaways {
 
 .takeaway-columns {
     display: grid;
-    grid-template-columns: 12pt 118pt 1fr 100pt;
-    column-gap: 6pt;
+    grid-template-columns: 12pt 138pt 190pt 70pt;
+    column-gap: 10pt;
+    justify-content: space-between;
     align-items: baseline;
     margin-top: 1pt;
 }
@@ -260,8 +261,9 @@ section.takeaways {
 
 .takeaway-row {
     display: grid;
-    grid-template-columns: 12pt 118pt 1fr 100pt;
-    column-gap: 6pt;
+    grid-template-columns: 12pt 138pt 190pt 70pt;
+    column-gap: 10pt;
+    justify-content: space-between;
     align-items: baseline;
     padding: 1.5pt 0;
 }
