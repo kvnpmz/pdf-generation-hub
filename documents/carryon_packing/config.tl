@@ -7,33 +7,22 @@ return {
     completed_date = "2026-11-10",
     guide = {
         title = "Pack by trip length",
-        limits = {
-        { value = "22 × 14 × 9 in", label = "Carry-on size" },
-        { value = "7 kg / 15 lb", label = "Weight limit" },
-        { value = "1 quart bag", label = "Liquids" },
-    },
-    columns = { "Trip", "Tops", "Bottoms", "Underwear + socks", "Laundry" },
+        columns = { "Trip", "Tops", "Bottoms", "Underwear + socks", "Shoes" },
         rows = {
-            { length = "3 days", tops = "3", bottoms = "2", socks = "3 + 1 spare", laundry = "—" },
-            { length = "5 days", tops = "5", bottoms = "3", socks = "5 + 1 spare", laundry = "—" },
-            { length = "7 days", tops = "5", bottoms = "3", socks = "7", laundry = "1 load" },
+            { length = "3 days", tops = "3", bottoms = "2", socks = "4", shoes = "1" },
+            { length = "5 days", tops = "5", bottoms = "3", socks = "6", shoes = "2" },
+            { length = "7 days", tops = "5", bottoms = "3", socks = "7", shoes = "2" },
         },
-        note = "One top per day, bottoms twice before a wash, and a single laundry load on the seven-day trip.",
-    },
-    limits = {
-        { value = "22 × 14 × 9 in", label = "Carry-on size" },
-        { value = "7 kg / 15 lb", label = "Weight limit" },
-        { value = "1 quart bag", label = "Liquids" },
     },
     columns = {
         { -- Column 1: personal item
             {
                 title = "Documents & money",
-                items = { "Passport / ID", "Mobile boarding pass", "Wallet & cards", "Travel insurance", "Hotel address", "Emergency contact card" }
+                items = { "Passport / ID", "Boarding pass", "Wallet & cards", "Travel insurance", "Hotel address", "Emergency contact" }
             },
             {
-                title = "Medication & health",
-                items = { "Prescriptions", "Pain reliever", "Allergy tablets", "Motion sickness pills", "Hand sanitizer", "Spare mask" }
+                title = "Medicine",
+                items = { "Prescriptions", "Pain reliever", "Allergy tablets", "Motion sickness pills", "Hand sanitizer" }
             },
             {
                 title = "Tech",
@@ -41,41 +30,41 @@ return {
             },
             {
                 title = "Comfort",
-                items = { "Neck pillow", "Eye mask", "Refillable bottle", "Snacks", "Lip balm", "Pen" }
+                items = { "Neck pillow", "Eye mask", "Refillable bottle", "Snacks", "Lip balm" }
             }
         },
         { -- Column 2: carry-on clothing
             {
-                title = "Clothing capsule",
+                title = "Clothing",
                 groups = {
                     { sub = "Tops", items = { "T-shirts", "Long-sleeve tee", "Button-down shirt", "Light sweater" } },
                     { sub = "Bottoms", items = { "Jeans", "Chinos / trousers", "Shorts", "Skirt" } },
                     { sub = "Underwear & socks", items = { "Underwear", "Socks", "Bras / base layer" } },
-                    { sub = "Sleep & swim", items = { "Pajamas", "Swimsuit", "Flip flops" } },
-                    { sub = "Shoes", items = { "Walking shoes", "Sandals", "Flats" } }
+                    { sub = "Sleep & swim", items = { "Pajamas", "Swimsuit" } },
+                    { sub = "Shoes", items = { "Walking shoes", "Sandals" } }
                 }
             },
             {
-                title = "Accessories & laundry",
-                items = { "Belt", "Sunglasses", "Hat", "Scarf", "Jewelry roll", "Detergent sheets", "Dry bag" }
+                title = "Accessories",
+                items = { "Belt", "Sunglasses", "Hat", "Scarf", "Umbrella", "Foldable tote" }
             }
         },
         { -- Column 3: toiletries, extras, what stays on you
             {
                 title = "Toiletries (3-1-1)",
-                items = { "Shampoo bar", "Conditioner bar", "Body wash", "Deodorant", "Toothbrush + paste", "Razor", "Moisturizer", "Sunscreen", "Hair ties" }
+                items = { "Shampoo bar", "Conditioner bar", "Body wash", "Deodorant", "Toothbrush + paste", "Razor", "Moisturizer", "Sunscreen" }
             },
             {
                 title = "Extras",
-                items = { "Packing cubes", "Laundry bag", "Umbrella", "Foldable tote", "Travel lock", "Mini first-aid kit" }
+                items = { "Packing cubes", "Laundry bag", "Travel lock", "Mini first-aid kit", "Detergent sheets", "Dry bag" }
             },
             {
-                title = "Worn on travel day",
-                items = { "Jacket", "Walking shoes", "Jeans", "Heaviest layer", "Neck wallet" }
+                title = "Wear on plane",
+                items = { "Jacket", "Walking shoes", "Jeans", "Heaviest layer" }
             },
             {
                 title = "Before you zip",
-                items = { "Bag within 22 × 14 × 9 in", "Liquids in one quart bag", "Chargers at the top", "One outfit at the top" }
+                items = { "Bag 22 × 14 × 9 in", "Liquids in 1 qt bag", "Chargers at the top", "One outfit at the top" }
             }
         }
     }
