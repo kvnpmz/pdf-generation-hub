@@ -142,64 +142,104 @@ th {
 }
 
 th:nth-child(1) {
-    width: 44%;
+    width: 55%;
 }
 
 th:nth-child(2) {
-    width: 15%;
+    width: 7%;
+}
+
+th:nth-child(2) {
+    width: 7%;
+    text-align: center;
 }
 
 th:nth-child(3) {
-    width: 15%;
-}
-
-th:nth-child(4) {
-    width: 26%;
+    width: 38%;
 }
 
 td {
-    padding: 4.1pt 4pt;
+    padding: 2.8pt 4pt;
     border-bottom: 0.4pt dotted #dfe7e1;
     line-height: 1.12;
     vertical-align: middle;
 }
 
 td:nth-child(1) {
-    width: 44%;
+    width: 55%;
 }
 
 td:nth-child(2) {
-    width: 15%;
+    width: 7%;
 }
 
 td:nth-child(3) {
-    width: 15%;
+    width: 38%;
 }
 
-td:nth-child(4) {
-    width: 26%;
-}
-
-td.food {
+td.food-cell {
     font-size: 9.1pt;
+}
+
+.food-name {
     font-weight: 700;
 }
 
-td.serving {
+.food-meta {
     font-size: 8.1pt;
     color: var(--muted);
+    white-space: nowrap;
 }
 
-td.potassium {
+.food-mg {
     font-size: 9.2pt;
     font-weight: 800;
     color: #a63a30;
     white-space: nowrap;
 }
 
+td.arrow {
+    text-align: center;
+    color: var(--green);
+    font-size: 11pt;
+    font-weight: 900;
+}
+
 td.swap {
-    font-size: 8.5pt;
-    color: #245c3d;
+    font-size: 8.6pt;
+    font-weight: 600;
+    color: #1d5c3a;
+    background: #f1f8f3;
+}
+
+.chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 14pt;
+    padding: 2pt 4pt 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.legend-mg {
+    font-size: 8.6pt;
+    font-weight: 800;
+    color: #a63a30;
+}
+
+.legend-arrow {
+    font-size: 9.5pt;
+    font-weight: 900;
+    color: var(--green);
+}
+
+.legend-text {
+    font-size: 7.3pt;
+    color: var(--muted);
 }
 
 .group-head {
@@ -207,7 +247,7 @@ td.swap {
     align-items: baseline;
     justify-content: flex-start;
     gap: 8pt;
-    padding: 3.4pt 4pt 1.6pt;
+    padding: 3pt 4pt 1.4pt;
 }
 
 .group-name {

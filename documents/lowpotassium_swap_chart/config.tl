@@ -11,7 +11,9 @@ return {
     card_title = "My targets",
     card_fields = { "Potassium target", "Fluid limit", "Date" },
 
-    columns = { "Higher potassium", "Serving", "Potassium", "Swap instead" },
+    columns = { "Instead of — higher potassium", "→", "Eat instead — lower potassium" },
+    legend_high = "= potassium in the serving shown",
+    legend_low = "lower-potassium swap to eat instead",
 
     groups = {
         {

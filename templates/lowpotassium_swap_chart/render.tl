@@ -27,6 +27,8 @@ local record Config
     card_title: string
     card_fields: {string}
     columns: {string}
+    legend_high: string
+    legend_low: string
     groups: {Group}
     rules: {Rule}
 end
@@ -80,6 +82,24 @@ local function build_column_head(config: Config): string
     )
 end
 
+local function build_legend(config: Config): string
+    return dom.div(
+        "chart-legend",
+        dom.tag(
+            "span",
+            "legend-item",
+            dom.tag("span", "legend-mg", "mg"),
+            dom.tag("span", "legend-text", config.legend_high)
+        ),
+        dom.tag(
+            "span",
+            "legend-item",
+            dom.tag("span", "legend-arrow", "→"),
+            dom.tag("span", "legend-text", config.legend_low)
+        )
+    )
+end
+
 local function build_group(group: Group): string
     local rows: {string} = {}
 
@@ -88,9 +108,13 @@ local function build_group(group: Group): string
             rows,
             dom.tr(
                 "",
-                dom.td("food", row.food),
-                dom.td("serving", row.serving),
-                dom.td("potassium", row.potassium),
+                dom.td(
+                    "food-cell",
+                    dom.tag("span", "food-name", row.food),
+                    dom.tag("span", "food-meta", " · " .. row.serving),
+                    dom.tag("span", "food-mg", " · " .. row.potassium)
+                ),
+                dom.td("arrow", "→"),
                 dom.td("swap", row.swap)
             )
         )
@@ -140,6 +164,7 @@ function M.render(config: Config): string
         .. dom.main(
             "",
             build_column_head(config),
+            build_legend(config),
             dom.div("groups", table.unpack(groups)),
             build_rules(config)
         )
