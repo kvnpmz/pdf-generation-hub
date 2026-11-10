@@ -1,0 +1,262 @@
+:root {
+    --blue: #6FAED9;
+    --light-blue: #CFE7F5;
+    --sky-blue: #F4FAFF;
+    --panel-blue: #EAF4FB;
+    --deep-blue: #2C6E96;
+    --ink: #121212;
+    --muted: #6C7A84;
+}
+
+body {
+    color: var(--ink);
+    font-size: 9.4pt;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 6pt;
+}
+
+h1 {
+    color: var(--blue);
+    text-align: center;
+    font-size: 28pt;
+    font-weight: 900;
+    letter-spacing: 1.5pt;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 8.8pt;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.2pt;
+    margin-top: 2pt;
+}
+
+.header-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 4pt;
+    column-gap: 25pt;
+    margin-top: 7pt;
+}
+
+.header-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+}
+
+.line {
+    border-bottom: 1pt solid var(--blue);
+    margin-left: 10pt;
+    height: 11pt;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4pt;
+}
+
+h2 {
+    color: var(--deep-blue);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 1.2pt;
+}
+
+.section-aside {
+    font-size: 8pt;
+    font-style: italic;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.1pt;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1.5pt solid var(--blue);
+    border-radius: 10pt;
+}
+
+th,
+td {
+    border: 0.5pt solid var(--blue);
+    padding: 0 4pt;
+}
+
+th {
+    height: 18pt;
+    background-color: var(--light-blue);
+    font-size: 8pt;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.5pt;
+}
+
+th.col-category {
+    text-align: left;
+    padding-left: 10pt;
+}
+
+td {
+    height: 20.9pt;
+}
+
+.item-row.shade {
+    background-color: var(--sky-blue);
+}
+
+.group-row td {
+    height: 16pt;
+    padding-left: 7pt;
+    background-color: var(--light-blue);
+    color: var(--deep-blue);
+    font-size: 8.2pt;
+    font-weight: 700;
+    letter-spacing: 0.9pt;
+}
+
+.group-note {
+    margin-left: 6pt;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.2pt;
+    color: var(--muted);
+    text-transform: none;
+}
+
+.subtotal-row td {
+    height: 18pt;
+    background-color: var(--panel-blue);
+    font-size: 8.2pt;
+    font-weight: 700;
+    color: var(--deep-blue);
+}
+
+.subtotal-row td.col-category {
+    padding-left: 14pt;
+}
+
+.total-row td {
+    height: 21pt;
+    background-color: var(--light-blue);
+    font-weight: 700;
+    letter-spacing: 0.5pt;
+}
+
+.total-row td.col-category {
+    background-color: white;
+    padding-left: 10pt;
+    color: var(--deep-blue);
+}
+
+.col-category { width: 34%; }
+.col-money    { width: 13.5%; }
+.col-pct      { width: 11%; }
+.col-roll     { width: 9%; text-align: center; }
+
+.unit {
+    color: #9AB4C4;
+    font-size: 8pt;
+    margin-left: 1pt;
+}
+
+.box {
+    display: inline-block;
+    width: 8pt;
+    height: 8pt;
+    border: 0.75pt solid var(--blue);
+    vertical-align: middle;
+}
+
+.bullet-base::before {
+    content: "■";
+    display: inline-block;
+}
+
+.bullet-category::before {
+    font-size: 9.5pt;
+    margin-right: 6pt;
+    color: var(--blue);
+}
+
+th:first-child {
+    border-top-left-radius: 10pt;
+}
+
+th:last-child {
+    border-top-right-radius: 10pt;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10pt;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10pt;
+}
+
+section.review-footer {
+    border-top: 1pt solid var(--blue);
+    padding-top: 6pt;
+    display: flex;
+    flex-direction: column;
+    gap: 5pt;
+}
+
+.prompt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 16pt;
+}
+
+.prompt {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+}
+
+.prompt-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.6pt;
+    color: var(--deep-blue);
+    white-space: nowrap;
+}
+
+.prompt-line {
+    border-bottom: 0.75pt solid #A9C9DC;
+    margin-left: 6pt;
+    height: 10pt;
+}
+
+.prompt-hint {
+    grid-column: 2;
+    font-size: 8pt;
+    font-style: italic;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.2pt;
+    margin-top: 1pt;
+}
+
+.formula-note {
+    font-size: 8pt;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.2pt;
+}

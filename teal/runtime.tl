@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "gout_food_list",
+    DOCUMENTID = "budget_vs_actual",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "gout_food_list"
+    BASEPROJECTNAME = "budget_vs_actual"
 }
