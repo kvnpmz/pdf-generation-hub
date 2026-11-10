@@ -3,11 +3,10 @@ return {
     template = "budget_vs_actual",
     output_name = "budget_vs_actual",
     header = "Budget vs Actual",
-    subtitle = "Month-end review — compare what you planned with what you really spent",
+    subtitle = "Compare planned and actual spending",
     completed_date = "2026-11-10",
     header_fields = { "Month", "Income received", "Total budgeted", "Total spent" },
     table_title = "Line-by-line review",
-    table_note = "fill in from your bank statement",
     subtotal_label = "subtotal",
     total_label = "Month total",
     formula_note = "Difference = budget − actual   ·   % used = actual ÷ budget   ·   a positive difference means you came in under budget",
@@ -51,9 +50,12 @@ return {
             }
         }
     },
-    prompts = {
-        { label = "Biggest overspend", hint = "category and amount" },
-        { label = "One fix for next month", hint = "change one number" },
-        { label = "Leftover to roll over", hint = "move it to savings" }
+    takeaways_title = "Month-end takeaways",
+    takeaways_note = "use the biggest gaps above",
+    takeaways_hint = "These three lines become next month's starting point.",
+    takeaways = {
+        { label = "Biggest overspend", fields = { "category", "over by" } },
+        { label = "Next month's fix", fields = { "what", "how much" } },
+        { label = "Leftover to roll over", fields = { "move to", "amount" } }
     }
 }

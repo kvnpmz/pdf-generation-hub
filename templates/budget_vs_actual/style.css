@@ -27,8 +27,9 @@ h1 {
 
 .subtitle {
     text-align: center;
-    font-size: 8.8pt;
-    color: var(--muted);
+    font-size: 9.9pt;
+    font-weight: 600;
+    color: #3E5563;
     text-transform: none;
     letter-spacing: 0.2pt;
     margin-top: 2pt;
@@ -75,12 +76,13 @@ h2 {
     letter-spacing: 1.2pt;
 }
 
-.section-aside {
+.table-note {
+    text-align: right;
     font-size: 8pt;
-    font-style: italic;
-    color: var(--muted);
+    color: #4E5C66;
     text-transform: none;
     letter-spacing: 0.1pt;
+    margin-top: 3pt;
 }
 
 table {
@@ -111,8 +113,13 @@ th.col-category {
     padding-left: 10pt;
 }
 
+th.col-roll {
+    letter-spacing: 0.1pt;
+    white-space: nowrap;
+}
+
 td {
-    height: 20.9pt;
+    height: 19.1pt;
 }
 
 .item-row.shade {
@@ -120,7 +127,7 @@ td {
 }
 
 .group-row td {
-    height: 16pt;
+    height: 15.5pt;
     padding-left: 7pt;
     background-color: var(--light-blue);
     color: var(--deep-blue);
@@ -140,7 +147,7 @@ td {
 }
 
 .subtotal-row td {
-    height: 18pt;
+    height: 17.5pt;
     background-color: var(--panel-blue);
     font-size: 8.2pt;
     font-weight: 700;
@@ -152,7 +159,7 @@ td {
 }
 
 .total-row td {
-    height: 21pt;
+    height: 20.5pt;
     background-color: var(--light-blue);
     font-weight: 700;
     letter-spacing: 0.5pt;
@@ -164,10 +171,11 @@ td {
     color: var(--deep-blue);
 }
 
-.col-category { width: 34%; }
+.col-category { width: 32%; }
 .col-money    { width: 13.5%; }
 .col-pct      { width: 11%; }
-.col-roll     { width: 9%; text-align: center; }
+td.col-pct    { text-align: right; padding-right: 8pt; }
+.col-roll     { width: 11%; text-align: center; }
 
 .unit {
     color: #9AB4C4;
@@ -210,53 +218,79 @@ tr:last-child td:last-child {
     border-bottom-right-radius: 10pt;
 }
 
-section.review-footer {
-    border-top: 1pt solid var(--blue);
-    padding-top: 6pt;
+section.takeaways {
+    border: 1.25pt solid var(--blue);
+    border-radius: 8pt;
+    background-color: var(--sky-blue);
+    padding: 5pt 10pt 6pt;
     display: flex;
     flex-direction: column;
-    gap: 5pt;
+    gap: 2pt;
 }
 
-.prompt-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0 16pt;
+.takeaways-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1pt solid var(--blue);
+    padding-bottom: 2pt;
+    margin-bottom: 2pt;
 }
 
-.prompt {
+.takeaways-aside {
+    font-size: 8pt;
+    color: #3E5563;
+    text-transform: none;
+    letter-spacing: 0.2pt;
+}
+
+.takeaway-row {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 12pt 112pt 1fr;
     align-items: baseline;
 }
 
-.prompt-label {
-    font-size: 8pt;
+.takeaway-num {
+    font-size: 8.6pt;
     font-weight: 700;
-    letter-spacing: 0.6pt;
-    color: var(--deep-blue);
-    white-space: nowrap;
+    color: var(--blue);
 }
 
-.prompt-line {
-    border-bottom: 0.75pt solid #A9C9DC;
-    margin-left: 6pt;
-    height: 10pt;
+.takeaway-label {
+    font-size: 8.6pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.3pt;
 }
 
-.prompt-hint {
-    grid-column: 2;
+.takeaway-fields {
+    display: flex;
+    gap: 18pt;
+}
+
+.takeaway-field {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    flex: 1;
+}
+
+.field-caption {
     font-size: 8pt;
-    font-style: italic;
-    color: var(--muted);
+    color: #3E5563;
+    letter-spacing: 0.2pt;
+}
+
+.field-line {
+    border-bottom: 1pt solid #6FAED9;
+    margin-left: 5pt;
+    height: 11pt;
+}
+
+.takeaways-hint {
+    font-size: 8pt;
+    color: #3E5563;
     text-transform: none;
     letter-spacing: 0.2pt;
-    margin-top: 1pt;
-}
-
-.formula-note {
-    font-size: 8pt;
-    color: var(--muted);
-    text-transform: none;
-    letter-spacing: 0.2pt;
+    margin-top: 2pt;
 }

@@ -32,7 +32,7 @@ public class TemplateRender : IRenderer
         {
             BuildHeader(config),
             Dom.MainTag("", BuildReview(config)),
-            BuildFooter(config),
+            BuildTakeaways(config),
         };
 
         string outputName = Read(config, "output_name");
@@ -132,16 +132,13 @@ public class TemplateRender : IRenderer
 
         return Dom.Section(
             "review",
-            Dom.Div(
-                "section-head",
-                Dom.H2("", Read(config, "table_title")),
-                Dom.Tag("span", "section-aside", Escape(Read(config, "table_note")))
-            ),
+            Dom.Div("section-head", Dom.H2("", Read(config, "table_title"))),
             Dom.Table(
                 "",
                 Dom.Thead("", Dom.Tr("", headCells.ToArray())),
                 Dom.Tbody("", rows.ToArray())
-            )
+            ),
+            Dom.Tag("p", "table-note", Escape(Read(config, "formula_note")))
         );
     }
 
@@ -205,33 +202,50 @@ public class TemplateRender : IRenderer
         return Dom.Tr("total-row", cells.ToArray());
     }
 
-    private static string BuildFooter(LuaTable config)
+    private static string BuildTakeaways(LuaTable config)
     {
-        var prompts = new List<string>();
+        var rows = new List<string>();
+        int number = 0;
 
-        foreach (object promptEntry in Values(config, "prompts"))
+        foreach (object takeawayEntry in Values(config, "takeaways"))
         {
-            if (promptEntry is not LuaTable prompt)
+            if (takeawayEntry is not LuaTable takeaway)
                 continue;
 
-            string hint = Escape(prompt["hint"]?.ToString() ?? "");
+            number++;
 
-            prompts.Add(
+            var fields = new List<string>();
+
+            foreach (string caption in Strings(takeaway, "fields"))
+            {
+                fields.Add(
+                    Dom.Div(
+                        "takeaway-field",
+                        Dom.Tag("span", "field-caption", Escape(caption)),
+                        Dom.Tag("span", "field-line", "")
+                    )
+                );
+            }
+
+            rows.Add(
                 Dom.Div(
-                    "prompt",
-                    Dom.Tag("span", "prompt-label", Escape(prompt["label"]?.ToString() ?? "")),
-                    Dom.Tag("span", "prompt-line", ""),
-                    string.IsNullOrEmpty(hint)
-                        ? ""
-                        : Dom.Tag("span", "prompt-hint", hint)
+                    "takeaway-row",
+                    Dom.Tag("span", "takeaway-num", number.ToString()),
+                    Dom.Tag("span", "takeaway-label", Escape(takeaway["label"]?.ToString() ?? "")),
+                    Dom.Div("takeaway-fields", fields.ToArray())
                 )
             );
         }
 
         return Dom.Section(
-            "review-footer",
-            Dom.Div("prompt-grid", prompts.ToArray()),
-            Dom.Tag("p", "formula-note", Escape(Read(config, "formula_note")))
+            "takeaways",
+            Dom.Div(
+                "takeaways-head",
+                Dom.H2("", Read(config, "takeaways_title")),
+                Dom.Tag("span", "takeaways-aside", Escape(Read(config, "takeaways_note")))
+            ),
+            Dom.Div("takeaway-rows", rows.ToArray()),
+            Dom.Tag("p", "takeaways-hint", Escape(Read(config, "takeaways_hint")))
         );
     }
 
