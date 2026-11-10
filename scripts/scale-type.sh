@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 #
-# scale-type.sh - scale every font-size in a template stylesheet, then verify
-# the document still fits one page.
+# scale-type.sh - scale every font-size (or other numeric CSS property) in a
+# template stylesheet, then verify the document still fits one page.
 #
-# Why: "make the text bigger" used to mean hand-editing a dozen font-size
-# declarations, running render-check.sh, reading the same margins, and
-# repeating. This applies a consistent multiplier to the whole stylesheet and
-# restores it automatically when the page stops fitting.
+# Why: "make the text bigger" or "give the chart more room" used to mean
+# hand-editing a dozen declarations, running render-check.sh, reading the same
+# margins, and repeating. This applies a consistent multiplier to the whole
+# stylesheet and restores it automatically when the page stops fitting.
 #
 # Usage:
 #   scripts/scale-type.sh --doc gout_food_list --scale 1.1   # one-shot
 #   scripts/scale-type.sh --doc gout_food_list --fit         # largest that fits
+#   scripts/scale-type.sh --doc x --fit --prop height        # grow the table rows
 #   scripts/scale-type.sh --doc x --fit --max 1.5 --images   # with export PNGs
 #   scripts/scale-type.sh --doc x --scale 1.1 --dry-run      # preview only
 #   scripts/scale-type.sh --template kidney_food_guide --scale 1.05 --dry-run
@@ -18,7 +19,10 @@
 # Notes:
 #   --doc defaults to DOCUMENTID in teal/runtime.tl.
 #   The stylesheet is templates/<template>/style.css unless --css is given.
-#   Only pt, px, rem and em sizes are scaled; inherit and % are left alone.
+#   --prop sets the property to scale (default font-size). Pass a comma
+#   list, e.g. --prop height,padding-top. Only pt, px, rem and em values
+#   are scaled; inherit and % are left alone. Height rules are matched whole,
+#   so min-height and line-height are not touched by --prop height.
 #   --fit binary-searches scale 1.00..--max (default 1.60, 0.01 resolution).
 #   The file is only changed permanently when the render passes.
 #
@@ -34,6 +38,7 @@ CSS=""
 SCALE=""
 MODE=""
 MAX="1.60"
+PROPS="font-size"
 DRY=0
 WAIT_IMAGES=0
 
@@ -47,6 +52,7 @@ while (($#)); do
         --template) TEMPLATE="${2:?--template needs a value}"; shift 2 ;;
         --css) CSS="${2:?--css needs a value}"; shift 2 ;;
         --scale) MODE="scale"; SCALE="${2:?--scale needs a value}"; shift 2 ;;
+        --prop) PROPS="${2:?--prop needs a value}"; shift 2 ;;
         --fit) MODE="fit"; shift ;;
         --max) MAX="${2:?--max needs a value}"; shift 2 ;;
         --dry-run) DRY=1; shift ;;
@@ -94,14 +100,18 @@ trap cleanup EXIT INT TERM HUP
 
 apply_css() {
     # $1 = multiplier; rewrites $CSS from $PRISTINE, prints replacement count
-    python3 - "$PRISTINE" "$CSS" "$1" <<'PY'
+    python3 - "$PRISTINE" "$CSS" "$1" "$PROPS" <<'PY'
 import re
 import sys
 from pathlib import Path
 
 source, target, factor = Path(sys.argv[1]), Path(sys.argv[2]), float(sys.argv[3])
+props = [part.strip() for part in sys.argv[4].split(",") if part.strip()]
 text = source.read_text()
-pattern = re.compile(r"(font-size:\s*)([0-9]*\.?[0-9]+)(pt|px|rem|em)\b")
+pattern = re.compile(
+    r"((?<![\w-])(?:" + "|".join(re.escape(prop) for prop in props) + r"):\s*)"
+    r"([0-9]*\.?[0-9]+)(pt|px|rem|em)\b"
+)
 
 
 def fmt(value: float) -> str:
@@ -124,14 +134,18 @@ PY
 
 preview_css() {
     # $1 = multiplier; prints unique before -> after pairs, changes nothing
-    python3 - "$PRISTINE" "$1" <<'PY'
+    python3 - "$PRISTINE" "$1" "$PROPS" <<'PY'
 import re
 import sys
 from collections import Counter
 
 text = sys.argv[1]
 factor = float(sys.argv[2])
-pattern = re.compile(r"(font-size:\s*)([0-9]*\.?[0-9]+)(pt|px|rem|em)\b")
+props = [part.strip() for part in sys.argv[3].split(",") if part.strip()]
+pattern = re.compile(
+    r"((?<![\w-])(?:" + "|".join(re.escape(prop) for prop in props) + r"):\s*)"
+    r"([0-9]*\.?[0-9]+)(pt|px|rem|em)\b"
+)
 pairs: Counter = Counter()
 units: dict[str, str] = {}
 
@@ -176,7 +190,7 @@ if [[ "$MODE" == "scale" ]]; then
     if run_check; then
         KEEP=1
         report "$SCALE"
-        echo "  changed $count font-size values"
+        echo "  changed $count value(s) in $PROPS"
         if [[ "$WAIT_IMAGES" -eq 1 ]]; then
             "$APP/scripts/render-check.sh" --doc "$DOC" --images 2>&1 | sed 's/^/  /'
         fi
