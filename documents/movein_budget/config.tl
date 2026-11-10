@@ -5,7 +5,7 @@ return {
     completed_date = "2026-11-10",
 
     header = "First Apartment Move-In Budget",
-    subtitle = "Room-by-room setup costs, buy-now priorities, and the cash you need before the keys",
+    subtitle = "Room-by-room setup costs, buy-now priorities, and the cash you need before getting the keys",
     header_fields = { "Move-in date", "Total budget", "Cash on hand" },
 
     startup_title = "Cash needed before move-in",
@@ -87,7 +87,7 @@ return {
     },
     total_label = "Setup total",
 
-    footer_title = "First 7 days",
+    footer_title = "Move-in basics",
     footer_items = {
         "Toilet paper",
         "Paper towels",

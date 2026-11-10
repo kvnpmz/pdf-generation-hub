@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "carryon_packing",
+    DOCUMENTID = "movein_budget",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "carryon_packing"
+    BASEPROJECTNAME = "movein_budget"
 }

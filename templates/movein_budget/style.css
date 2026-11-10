@@ -8,16 +8,16 @@
 
 body {
     color: var(--ink);
-    font-size: 9pt;
+    font-size: 9.6pt;
     display: flex;
     flex-direction: column;
-    gap: 8pt;
+    gap: 6pt;
 }
 
 h1 {
     font-family: 'Source Serif 4';
     color: var(--pink);
-    font-size: 25pt;
+    font-size: 26pt;
     font-weight: 700;
     text-align: center;
     letter-spacing: 1.5pt;
@@ -25,7 +25,7 @@ h1 {
 
 .subtitle {
     text-align: center;
-    font-size: 8.5pt;
+    font-size: 9pt;
     color: var(--muted);
     margin-top: 2pt;
 }
@@ -53,7 +53,7 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 8pt;
+    gap: 6pt;
 }
 
 .section-head {
@@ -66,7 +66,7 @@ main {
 }
 
 h2 {
-    font-size: 10pt;
+    font-size: 10.5pt;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1pt;
@@ -74,7 +74,7 @@ h2 {
 }
 
 .section-aside {
-    font-size: 7.5pt;
+    font-size: 8pt;
     font-style: italic;
     color: var(--muted);
 }
@@ -92,7 +92,7 @@ h2 {
 }
 
 .field-label {
-    font-size: 8pt;
+    font-size: 8.5pt;
 }
 
 .field-line {
@@ -123,9 +123,9 @@ td {
 }
 
 th {
-    height: 17pt;
+    height: 17.5pt;
     background-color: var(--light-pink);
-    font-size: 7.5pt;
+    font-size: 8.1pt;
     font-weight: 700;
     text-align: left;
     text-transform: uppercase;
@@ -139,7 +139,7 @@ th.col-bought {
 }
 
 td {
-    height: 13pt;
+    height: 13.6pt;
 }
 
 tbody tr.item-row:nth-child(even) {
@@ -147,11 +147,11 @@ tbody tr.item-row:nth-child(even) {
 }
 
 tbody tr.room-row td {
-    height: 12pt;
+    height: 12.4pt;
     padding-left: 6pt;
     background-color: var(--light-pink);
     color: var(--pink);
-    font-size: 7.5pt;
+    font-size: 8.1pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
@@ -163,7 +163,7 @@ tbody tr.room-row td {
 
 .col-priority {
     text-align: center;
-    font-size: 7.5pt;
+    font-size: 8.1pt;
     letter-spacing: 0.3pt;
     text-transform: uppercase;
 }
@@ -210,14 +210,14 @@ tr:last-child td:last-child {
 }
 
 .total-row td {
-    height: 15pt;
+    height: 15.5pt;
     background-color: var(--light-pink);
     font-weight: 700;
 }
 
 .total-row td:first-child {
     background-color: white;
-    font-size: 8pt;
+    font-size: 8.6pt;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
 }
@@ -239,7 +239,7 @@ tr:last-child td:last-child {
 }
 
 .first-days-title {
-    font-size: 8pt;
+    font-size: 8.5pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
@@ -252,7 +252,7 @@ tr:last-child td:last-child {
     flex-wrap: wrap;
     gap: 0 12pt;
     list-style: none;
-    font-size: 8pt;
+    font-size: 8.6pt;
 }
 
 .first-days li {
@@ -270,7 +270,7 @@ tr:last-child td:last-child {
 }
 
 .footer-note {
-    font-size: 7pt;
+    font-size: 7.6pt;
     color: var(--muted);
     text-align: right;
 }
