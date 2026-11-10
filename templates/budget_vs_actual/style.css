@@ -10,7 +10,7 @@
 
 body {
     color: var(--ink);
-    font-size: 9.4pt;
+    font-size: 9.6pt;
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ h1 {
 
 .subtitle {
     text-align: center;
-    font-size: 9.9pt;
+    font-size: 10.4pt;
     font-weight: 600;
     color: #3E5563;
     text-transform: none;
@@ -71,14 +71,14 @@ main {
 
 h2 {
     color: var(--deep-blue);
-    font-size: 10pt;
+    font-size: 10.4pt;
     font-weight: 700;
     letter-spacing: 1.2pt;
 }
 
 .table-note {
     text-align: right;
-    font-size: 8pt;
+    font-size: 8.4pt;
     color: #4E5C66;
     text-transform: none;
     letter-spacing: 0.1pt;
@@ -100,9 +100,9 @@ td {
 }
 
 th {
-    height: 18pt;
+    height: 18.4pt;
     background-color: var(--light-blue);
-    font-size: 8pt;
+    font-size: 8.4pt;
     font-weight: 700;
     text-align: center;
     letter-spacing: 0.5pt;
@@ -127,18 +127,18 @@ td {
 }
 
 .group-row td {
-    height: 15.3pt;
+    height: 15.6pt;
     padding-left: 7pt;
     background-color: var(--light-blue);
     color: var(--deep-blue);
-    font-size: 8.2pt;
+    font-size: 8.6pt;
     font-weight: 700;
     letter-spacing: 0.9pt;
 }
 
 .group-note {
     margin-left: 6pt;
-    font-size: 8pt;
+    font-size: 8.4pt;
     font-style: italic;
     font-weight: 400;
     letter-spacing: 0.2pt;
@@ -147,9 +147,9 @@ td {
 }
 
 .subtotal-row td {
-    height: 17.3pt;
+    height: 17.6pt;
     background-color: var(--panel-blue);
-    font-size: 8.2pt;
+    font-size: 8.6pt;
     font-weight: 700;
     color: var(--deep-blue);
 }
@@ -159,7 +159,7 @@ td {
 }
 
 .total-row td {
-    height: 20.3pt;
+    height: 20.6pt;
     background-color: var(--light-blue);
     font-weight: 700;
     letter-spacing: 0.5pt;
@@ -171,15 +171,15 @@ td {
     color: var(--deep-blue);
 }
 
-.col-category { width: 32%; }
+.col-category { width: 31.5%; }
 .col-money    { width: 13.5%; }
 .col-pct      { width: 11%; }
 td.col-pct    { text-align: right; padding-right: 8pt; }
-.col-roll     { width: 11%; text-align: center; }
+.col-roll     { width: 11.5%; text-align: center; }
 
 .unit {
-    color: #9AB4C4;
-    font-size: 8pt;
+    color: #8AA6B6;
+    font-size: 8.4pt;
     margin-left: 1pt;
 }
 
@@ -222,10 +222,7 @@ section.takeaways {
     border: 1.25pt solid var(--blue);
     border-radius: 8pt;
     background-color: var(--sky-blue);
-    padding: 5pt 10pt 6pt;
-    display: flex;
-    flex-direction: column;
-    gap: 2pt;
+    padding: 3pt 10pt 4pt;
 }
 
 .takeaways-head {
@@ -234,57 +231,46 @@ section.takeaways {
     justify-content: space-between;
     border-bottom: 1pt solid var(--blue);
     padding-bottom: 2pt;
-    margin-bottom: 2pt;
 }
 
 .takeaways-aside {
-    font-size: 8pt;
+    font-size: 8.4pt;
     color: #3E5563;
     text-transform: none;
-    letter-spacing: 0.2pt;
-}
-
-.takeaway-columns {
-    display: grid;
-    grid-template-columns: 12pt 138pt 190pt 70pt;
-    column-gap: 10pt;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-top: 1pt;
-}
-
-.column-label {
-    font-size: 8pt;
-    color: #3E5563;
-    letter-spacing: 0.3pt;
+    letter-spacing: 0.1pt;
 }
 
 .takeaway-row {
     display: grid;
-    grid-template-columns: 12pt 138pt 190pt 70pt;
-    column-gap: 10pt;
-    justify-content: space-between;
+    grid-template-columns: 12pt 128pt auto 1fr auto 58pt;
+    column-gap: 8pt;
     align-items: baseline;
-    padding: 1.5pt 0;
+    padding-top: 1.5pt;
 }
 
 .takeaway-num {
-    font-size: 8.6pt;
+    font-size: 8.8pt;
     font-weight: 700;
     color: var(--blue);
 }
 
 .takeaway-label {
-    font-size: 8.6pt;
+    font-size: 8.8pt;
     font-weight: 700;
     color: var(--ink);
     letter-spacing: 0.3pt;
 }
 
+.field-caption {
+    font-size: 8.4pt;
+    color: #3E5563;
+    letter-spacing: 0.2pt;
+}
+
 .field-line {
     display: block;
     border-bottom: 1pt solid #6FAED9;
-    height: 11pt;
+    height: 10pt;
 }
 
 .field-amount {
@@ -295,14 +281,6 @@ section.takeaways {
 }
 
 .dollar {
-    font-size: 8pt;
+    font-size: 8.4pt;
     color: #3E5563;
-}
-
-.takeaways-hint {
-    font-size: 8pt;
-    color: #3E5563;
-    text-transform: none;
-    letter-spacing: 0.2pt;
-    margin-top: 2pt;
 }

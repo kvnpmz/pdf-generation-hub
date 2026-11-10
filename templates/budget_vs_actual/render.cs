@@ -216,6 +216,7 @@ public class TemplateRender : IRenderer
                     "takeaway-row",
                     Dom.Tag("span", "takeaway-num", number.ToString()),
                     Dom.Tag("span", "takeaway-label", Escape(label)),
+                    Dom.Tag("span", "field-caption", "category"),
                     Dom.Tag("span", "field-line", ""),
                     Dom.Div(
                         "field-amount",
@@ -233,15 +234,7 @@ public class TemplateRender : IRenderer
                 Dom.H2("", Read(config, "takeaways_title")),
                 Dom.Tag("span", "takeaways-aside", Escape(Read(config, "takeaways_note")))
             ),
-            Dom.Div(
-                "takeaway-columns",
-                Dom.Tag("span", "", ""),
-                Dom.Tag("span", "", ""),
-                Dom.Tag("span", "column-label", "category"),
-                Dom.Tag("span", "column-label column-amount", "amount")
-            ),
-            Dom.Div("takeaway-rows", rows.ToArray()),
-            Dom.Tag("p", "takeaways-hint", Escape(Read(config, "takeaways_hint")))
+            Dom.Div("takeaway-rows", rows.ToArray())
         );
     }
 

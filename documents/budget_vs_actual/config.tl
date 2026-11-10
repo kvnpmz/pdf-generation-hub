@@ -21,6 +21,7 @@ return {
                 "Groceries",
                 "Insurance",
                 "Transportation",
+                "Phone and internet",
                 "Minimum debt payments",
                 "Childcare",
                 "Medical"
@@ -36,6 +37,7 @@ return {
                 "Clothing",
                 "Personal care",
                 "Hobbies",
+                "Travel",
                 "Gifts and giving"
             }
         },
@@ -51,7 +53,6 @@ return {
         }
     },
     takeaways_title = "Month-end takeaways",
-    takeaways_note = "copy the three biggest differences from the table",
-    takeaways_hint = "Start next month's budget by changing only these three numbers.",
+    takeaways_note = "copy the 3 biggest differences — they become next month's budget",
     takeaways = { "Biggest overspend", "Next month's fix", "Leftover to roll over" }
 }
