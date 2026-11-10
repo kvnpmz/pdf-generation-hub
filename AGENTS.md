@@ -2,6 +2,7 @@
 - Do not modify files or configurations outside the requested task scope.
 - Before proposing a new listing: `scripts/opportunity-report.sh` (sales by family; `--days`, `--top`, `--titles`, `--min-rev`, `--json`), then `scripts/coverage-report.sh` (docs + templates by family; `--docs`, `--family`, `--search`, `--json`). Family keywords live in `scripts/families.py` for both.
 - For layout work, verify with `scripts/render-check.sh`: one render plus a page-fit report (~3 s) and exit code 1 when it does not fit; add `--images` when the final 300dpi PNG matters (`-h` lists all flags).
+- For whitespace and text-size diagnostics on any rendered page, run `scripts/page-report.sh` (`--doc`, `--pdf`, `--png`, `--json`, `--min-gap`, `--min-font`, `--strict`).
 - Always use rg for reading or searching files instead of grep.
 
 Use the local deterministic index before grep or reading whole files:
