@@ -191,15 +191,15 @@ section {
 
 .plan-body {
     display: grid;
-    grid-template-columns: 326pt 1fr;
+    grid-template-columns: 344pt 1fr;
     gap: 10pt;
     align-items: start;
 }
 
 .grid-shell {
     display: grid;
-    grid-template-columns: 14pt 312pt;
-    grid-template-rows: 10pt 364pt;
+    grid-template-columns: 14pt 330pt;
+    grid-template-rows: 10pt 385pt;
 }
 
 .ruler-corner {
@@ -212,7 +212,7 @@ section {
 
 .ruler-x {
     display: grid;
-    grid-template-columns: repeat(12, 26pt);
+    grid-template-columns: repeat(12, 27.5pt);
     font-size: 5.97pt;
     color: var(--muted);
 }
@@ -224,7 +224,7 @@ section {
 
 .ruler-y {
     display: grid;
-    grid-template-rows: repeat(14, 26pt);
+    grid-template-rows: repeat(14, 27.5pt);
     font-size: 5.97pt;
     color: var(--muted);
 }
@@ -240,8 +240,8 @@ section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(14, 1fr);
-    width: 312pt;
-    height: 364pt;
+    width: 330pt;
+    height: 385pt;
     border: 1.2pt solid var(--navy);
     background: #fff;
 }
@@ -270,7 +270,7 @@ section {
 .plan-side {
     display: flex;
     flex-direction: column;
-    gap: 4pt;
+    gap: 3pt;
 }
 
 .side-title {
@@ -281,7 +281,7 @@ section {
     color: var(--navy);
     border-bottom: 0.7pt solid var(--line);
     padding-bottom: 1.5pt;
-    margin-top: 2pt;
+    margin-top: 1pt;
 }
 
 .footprint-table {
@@ -393,8 +393,8 @@ section {
 .wall-notes {
     display: flex;
     flex-direction: column;
-    gap: 8pt;
-    padding-top: 2pt;
+    gap: 18pt;
+    padding-top: 3pt;
 }
 
 .rule-line {
@@ -414,12 +414,12 @@ section {
 .fit-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2pt 9pt;
+    gap: 3pt 9pt;
 }
 
 .fit-item {
     font-size: 7.21pt;
-    line-height: 1.25;
+    line-height: 1.35;
     padding-left: 10.5pt;
 }
 
@@ -429,7 +429,7 @@ section {
 }
 
 .fit-note {
-    margin-top: 4pt;
+    margin-top: 5pt;
     font-size: 6.59pt;
     line-height: 1.25;
     color: var(--muted);
@@ -466,7 +466,7 @@ section {
 }
 
 .split-table tbody td {
-    padding: 2.6pt 4pt;
+    padding: 3.4pt 4pt;
     border-bottom: 0.5pt solid var(--line);
 }
 
@@ -484,30 +484,4 @@ section {
     font-size: 9.4pt;
     line-height: 1;
     color: var(--check);
-}
-
-/* ---------- re-check band ---------- */
-
-.recheck-band {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10pt;
-    align-items: center;
-    background: var(--soft);
-    border: 0.8pt solid var(--line);
-    border-radius: 3pt;
-    padding: 4pt 8pt;
-}
-
-.recheck-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2pt 8pt;
-    font-size: 7.2pt;
-}
-
-.recheck-note {
-    font-size: 6.6pt;
-    color: var(--muted);
-    white-space: nowrap;
 }

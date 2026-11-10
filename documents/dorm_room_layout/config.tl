@@ -72,7 +72,9 @@ return {
         "Walkway to the door stays clear",
         "Your side has room for laundry and storage",
         "Storage fits under the bed",
-        "Closet door clears the dresser"
+        "Closet door clears the dresser",
+        "Bed leaves room for a nightstand",
+        "Window opens without hitting the desk"
     },
     fit_note = "Mark doors, windows and outlets on the grid before you place anything.",
 
@@ -86,17 +88,7 @@ return {
         "Area rug",
         "TV / speaker",
         "Cleaning supplies",
-        "Snacks and dishes"
-    },
-
-    recheck_title = "Re-check at move-in",
-    recheck_aside = "Compare the plan to the room",
-    recheck_items = {
-        "Room width",
-        "Door swing",
-        "Outlets",
-        "Bed height",
-        "Closet depth"
-    },
-    recheck_note = "Adjust the grid before you unpack."
+        "Snacks and dishes",
+        "Kettle"
+    }
 }

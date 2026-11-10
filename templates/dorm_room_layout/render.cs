@@ -16,8 +16,7 @@ public class DormRoomLayout : IRenderer
                 "",
                 BuildMeasure(config),
                 BuildPlan(config),
-                BuildBottom(config),
-                BuildRecheck(config)
+                BuildBottom(config)
             ),
         };
 
@@ -266,26 +265,6 @@ public class DormRoomLayout : IRenderer
                 "split-section",
                 SectionHead(Read(config, "split_title"), Read(config, "split_aside")),
                 BuildSplit(config)
-            )
-        );
-    }
-
-    private static string BuildRecheck(LuaTable config)
-    {
-        var items = new List<string>();
-
-        foreach (object item in Values(config, "recheck_items"))
-        {
-            items.Add(Dom.Tag("span", "check-item", item?.ToString() ?? ""));
-        }
-
-        return Dom.Section(
-            "recheck-section",
-            SectionHead(Read(config, "recheck_title"), Read(config, "recheck_aside")),
-            Dom.Div(
-                "recheck-band",
-                Dom.Div("recheck-list", items.ToArray()),
-                Dom.Tag("span", "recheck-note", Read(config, "recheck_note"))
             )
         );
     }
