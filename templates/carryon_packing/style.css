@@ -38,6 +38,7 @@ h1 {
 
 .guide-table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     font-size: 11pt;
 }
@@ -45,24 +46,29 @@ h1 {
 .guide-table th {
     background-color: #f7e5eb;
     color: #a34163;
-    font-size: 9.2pt;
+    font-size: 8.8pt;
     font-weight: bold;
-    letter-spacing: 0.8pt;
+    letter-spacing: 0.6pt;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     padding: 3.8pt 7pt;
     border-bottom: 1pt solid #d67096;
 }
 
 .guide-table td {
-    padding: 3.8pt 7pt;
+    padding: 3.8pt 4pt;
     border-bottom: 0.5pt solid #edd6de;
+    text-align: center;
+}
+
+.guide-table th,
+.guide-table td {
+    width: 16.66%;
 }
 
 .guide-table td.trip {
     font-weight: bold;
     color: #d67096;
-    width: 16%;
 }
 
 main {
@@ -86,7 +92,7 @@ h2 {
     color: white;
     font-weight: bold;
     height: 20pt;
-    font-size: 10.4pt;
+    font-size: 10.2pt;
     letter-spacing: 0.3pt;
     text-transform: uppercase;
 }
@@ -101,6 +107,14 @@ h2 {
     font-size: 8.6pt;
     letter-spacing: 0.6pt;
     border-right: 1pt solid white;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    padding-right: 4pt;
 }
 
 h2 > * {

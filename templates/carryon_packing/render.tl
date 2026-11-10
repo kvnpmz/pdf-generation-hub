@@ -5,6 +5,7 @@ local record GuideRow
     length: string
     tops: string
     bottoms: string
+    underwear: string
     socks: string
     shoes: string
 end
@@ -47,6 +48,7 @@ local function renderGuide(guide: Guide): string
             dom.td("trip", row.length),
             dom.td("", row.tops),
             dom.td("", row.bottoms),
+            dom.td("", row.underwear),
             dom.td("", row.socks),
             dom.td("", row.shoes)
         ))
@@ -87,7 +89,7 @@ local function renderSection(section: Section): string
 
     table.insert(nodes, 1, dom.h2("",
         dom.div("qty-tag", "QTY"),
-        section.title
+        dom.div("section-title", section.title)
     ))
     return dom.section("", table.unpack(nodes))
 end

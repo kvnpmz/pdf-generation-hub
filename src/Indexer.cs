@@ -6,10 +6,10 @@ public class Indexer : IStep
     private static readonly string ConnectionString =
         $"Data Source={Path.Combine(Paths.RootPath, "projects.db")}";
 
-    private static readonly string[] ListingColumns = { "title", "tags", "description" };
+    private static readonly string[] ListingColumns = { "title", "description", "tags" };
 
     private static readonly Regex ListingSectionPattern = new(
-        @"^(TITLE|TAGS|DESCRIPTION)\s*$",
+        @"^(TITLE|DESCRIPTION|TAGS)\s*$",
         RegexOptions.IgnoreCase | RegexOptions.Compiled
     );
 
@@ -43,7 +43,6 @@ public class Indexer : IStep
         await EnsureListingColumns(conn);
     }
 
-    // Existing databases predate the listing columns, so add them in place.
     private static async Task EnsureListingColumns(SqliteConnection conn)
     {
         var existing = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -67,8 +66,7 @@ public class Indexer : IStep
         }
     }
 
-    // Reads TITLE / TAGS / DESCRIPTION sections from listing.txt when present.
-    private static (string? Title, string? Tags, string? Description) ReadListing(string directory)
+    private static (string? Title, string? Description, string? Tags) ReadListing(string directory)
     {
         var path = Path.Combine(directory, "listing.txt");
         if (!File.Exists(path))
@@ -107,7 +105,7 @@ public class Indexer : IStep
                 ? string.Join(" ", lines)
                 : null;
 
-        return (Value("TITLE"), Value("TAGS"), Value("DESCRIPTION"));
+        return (Value("TITLE"), Value("DESCRIPTION"), Value("TAGS"));
     }
 
     private async Task<HashSet<string>> IndexFolders(SqliteConnection conn, string rootFolder)
@@ -128,15 +126,15 @@ public class Indexer : IStep
             string template = Extract(lua, "template");
             int editable = Extract(lua, "is_editable") == "true" ? 1 : 0;
             var completed = Extract(lua, "completed_date");
-            var (title, tags, description) = ReadListing(directory);
+            var (title, description, tags) = ReadListing(directory);
 
             using var cmd = conn.CreateCommand();
             cmd.CommandText =
                 @"
                 INSERT OR REPLACE INTO Projects 
-                (id, folder_path, completed_date, overrides, output_name, is_editable, template, title, tags, description)
+                (id, folder_path, completed_date, overrides, output_name, is_editable, template, title, description, tags)
                 VALUES 
-                ($id, $path, $completed, $overrides, $output, $edit, $template, $title, $tags, $description);
+                ($id, $path, $completed, $overrides, $output, $edit, $template, $title, $description, $tags);
             ";
             cmd.Parameters.AddWithValue("$id", Path.GetFileName(directory));
             cmd.Parameters.AddWithValue("$path", directory);
@@ -149,8 +147,8 @@ public class Indexer : IStep
             cmd.Parameters.AddWithValue("$overrides", Extract(lua, "overrides"));
             cmd.Parameters.AddWithValue("$output", Extract(lua, "output_name"));
             cmd.Parameters.AddWithValue("$title", (object?)title ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("$tags", (object?)tags ?? DBNull.Value);
             cmd.Parameters.AddWithValue("$description", (object?)description ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("$tags", (object?)tags ?? DBNull.Value);
 
             await cmd.ExecuteNonQueryAsync();
         }

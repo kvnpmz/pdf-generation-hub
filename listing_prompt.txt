@@ -1,4 +1,4 @@
 Generate Etsy listing metadata for the generated single-page PDF:
 1. Title: Exactly 30 words using pipe separators (|).
-2. Tags: Exactly 13 unique tags, each 2-3 words long, comma-separated, all lowercase, maximizing unique word coverage.
-3. Description: Exactly 1 sentence describing the PDF (do not start with "This..." and do not use the word "clean").
+2. Description: Exactly 1 sentence describing the PDF (do not start with "This..." and do not use the word "clean").
+3. Tags: Exactly 13 unique tags, each 2-3 words long, comma-separated, all lowercase, maximizing unique word coverage.

@@ -7,17 +7,17 @@ return {
     completed_date = "2026-11-10",
     guide = {
         title = "Pack by trip length",
-        columns = { "Trip", "Tops", "Bottoms", "Underwear + socks", "Shoes" },
+        columns = { "Trip", "Tops", "Bottoms", "Underwear", "Socks", "Shoes" },
         rows = {
-            { length = "3 days", tops = "3", bottoms = "2", socks = "4", shoes = "1" },
-            { length = "5 days", tops = "5", bottoms = "3", socks = "6", shoes = "2" },
-            { length = "7 days", tops = "5", bottoms = "3", socks = "7", shoes = "2" },
+            { length = "3 days", tops = "3", bottoms = "2", underwear = "3", socks = "3", shoes = "1" },
+            { length = "5 days", tops = "5", bottoms = "3", underwear = "5", socks = "4", shoes = "2" },
+            { length = "7 days", tops = "5", bottoms = "3", underwear = "7", socks = "7", shoes = "2" },
         },
     },
     columns = {
         { -- Column 1: personal item
             {
-                title = "Documents & money",
+                title = "Documents",
                 items = { "Passport / ID", "Boarding pass", "Wallet & cards", "Travel insurance", "Hotel address", "Emergency contact" }
             },
             {
