@@ -362,8 +362,8 @@ section {
 
 .clearance-row {
     display: grid;
-    grid-template-columns: 26pt auto 1fr;
-    gap: 2.5pt;
+    grid-template-columns: max-content auto 1fr;
+    gap: 3pt;
     align-items: baseline;
     font-size: 7.48pt;
     line-height: 1.2;
