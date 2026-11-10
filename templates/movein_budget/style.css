@@ -1,0 +1,276 @@
+:root {
+    --pink: #D10F6E;
+    --light-pink: #F9D9E8;
+    --blush: #FFF7FB;
+    --muted: #8A6A7A;
+    --ink: #1A1A1A;
+}
+
+body {
+    color: var(--ink);
+    font-size: 9pt;
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+}
+
+h1 {
+    font-family: 'Source Serif 4';
+    color: var(--pink);
+    font-size: 25pt;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1.5pt;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin-top: 2pt;
+}
+
+.header-fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18pt;
+    margin-top: 8pt;
+}
+
+.header-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+}
+
+.line {
+    border-bottom: 0.75pt solid var(--pink);
+    margin-left: 8pt;
+    height: 10pt;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8pt;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1.25pt solid var(--pink);
+    padding-bottom: 2pt;
+    margin-bottom: 4pt;
+}
+
+h2 {
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+    color: var(--pink);
+}
+
+.section-aside {
+    font-size: 7.5pt;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.startup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4pt 18pt;
+}
+
+.startup-field {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+}
+
+.field-label {
+    font-size: 8pt;
+}
+
+.field-line {
+    border-bottom: 0.5pt solid #C9A6B7;
+    margin-left: 6pt;
+    height: 9pt;
+}
+
+.startup-field.total {
+    grid-column: 1 / -1;
+    margin-top: 2pt;
+    font-weight: 700;
+    color: var(--pink);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1.25pt solid var(--pink);
+    border-radius: 8pt;
+}
+
+th,
+td {
+    border: 0.5pt solid var(--pink);
+    padding: 0 4pt;
+}
+
+th {
+    height: 17pt;
+    background-color: var(--light-pink);
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+}
+
+th.col-priority,
+th.col-money,
+th.col-bought {
+    text-align: center;
+}
+
+td {
+    height: 13pt;
+}
+
+tbody tr.item-row:nth-child(even) {
+    background-color: var(--blush);
+}
+
+tbody tr.room-row td {
+    height: 12pt;
+    padding-left: 6pt;
+    background-color: var(--light-pink);
+    color: var(--pink);
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+}
+
+.item-row td.col-item {
+    padding-left: 12pt;
+}
+
+.col-priority {
+    text-align: center;
+    font-size: 7.5pt;
+    letter-spacing: 0.3pt;
+    text-transform: uppercase;
+}
+
+.col-priority.now {
+    color: var(--pink);
+    font-weight: 700;
+}
+
+.col-priority.wait {
+    color: var(--muted);
+}
+
+.col-money {
+    text-align: center;
+}
+
+.col-bought {
+    text-align: center;
+}
+
+.box {
+    display: inline-block;
+    width: 7pt;
+    height: 7pt;
+    border: 0.75pt solid var(--pink);
+    vertical-align: middle;
+}
+
+th:first-child {
+    border-top-left-radius: 8pt;
+}
+
+th:last-child {
+    border-top-right-radius: 8pt;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 8pt;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 8pt;
+}
+
+.total-row td {
+    height: 15pt;
+    background-color: var(--light-pink);
+    font-weight: 700;
+}
+
+.total-row td:first-child {
+    background-color: white;
+    font-size: 8pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+.page-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 3pt;
+    border-bottom: 0.75pt solid var(--pink);
+    padding-bottom: 4pt;
+}
+
+.first-days {
+    display: flex;
+    align-items: baseline;
+    gap: 8pt;
+    border-top: 0.75pt solid var(--pink);
+    padding-top: 4pt;
+}
+
+.first-days-title {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    color: var(--pink);
+    white-space: nowrap;
+}
+
+.first-days ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 12pt;
+    list-style: none;
+    font-size: 8pt;
+}
+
+.first-days li {
+    position: relative;
+    padding-left: 11pt;
+}
+
+.first-days li::before {
+    content: "□";
+    position: absolute;
+    left: 0;
+    top: -1pt;
+    color: var(--pink);
+    font-size: 10pt;
+}
+
+.footer-note {
+    font-size: 7pt;
+    color: var(--muted);
+    text-align: right;
+}
