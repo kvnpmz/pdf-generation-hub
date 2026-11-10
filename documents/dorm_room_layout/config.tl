@@ -63,18 +63,18 @@ return {
     fit_title = "Fit checks",
     fit_aside = "Tick before move-in",
     fit_checks = {
-        "Bed and desk fit without blocking the closet",
-        "Desk chair pulls out without hitting the bed",
-        "Mini fridge has 2 in of air on every side",
-        "Bed risers fit under the frame",
-        "Power strip reaches the nearest outlet",
-        "Rug clears the door swing",
-        "Walkway to the door stays clear",
-        "Your side has room for laundry and storage",
-        "Storage fits under the bed",
-        "Closet door clears the dresser",
-        "Bed leaves room for a nightstand",
-        "Window opens without hitting the desk"
+        "Furniture fits without blocking the closet",
+        "Chairs pull out with room to spare",
+        "Appliances have space to breathe",
+        "Bed height leaves room for storage",
+        "Every cord reaches an outlet",
+        "Doors and drawers open fully",
+        "A clear path reaches the door",
+        "Each side has its own storage",
+        "Under-bed space is usable",
+        "Laundry and trash have a spot",
+        "There is room for a bedside surface",
+        "Windows open without moving furniture"
     },
     fit_note = "Mark doors, windows and outlets on the grid before you place anything.",
 
@@ -89,6 +89,6 @@ return {
         "TV / speaker",
         "Cleaning supplies",
         "Snacks and dishes",
-        "Kettle"
+        "Paper goods"
     }
 }

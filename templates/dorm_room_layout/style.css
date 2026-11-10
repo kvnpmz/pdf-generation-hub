@@ -394,7 +394,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 18pt;
-    padding-top: 3pt;
+    padding-top: 13pt;
 }
 
 .rule-line {
@@ -414,7 +414,7 @@ section {
 .fit-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3pt 9pt;
+    gap: 6.5pt 9pt;
 }
 
 .fit-item {
@@ -429,7 +429,7 @@ section {
 }
 
 .fit-note {
-    margin-top: 5pt;
+    margin-top: 6pt;
     font-size: 6.59pt;
     line-height: 1.25;
     color: var(--muted);
