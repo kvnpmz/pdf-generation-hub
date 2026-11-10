@@ -18,6 +18,12 @@
 #   scripts/render-check.sh --images            # also wait for the export PNGs
 #                                               # (slower, use for final checks)
 #   scripts/render-check.sh --rebuild           # force dotnet publish first
+#   scripts/render-check.sh --skip-overlap      # do not check text collisions
+#
+# Text collisions: the exported HTML is inspected with WeasyPrint (the PDF
+# engine) and any text printed over other text fails the check. This catches
+# a footer pinned with flex:1 while grown content slides underneath it, a case
+# that margins alone cannot see.
 #
 # Exit code: 0 = fits, 1 = does not fit (or render failed).
 #
@@ -39,6 +45,7 @@ REBUILD=0
 DO_RENDER=1
 JSON=0
 WAIT_IMAGES=0
+SKIP_OVERLAP=0
 STYLE_APPEND=""
 TIMEOUT="${RENDER_TIMEOUT:-45}"
 
@@ -57,7 +64,8 @@ while (($#)); do
         --json) JSON=1; shift ;;
         --timeout) TIMEOUT="${2:?--timeout needs a value}"; shift 2 ;;
         --style-append) STYLE_APPEND="${2:?--style-append needs a value}"; shift 2 ;;
-        -h|--help) sed -n '2,32p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        --skip-overlap) SKIP_OVERLAP=1; shift ;;
+        -h|--help) sed -n '2,40p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
         *) echo "render-check: unknown argument: $1" >&2; exit 2 ;;
     esac
 done
@@ -356,6 +364,31 @@ done
 col_list="${col_list# }"
 spread_pt="$(printf '%s\n' "${bottoms[@]}" | sort -n | awk 'NR==1{min=$1} {max=$1} END{printf "%.1f", max-min}')"
 
+# ---------------------------------------------------------------- overlaps
+OVERLAP_STATUS="SKIP"
+OVERLAP_COUNT=0
+OVERLAP_DETAIL="no pdf exported"
+
+if ((SKIP_OVERLAP)); then
+    OVERLAP_DETAIL="disabled"
+elif [[ -f "$PDF" ]]; then
+    PY="$APP/venv/bin/python"
+    [[ -x "$PY" ]] || PY="python3"
+    rc=0
+    "$PY" "$APP/scripts/overlap-check.py" "$PDF" >"$TMP/overlap.out" 2>&1 || rc=$?
+    if ((rc == 0)); then
+        OVERLAP_STATUS="PASS"
+        OVERLAP_COUNT="$(sed -n 's/^  collisions \([0-9]*\).*/\1/p' "$TMP/overlap.out" | head -1)"
+        OVERLAP_DETAIL="${OVERLAP_COUNT:-0} collisions"
+    elif ((rc == 1)); then
+        OVERLAP_STATUS="FAIL"
+        OVERLAP_COUNT="$(sed -n 's/^  collisions \([0-9]*\).*/\1/p' "$TMP/overlap.out" | head -1)"
+        OVERLAP_DETAIL="${OVERLAP_COUNT:-?} text collisions"
+    else
+        OVERLAP_DETAIL="$(head -1 "$TMP/overlap.out" | sed 's/^overlap-check: //')"
+    fi
+fi
+
 # ---------------------------------------------------------------- verdict
 warnings=()
 status="PASS"
@@ -378,15 +411,21 @@ check_range "$left_pt" "$MIN_SIDE" 200 "left margin"
 check_range "$right_pt" "$MIN_SIDE" 200 "right margin"
 check_range "$spread_pt" 0 "$MAX_SPREAD" "column bottom spread"
 
+if [[ "$OVERLAP_STATUS" == "FAIL" ]]; then
+    warnings+=("text overlap: ${OVERLAP_COUNT} collision(s); run scripts/overlap-check.py $PDF")
+    status="FAIL"
+fi
+
 if [[ -n "$STYLE_APPEND" ]] && ! git diff --quiet -- "templates/$TEMPLATE/style.css" 2>/dev/null; then
     warnings+=("style.css was not restored cleanly")
     status="FAIL"
 fi
 
 if ((JSON)); then
-    printf '{"doc":"%s","pages":%s,"render_ms":%s,"fill":%s,"margin_top":%s,"margin_bottom":%s,"margin_left":%s,"margin_right":%s,"column_bottoms":[%s],"column_spread":%s,"pass":%s,"warnings":[' \
+    printf '{"doc":"%s","pages":%s,"render_ms":%s,"fill":%s,"margin_top":%s,"margin_bottom":%s,"margin_left":%s,"margin_right":%s,"column_bottoms":[%s],"column_spread":%s,"overlaps":%s,"overlap_status":"%s","pass":%s,"warnings":[' \
         "$DOC" "$pages" "$render_ms" "$fill_pct" "$top_pt" "$bottom_pt" "$left_pt" "$right_pt" \
         "$(printf '%s' "$col_list" | sed 's/  */,/g')" "$spread_pt" \
+        "${OVERLAP_COUNT:-0}" "$OVERLAP_STATUS" \
         "$([[ $status == PASS ]] && echo true || echo false)"
     first=1
     for w in "${warnings[@]:-}"; do
@@ -409,6 +448,10 @@ else
         "$top_pt" "$bottom_pt" "$left_pt" "$right_pt"
     printf '  fill      %.1f%% of page height\n' "$fill_pct"
     printf '  columns   bottoms:%s  spread %.1f pt\n' "$col_list" "$spread_pt"
+    printf '  overlap   %s  %s\n' "$OVERLAP_STATUS" "$OVERLAP_DETAIL"
+    if [[ "$OVERLAP_STATUS" == "FAIL" ]]; then
+        sed -n 's/^  page /    page /p' "$TMP/overlap.out" | head -5
+    fi
     if ((${#warnings[@]})); then
         for w in "${warnings[@]}"; do printf '  WARN      %s\n' "$w"; done
     fi

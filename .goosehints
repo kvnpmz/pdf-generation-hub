@@ -1,5 +1,6 @@
 - Session Choice: User picks Teal or C# per session; do not choose for me.
 - Forbidden Commands: Never run `tpr` (blocking human watch loop). Use `scripts/render-check.sh` (`-h` for flags).
+- Text Collisions: `render-check` fails when text overlaps other text (glyph-level, via `scripts/overlap-check.py`). Do not paper over it with `--skip-overlap` unless the overprint is intentional.
 - Style Fidelity: Before writing a listing, read 2 closest sibling templates (similar data shape: list/table/log) to understand, internalize, and copy palette, type scale, spacing, and structure.
 - Output Restrictions: Never read `preview.html`, `output/**/*.html`, or 300dpi PNGs. Use render-check numbers and `read_image` crops only when visual verification is mandatory.
 - Idiomatic Code: Mirror surrounding records, data binding, and DOM structure.
