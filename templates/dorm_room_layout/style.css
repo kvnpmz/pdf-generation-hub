@@ -357,7 +357,7 @@ section {
 .clearance-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5pt;
+    gap: 3pt;
 }
 
 .clearance-row {
@@ -367,17 +367,15 @@ section {
     align-items: baseline;
     font-size: 7.48pt;
     line-height: 1.2;
+    padding: 0.8pt 0;
 }
 
 .clearance-badge {
-    background: var(--soft);
-    border: 0.6pt solid var(--line);
-    border-radius: 2pt;
-    color: var(--blue);
-    font-weight: 800;
-    font-size: 6.77pt;
-    text-align: center;
-    padding: 1pt 0;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 7.48pt;
+    letter-spacing: 0.2pt;
+    text-align: left;
 }
 
 .clearance-text {

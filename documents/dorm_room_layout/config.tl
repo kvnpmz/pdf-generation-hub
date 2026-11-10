@@ -37,7 +37,7 @@ return {
     },
 
     features_title = "Fixed features",
-    features = { "Door swing", "Closet", "Outlets", "Window", "Radiator / AC", "Lofted bed" },
+    features = { "Door swing", "Closet", "Outlets", "Window", "Radiator / AC", "Bed configuration" },
 
     clearance_title = "Clearance rules",
     clearances = {
