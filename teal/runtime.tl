@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "lowpotassium_swap_chart",
+    DOCUMENTID = "dorm_room_layout",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "lowpotassium_swap_chart"
+    BASEPROJECTNAME = "dorm_room_layout"
 }

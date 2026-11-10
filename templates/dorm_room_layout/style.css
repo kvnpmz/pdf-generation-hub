@@ -1,0 +1,503 @@
+:root {
+    --blue: #106cd0;
+    --navy: #123a5f;
+    --soft: #eef5fc;
+    --line: #c9d9ea;
+    --grid: #dbe7f3;
+    --grid-major: #a9c4de;
+    --ink: #1b2634;
+    --muted: #647a90;
+    --check: #7f9ab3;
+    --field: #9db4ca;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 8.24pt;
+    line-height: 1.3;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+    display: grid;
+    grid-template-columns: 1fr 150pt;
+    column-gap: 14pt;
+    align-items: center;
+    padding-bottom: 6pt;
+    border-bottom: 2.2pt solid var(--navy);
+}
+
+.head-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.kicker {
+    align-self: flex-start;
+    background: var(--blue);
+    color: #fff;
+    font-size: 6.28pt;
+    font-weight: 700;
+    letter-spacing: 2.1pt;
+    text-transform: uppercase;
+    padding: 2pt 6pt 1.6pt 6pt;
+}
+
+h1 {
+    margin-top: 5pt;
+    font-family: "Source Serif 4", Georgia, serif;
+    color: var(--blue);
+    font-size: 20.6pt;
+    font-weight: 800;
+    letter-spacing: 1.6pt;
+    line-height: 1.04;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin-top: 3pt;
+    font-size: 7.42pt;
+    letter-spacing: 0.9pt;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+}
+
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5pt;
+    background: var(--soft);
+    border: 0.9pt solid var(--line);
+    border-radius: 4pt;
+    padding: 5pt 7pt 6pt 7pt;
+}
+
+.plan-card-title {
+    font-size: 6.28pt;
+    font-weight: 800;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: var(--blue);
+    border-bottom: 0.8pt solid var(--line);
+    padding-bottom: 2.5pt;
+    margin-bottom: 1pt;
+}
+
+.plan-field {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.field-label {
+    flex: none;
+    font-size: 6.28pt;
+    font-weight: 700;
+    letter-spacing: 0.7pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.field-line {
+    flex: 1;
+    border-bottom: 0.7pt solid var(--field);
+    height: 6pt;
+}
+
+/* ---------- shared section chrome ---------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 9pt;
+    padding-top: 8pt;
+}
+
+section {
+    break-inside: avoid;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    border-bottom: 1pt solid var(--navy);
+    padding-bottom: 2pt;
+    margin-bottom: 5pt;
+}
+
+.section-head h2 {
+    font-size: 10.92pt;
+    font-weight: 800;
+    letter-spacing: 0.7pt;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+.section-aside {
+    margin-left: auto;
+    font-size: 6.49pt;
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ---------- 01 measure ---------- */
+
+.measure-band {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10pt;
+    background: var(--soft);
+    border: 0.8pt solid var(--line);
+    border-radius: 3pt;
+    padding: 6pt 8pt 5pt 8pt;
+}
+
+.measure-field {
+    display: flex;
+    flex-direction: column;
+    gap: 2pt;
+}
+
+.measure-label {
+    font-size: 6.49pt;
+    font-weight: 700;
+    letter-spacing: 0.6pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.measure-label .unit {
+    font-style: normal;
+    color: var(--blue);
+    font-weight: 800;
+}
+
+.measure-line {
+    display: block;
+    height: 14pt;
+    border-bottom: 0.8pt solid var(--field);
+}
+
+/* ---------- 02 plan ---------- */
+
+.plan-body {
+    display: grid;
+    grid-template-columns: 344pt 1fr;
+    gap: 10pt;
+    align-items: start;
+}
+
+.grid-shell {
+    display: grid;
+    grid-template-columns: 14pt 330pt;
+    grid-template-rows: 10pt 385pt;
+}
+
+.ruler-corner {
+    font-size: 5.77pt;
+    color: var(--muted);
+    text-align: right;
+    padding-right: 2pt;
+    line-height: 1;
+}
+
+.ruler-x {
+    display: grid;
+    grid-template-columns: repeat(12, 27.5pt);
+    font-size: 5.97pt;
+    color: var(--muted);
+}
+
+.ruler-x span {
+    padding-left: 1.2pt;
+    line-height: 1;
+}
+
+.ruler-y {
+    display: grid;
+    grid-template-rows: repeat(14, 27.5pt);
+    font-size: 5.97pt;
+    color: var(--muted);
+}
+
+.ruler-y span {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2pt;
+    line-height: 1;
+}
+
+.room-grid {
+    width: 330pt;
+    height: 385pt;
+    border: 1.2pt solid var(--navy);
+    background-color: #fff;
+    background-image: linear-gradient(to right, var(--grid-major) 0.9pt, transparent 0.9pt),
+        linear-gradient(to bottom, var(--grid-major) 0.9pt, transparent 0.9pt),
+        linear-gradient(to right, var(--grid) 0.5pt, transparent 0.5pt),
+        linear-gradient(to bottom, var(--grid) 0.5pt, transparent 0.5pt);
+    background-size: 110pt 100%, 100% 137.5pt, 27.5pt 100%, 100% 27.5pt;
+}
+
+.plan-side {
+    display: flex;
+    flex-direction: column;
+    gap: 4pt;
+}
+
+.side-title {
+    font-size: 6.59pt;
+    font-weight: 800;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: var(--navy);
+    border-bottom: 0.7pt solid var(--line);
+    padding-bottom: 1.5pt;
+    margin-top: 2pt;
+}
+
+.footprint-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 6.39pt;
+}
+
+.footprint-table thead th {
+    background: var(--navy);
+    color: #fff;
+    font-size: 5.56pt;
+    font-weight: 700;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 2pt 2.5pt;
+}
+
+.footprint-table tbody td {
+    padding: 2pt 2.5pt;
+    border-bottom: 0.5pt solid var(--line);
+}
+
+.footprint-table tbody tr:nth-child(even) td {
+    background: #f7fbff;
+}
+
+.footprint-table .piece {
+    width: 45%;
+    font-weight: 600;
+}
+
+.footprint-table .dim {
+    width: 31%;
+}
+
+.footprint-table .sq {
+    width: 24%;
+}
+
+.footprint-table .dim,
+.footprint-table .sq {
+    color: var(--muted);
+    white-space: nowrap;
+    text-align: right;
+}
+
+.side-note {
+    font-size: 6.39pt;
+    line-height: 1.28;
+    color: var(--muted);
+}
+
+.check-item {
+    position: relative;
+    padding-left: 8.5pt;
+    line-height: 1.3;
+}
+
+.check-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2pt;
+    width: 4.8pt;
+    height: 4.8pt;
+    border: 0.7pt solid var(--check);
+    border-radius: 1pt;
+    background: #fff;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5pt 4pt;
+    font-size: 6.7pt;
+}
+
+.clearance-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5pt;
+}
+
+.clearance-row {
+    display: grid;
+    grid-template-columns: 26pt 1fr;
+    gap: 4pt;
+    align-items: baseline;
+    font-size: 6.59pt;
+    line-height: 1.2;
+}
+
+.clearance-badge {
+    background: var(--soft);
+    border: 0.6pt solid var(--line);
+    border-radius: 2pt;
+    color: var(--blue);
+    font-weight: 800;
+    font-size: 5.97pt;
+    text-align: center;
+    padding: 1pt 0;
+}
+
+.clearance-text {
+    color: #3b4855;
+}
+
+.wall-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+    padding-top: 2pt;
+}
+
+.rule-line {
+    display: block;
+    border-bottom: 0.7pt solid var(--field);
+    height: 1pt;
+}
+
+/* ---------- 03 fit checks + shared buys ---------- */
+
+.bottom-row {
+    display: grid;
+    grid-template-columns: 1.04fr 0.96fr;
+    gap: 14pt;
+}
+
+.fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2pt 9pt;
+}
+
+.fit-item {
+    font-size: 7.21pt;
+    line-height: 1.25;
+    padding-left: 9.5pt;
+}
+
+.fit-item::before {
+    top: 2.2pt;
+    width: 5.2pt;
+    height: 5.2pt;
+}
+
+.fit-note {
+    margin-top: 4pt;
+    font-size: 6.59pt;
+    line-height: 1.25;
+    color: var(--muted);
+}
+
+.split-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 7pt;
+}
+
+.split-table thead th {
+    background: var(--navy);
+    color: #fff;
+    font-size: 5.97pt;
+    font-weight: 700;
+    letter-spacing: 0.6pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 2.2pt 4pt;
+}
+
+.split-table thead th.mark {
+    text-align: center;
+}
+
+.split-table th.item-col {
+    width: 52%;
+}
+
+.split-table th.mark {
+    width: 24%;
+}
+
+.split-table tbody td {
+    padding: 2.6pt 4pt;
+    border-bottom: 0.5pt solid var(--line);
+}
+
+.split-table tbody tr:nth-child(even) td {
+    background: #f7fbff;
+}
+
+.split-table td.mark {
+    text-align: center;
+}
+
+.split-table td.mark::after {
+    content: "";
+    display: inline-block;
+    width: 6pt;
+    height: 6pt;
+    border: 0.8pt solid var(--check);
+    border-radius: 1pt;
+    background: #fff;
+}
+
+/* ---------- footer ---------- */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10pt;
+    margin-top: 7pt;
+    padding-top: 3.5pt;
+    border-top: 1.6pt solid var(--navy);
+    font-size: 6.18pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.footer-center {
+    font-weight: 700;
+    letter-spacing: 1.2pt;
+    color: var(--navy);
+    white-space: nowrap;
+}
+
+.footer-mark {
+    font-weight: 800;
+    letter-spacing: 1.6pt;
+    color: var(--blue);
+    white-space: nowrap;
+}
