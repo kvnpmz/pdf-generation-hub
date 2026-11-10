@@ -23,7 +23,7 @@
 #
 # Thresholds (override with env vars):
 #   MIN_FILL=85        minimum ink height as % of page height
-#   MIN_BOTTOM=24      minimum bottom margin in pt
+#   MIN_BOTTOM=35      minimum bottom margin in pt (36pt page padding, 1pt tolerance)
 #   MAX_BOTTOM=64      maximum bottom margin in pt (larger = unused space)
 #   MIN_SIDE=40        minimum left/right margin in pt
 #   MAX_SPREAD=10      maximum spread of column bottoms in pt
@@ -43,7 +43,7 @@ STYLE_APPEND=""
 TIMEOUT="${RENDER_TIMEOUT:-45}"
 
 MIN_FILL="${MIN_FILL:-85}"
-MIN_BOTTOM="${MIN_BOTTOM:-24}"
+MIN_BOTTOM="${MIN_BOTTOM:-35}"
 MAX_BOTTOM="${MAX_BOTTOM:-64}"
 MIN_SIDE="${MIN_SIDE:-40}"
 MAX_SPREAD="${MAX_SPREAD:-10}"
