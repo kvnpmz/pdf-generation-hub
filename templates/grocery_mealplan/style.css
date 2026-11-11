@@ -1,0 +1,292 @@
+:root {
+    --ink: #1b2a24;
+    --accent: #0f6b5c;
+    --muted: #6b7d75;
+    --line: #d7e2dc;
+    --line-strong: #a9bcb3;
+    --wash: #f1f7f4;
+}
+
+body {
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    font-size: 9.75pt;
+}
+
+/* ---------- header ---------- */
+
+.sheet-head {
+    padding-bottom: 10pt;
+}
+
+h1 {
+    font-family: 'Source Serif 4';
+    color: var(--accent);
+    font-size: 33.8pt;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 2.4pt;
+}
+
+.head-line {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14pt;
+    padding: 9pt 2pt 0;
+    color: var(--muted);
+    font-size: 8.19pt;
+    font-weight: 600;
+    letter-spacing: 0.7pt;
+    text-transform: uppercase;
+}
+
+.field {
+    display: flex;
+    align-items: flex-end;
+    gap: 3pt;
+    flex: 1;
+}
+
+.field-week {
+    max-width: 168pt;
+}
+
+.field-servings {
+    max-width: 96pt;
+    justify-content: flex-end;
+}
+
+.field-label {
+    white-space: nowrap;
+}
+
+.field-rule {
+    flex: 1;
+    height: 6.5pt;
+    min-width: 36pt;
+    border-bottom: 0.7pt solid var(--line-strong);
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 3.2pt;
+    flex: none;
+    padding-bottom: 0.4pt;
+    white-space: nowrap;
+}
+
+.legend-box {
+    display: block;
+    width: 6pt;
+    height: 6pt;
+    border: 0.7pt solid var(--line-strong);
+    border-radius: 1pt;
+}
+
+.legend-text {
+    white-space: nowrap;
+}
+
+/* ---------- worksheet ---------- */
+
+main.worksheet {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 10pt;
+    min-height: 0;
+}
+
+.block-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10pt;
+    padding-bottom: 4pt;
+}
+
+h2 {
+    color: var(--ink);
+    font-size: 10.4pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+.block-note {
+    color: var(--muted);
+    font-size: 8.19pt;
+    font-weight: 600;
+    letter-spacing: 0.6pt;
+    text-transform: uppercase;
+}
+
+/* ---------- meal grid ---------- */
+
+table.plan-grid {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1pt solid var(--line-strong);
+    border-radius: 7pt;
+}
+
+.plan-grid th,
+.plan-grid td {
+    border-bottom: 0.6pt solid var(--line);
+}
+
+.plan-grid tbody tr:last-child th,
+.plan-grid tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.plan-grid thead th {
+    height: 16pt;
+    background: var(--wash);
+    color: var(--muted);
+    font-size: 8.58pt;
+    font-weight: 600;
+    letter-spacing: 0.9pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 7pt;
+}
+
+.plan-grid .day-col {
+    width: 62pt;
+    background: transparent;
+}
+
+.plan-grid .meal-col {
+    border-left: 0.6pt solid var(--line);
+}
+
+.plan-grid tbody th.day-cell {
+    width: 62pt;
+    background: var(--wash);
+    color: var(--accent);
+    font-size: 10.4pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 7pt;
+}
+
+.plan-grid tbody td.meal-cell {
+    height: 50pt;
+    border-left: 0.6pt solid var(--line);
+}
+
+/* ---------- grocery list ---------- */
+
+.list-block {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    min-height: 0;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 12pt;
+    min-height: 0;
+}
+
+.shop-col {
+    min-width: 0;
+}
+
+.shop-section + .shop-section {
+    padding-top: 7pt;
+}
+
+.shop-section h2 {
+    padding-left: 13pt;
+    color: var(--ink);
+    font-size: 10.14pt;
+}
+
+.shop-section ul {
+    list-style: none;
+    padding-top: 2.5pt;
+}
+
+li.item {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 4pt;
+    padding: 0 0 0 13pt;
+    color: var(--ink);
+    line-height: 1.36;
+    text-transform: capitalize;
+}
+
+li.item::before {
+    content: "";
+    position: absolute;
+    left: 2pt;
+    top: 2.3pt;
+    width: 5.6pt;
+    height: 5.6pt;
+    border: 0.7pt solid var(--line-strong);
+    border-radius: 1pt;
+    background: #ffffff;
+}
+
+.item-name {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.item-qty {
+    flex: none;
+    width: 21pt;
+    height: 6.5pt;
+    border-bottom: 0.6pt solid var(--line-strong);
+}
+
+li.blank-line {
+    position: relative;
+    height: 11pt;
+}
+
+li.blank-line::after {
+    content: "";
+    position: absolute;
+    left: 13pt;
+    right: 0;
+    bottom: 3.5pt;
+    border-bottom: 0.7pt solid var(--line-strong);
+}
+
+/* ---------- footer ---------- */
+
+footer.totals {
+    display: flex;
+    align-items: flex-end;
+    gap: 26pt;
+    padding: 9pt 2pt 0;
+    color: var(--muted);
+    font-size: 8.19pt;
+    font-weight: 600;
+    letter-spacing: 0.7pt;
+    text-transform: uppercase;
+}
+
+.total-field {
+    display: flex;
+    align-items: flex-end;
+    gap: 3pt;
+    flex: 1;
+}
+
+.total-field-wide {
+    flex: 2.2;
+}
