@@ -37,7 +37,7 @@ return {
     },
 
     features_title = "Fixed features",
-    features = { "Door swing", "Closet", "Outlets", "Window", "Radiator / AC", "Bed configuration" },
+    features = { "Door swing", "Closet", "Outlets", "Window", "Radiator / AC", "Bed setup" },
 
     clearance_title = "Clearance rules",
     clearances = {
@@ -85,7 +85,7 @@ return {
         "Mini fridge",
         "Microwave",
         "Area rug",
-        "TV / speaker",
+        "TV / console",
         "Cleaning supplies",
         "Dishes and silverware",
         "Paper goods"
