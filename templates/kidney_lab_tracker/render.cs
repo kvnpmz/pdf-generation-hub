@@ -15,7 +15,6 @@ public class KidneyLabTracker : IRenderer
                 BuildLog(config),
                 BuildBetweenVisits(config)
             ),
-            BuildFooter(config),
         };
 
         return new RenderResult
@@ -54,10 +53,10 @@ public class KidneyLabTracker : IRenderer
             "masthead",
             Dom.Div(
                 "masthead-main",
-                Dom.Tag("span", "kicker", Read(config, "kicker")),
                 Dom.H1("", Read(config, "header_line1")),
                 Dom.H1("line-two", Read(config, "header_line2")),
-                Dom.Tag("p", "subtitle", Read(config, "subtitle"))
+                Dom.Tag("p", "subtitle", Read(config, "subtitle")),
+                Dom.Tag("p", "header-note", Read(config, "header_note"))
             ),
             Dom.Div("plan-card", card.ToArray())
         );
@@ -198,16 +197,6 @@ public class KidneyLabTracker : IRenderer
             "between-section",
             SectionHead(Read(config, "between_title"), Read(config, "between_aside")),
             Dom.Div("panel-grid", symptomPanel, askPanel)
-        );
-    }
-
-    private static string BuildFooter(LuaTable config)
-    {
-        return Dom.Tag(
-            "footer",
-            "page-footer",
-            Dom.Tag("span", "footer-text", Read(config, "footer_note")),
-            Dom.Tag("span", "footer-mark", "Renal")
         );
     }
 

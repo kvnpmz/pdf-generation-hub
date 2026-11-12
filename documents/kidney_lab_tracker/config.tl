@@ -4,12 +4,12 @@ return {
     output_name = "kidney_lab_tracker",
     completed_date = "2026-11-12",
 
-    kicker = "CKD monitoring · renal health",
     header_line1 = "Kidney Lab",
     header_line2 = "& Symptom Tracker",
     subtitle = "Log each result and symptom for your next nephrology visit",
     plan_card_title = "My record",
     plan_card_fields = { "Name", "CKD stage", "Care team", "Next labs" },
+    header_note = "Bring this page to every appointment",
 
     targets = {
         { label = "eGFR", value = "your last result" },
@@ -39,7 +39,7 @@ return {
     between_title = "Between visits",
     between_aside = "What your numbers do not show",
     symptom_title = "Symptom check",
-    symptom_aside = "Tick what you noticed this month",
+    symptom_aside = "Tick what you noticed",
     symptoms = {
         "Swelling in hands or feet",
         "Unusual tiredness",
@@ -60,5 +60,4 @@ return {
         "What should I eat?"
     },
 
-    footer_note = "Bring this page to every appointment"
 }
