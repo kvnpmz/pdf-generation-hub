@@ -8,7 +8,7 @@ return {
     header_line2 = "Food List",
     subtitle = "What to eat first, what needs no heat or water, and three days of no-cook meals",
     plan_card_title = "My outage",
-    plan_card_fields = { "People", "Power out at", "Date" },
+    plan_card_fields = { "People", "Power out time", "Date" },
 
     eat_first_title = "Eat this first",
     eat_first = {
@@ -41,7 +41,7 @@ return {
         },
         {
             title = "Carbs",
-            items = { "Crackers", "Tortillas", "Bread (use first)", "Cold cereal", "Rice cakes", "Granola bars", "Canned pasta", "Potato chips" }
+            items = { "Crackers", "Tortillas", "Bread, use first", "Cold cereal", "Rice cakes", "Granola bars", "Canned pasta", "Potato chips" }
         },
         {
             title = "Fruit & veg",
@@ -96,7 +96,7 @@ return {
         },
         {
             title = "Carbs",
-            items = { "Crackers x2", "Tortillas", "Bread", "Cereal", "Rice cakes", "Granola bars x12" }
+            items = { "Crackers x2", "Tortillas", "Bread", "Cereal", "Rice cakes", "Granola x12" }
         },
         {
             title = "Fruit/drinks",

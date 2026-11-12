@@ -48,8 +48,10 @@ public class PowerOutageFoodList : IRenderer
             "masthead",
             Dom.Div(
                 "masthead-main",
-                Dom.H1("", Escape(Read(config, "header_line1"))),
-                Dom.H1("line-two", Escape(Read(config, "header_line2"))),
+                Dom.H1(
+                    "",
+                    Escape(Read(config, "header_line1") + " " + Read(config, "header_line2"))
+                ),
                 Dom.Tag("p", "subtitle", Escape(Read(config, "subtitle")))
             ),
             Dom.Tag(

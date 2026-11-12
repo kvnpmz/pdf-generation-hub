@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     height: 100%;
     color: var(--ink);
-    font-size: 11.13pt;
+    font-size: 11.57pt;
     line-height: 1.38;
 }
 
@@ -22,7 +22,7 @@ body {
 .masthead {
     display: grid;
     grid-template-columns: 1fr 148pt;
-    column-gap: 14pt;
+    column-gap: 14.2pt;
     align-items: end;
     padding-bottom: 6pt;
     border-bottom: 2.4pt solid var(--ink);
@@ -43,7 +43,7 @@ body {
 }
 
 .plan-card-title {
-    font-size: 8pt;
+    font-size: 8.32pt;
     font-weight: 800;
     letter-spacing: 2pt;
     text-transform: uppercase;
@@ -61,7 +61,7 @@ body {
 
 .field-label {
     flex: none;
-    font-size: 8pt;
+    font-size: 8.32pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
@@ -77,20 +77,17 @@ body {
 h1 {
     margin-top: 6pt;
     font-family: "Source Serif 4", serif;
-    font-size: 31.26pt;
+    font-size: 27pt;
     font-weight: 800;
     letter-spacing: -0.4pt;
     line-height: 1.02;
+    white-space: nowrap;
     text-transform: uppercase;
-}
-
-h1.line-two {
-    margin-top: 0;
 }
 
 .subtitle {
     margin-top: 3pt;
-    font-size: 10.5pt;
+    font-size: 10.92pt;
     color: var(--muted);
 }
 
@@ -100,7 +97,7 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 5.5pt;
+    gap: 5pt;
     padding-top: 5pt;
 }
 
@@ -118,14 +115,14 @@ section {
 }
 
 .section-num {
-    font-size: 8.76pt;
+    font-size: 9.12pt;
     font-weight: 700;
     letter-spacing: 1.6pt;
     color: var(--rust);
 }
 
 .section-head h2 {
-    font-size: 15.76pt;
+    font-size: 16.40pt;
     font-weight: 800;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
@@ -133,7 +130,7 @@ section {
 
 .section-aside {
     margin-left: auto;
-    font-size: 8.5pt;
+    font-size: 8.84pt;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -157,7 +154,7 @@ section {
 }
 
 .eat-window {
-    font-size: 8.25pt;
+    font-size: 8.58pt;
     font-weight: 800;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
@@ -165,7 +162,7 @@ section {
 }
 
 .eat-label {
-    font-size: 13.74pt;
+    font-size: 14.29pt;
     font-weight: 800;
     letter-spacing: 0.4pt;
     text-transform: uppercase;
@@ -182,7 +179,7 @@ section {
 .eat-list li {
     position: relative;
     padding-left: 7pt;
-    font-size: 9.62pt;
+    font-size: 10.01pt;
     line-height: 1.24;
 }
 
@@ -200,7 +197,7 @@ section {
     margin-top: auto;
     padding-top: 2.4pt;
     border-top: 0.6pt solid var(--line);
-    font-size: 8.5pt;
+    font-size: 8.84pt;
     line-height: 1.2;
     color: var(--muted);
 }
@@ -215,7 +212,7 @@ section {
 
 .food-col h3,
 .shop-col h3 {
-    font-size: 9.25pt;
+    font-size: 9.62pt;
     font-weight: 800;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
@@ -235,7 +232,7 @@ section {
 .check-list li {
     position: relative;
     padding-left: 10.5pt;
-    font-size: 9.83pt;
+    font-size: 10.23pt;
     line-height: 1.26;
 }
 
@@ -261,7 +258,7 @@ section {
 .menu-grid thead th {
     background: var(--olive);
     color: #fff;
-    font-size: 8.76pt;
+    font-size: 9.12pt;
     font-weight: 700;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
@@ -276,7 +273,7 @@ section {
 
 .menu-grid tbody th {
     background: var(--sand);
-    font-size: 8.76pt;
+    font-size: 9.12pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
@@ -290,7 +287,7 @@ section {
     padding: 3.4pt 5.5pt;
     border-bottom: 0.6pt solid var(--line);
     border-left: 0.6pt solid var(--line);
-    font-size: 10.06pt;
+    font-size: 10.46pt;
     vertical-align: top;
 }
 
@@ -316,7 +313,7 @@ section {
 }
 
 .target-title {
-    font-size: 8pt;
+    font-size: 8.32pt;
     font-weight: 800;
     letter-spacing: 1.8pt;
     text-transform: uppercase;
@@ -333,14 +330,14 @@ section {
 }
 
 .target-label {
-    font-size: 8.5pt;
+    font-size: 8.84pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
 }
 
 .target-value {
-    font-size: 9.25pt;
+    font-size: 9.62pt;
     text-align: right;
     white-space: nowrap;
 }
@@ -352,6 +349,6 @@ section {
 }
 
 .shop-col .check-list li {
-    font-size: 9.57pt;
+    font-size: 9.96pt;
 }
 
