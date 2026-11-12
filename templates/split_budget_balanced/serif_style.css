@@ -1,0 +1,14 @@
+body {
+    font-family: 'Source Serif 4';
+    letter-spacing: 0.2pt;
+}
+
+h1,
+.subject,
+.seg-pct {
+    letter-spacing: 0.5pt;
+}
+
+.note {
+    font-size: 9pt;
+}
