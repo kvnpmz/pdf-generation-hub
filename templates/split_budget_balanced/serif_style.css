@@ -1,13 +1,13 @@
-/* Source Serif 4 text variation, graphite palette */
+/* Source Serif 4 text variation, plum palette */
 :root {
-    --ink: #121212;
-    --accent: #2F3437;
-    --accent-mid: #4A5154;
-    --accent-pale: #7C8489;
-    --line: #DDDFE0;
-    --wash: #F7F7F7;
-    --panel: #EFEFEF;
-    --muted: #6E7477;
+    --ink: #1B1218;
+    --accent: #6F3A63;
+    --accent-mid: #94567F;
+    --accent-pale: #C08FAB;
+    --line: #E7D2DF;
+    --wash: #FBF6F9;
+    --panel: #F4E8F0;
+    --muted: #7A6A74;
 }
 
 body {
