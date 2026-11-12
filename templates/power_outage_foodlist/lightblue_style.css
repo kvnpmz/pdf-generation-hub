@@ -1,0 +1,114 @@
+:root {
+    --ink: #1b2a38;
+    --rust: #4a86b8;
+    --sand: #f4f9fd;
+    --sand-deep: #e6f1f9;
+    --olive: #3d6f92;
+    --line: #d6e6f2;
+    --muted: #66788a;
+}
+
+body {
+    font-family: "Source Serif 4", serif;
+}
+
+.field-line {
+    border-bottom-color: #b7cfe2;
+}
+
+.check-list li::before {
+    border-color: #b7cfe2;
+}
+
+.target-row {
+    border-bottom-color: #d3e4f1;
+}
+
+.menu-grid tbody tr:nth-child(even) td {
+    background: #f7fbfe;
+}
+
+/* font-size overrides for the serif face */
+body {
+    font-size: 12.04pt;
+}
+
+.plan-card-title {
+    font-size: 8.66pt;
+}
+
+.field-label {
+    font-size: 8.66pt;
+}
+
+h1 {
+    font-size: 28.09pt;
+}
+
+.subtitle {
+    font-size: 11.36pt;
+}
+
+.section-num {
+    font-size: 9.49pt;
+}
+
+.section-head h2 {
+    font-size: 17.06pt;
+}
+
+.section-aside {
+    font-size: 9.2pt;
+}
+
+.eat-window {
+    font-size: 8.93pt;
+}
+
+.eat-label {
+    font-size: 14.87pt;
+}
+
+.eat-list li {
+    font-size: 10.41pt;
+}
+
+.eat-note {
+    font-size: 9.2pt;
+}
+
+.food-col h3, .shop-col h3 {
+    font-size: 10.01pt;
+}
+
+.check-list li {
+    font-size: 10.64pt;
+}
+
+.menu-grid thead th {
+    font-size: 9.49pt;
+}
+
+.menu-grid tbody th {
+    font-size: 9.49pt;
+}
+
+.menu-grid tbody td {
+    font-size: 10.88pt;
+}
+
+.target-title {
+    font-size: 8.66pt;
+}
+
+.target-label {
+    font-size: 9.2pt;
+}
+
+.target-value {
+    font-size: 10.01pt;
+}
+
+.shop-col .check-list li {
+    font-size: 10.36pt;
+}

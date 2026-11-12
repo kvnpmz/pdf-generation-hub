@@ -1,0 +1,25 @@
+:root {
+    --ink: #101720;
+    --rust: #2a6fdb;
+    --sand: #f5f9ff;
+    --sand-deep: #e8f1fd;
+    --olive: #1f4f86;
+    --line: #d3e2fa;
+    --muted: #66748c;
+}
+
+.field-line {
+    border-bottom-color: #a9bed9;
+}
+
+.check-list li::before {
+    border-color: #a9bed9;
+}
+
+.target-row {
+    border-bottom-color: #cddff5;
+}
+
+.menu-grid tbody tr:nth-child(even) td {
+    background: #f7faff;
+}
