@@ -187,6 +187,24 @@ wait_for_output() {
     return 1
 }
 
+# The renderer composites _ipad.png and _zoom.png after the base PNG, one
+# after the other. Wait until both are present and non-empty (and newer than
+# this run) before the process group is killed. Returns 1 on timeout.
+wait_for_composites() {
+    local deadline=$((SECONDS + 20))
+    local ipad="$OUT_DIR/images/$OUT_NAME${SUFFIX}_ipad.png"
+    local zoom="$OUT_DIR/images/$OUT_NAME${SUFFIX}_zoom.png"
+    while ((SECONDS < deadline)); do
+        if [[ -s "$ipad" && -s "$zoom" ]] \
+            && [[ "$ipad" -nt "$stamp" && "$zoom" -nt "$stamp" ]]; then
+            return 0
+        fi
+        kill -0 "$PID" 2>/dev/null || return 1
+        sleep 0.2
+    done
+    return 1
+}
+
 render_ms=0
 
 if ((DO_RENDER)); then
@@ -264,8 +282,12 @@ EOF
     esac
 
     # The image step runs after the PDF export, so wait for it separately.
+    # The _ipad/_zoom composites are written after the base PNG; wait for
+    # both too, or the kill below can leave them missing or 0-byte.
     if ((ready && WAIT_IMAGES && ENABLE_IMAGES == 1)); then
         wait_for_output "$PNG" || true
+        wait_for_composites || \
+            echo "render-check: image composites not ready, continuing" >&2
     fi
 
     sleep 0.2
