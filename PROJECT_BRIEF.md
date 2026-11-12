@@ -1,6 +1,6 @@
 # Project Brief
 - **Roles:** `teal/runtime.tl` selects the doc; `documents/<slug>/config.tl` is content/data only (labels, rows, columns, `output_name`); `templates/<template>/` is layout + `style.css`; renderers stay layout-only.
-- **C#:** `render.cs` is compiled at build by `Launcher.cs`, not in the csproj; one `IRenderer`; config is a `LuaTable`; `Dom.cs` is minimal (raw strings for `rowspan`/`colspan`).
+- **C#:** `render.cs` is compiled at build by `Launcher.cs`, not in the csproj; one `IRenderer`; config is a `LuaTable`. Build every element with `Dom.Tag(name, class, ...)` (Teal: `dom.tag`) — never raw HTML.
 - **Teal:** `render.tl` + `dom.tl`, `tl check` on load; one language per template.
 - **CSS layers:** `base.css` → template `style.css` → `config.style`/`config.overrides` (CSS in the template folder, key-name matched); a wrong name silently falls back to base.css.
 - **Page:** Letter 612×792pt; `html` padding 36pt top/bottom, 50.4pt sides → 511×720pt content.
