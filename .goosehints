@@ -1,4 +1,4 @@
-- Start Here: Read `PROJECT_BRIEF.md` before exploring; it replaces the usual repo crawl (roles, page math, variants).
+- Start Here: Read `PROJECT_BRIEF.md` first. It covers architecture, page rules, and variants.
 - Session Choice: User picks Teal or C# per session; do not choose for me.
 - Render Checks: Never run `tpr`; use `scripts/render-check.sh` (`-h`). It fails on text overlap — `--skip-overlap` only for intentional overprints.
 - Style Fidelity: Before writing a listing, read 2 closest sibling templates (similar data shape: list/table/log) to understand, internalize, and copy palette, type scale, spacing, and structure.
