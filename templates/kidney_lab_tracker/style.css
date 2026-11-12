@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     height: 100%;
     color: var(--ink);
-    font-size: 8.9pt;
+    font-size: 10.59pt;
     line-height: 1.34;
 }
 
@@ -25,7 +25,7 @@ body {
     grid-template-columns: 1fr 150pt;
     column-gap: 14pt;
     align-items: end;
-    padding-bottom: 6pt;
+    padding-bottom: 5pt;
     border-bottom: 2.2pt solid var(--ink);
 }
 
@@ -38,7 +38,7 @@ body {
     align-self: flex-start;
     background: var(--deep);
     color: #fff;
-    font-size: 6.2pt;
+    font-size: 7.9pt;
     font-weight: 700;
     letter-spacing: 2.2pt;
     text-transform: uppercase;
@@ -47,7 +47,7 @@ body {
 
 h1 {
     margin-top: 6pt;
-    font-size: 22pt;
+    font-size: 26.18pt;
     font-weight: 800;
     letter-spacing: -0.3pt;
     line-height: 1.04;
@@ -60,21 +60,21 @@ h1.line-two {
 
 .subtitle {
     margin-top: 3pt;
-    font-size: 8.5pt;
+    font-size: 10.12pt;
     color: var(--muted);
 }
 
 .plan-card {
     display: flex;
     flex-direction: column;
-    gap: 4.2pt;
+    gap: 3.4pt;
     background: var(--mint);
     border: 0.9pt solid var(--deep);
-    padding: 5pt 7pt 6pt 7pt;
+    padding: 4pt 6pt 5pt 6pt;
 }
 
 .plan-card-title {
-    font-size: 6.3pt;
+    font-size: 8pt;
     font-weight: 800;
     letter-spacing: 1.9pt;
     text-transform: uppercase;
@@ -92,7 +92,7 @@ h1.line-two {
 
 .field-label {
     flex: none;
-    font-size: 6.3pt;
+    font-size: 8.1pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
@@ -102,13 +102,13 @@ h1.line-two {
 .field-line {
     flex: 1;
     border-bottom: 0.7pt solid #93a99a;
-    height: 6.36pt;
+    height: 5.72pt;
 }
 
 /* ---------- 01 targets ---------- */
 
 .targets {
-    margin-top: 6pt;
+    margin-top: 4pt;
 }
 
 .target-grid {
@@ -124,7 +124,7 @@ h1.line-two {
     flex-direction: column;
     align-items: center;
     gap: 1pt;
-    padding: 3.2pt 2pt 3.6pt 2pt;
+    padding: 2.4pt 2pt 2.8pt 2pt;
     border-right: 0.8pt solid var(--line);
 }
 
@@ -133,23 +133,23 @@ h1.line-two {
 }
 
 .target-label {
-    font-size: 6.1pt;
+    font-size: 7.5pt;
     font-weight: 800;
-    letter-spacing: 1.3pt;
+    letter-spacing: 0.9pt;
     text-transform: uppercase;
     color: var(--deep-soft);
     white-space: nowrap;
 }
 
 .target-value {
-    font-size: 8.2pt;
+    font-size: 9.76pt;
     font-weight: 700;
     white-space: nowrap;
 }
 
 .target-note {
-    margin-top: 2.6pt;
-    font-size: 6.8pt;
+    margin-top: 2pt;
+    font-size: 8.09pt;
     color: var(--muted);
     text-align: center;
 }
@@ -160,8 +160,8 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 8pt;
-    padding-top: 8pt;
+    gap: 6pt;
+    padding-top: 6pt;
 }
 
 section {
@@ -174,11 +174,11 @@ section {
     gap: 6pt;
     border-bottom: 1pt solid var(--ink);
     padding-bottom: 2pt;
-    margin-bottom: 5pt;
+    margin-bottom: 4pt;
 }
 
 .section-head h2 {
-    font-size: 12.2pt;
+    font-size: 14.52pt;
     font-weight: 800;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
@@ -186,7 +186,7 @@ section {
 
 .section-aside {
     margin-left: auto;
-    font-size: 6.7pt;
+    font-size: 8.2pt;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -204,16 +204,16 @@ section {
 .log-table thead th {
     background: var(--deep);
     color: #fff;
-    font-size: 6.1pt;
+    font-size: 7.4pt;
     font-weight: 700;
-    letter-spacing: 0.3pt;
+    letter-spacing: 0.1pt;
     text-transform: uppercase;
     text-align: left;
-    padding: 3pt 4pt;
+    padding: 2.4pt 4pt;
 }
 
 .log-table tbody td {
-    height: 31.16pt;
+    height: 28.04pt;
     padding: 0 4pt;
     border-bottom: 0.6pt solid var(--line);
     border-left: 0.6pt solid var(--line);
@@ -236,7 +236,7 @@ section {
     width: 4%;
     text-align: center;
     color: var(--muted);
-    font-size: 7pt;
+    font-size: 8.33pt;
     font-weight: 700;
     padding: 0;
     background: var(--mint);
@@ -248,7 +248,7 @@ section {
 }
 
 .log-table .col-date {
-    width: 12%;
+    width: 11.5%;
 }
 
 .log-table .col-bp {
@@ -263,14 +263,18 @@ section {
     width: 10.5%;
 }
 
+.log-table .col-phos {
+    width: 12.5%;
+}
+
 .log-table .col-notes {
-    width: 22%;
+    width: 22.5%;
     padding-left: 6pt;
 }
 
 .log-note {
-    margin-top: 3pt;
-    font-size: 6.8pt;
+    margin-top: 2pt;
+    font-size: 8.09pt;
     color: var(--muted);
 }
 
@@ -285,7 +289,7 @@ section {
 .panel-grid {
     display: grid;
     grid-template-columns: 1.16fr 1fr;
-    gap: 9pt;
+    gap: 8pt;
     flex: 1;
 }
 
@@ -294,7 +298,7 @@ section {
     flex-direction: column;
     border: 0.9pt solid var(--line);
     border-top: 2.4pt solid var(--deep);
-    padding: 6pt 7pt 8pt 7pt;
+    padding: 5pt 6pt 6pt 6pt;
     background: #fcfdfb;
 }
 
@@ -302,11 +306,11 @@ section {
     display: flex;
     align-items: baseline;
     gap: 5pt;
-    margin-bottom: 4.5pt;
+    margin-bottom: 3.5pt;
 }
 
 .panel-head h3 {
-    font-size: 8.3pt;
+    font-size: 9.88pt;
     font-weight: 800;
     letter-spacing: 1.4pt;
     text-transform: uppercase;
@@ -316,7 +320,7 @@ section {
 
 .panel-aside {
     margin-left: auto;
-    font-size: 6.2pt;
+    font-size: 7.9pt;
     letter-spacing: 0.6pt;
     color: var(--muted);
     text-align: right;
@@ -341,14 +345,14 @@ section {
 .check {
     flex: none;
     width: 6.4pt;
-    height: 6.78pt;
+    height: 6.1pt;
     border: 0.8pt solid var(--deep-soft);
     border-radius: 1pt;
     background: #fff;
 }
 
 .symptom-text {
-    font-size: 7.5pt;
+    font-size: 8.92pt;
     line-height: 1.15;
 }
 
@@ -368,7 +372,7 @@ section {
 
 .ask-text {
     flex: none;
-    font-size: 7.5pt;
+    font-size: 8.92pt;
     font-weight: 600;
     max-width: 118pt;
     line-height: 1.18;
@@ -377,7 +381,7 @@ section {
 .ask-line {
     flex: 1;
     border-bottom: 0.7pt solid #9fb3a4;
-    height: 7.42pt;
+    height: 6.68pt;
 }
 
 /* ---------- footer ---------- */
@@ -387,10 +391,11 @@ section {
     justify-content: space-between;
     align-items: center;
     gap: 10pt;
-    margin-top: 7pt;
-    padding-top: 3.4pt;
+    margin-top: 5pt;
+    padding: 2.6pt 6pt 2.8pt 6pt;
     border-top: 1.6pt solid var(--ink);
-    font-size: 6.1pt;
+    background: var(--mint);
+    font-size: 8pt;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
     color: var(--muted);

@@ -7,7 +7,7 @@ return {
     kicker = "CKD monitoring · renal health",
     header_line1 = "Kidney Lab",
     header_line2 = "& Symptom Tracker",
-    subtitle = "Log each lab result, note how you felt, and bring the pattern to your nephrologist",
+    subtitle = "Log each result and symptom for your next nephrology visit",
     plan_card_title = "My record",
     plan_card_fields = { "Name", "CKD stage", "Care team", "Next labs" },
 
@@ -30,7 +30,7 @@ return {
         { label = "eGFR", class = "col-lab" },
         { label = "Creatinine", class = "col-lab" },
         { label = "Potassium", class = "col-lab" },
-        { label = "Phosphorus", class = "col-lab" },
+        { label = "Phosphorus", class = "col-phos" },
         { label = "Notes", class = "col-notes" }
     },
     row_count = 12,
@@ -52,7 +52,7 @@ return {
     },
 
     ask_title = "Ask my care team",
-    ask_aside = "What to raise at the visit",
+    ask_aside = "Ask at the visit",
     questions = {
         "Is my eGFR stable?",
         "Is my potassium in range?",
@@ -60,5 +60,5 @@ return {
         "What should I eat?"
     },
 
-    footer_note = "Bring this page to every appointment · planning aid only — not medical advice"
+    footer_note = "Bring this page to every appointment"
 }
