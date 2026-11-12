@@ -378,7 +378,8 @@ section {
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
-    gap: 15pt;
+    gap: 12pt;
+    padding-top: 18pt;
 }
 
 .ask-row {
