@@ -144,6 +144,15 @@ table.plan-grid {
     border-bottom: none;
 }
 
+/* clip the tinted corner cells to the table's rounded outline */
+.plan-grid thead th:last-child {
+    border-top-right-radius: 6pt;
+}
+
+.plan-grid tbody tr:last-child th.day-cell {
+    border-bottom-left-radius: 6pt;
+}
+
 .plan-grid thead th {
     height: 16pt;
     background: var(--wash);

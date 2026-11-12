@@ -10,7 +10,6 @@ return {
     plan_title = "This Week's Meals",
     plan_note = "Plan the week, then shop the list",
     list_title = "Grocery List",
-    list_note = "One line per item · qty on the right",
     days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" },
     meals = { "Breakfast", "Lunch", "Dinner" },
     columns = {

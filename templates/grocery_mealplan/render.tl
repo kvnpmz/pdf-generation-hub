@@ -14,7 +14,6 @@ local record Config
     plan_title: string
     plan_note: string
     list_title: string
-    list_note: string
     days: {string}
     meals: {string}
     columns: {{Section}}
@@ -126,11 +125,7 @@ local function build_list(config: Config): string
 
     return dom.section(
         "list-block",
-        dom.div(
-            "block-head",
-            dom.h2("", config.list_title),
-            dom.tag("span", "block-note", config.list_note)
-        ),
+        dom.div("block-head", dom.h2("", config.list_title)),
         dom.div("shop-grid", table.unpack(columns))
     )
 end
