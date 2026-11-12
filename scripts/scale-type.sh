@@ -12,6 +12,7 @@
 #   scripts/scale-type.sh --doc gout_food_list --scale 1.1   # one-shot
 #   scripts/scale-type.sh --doc gout_food_list --fit         # largest that fits
 #   scripts/scale-type.sh --doc x --fit --prop height        # grow the table rows
+#   scripts/scale-type.sh --doc x --fit --prop layout        # fonts + rows + spacing
 #   scripts/scale-type.sh --doc x --fit --max 1.5 --images   # with export PNGs
 #   scripts/scale-type.sh --doc x --scale 1.1 --dry-run      # preview only
 #   scripts/scale-type.sh --template kidney_food_guide --scale 1.05 --dry-run
@@ -20,9 +21,13 @@
 #   --doc defaults to DOCUMENTID in teal/runtime.tl.
 #   The stylesheet is templates/<template>/style.css unless --css is given.
 #   --prop sets the property to scale (default font-size). Pass a comma
-#   list, e.g. --prop height,padding-top. Only pt, px, rem and em values
-#   are scaled; inherit and % are left alone. Height rules are matched whole,
-#   so min-height and line-height are not touched by --prop height.
+#   list, e.g. --prop height,padding-top, or the preset "layout", which
+#   scales font-size, line-height, height, padding-top/bottom and
+#   margin-top/bottom together - use it when a sheet has room to grow in
+#   both type and rows. Only pt, px, rem and em values are scaled; inherit
+#   and % are left alone. Height rules are matched whole, so min-height is
+#   not touched by --prop height. Shorthand values (padding: 4pt 6pt) are
+#   not matched; write longhand properties if they should scale.
 #   --fit binary-searches scale 1.00..--max (default 1.60, 0.01 resolution).
 #   The file is only changed permanently when the render passes.
 #
@@ -66,6 +71,11 @@ if [[ -z "$MODE" ]]; then
     usage >&2
     exit 2
 fi
+
+# --prop layout: grow the whole vertical rhythm in one pass.
+case "$PROPS" in
+    layout) PROPS="font-size,line-height,height,padding-top,padding-bottom,margin-top,margin-bottom" ;;
+esac
 
 runtime_field() {
     sed -n "s/^[[:space:]]*$1[[:space:]]*=[[:space:]]*\"\{0,1\}\([^\",]*\)\"\{0,1\}[[:space:]],\{0,1\}$/\1/p" \
@@ -246,7 +256,7 @@ fi
 
 count="$(apply_css "$BEST")"
 report "$BEST"
-echo "  changed $count font-size values"
+echo "  changed $count value(s) in $PROPS"
 if [[ "$WAIT_IMAGES" -eq 1 ]]; then
     KEEP=1
     "$APP/scripts/render-check.sh" --doc "$DOC" --images 2>&1 | sed 's/^/  /'

@@ -362,6 +362,13 @@ read -r top_pt bottom_pt left_pt right_pt fill_pct < <(
 )
 
 # ---------------------------------------------------------------- columns
+# Split the content width into six equal bands and measure the lowest ink in
+# each. The spread is the gap between the highest and lowest of those bottoms,
+# so it catches a column that stops short of the others.
+# Pitfall: a short, centred last line (a note, a disclaimer) only inks the
+# middle bands, leaving the outer bands to end at the rule above it - that
+# reads as a 10-30pt spread even though the page looks level. Give the last
+# block a full-width rule or drop it before blaming the columns.
 pad_px="$(awk -v s="$scale" 'BEGIN { printf "%d", 50.4 * s }')"
 band_px="$(awk -v s="$scale" -v iw="$img_w" 'BEGIN { printf "%d", (iw - 2 * 50.4 * s) / 6 }')"
 

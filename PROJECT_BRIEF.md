@@ -1,15 +1,15 @@
 # Project Brief
-- **Roles:** `teal/runtime.tl` selects the doc; `documents/<slug>/config.tl` is content/data only (labels, rows, columns, `output_name`); `templates/<template>/` is layout + `style.css`; renderers stay layout-only.
-- **C#:** `render.cs` is compiled at build by `Launcher.cs`, not in the csproj; one `IRenderer`; config is a `LuaTable`. Build every element with `Dom.Tag(name, class, ...)` (Teal: `dom.tag`) — never raw HTML.
-- **Teal:** `render.tl` + `dom.tl`, `tl check` on load; one language per template.
-- **CSS layers:** `base.css` → template `style.css` → `config.style`/`config.overrides` (CSS in the template folder, key-name matched); a wrong name silently falls back to base.css.
-- **Page:** Letter 612×792pt; `html` padding 36pt top/bottom, 50.4pt sides → 511×720pt content.
-- **Targets:** ink fill 85–91%, bottom margin 35–64pt, sides ≥40pt, column spread ≤10pt, zero collisions.
-- **Type:** Inter default, "Source Serif 4" available; `base.css` body is 6pt, so templates set real pt sizes.
-- **Color variant:** `make-variant.sh` writes `<base>_<name>` + `<name>_style.css`; override hard-coded surface colors too, not only `:root`.
-- **Font/layout variant:** `extends` + `overrides`; a new structure means a new template folder + doc.
-- **New doc:** `documents/<slug>/config.tl` needs `id`, `template`, `output_name`, `completed_date`, plus `listing.txt`.
-- **Naming:** variants share `output_name` → files are `output/<doc>/<output_name>.pdf`, not `<doc>.pdf`.
-- **Commit:** `documents/` + `templates/` only; `projects.db` is mutated by rendering, `output/` is generated.
-- **Debug order:** page count → fill/bottom margin → collisions/spread → CSS layer order; take the numbers from the render check.
-- **Rule of thumb:** if a layout feels unlike the repo, config is doing markup work or CSS is in the wrong layer — fix the layer, not the values.
+- Roles: `teal/runtime.tl` selects the doc; `documents/<slug>/config.tl` is content/data only (labels, rows, columns, `output_name`); `templates/<template>/` is layout + `style.css`; renderers stay layout-only.
+- C#: `render.cs` is compiled at build by `Launcher.cs`, not in the csproj; one `IRenderer`; config is a `LuaTable`. Build every element with `Dom.Tag(name, class, ...)` (Teal: `dom.tag`) — never raw HTML.
+- Teal: `render.tl` + `dom.tl`, `tl check` on load; one language per template; named records only — `rules: {{label: string}}` is invalid, declare `local record Rule ... end`.
+- CSS layers: `base.css` → template `style.css` → `config.style`/`config.overrides` (CSS in the template folder, key-name matched); a wrong name silently falls back to base.css.
+- Page: Letter 612×792pt; `html` padding 36pt top/bottom, 50.4pt sides → 511×720pt content.
+- Targets: ink fill 85–91%, bottom margin 35–64pt, sides ≥40pt, column spread ≤10pt, zero collisions.
+- Type: Inter default, "Source Serif 4" available; `base.css` body is 6pt, so templates set real pt sizes.
+- Color variant: `make-variant.sh` writes `<base>_<name>` + `<name>_style.css`; override hard-coded surface colors too, not only `:root`.
+- Font/layout variant: `extends` + `overrides`; a new structure means a new template folder + doc.
+- New doc: `documents/<slug>/config.tl` needs `id`, `template`, `output_name`, `completed_date`, plus `listing.txt`.
+- Naming: variants share `output_name` → files are `output/<doc>/<output_name>.pdf`, not `<doc>.pdf`.
+- Commit: `documents/` + `templates/` only; `projects.db` is mutated by rendering, `output/` is generated.
+- Debug order: page count → fill/bottom margin → collisions/spread → CSS layer order; take the numbers from the render check.
+- Rule of thumb: if a layout feels unlike the repo, config is doing markup work or CSS is in the wrong layer — fix the layer, not the values.
