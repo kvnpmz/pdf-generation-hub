@@ -1,0 +1,391 @@
+:root {
+    --ink: #171a1c;
+    --rust: #b4451f;
+    --sand: #f3ecdd;
+    --sand-deep: #e7ddc8;
+    --olive: #3f4a36;
+    --line: #d3cab7;
+    --muted: #6f6a5f;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 9.17pt;
+    line-height: 1.38;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+    display: grid;
+    grid-template-columns: 1fr 148pt;
+    column-gap: 14pt;
+    align-items: end;
+    padding-bottom: 6pt;
+    border-bottom: 2.4pt solid var(--ink);
+}
+
+.masthead-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4.6pt;
+    background: var(--sand);
+    border: 0.9pt solid var(--ink);
+    padding: 5pt 7pt 6pt 7pt;
+}
+
+.plan-card-title {
+    font-size: 6.59pt;
+    font-weight: 800;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    color: var(--rust);
+    border-bottom: 0.8pt solid var(--line);
+    padding-bottom: 2.5pt;
+    margin-bottom: 1pt;
+}
+
+.plan-field {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.field-label {
+    flex: none;
+    font-size: 6.59pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.field-line {
+    flex: 1;
+    border-bottom: 0.7pt solid #9a9382;
+    height: 6pt;
+}
+
+.kicker {
+    align-self: flex-start;
+    background: var(--rust);
+    color: #fff;
+    font-size: 6.39pt;
+    font-weight: 700;
+    letter-spacing: 2.4pt;
+    text-transform: uppercase;
+    padding: 2pt 6pt 1.6pt 6pt;
+}
+
+h1 {
+    margin-top: 6pt;
+    font-family: "Source Serif 4", serif;
+    font-size: 25.75pt;
+    font-weight: 800;
+    letter-spacing: -0.4pt;
+    line-height: 1.02;
+    text-transform: uppercase;
+}
+
+h1.line-two {
+    margin-top: 0;
+}
+
+.subtitle {
+    margin-top: 3pt;
+    font-size: 8.65pt;
+    color: var(--muted);
+}
+
+/* ---------- shared section chrome ---------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 9pt;
+    padding-top: 9pt;
+}
+
+section {
+    break-inside: avoid;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    border-bottom: 1pt solid var(--ink);
+    padding-bottom: 2pt;
+    margin-bottom: 6pt;
+}
+
+.section-num {
+    font-size: 7.21pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    color: var(--rust);
+}
+
+.section-head h2 {
+    font-size: 12.98pt;
+    font-weight: 800;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+.section-aside {
+    margin-left: auto;
+    font-size: 7pt;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ---------- 01 eat first ---------- */
+
+.eat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8pt;
+}
+
+.eat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3pt;
+    background: var(--sand);
+    border-left: 2pt solid var(--rust);
+    padding: 5pt 6pt 4pt 6pt;
+}
+
+.eat-window {
+    font-size: 6.8pt;
+    font-weight: 800;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    color: var(--rust);
+}
+
+.eat-label {
+    font-size: 11.33pt;
+    font-weight: 800;
+    letter-spacing: 0.4pt;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.eat-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8pt 5pt;
+}
+
+.eat-list li {
+    position: relative;
+    padding-left: 7pt;
+    font-size: 7.93pt;
+    line-height: 1.24;
+}
+
+.eat-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2.4pt;
+    width: 3pt;
+    height: 3pt;
+    background: var(--rust);
+}
+
+.eat-note {
+    margin-top: auto;
+    padding-top: 2.4pt;
+    border-top: 0.6pt solid var(--line);
+    font-size: 7pt;
+    line-height: 1.2;
+    color: var(--muted);
+}
+
+/* ---------- 02 no-cook list ---------- */
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10pt;
+}
+
+.food-col h3,
+.shop-col h3 {
+    font-size: 7.62pt;
+    font-weight: 800;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    color: var(--rust);
+    border-bottom: 0.8pt solid var(--line);
+    padding-bottom: 2pt;
+    margin-bottom: 3pt;
+}
+
+.check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2pt;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 10.5pt;
+    font-size: 8.09pt;
+    line-height: 1.26;
+}
+
+.check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.5pt;
+    width: 6pt;
+    height: 6pt;
+    border: 0.8pt solid #8b8474;
+    border-radius: 1pt;
+}
+
+/* ---------- 03 menu ---------- */
+
+.menu-grid {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.menu-grid thead th {
+    background: var(--olive);
+    color: #fff;
+    font-size: 7.21pt;
+    font-weight: 700;
+    letter-spacing: 1.2pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 3pt 5pt;
+}
+
+.menu-grid thead th.meal-col {
+    background: var(--ink);
+    width: 15%;
+}
+
+.menu-grid tbody th {
+    background: var(--sand);
+    font-size: 7.21pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 4.4pt 5pt;
+    border-bottom: 0.6pt solid var(--line);
+    vertical-align: top;
+}
+
+.menu-grid tbody td {
+    padding: 4.4pt 5.5pt;
+    border-bottom: 0.6pt solid var(--line);
+    border-left: 0.6pt solid var(--line);
+    font-size: 8.29pt;
+    vertical-align: top;
+}
+
+.menu-grid tbody tr:nth-child(even) td {
+    background: #fbf9f4;
+}
+
+/* ---------- 04 stock up ---------- */
+
+.stock-body {
+    display: grid;
+    grid-template-columns: 136pt 1fr;
+    gap: 10pt;
+}
+
+.target-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3.4pt;
+    background: var(--sand-deep);
+    border-left: 2pt solid var(--rust);
+    padding: 4pt 6pt 5pt 6pt;
+}
+
+.target-title {
+    font-size: 6.59pt;
+    font-weight: 800;
+    letter-spacing: 1.8pt;
+    text-transform: uppercase;
+    color: var(--rust);
+}
+
+.target-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 5pt;
+    border-bottom: 0.55pt solid #c9bea6;
+    padding-bottom: 2.4pt;
+}
+
+.target-label {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.6pt;
+    text-transform: uppercase;
+}
+
+.target-value {
+    font-size: 7.62pt;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8pt;
+}
+
+.shop-col .check-list li {
+    font-size: 7.88pt;
+    gap: 1.8pt;
+}
+
+/* ---------- footer ---------- */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10pt;
+    margin-top: 7pt;
+    padding-top: 3.5pt;
+    border-top: 1.6pt solid var(--ink);
+    font-size: 6.39pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.footer-mark {
+    font-weight: 800;
+    letter-spacing: 1.6pt;
+    color: var(--rust);
+    white-space: nowrap;
+}
