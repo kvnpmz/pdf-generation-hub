@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     height: 100%;
     color: var(--ink);
-    font-size: 9.17pt;
+    font-size: 11.13pt;
     line-height: 1.38;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 .plan-card-title {
-    font-size: 6.59pt;
+    font-size: 8pt;
     font-weight: 800;
     letter-spacing: 2pt;
     text-transform: uppercase;
@@ -61,7 +61,7 @@ body {
 
 .field-label {
     flex: none;
-    font-size: 6.59pt;
+    font-size: 8pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
@@ -74,21 +74,10 @@ body {
     height: 6pt;
 }
 
-.kicker {
-    align-self: flex-start;
-    background: var(--rust);
-    color: #fff;
-    font-size: 6.39pt;
-    font-weight: 700;
-    letter-spacing: 2.4pt;
-    text-transform: uppercase;
-    padding: 2pt 6pt 1.6pt 6pt;
-}
-
 h1 {
     margin-top: 6pt;
     font-family: "Source Serif 4", serif;
-    font-size: 25.75pt;
+    font-size: 31.26pt;
     font-weight: 800;
     letter-spacing: -0.4pt;
     line-height: 1.02;
@@ -101,7 +90,7 @@ h1.line-two {
 
 .subtitle {
     margin-top: 3pt;
-    font-size: 8.65pt;
+    font-size: 10.5pt;
     color: var(--muted);
 }
 
@@ -111,8 +100,8 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 9pt;
-    padding-top: 9pt;
+    gap: 5.5pt;
+    padding-top: 5pt;
 }
 
 section {
@@ -124,19 +113,19 @@ section {
     align-items: baseline;
     gap: 6pt;
     border-bottom: 1pt solid var(--ink);
-    padding-bottom: 2pt;
-    margin-bottom: 6pt;
+    padding-bottom: 1.5pt;
+    margin-bottom: 3pt;
 }
 
 .section-num {
-    font-size: 7.21pt;
+    font-size: 8.76pt;
     font-weight: 700;
     letter-spacing: 1.6pt;
     color: var(--rust);
 }
 
 .section-head h2 {
-    font-size: 12.98pt;
+    font-size: 15.76pt;
     font-weight: 800;
     letter-spacing: 0.5pt;
     text-transform: uppercase;
@@ -144,7 +133,7 @@ section {
 
 .section-aside {
     margin-left: auto;
-    font-size: 7pt;
+    font-size: 8.5pt;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
     color: var(--muted);
@@ -164,11 +153,11 @@ section {
     gap: 3pt;
     background: var(--sand);
     border-left: 2pt solid var(--rust);
-    padding: 5pt 6pt 4pt 6pt;
+    padding: 3.5pt 5.5pt 3pt 5.5pt;
 }
 
 .eat-window {
-    font-size: 6.8pt;
+    font-size: 8.25pt;
     font-weight: 800;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
@@ -176,7 +165,7 @@ section {
 }
 
 .eat-label {
-    font-size: 11.33pt;
+    font-size: 13.74pt;
     font-weight: 800;
     letter-spacing: 0.4pt;
     text-transform: uppercase;
@@ -193,7 +182,7 @@ section {
 .eat-list li {
     position: relative;
     padding-left: 7pt;
-    font-size: 7.93pt;
+    font-size: 9.62pt;
     line-height: 1.24;
 }
 
@@ -211,7 +200,7 @@ section {
     margin-top: auto;
     padding-top: 2.4pt;
     border-top: 0.6pt solid var(--line);
-    font-size: 7pt;
+    font-size: 8.5pt;
     line-height: 1.2;
     color: var(--muted);
 }
@@ -221,12 +210,12 @@ section {
 .food-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10pt;
+    gap: 8pt;
 }
 
 .food-col h3,
 .shop-col h3 {
-    font-size: 7.62pt;
+    font-size: 9.25pt;
     font-weight: 800;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
@@ -240,13 +229,13 @@ section {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 2pt;
+    gap: 1.8pt;
 }
 
 .check-list li {
     position: relative;
     padding-left: 10.5pt;
-    font-size: 8.09pt;
+    font-size: 9.83pt;
     line-height: 1.26;
 }
 
@@ -272,7 +261,7 @@ section {
 .menu-grid thead th {
     background: var(--olive);
     color: #fff;
-    font-size: 7.21pt;
+    font-size: 8.76pt;
     font-weight: 700;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
@@ -287,21 +276,21 @@ section {
 
 .menu-grid tbody th {
     background: var(--sand);
-    font-size: 7.21pt;
+    font-size: 8.76pt;
     font-weight: 700;
     letter-spacing: 0.8pt;
     text-transform: uppercase;
     text-align: left;
-    padding: 4.4pt 5pt;
+    padding: 3.4pt 5pt;
     border-bottom: 0.6pt solid var(--line);
     vertical-align: top;
 }
 
 .menu-grid tbody td {
-    padding: 4.4pt 5.5pt;
+    padding: 3.4pt 5.5pt;
     border-bottom: 0.6pt solid var(--line);
     border-left: 0.6pt solid var(--line);
-    font-size: 8.29pt;
+    font-size: 10.06pt;
     vertical-align: top;
 }
 
@@ -314,20 +303,20 @@ section {
 .stock-body {
     display: grid;
     grid-template-columns: 136pt 1fr;
-    gap: 10pt;
+    gap: 7pt;
 }
 
 .target-card {
     display: flex;
     flex-direction: column;
-    gap: 3.4pt;
+    gap: 1.6pt;
     background: var(--sand-deep);
     border-left: 2pt solid var(--rust);
-    padding: 4pt 6pt 5pt 6pt;
+    padding: 3pt 5.5pt 3.5pt 5.5pt;
 }
 
 .target-title {
-    font-size: 6.59pt;
+    font-size: 8pt;
     font-weight: 800;
     letter-spacing: 1.8pt;
     text-transform: uppercase;
@@ -340,18 +329,18 @@ section {
     align-items: baseline;
     gap: 5pt;
     border-bottom: 0.55pt solid #c9bea6;
-    padding-bottom: 2.4pt;
+    padding-bottom: 1.2pt;
 }
 
 .target-label {
-    font-size: 7pt;
+    font-size: 8.5pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     text-transform: uppercase;
 }
 
 .target-value {
-    font-size: 7.62pt;
+    font-size: 9.25pt;
     text-align: right;
     white-space: nowrap;
 }
@@ -363,29 +352,6 @@ section {
 }
 
 .shop-col .check-list li {
-    font-size: 7.88pt;
-    gap: 1.8pt;
+    font-size: 9.57pt;
 }
 
-/* ---------- footer ---------- */
-
-.page-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10pt;
-    margin-top: 7pt;
-    padding-top: 3.5pt;
-    border-top: 1.6pt solid var(--ink);
-    font-size: 6.39pt;
-    letter-spacing: 0.5pt;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-
-.footer-mark {
-    font-weight: 800;
-    letter-spacing: 1.6pt;
-    color: var(--rust);
-    white-space: nowrap;
-}

@@ -16,12 +16,6 @@ public class PowerOutageFoodList : IRenderer
                 BuildMenu(config),
                 BuildStockUp(config)
             ),
-            Dom.Tag(
-                "footer",
-                "page-footer",
-                Dom.Tag("span", "footer-text", Read(config, "footer_note")),
-                Dom.Tag("span", "footer-mark", "Outage")
-            ),
         };
 
         return new RenderResult
@@ -54,7 +48,6 @@ public class PowerOutageFoodList : IRenderer
             "masthead",
             Dom.Div(
                 "masthead-main",
-                Dom.Tag("span", "kicker", Escape(Read(config, "kicker"))),
                 Dom.H1("", Escape(Read(config, "header_line1"))),
                 Dom.H1("line-two", Escape(Read(config, "header_line2"))),
                 Dom.Tag("p", "subtitle", Escape(Read(config, "subtitle")))
@@ -96,7 +89,7 @@ public class PowerOutageFoodList : IRenderer
 
         return Dom.Section(
             "eat-section",
-            SectionHead("01", Read(config, "eat_first_title"), Read(config, "eat_first_aside")),
+            SectionHead(Read(config, "eat_first_title"), Read(config, "eat_first_aside")),
             Dom.Div("eat-grid", cards.ToArray())
         );
     }
@@ -127,7 +120,7 @@ public class PowerOutageFoodList : IRenderer
 
         return Dom.Section(
             "list-section",
-            SectionHead("02", Read(config, "list_title"), Read(config, "list_aside")),
+            SectionHead(Read(config, "list_title"), Read(config, "list_aside")),
             Dom.Div("food-grid", columns.ToArray())
         );
     }
@@ -160,7 +153,7 @@ public class PowerOutageFoodList : IRenderer
 
         return Dom.Section(
             "menu-section",
-            SectionHead("03", Read(config, "menu_title"), Read(config, "menu_aside")),
+            SectionHead(Read(config, "menu_title"), Read(config, "menu_aside")),
             Dom.Table(
                 "menu-grid",
                 Dom.Thead("", Dom.Tr("", headCells.ToArray())),
@@ -214,7 +207,7 @@ public class PowerOutageFoodList : IRenderer
 
         return Dom.Section(
             "stock-section",
-            SectionHead("04", Read(config, "stock_title"), Read(config, "stock_aside")),
+            SectionHead(Read(config, "stock_title"), Read(config, "stock_aside")),
             Dom.Div(
                 "stock-body",
                 Dom.Div("target-card", targets.ToArray()),
@@ -223,11 +216,10 @@ public class PowerOutageFoodList : IRenderer
         );
     }
 
-    private static string SectionHead(string number, string title, string aside)
+    private static string SectionHead(string title, string aside)
     {
         return Dom.Div(
             "section-head",
-            Dom.Tag("span", "section-num", number),
             Dom.H2("", Escape(title)),
             string.IsNullOrEmpty(aside)
                 ? ""
