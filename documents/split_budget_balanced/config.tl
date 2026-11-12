@@ -17,7 +17,7 @@ return {
             pct = 50,
             tag = "Must pay",
             categories = {
-                "Rent or mortgage",
+                "Rent/mortgage",
                 "Utilities",
                 "Groceries",
                 "Transport",
