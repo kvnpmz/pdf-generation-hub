@@ -5,7 +5,7 @@ return {
     header = "Meal Plan & Grocery List",
     completed_date = "2026-11-11",
     week_label = "Week of",
-    servings_label = "Servings",
+    shop_label = "Shop day",
     legend_tick = "tick as you shop",
     plan_title = "This Week's Meals",
     plan_note = "Plan the week, then shop the list",

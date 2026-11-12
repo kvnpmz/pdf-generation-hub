@@ -9,7 +9,7 @@ end
 local record Config
     header: string
     week_label: string
-    servings_label: string
+    shop_label: string
     legend_tick: string
     plan_title: string
     plan_note: string
@@ -48,7 +48,7 @@ local function build_header(config: Config): string
             "head-line",
             build_field(config.week_label, "field-week"),
             legend,
-            build_field(config.servings_label, "field-servings")
+            build_field(config.shop_label, "field-shop")
         )
     )
 end
