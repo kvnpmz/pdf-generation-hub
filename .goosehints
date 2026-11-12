@@ -1,9 +1,9 @@
-- Start Here: Read `PROJECT_BRIEF.md` first. It covers architecture, page rules, and variants.
-- Session Choice: User picks Teal or C# per session; do not choose for me.
-- Render Checks: Never run `tpr`; use `scripts/render-check.sh` (`-h`). It fails on text overlap — `--skip-overlap` only for intentional overprints.
-- Style Fidelity: Before writing a listing, read 2 closest sibling templates (similar data shape: list/table/log) to understand, internalize, and copy palette, type scale, spacing, and structure.
-- Output Restrictions: Never read `preview.html`, `output/**/*.html`, or 300dpi PNGs. Use render-check numbers and `read_image` crops only when visual verification is mandatory.
-- Idiomatic Code: Mirror surrounding records, data binding, and DOM structure.
-- Post-Listing: Follow `listing_prompt.txt`, then verify with `scripts/listing-check.sh documents/<slug>`; never hand-count title words, tags, or sentences.
-- Type & Spacing Fit: `scripts/scale-type.sh --doc <slug> --fit` (add `--prop height` for rows); do not hand-calculate CSS heights.
-- Document Generation: `teal/runtime.tl` selects documents. Use unique 2-4 word slug folders in `documents/` to avoid overwrites. Enable images only for the final run.
+# Operating Hints
+- Read `AGENTS.md` first; it is the canonical project manual. This file covers execution discipline only.
+- The user picks Teal or C# per session. Wait for the choice.
+- Never run `tpr`. Use `scripts/render-check.sh` (`-h`). It fails on text overlap. `--skip-overlap` is only for intentional overprints.
+- `scale-type.sh` and `ship-check.sh` already run render-check. Do not re-run render-check after either. The final gate is one `ship-check.sh --doc <slug>` run.
+- Read the smallest slice. Use `rg`, `sed` ranges, and `repo-intel` before whole files. Whole-file reads are only for a style fingerprint: `:root`, `font-size` declarations, section/class skeleton, and one render function.
+- For style fidelity, start from the closest sibling's palette, type scale, spacing, and structure. Expand beyond that fingerprint only when a needed pattern is missing.
+- For visual checks, use one low-res montage or crop of the changed region per iteration. Never read `preview.html`, `output/**/*.html`, or 300dpi PNGs. Use render-check numbers and `read_image` crops only when visual verification is mandatory.
+- Reflect after a task when the same text/math/command sequence recurs. Recommend a script only when it is recurring and deterministic. Do not add scripts for one-off work.

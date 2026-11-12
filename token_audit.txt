@@ -1,1 +1,0 @@
-Reflect on recent turns: Identify any repetitive text-generation, math, or programmable sequences where a deterministic script could replace agent reasoning to save tokens. If recurring, recommend writing a script for the agent to execute instead.

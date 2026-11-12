@@ -1,3 +1,0 @@
-Create color variations of <base-slug> with scripts/make-variant.sh, giving each color a unique slug and passing every palette variable as --set name=#hex.
-Keep the base output_name and listing.txt unchanged.
-Verify each variant with scripts/ship-check.sh --doc <slug>.

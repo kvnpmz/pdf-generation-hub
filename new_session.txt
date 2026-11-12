@@ -1,5 +1,0 @@
-1. Present 2-3 strongest proven sellers worth varying (real content or use-case changes, such as alternative layout logic or structural worksheet views) with a recommendation. Do not write files until user picks one.
-2. Implement chosen variant in C# (`render.cs` + `Dom.cs`) or Teal (`render.tl` + `dom.tl`). Wait for user language pick. Mirror template conventions (palette, spacing, table/structure) under `templates/<slug>/` + `style.css` + `documents/<slug>/config.tl` (holding data, header, output_name).
-3. Point `teal/runtime.tl` at new doc; verify pages/fill/margins via `scripts/render-check.sh`.
-4. Generate Etsy listing metadata per `listing_prompt.txt`.
-5. Commit only new files.
