@@ -85,7 +85,5 @@ return {
         { label = "Needs over 50%", text = "Budget the real rent first, trim groceries and transport, and only then move the excess into needs — a rent above half of take-home pay means the split needs a higher income, not a smaller food bill." },
         { label = "Wants over 30%", text = "Cap the two largest lines (usually dining and subscriptions) at the amount already in the box and send the difference to savings instead of spending it." },
         { label = "Savings under 20%", text = "Automate the transfer for payday so the money never reaches checking, and count extra debt payments as savings rather than as wants." }
-    },
-
-    footer_note = "50/30/20 is a starting point, not a rule · percentages apply to take-home pay · adjust for rent, dependants and debt"
+    }
 }

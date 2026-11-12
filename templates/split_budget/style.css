@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     height: 100%;
     color: var(--ink);
-    font-size: 9.6pt;
+    font-size: 10.18pt;
     text-transform: uppercase;
 }
 
@@ -26,7 +26,7 @@ header.masthead {
 
 h1 {
     color: var(--blue);
-    font-size: 31pt;
+    font-size: 32.86pt;
     font-weight: 900;
     letter-spacing: 1.5pt;
     line-height: 1;
@@ -35,14 +35,14 @@ h1 {
 .h1-line-two {
     margin-top: 2pt;
     color: var(--deep-blue);
-    font-size: 12.4pt;
+    font-size: 13.14pt;
     font-weight: 700;
     letter-spacing: 4pt;
 }
 
 .subtitle {
     margin-top: 5pt;
-    font-size: 10.2pt;
+    font-size: 10pt;
     font-weight: 500;
     text-transform: none;
     letter-spacing: 0.2pt;
@@ -90,13 +90,13 @@ main {
 
 h2 {
     color: var(--deep-blue);
-    font-size: 10.4pt;
+    font-size: 11.02pt;
     font-weight: 700;
     letter-spacing: 1.2pt;
 }
 
 .section-aside {
-    font-size: 8.4pt;
+    font-size: 8.9pt;
     text-transform: none;
     color: var(--muted);
     letter-spacing: 0.1pt;
@@ -138,14 +138,14 @@ h2 {
 .seg-tone-3 { background-color: #5E9FC6; }
 
 .seg-pct {
-    font-size: 10.6pt;
+    font-size: 11.24pt;
     font-weight: 700;
     letter-spacing: 0.6pt;
     line-height: 1;
 }
 
 .seg-name {
-    font-size: 8pt;
+    font-size: 8.48pt;
     font-weight: 600;
     letter-spacing: 1.1pt;
     text-transform: uppercase;
@@ -179,7 +179,7 @@ section.bucket {
 
 h3 {
     color: var(--deep-blue);
-    font-size: 12.4pt;
+    font-size: 13.14pt;
     font-weight: 800;
     letter-spacing: 1pt;
 }
@@ -187,7 +187,7 @@ h3 {
 .bucket-badge {
     background-color: var(--deep-blue);
     color: white;
-    font-size: 8.4pt;
+    font-size: 8.9pt;
     font-weight: 700;
     letter-spacing: 0.5pt;
     padding: 1.4pt 6pt;
@@ -203,14 +203,14 @@ h3 {
 }
 
 .bucket-tag {
-    font-size: 8.2pt;
+    font-size: 8.69pt;
     font-weight: 700;
     color: var(--deep-blue);
     letter-spacing: 0.9pt;
 }
 
 .bucket-note {
-    font-size: 8pt;
+    font-size: 8.48pt;
     font-weight: 500;
     text-transform: none;
     color: var(--muted);
@@ -228,7 +228,7 @@ table.bucket-table th {
     height: 15.6pt;
     background-color: var(--light-blue);
     color: var(--deep-blue);
-    font-size: 8pt;
+    font-size: 8.48pt;
     font-weight: 700;
     letter-spacing: 0.2pt;
     text-align: center;
@@ -246,9 +246,9 @@ table.bucket-table th.col-money {
 }
 
 table.bucket-table td {
-    height: 20.6pt;
+    height: 21.8pt;
     border: 0.5pt solid var(--light-blue);
-    font-size: 8.1pt;
+    font-size: 8.59pt;
     font-weight: 600;
     letter-spacing: 0.1pt;
     white-space: nowrap;
@@ -270,7 +270,7 @@ table.bucket-table tr.bucket-total-row td {
     border: 0.5pt solid var(--blue);
     border-top: 1.5pt solid var(--blue);
     color: var(--deep-blue);
-    font-size: 8.2pt;
+    font-size: 8.69pt;
     font-weight: 800;
     letter-spacing: 0.5pt;
 }
@@ -293,7 +293,7 @@ table.bucket-table tr.bucket-total-row td.col-cat {
 }
 
 .check-label {
-    font-size: 8pt;
+    font-size: 8.48pt;
     font-weight: 600;
     color: #3E5563;
     letter-spacing: 0.4pt;
@@ -349,7 +349,7 @@ section.zero-check .section-head {
 }
 
 .result-label {
-    font-size: 8.6pt;
+    font-size: 9.12pt;
     font-weight: 800;
     color: var(--deep-blue);
     letter-spacing: 0.8pt;
@@ -365,6 +365,8 @@ section.zero-check .section-head {
 
 section.rules {
     margin-top: 9pt;
+    padding-bottom: 8pt;
+    border-bottom: 1pt solid var(--light-blue);
 }
 
 .rule-rows {
@@ -381,29 +383,16 @@ section.rules {
 }
 
 .rule-label {
-    font-size: 8.2pt;
+    font-size: 8.69pt;
     font-weight: 800;
     color: var(--deep-blue);
     letter-spacing: 0.6pt;
 }
 
 .rule-text {
-    font-size: 8.2pt;
+    font-size: 8.69pt;
     font-weight: 500;
     text-transform: none;
     color: #36474F;
     letter-spacing: 0.1pt;
-}
-
-/* ---------- footer ---------- */
-
-footer.page-footer {
-    margin-top: 8pt;
-    padding-top: 4pt;
-    border-top: 1pt solid var(--blue);
-    text-align: center;
-    font-size: 8pt;
-    font-weight: 600;
-    letter-spacing: 0.8pt;
-    color: var(--muted);
 }

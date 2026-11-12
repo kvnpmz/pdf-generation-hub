@@ -31,7 +31,6 @@ local record Config
     rules_title: string
     rules_aside: string
     rules: {Rule}
-    footer_note: string
 end
 
 local M = {}
@@ -174,9 +173,7 @@ function M.render(config: Config): string
         render_rules(config)
     )
 
-    local footer = dom.tag("footer", "page-footer", config.footer_note)
-
-    return header .. main .. footer
+    return header .. main
 end
 
 return M as contracts.TemplateRender
