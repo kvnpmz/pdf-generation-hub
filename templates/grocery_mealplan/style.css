@@ -50,16 +50,17 @@ h1 {
     flex: 1;
 }
 
-.field-week {
-    max-width: 168pt;
+.field-week,
+.field-shop {
+    max-width: 132pt;
 }
 
 .field-shop {
-    max-width: 96pt;
     justify-content: flex-end;
 }
 
 .field-label {
+    min-width: 48pt;
     white-space: nowrap;
 }
 
