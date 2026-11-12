@@ -1,0 +1,305 @@
+:root {
+    --ink: #241c18;
+    --deep: #9c4a2f;
+    --deep-soft: #b4664a;
+    --wash: #fbf3ec;
+    --line: #e7d5c7;
+    --muted: #6d5a50;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.32;
+}
+
+/* ---------- header ---------- */
+
+.ess-head {
+    display: grid;
+    grid-template-columns: 1fr 186pt;
+    column-gap: 16pt;
+    align-items: end;
+    padding-bottom: 8pt;
+    border-bottom: 2.2pt solid var(--ink);
+}
+
+.head-main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 34pt;
+    font-weight: 900;
+    letter-spacing: 0.2pt;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin-top: 4pt;
+    font-size: 10pt;
+    color: var(--muted);
+}
+
+.head-record {
+    display: flex;
+    flex-direction: column;
+    gap: 5pt;
+    background: var(--wash);
+    border: 0.9pt solid var(--line);
+    border-radius: 6pt;
+    padding: 6pt 7pt 7pt 7pt;
+}
+
+.record-field {
+    display: flex;
+    align-items: baseline;
+    gap: 5pt;
+}
+
+.record-label {
+    flex: none;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    color: var(--deep);
+}
+
+.record-line {
+    flex: 1;
+    height: 8pt;
+    border-bottom: 0.8pt solid #c9a894;
+}
+
+.head-note {
+    margin-top: 1pt;
+    font-size: 7.6pt;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ---------- targets ---------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8pt;
+    padding-top: 8pt;
+}
+
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: var(--wash);
+    border: 0.9pt solid var(--line);
+    border-radius: 6pt;
+}
+
+.target {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1pt;
+    padding: 3pt 2pt 3.4pt 2pt;
+    border-right: 0.8pt solid var(--line);
+}
+
+.target:last-child {
+    border-right: none;
+}
+
+.target-label {
+    font-size: 7.4pt;
+    font-weight: 800;
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+    color: var(--deep-soft);
+    white-space: nowrap;
+}
+
+.target-value {
+    font-size: 9.4pt;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ---------- shared chrome ---------- */
+
+section {
+    break-inside: avoid;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    border-bottom: 1pt solid var(--ink);
+    padding-bottom: 2pt;
+    margin-bottom: 5pt;
+}
+
+.section-head h2 {
+    font-size: 12.6pt;
+    font-weight: 800;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+.section-aside {
+    margin-left: auto;
+    font-size: 7.6pt;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ---------- log ---------- */
+
+.ess-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    border: 1.4pt solid var(--deep);
+    border-radius: 10pt;
+    font-variant-numeric: tabular-nums;
+}
+
+.ess-table thead th {
+    background: var(--deep);
+    color: #fff;
+    font-size: 8.4pt;
+    font-weight: 700;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 3.4pt 4pt;
+}
+
+.ess-table thead th:first-child {
+    border-top-left-radius: 9pt;
+}
+
+.ess-table thead th:last-child {
+    border-top-right-radius: 9pt;
+}
+
+.ess-table tbody td {
+    height: 36.1pt;
+    padding: 0 4pt;
+    border-left: 0.6pt solid var(--line);
+    border-bottom: 0.6pt solid var(--line);
+}
+
+.ess-table tbody tr:nth-child(even) td {
+    background: #fdf8f3;
+}
+
+.ess-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ess-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 9pt;
+}
+
+.ess-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 9pt;
+}
+
+.ess-table th:first-child,
+.ess-table td:first-child {
+    border-left: none;
+}
+
+.ess-table .col-num {
+    width: 4%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 7.6pt;
+    font-weight: 700;
+    padding: 0;
+    background: var(--wash);
+}
+
+.ess-table thead th.col-num {
+    background: var(--deep-soft);
+    color: #fff;
+}
+
+.ess-table .col-date {
+    width: 12%;
+}
+
+.ess-table .col-bp {
+    width: 8%;
+}
+
+.ess-table .col-egfr {
+    width: 10%;
+}
+
+.ess-table .col-creat {
+    width: 12%;
+}
+
+.ess-table .col-pot {
+    width: 12%;
+}
+
+.ess-table .col-phos {
+    width: 13%;
+}
+
+.ess-table .col-notes {
+    width: 29%;
+    padding-left: 6pt;
+}
+
+.log-note {
+    margin-top: 3pt;
+    font-size: 8pt;
+    color: var(--muted);
+}
+
+/* ---------- symptoms ---------- */
+
+.symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10pt;
+    row-gap: 8pt;
+    background: #fffaf6;
+    border: 0.9pt solid var(--line);
+    border-radius: 8pt;
+    padding: 8pt 9pt 9pt 9pt;
+}
+
+.symptom {
+    display: flex;
+    align-items: center;
+    gap: 5pt;
+}
+
+.check {
+    flex: none;
+    width: 7.2pt;
+    height: 7.2pt;
+    border: 0.9pt solid var(--deep-soft);
+    border-radius: 1pt;
+    background: #fff;
+}
+
+.symptom-text {
+    font-size: 8.4pt;
+    line-height: 1.16;
+}
