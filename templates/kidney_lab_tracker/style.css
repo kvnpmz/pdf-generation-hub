@@ -1,0 +1,403 @@
+:root {
+    --ink: #1b1f21;
+    --deep: #1f5a45;
+    --deep-soft: #2f7359;
+    --mint: #edf5ef;
+    --mint-deep: #dfeee4;
+    --line: #cbd8cf;
+    --muted: #5a665f;
+    --flag: #a3542a;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 8.9pt;
+    line-height: 1.34;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+    display: grid;
+    grid-template-columns: 1fr 150pt;
+    column-gap: 14pt;
+    align-items: end;
+    padding-bottom: 6pt;
+    border-bottom: 2.2pt solid var(--ink);
+}
+
+.masthead-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.kicker {
+    align-self: flex-start;
+    background: var(--deep);
+    color: #fff;
+    font-size: 6.2pt;
+    font-weight: 700;
+    letter-spacing: 2.2pt;
+    text-transform: uppercase;
+    padding: 2pt 6pt 1.6pt 6pt;
+}
+
+h1 {
+    margin-top: 6pt;
+    font-size: 22pt;
+    font-weight: 800;
+    letter-spacing: -0.3pt;
+    line-height: 1.04;
+    text-transform: uppercase;
+}
+
+h1.line-two {
+    margin-top: 0;
+}
+
+.subtitle {
+    margin-top: 3pt;
+    font-size: 8.5pt;
+    color: var(--muted);
+}
+
+.plan-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4.2pt;
+    background: var(--mint);
+    border: 0.9pt solid var(--deep);
+    padding: 5pt 7pt 6pt 7pt;
+}
+
+.plan-card-title {
+    font-size: 6.3pt;
+    font-weight: 800;
+    letter-spacing: 1.9pt;
+    text-transform: uppercase;
+    color: var(--deep);
+    border-bottom: 0.8pt solid var(--line);
+    padding-bottom: 2.4pt;
+    margin-bottom: 1pt;
+}
+
+.plan-field {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.field-label {
+    flex: none;
+    font-size: 6.3pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.field-line {
+    flex: 1;
+    border-bottom: 0.7pt solid #93a99a;
+    height: 6.36pt;
+}
+
+/* ---------- 01 targets ---------- */
+
+.targets {
+    margin-top: 6pt;
+}
+
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: var(--mint);
+    border: 0.9pt solid var(--line);
+    border-radius: 3pt;
+}
+
+.target {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1pt;
+    padding: 3.2pt 2pt 3.6pt 2pt;
+    border-right: 0.8pt solid var(--line);
+}
+
+.target:last-child {
+    border-right: none;
+}
+
+.target-label {
+    font-size: 6.1pt;
+    font-weight: 800;
+    letter-spacing: 1.3pt;
+    text-transform: uppercase;
+    color: var(--deep-soft);
+    white-space: nowrap;
+}
+
+.target-value {
+    font-size: 8.2pt;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.target-note {
+    margin-top: 2.6pt;
+    font-size: 6.8pt;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* ---------- shared section chrome ---------- */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8pt;
+    padding-top: 8pt;
+}
+
+section {
+    break-inside: avoid;
+}
+
+.section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    border-bottom: 1pt solid var(--ink);
+    padding-bottom: 2pt;
+    margin-bottom: 5pt;
+}
+
+.section-head h2 {
+    font-size: 12.2pt;
+    font-weight: 800;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+}
+
+.section-aside {
+    margin-left: auto;
+    font-size: 6.7pt;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* ---------- 02 lab log ---------- */
+
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-variant-numeric: tabular-nums;
+}
+
+.log-table thead th {
+    background: var(--deep);
+    color: #fff;
+    font-size: 6.1pt;
+    font-weight: 700;
+    letter-spacing: 0.3pt;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 3pt 4pt;
+}
+
+.log-table tbody td {
+    height: 31.16pt;
+    padding: 0 4pt;
+    border-bottom: 0.6pt solid var(--line);
+    border-left: 0.6pt solid var(--line);
+}
+
+.log-table tbody tr:nth-child(even) td {
+    background: #f7fbf8;
+}
+
+.log-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.log-table th:first-child,
+.log-table td:first-child {
+    border-left: none;
+}
+
+.log-table .col-num {
+    width: 4%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 0;
+    background: var(--mint);
+}
+
+.log-table thead th.col-num {
+    background: var(--deep-soft);
+    color: #fff;
+}
+
+.log-table .col-date {
+    width: 12%;
+}
+
+.log-table .col-bp {
+    width: 9%;
+}
+
+.log-table .col-weight {
+    width: 9%;
+}
+
+.log-table .col-lab {
+    width: 10.5%;
+}
+
+.log-table .col-notes {
+    width: 22%;
+    padding-left: 6pt;
+}
+
+.log-note {
+    margin-top: 3pt;
+    font-size: 6.8pt;
+    color: var(--muted);
+}
+
+/* ---------- 03 between visits ---------- */
+
+.between-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: 1.16fr 1fr;
+    gap: 9pt;
+    flex: 1;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    border: 0.9pt solid var(--line);
+    border-top: 2.4pt solid var(--deep);
+    padding: 6pt 7pt 8pt 7pt;
+    background: #fcfdfb;
+}
+
+.panel-head {
+    display: flex;
+    align-items: baseline;
+    gap: 5pt;
+    margin-bottom: 4.5pt;
+}
+
+.panel-head h3 {
+    font-size: 8.3pt;
+    font-weight: 800;
+    letter-spacing: 1.4pt;
+    text-transform: uppercase;
+    color: var(--deep);
+    white-space: nowrap;
+}
+
+.panel-aside {
+    margin-left: auto;
+    font-size: 6.2pt;
+    letter-spacing: 0.6pt;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.2;
+}
+
+.symptom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    align-content: space-between;
+    column-gap: 9pt;
+    row-gap: 7.4pt;
+}
+
+.symptom {
+    display: flex;
+    align-items: center;
+    gap: 4pt;
+}
+
+.check {
+    flex: none;
+    width: 6.4pt;
+    height: 6.78pt;
+    border: 0.8pt solid var(--deep-soft);
+    border-radius: 1pt;
+    background: #fff;
+}
+
+.symptom-text {
+    font-size: 7.5pt;
+    line-height: 1.15;
+}
+
+.ask-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    gap: 9.4pt;
+}
+
+.ask-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+}
+
+.ask-text {
+    flex: none;
+    font-size: 7.5pt;
+    font-weight: 600;
+    max-width: 118pt;
+    line-height: 1.18;
+}
+
+.ask-line {
+    flex: 1;
+    border-bottom: 0.7pt solid #9fb3a4;
+    height: 7.42pt;
+}
+
+/* ---------- footer ---------- */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10pt;
+    margin-top: 7pt;
+    padding-top: 3.4pt;
+    border-top: 1.6pt solid var(--ink);
+    font-size: 6.1pt;
+    letter-spacing: 0.5pt;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.footer-mark {
+    font-weight: 800;
+    letter-spacing: 1.6pt;
+    color: var(--deep);
+}
