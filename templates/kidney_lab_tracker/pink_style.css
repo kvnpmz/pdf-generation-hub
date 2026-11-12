@@ -1,0 +1,26 @@
+:root {
+    --ink: #241a20;
+    --deep: #a84a6c;
+    --deep-soft: #bd6a88;
+    --mint: #fdf1f5;
+    --mint-deep: #f7dfe8;
+    --line: #ecd0dc;
+    --muted: #6e5a63;
+    --flag: #a3542a;
+}
+
+.field-line {
+    border-bottom-color: #c8a4b4;
+}
+
+.ask-line {
+    border-bottom-color: #c8a4b4;
+}
+
+.log-table tbody tr:nth-child(even) td {
+    background: #fdf6f9;
+}
+
+.panel {
+    background: #fffbfc;
+}

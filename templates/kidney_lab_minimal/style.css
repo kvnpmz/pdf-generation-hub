@@ -1,0 +1,151 @@
+:root {
+    --ink: #14181b;
+    --deep: #1f3f66;
+    --deep-soft: #2f5f8f;
+    --wash: #eef4fa;
+    --line: #c9d6e4;
+    --muted: #59636e;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.3;
+}
+
+/* ---------- header ---------- */
+
+.min-head {
+    text-align: center;
+    padding-bottom: 11pt;
+    border-bottom: 2.6pt solid var(--ink);
+}
+
+h1 {
+    font-size: 46pt;
+    font-weight: 900;
+    letter-spacing: 1pt;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.record-row {
+    display: flex;
+    justify-content: center;
+    gap: 30pt;
+    margin-top: 10pt;
+}
+
+.record-field {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+}
+
+.record-label {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.6pt;
+    text-transform: uppercase;
+    color: var(--deep);
+    white-space: nowrap;
+}
+
+.record-line {
+    width: 148pt;
+    height: 8pt;
+    border-bottom: 1pt solid var(--deep-soft);
+}
+
+/* ---------- log ---------- */
+
+main {
+    display: flex;
+    flex: 1;
+    padding-top: 18pt;
+}
+
+.min-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    border: 2pt solid var(--deep);
+    border-radius: 14pt;
+    font-variant-numeric: tabular-nums;
+}
+
+.min-table thead th {
+    background: var(--deep);
+    color: #fff;
+    font-size: 10.2pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 9pt 5pt;
+}
+
+.min-table thead th:first-child {
+    border-top-left-radius: 12pt;
+}
+
+.min-table thead th:last-child {
+    border-top-right-radius: 12pt;
+}
+
+.min-table tbody td {
+    height: 40.4pt;
+    padding: 0 5pt;
+    border-left: 0.7pt solid var(--line);
+    border-bottom: 0.7pt solid var(--line);
+}
+
+.min-table tbody tr:nth-child(even) td {
+    background: #f7fafd;
+}
+
+.min-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.min-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12pt;
+}
+
+.min-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12pt;
+}
+
+.min-table th:first-child,
+.min-table td:first-child {
+    border-left: none;
+}
+
+.min-table .col-date {
+    width: 18%;
+}
+
+.min-table .col-bp {
+    width: 12%;
+}
+
+.min-table .col-egfr {
+    width: 16%;
+}
+
+.min-table .col-creat {
+    width: 18%;
+}
+
+.min-table .col-pot {
+    width: 17%;
+}
+
+.min-table .col-phos {
+    width: 19%;
+}

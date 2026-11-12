@@ -1,5 +1,5 @@
 return {
-    DOCUMENTID = "kidney_lab_tracker",
+    DOCUMENTID = "kidney_lab_minimal",
     ENABLEIMAGES = 1,
-    BASEPROJECTNAME = "kidney_lab_tracker"
+    BASEPROJECTNAME = "kidney_lab_minimal"
 }

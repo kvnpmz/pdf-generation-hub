@@ -1,0 +1,16 @@
+body {
+    font-family: "Source Serif 4", serif;
+}
+
+h1 {
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+.header-note,
+.section-aside,
+.target-label,
+.plan-card-title,
+.field-label {
+    letter-spacing: 1pt;
+}
