@@ -7,7 +7,7 @@ return {
     header_line1 = "Power Outage",
     header_line2 = "Food List",
     subtitle = "What to eat first, what needs no heat or water, and three days of no-cook meals",
-    plan_card_title = "My outage",
+    plan_card_title = "Outage details",
     plan_card_fields = { "People", "Power out time", "Date" },
 
     eat_first_title = "Eat this first",
