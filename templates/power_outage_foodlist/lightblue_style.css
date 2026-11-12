@@ -1,11 +1,11 @@
 :root {
-    --ink: #1b2a38;
-    --rust: #4a86b8;
-    --sand: #f4f9fd;
-    --sand-deep: #e6f1f9;
-    --olive: #3d6f92;
-    --line: #d6e6f2;
-    --muted: #66788a;
+    --ink: #2a4157;
+    --rust: #5f9cc8;
+    --sand: #f8fcff;
+    --sand-deep: #edf6fc;
+    --olive: #4b7c9c;
+    --line: #dcebf5;
+    --muted: #718697;
 }
 
 body {
@@ -13,19 +13,19 @@ body {
 }
 
 .field-line {
-    border-bottom-color: #b7cfe2;
+    border-bottom-color: #c9dfee;
 }
 
 .check-list li::before {
-    border-color: #b7cfe2;
+    border-color: #c9dfee;
 }
 
 .target-row {
-    border-bottom-color: #d3e4f1;
+    border-bottom-color: #e2f0f9;
 }
 
 .menu-grid tbody tr:nth-child(even) td {
-    background: #f7fbfe;
+    background: #fafdff;
 }
 
 /* font-size overrides for the serif face */
@@ -111,4 +111,8 @@ h1 {
 
 .shop-col .check-list li {
     font-size: 10.36pt;
+}
+
+h1 {
+    color: var(--rust);
 }

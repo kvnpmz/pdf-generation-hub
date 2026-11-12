@@ -1,25 +1,29 @@
 :root {
-    --ink: #241a20;
-    --rust: #a83562;
-    --sand: #fdf1f5;
-    --sand-deep: #f7dfe8;
-    --olive: #7d3550;
-    --line: #ecd0dc;
-    --muted: #6e5a63;
+    --ink: #2e2028;
+    --rust: #c2557f;
+    --sand: #fdf3f7;
+    --sand-deep: #f8e4ec;
+    --olive: #a85573;
+    --line: #efd6e1;
+    --muted: #755f6a;
 }
 
 .field-line {
-    border-bottom-color: #c8a4b4;
+    border-bottom-color: #d4aebf;
 }
 
 .check-list li::before {
-    border-color: #c8a4b4;
+    border-color: #d4aebf;
 }
 
 .target-row {
-    border-bottom-color: #e3bfcd;
+    border-bottom-color: #ecd0dd;
 }
 
 .menu-grid tbody tr:nth-child(even) td {
-    background: #fdf6f9;
+    background: #fdf8fa;
+}
+
+h1 {
+    color: var(--rust);
 }
