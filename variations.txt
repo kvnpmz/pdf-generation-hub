@@ -1,1 +1,25 @@
-I want is you to make 4 variations. Let's say the default one we have now, the finished version is the green one. We can make one blue, one pink, plum, and a mystery color. I have the extends option in config.tl which I believe allows us to override styling easily with a couple lines of css in a new file but same templates folder. Remember to make a new document unique slug for these variations, but keep the output name and the listing.txt the exact same as the current one. I think the main thing should be deciding the colors. This shouldn't take too long, but if you have serious concerns or doubts please make me aware.
+Color variations
+
+Variant docs extend the base document and only swap the six palette variables, so
+layout, content, output name and listing copy stay identical. Each variant keeps
+the base output_name and a byte-for-byte copy of the base listing.txt.
+
+Create one with:
+
+    scripts/make-variant.sh <base-slug> <variant> \
+        --accent '#2c5f8a' --ink '#1b2937' --muted '#6a7d8d' \
+        --line '#d5e1ea' --line-strong '#a6bccc' --wash '#f1f6fa'
+
+It writes documents/<base>_<variant>/config.tl, copies listing.txt when present,
+and creates templates/<template>/<variant>_style.css. It refuses to overwrite
+existing files and does not render; finish with:
+
+    scripts/ship-check.sh --doc <base>_<variant>
+
+Meal plan set (base: grocery_mealplan, green):
+
+    green     default base
+    blue      #2c5f8a
+    pink      #9a4d68
+    plum      #68487a
+    mustard   #9c6f16   (the mystery color)
