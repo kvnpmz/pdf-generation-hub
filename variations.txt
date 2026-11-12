@@ -1,25 +1,3 @@
-Color variations
-
-Variant docs extend the base document and only swap the six palette variables, so
-layout, content, output name and listing copy stay identical. Each variant keeps
-the base output_name and a byte-for-byte copy of the base listing.txt.
-
-Create one with:
-
-    scripts/make-variant.sh <base-slug> <variant> \
-        --accent '#2c5f8a' --ink '#1b2937' --muted '#6a7d8d' \
-        --line '#d5e1ea' --line-strong '#a6bccc' --wash '#f1f6fa'
-
-It writes documents/<base>_<variant>/config.tl, copies listing.txt when present,
-and creates templates/<template>/<variant>_style.css. It refuses to overwrite
-existing files and does not render; finish with:
-
-    scripts/ship-check.sh --doc <base>_<variant>
-
-Meal plan set (base: grocery_mealplan, green):
-
-    green     default base
-    blue      #2c5f8a
-    pink      #9a4d68
-    plum      #68487a
-    mustard   #9c6f16   (the mystery color)
+Create color variations of <base-slug> with scripts/make-variant.sh, giving each color a unique slug and passing every palette variable as --set name=#hex.
+Keep the base output_name and listing.txt unchanged.
+Verify each variant with scripts/ship-check.sh --doc <slug>.
